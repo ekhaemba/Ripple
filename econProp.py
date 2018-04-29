@@ -1,0 +1,4 @@
+
+def econPropagation(self):
+
+    pass
