@@ -3,14 +3,18 @@
 		"hs":1701,
 		"name":"Cane or beet sugar and chemically pure sucrose, in solid form",
 		"raw":"True",
-		"components":[]
+		"components":[],
+		"root":"False",
+		"uses":[1806]
 	}
 	,
 	{
 		"hs":1801,
 		"name":"Cocoa beans; whole or broken, raw or roasted",
 		"raw":"True",
-		"components":[]
+		"components":[],
+		"root":"False",
+		"uses":[1801,1806]
 	}
 	,
 	{
@@ -19,7 +23,9 @@
 		"raw":"False",
 		"components":[
 		[1801,2]
-		]
+		],
+		"root":"False",
+		"uses":[1806]
 	}
 	,
 	{
@@ -30,6 +36,8 @@
 		[1701,0.5],
 		[1801,2],
 		[1804,1]
-		]
+		],
+		"root":"True",
+		"uses":[]
 	}
 ]

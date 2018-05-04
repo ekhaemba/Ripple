@@ -31,18 +31,9 @@ def downloadDatabase():
 
         database.append(row)
 
-    # print(database)
-
-    cur.execute("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='Blockchain' AND `TABLE_NAME`='cocoapuffs'")
-    col = cur.fetchall()
-
-    for i in range(len(col)):
-        print(col[i], end=" ")
-        print(database[0][i])
-
     db.close()
 
-        #Get all the counrties and commodities
+    #Get all the counrties and commodities
     countries = []
     commodities = []
 
@@ -56,8 +47,8 @@ def downloadDatabase():
             countries.append(countryOne)
         if countryTwo not in countries:
             countries.append(countryTwo)
-        if commodity not in commodities:
-            commodities.append(commodity)
+        if int(commodity) not in commodities:
+            commodities.append(int(commodity))
 
     countries = sorted(countries)
     commodities = sorted(commodities)
@@ -65,50 +56,70 @@ def downloadDatabase():
     #Fill two tables with input and output data
     exportQuan = []
     exportVal = []
-    inportQuan = []
-    inportVal = []
     for commodity in commodities:
         rowA = []
         rowB = []
-        rowC = []
-        rowD = []
         for country in countries:
             rowA.append(0)
-            rowB.append(0)
-            rowC.append(1)
-            rowD.append(1)
+            rowB.append(1)
         exportQuan.append(rowA)
-        inportQuan.append(rowB) 
-        exportVal.append(rowC)
-        inportVal.append(rowD) 
+        exportVal.append(rowB)
 
     for i in range(len(database)):
         exOrIn = database[i][1]
-        countryOne = database[i][3]
         countryTwo = database[i][5]
         commodity = database[i][7]
         quantity = database[i][6]
-        # value = database[i][31]
 
         
-        i = commodities.index(commodity)
+        i = commodities.index(int(commodity))
         if exOrIn == 2:
             j = countries.index(countryTwo)
             exportQuan[i][j] += quantity
-            # exportVal[i][j] +=value
-        else:
-            j = countries.index(countryOne)
-            inportQuan[i][j] += quantity
-            # inportVal[i][j] += value
-        
 
-    print(inportQuan)
-    print(exportQuan)
-    print(exportVal)
+    return countries,commodities,exportQuan,exportVal
 
-    return countries,commodities,inportQuan,exportQuan,inportVal,exportVal
+def getUses(craftbook,commodity):
 
-# def econPropagation
+    for item in craftbook:
+        if item["hs"] == commodity:
+            return item["uses"]
+
+def getComponents(craftbook,commodity):
+    
+    for item in craftbook:
+        if item["hs"] == commodity:
+
+            results = item["components"]
+            components = []
+            # ratio = []
+
+            for i in range(len(results)):
+                components.append(results[i][0])
+                # ratio.append(results[i][1])
+
+            return components
+
+def verticalProp(craftbook,item,change):
+
+    visited = []
+    modified = [item]
+    changes = {item:change}
+    #Get vertical changes
+    for mod in modified:
+
+        if mod not in visited:
+            visited.append(mod)
+
+            for item in getComponents(craftbook,mod):
+                changes[item] = changes[mod]
+                modified.append(item)
+            
+            for item in getUses(craftbook,mod):
+                changes[item] = changes[mod]
+                modified.append(item)
+
+    return changes
 
 def econPropagation(country,changes):
 
@@ -117,41 +128,52 @@ def econPropagation(country,changes):
     with open(craftbookFile) as json_data:
         craftbook = json.load(json_data)
 
-    #download database
-    countries,commodities,inportQuan,exportQuan,inportVal,exportVal = downloadDatabase()
+    #Make initial horizontal changes
+    modified = []
+    factors = []
+    for item in changes:
 
-    for item in changes: 
+        change = changes[item]
 
-        #Apply initial change
+        #download database
+        countries,commodities,exportQuan,exportVal = downloadDatabase()
+
         i = countries.index(country) 
         j = commodities.index(item)
 
-        totalPrior = sum(exportQuan[i])
-        exportQuan[i][j] *= changes[item]
-        exportVal[i][j] *= changes[item]
-        totalPost = sum(exportQuan[i])
+        totalPrior = sum(exportQuan[j])
+        exportQuan[j][i] *= change
+        exportVal[j][i] *= change
+        totalPost = sum(exportQuan[j])
 
         deltaQ = totalPost/totalPrior
         deltaV = 1/deltaQ
 
-        print(item)
-        print("------------")
-        for i in range(len(exportVal)):
-            change = str("{0:.2f}".format((exportVal[i][j]*deltaV - 1)*100))+"%"
-            print(countries[i], change, sep = ": ")
-        print()
+        change = deltaQ
+        
+
+        for i in range(len(exportVal[0])):
+            exportVal[j][i] *= change
+
+        factors.append(verticalProp(craftbook,item,change))
+
+    #Combine factors
+    results = {}
+    for factor in factors:
+        for item in factor:
+            results[item] = results.get(item,1) * factor[item]
+
+    #Get deltaV
+    for item in results:
+        results[item] = 1/results[item]
 
 
-
-
-
-
-
-
+    # print(factors)
+    print(results)
 
 
 # country = "Côte d'Ivoire"
-country = "Belgium"
-changes = {1701:0}
+country = "Germany"
+changes = {1801:1,1804:.5}
 
 econPropagation(country,changes)
