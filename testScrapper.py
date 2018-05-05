@@ -78,12 +78,12 @@ class PythonOrgSearch(unittest.TestCase):
         damage = items[3]#driver.find_element_by_xpath('//*[@id="boundlist-1353-listEl"]/li[5]')
         damage.click()
         searchAdd.click()
-        time.sleep(1)
+        time.sleep(2)
         search = driver.find_element_by_xpath('//*[@id="button-1106-btnEl"]')
         search.click()
         time.sleep(5)
         try:
-            page = WebDriverWait(driver,36,3)
+            page = WebDriverWait(driver,60,10)
             data = page.until(EC.presence_of_element_located((By.XPATH,'//*[@id="gridview-1143-record-407"]/tbody/tr/td[1]/div')))
         except TimeoutException:
             print("No data available")
@@ -91,8 +91,7 @@ class PythonOrgSearch(unittest.TestCase):
         html = driver.page_source
         soup = bsoup(html,'lxml')
         data = open("emdata.html",'w')
-        data.writelines(soup.contents)
-        data.close()
+        data.write(str(soup.encode('utf-8')))
 
         
     def tearDown(self):
