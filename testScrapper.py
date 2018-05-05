@@ -8,6 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.common.exceptions import TimeoutException
 import time
 class PythonOrgSearch(unittest.TestCase):
     user = ""
@@ -38,7 +39,7 @@ class PythonOrgSearch(unittest.TestCase):
         try:
             page = WebDriverWait(driver,10)
             profiles = page.until(EC.presence_of_element_located((By.XPATH,'//*[@id="button-1026-btnInnerEl"]')))
-        except TimeoutError:
+        except TimeoutException:
             print("Took to long to load page")
         profiles.click()
         time.sleep(1)
@@ -57,27 +58,41 @@ class PythonOrgSearch(unittest.TestCase):
         geo = driver.find_element_by_xpath('//*[@id="treeview-1091-record-386"]/tbody/tr/td/div/input')
         hydro = driver.find_element_by_xpath('//*[@id="treeview-1091-record-387"]/tbody/tr/td/div/input')
         meteor = driver.find_element_by_xpath('//*[@id="treeview-1091-record-388"]/tbody/tr/td/div/input')
-        # Search options
-        search = driver.find_element_by_xpath('//*[@id="button-1106"]')
-        available = driver.find_element_by_xpath('//*[@id="boundlist-1095-listEl"]')
-        items = available.find_element_by_tag_name("li")
-        death =items[3]# driver.find_element_by_xpath('//*[@id="boundlist-1095-listEl"]/li[3]')
-        damage = items[5]#driver.find_element_by_xpath('//*[@id="boundlist-1353-listEl"]/li[5]')
-        searchAdd = driver.find_element_by_xpath('//*[@id="button-1359-btnIconEl"]')
-        
         climate.click()
         aliens.click()
         geo.click()
         hydro.click()
         meteor.click()
+        time.sleep(1)
+        # Search options
+
+        available = driver.find_element_by_xpath('//*[@id="boundlist-1095-listEl"]')
+        searchAdd = driver.find_element_by_xpath('//*[@id="button-1101-btnIconEl"]')
+        items = available.find_elements_by_tag_name("li")
+        death =items[2]# driver.find_element_by_xpath('//*[@id="boundlist-1095-listEl"]/li[3]')
         death.click()
+        searchAdd.click()
+        available = driver.find_element_by_xpath('//*[@id="boundlist-1095-listEl"]')
+        searchAdd = driver.find_element_by_xpath('//*[@id="button-1101-btnIconEl"]')
+        items = available.find_elements_by_tag_name("li")
+        damage = items[3]#driver.find_element_by_xpath('//*[@id="boundlist-1353-listEl"]/li[5]')
         damage.click()
         searchAdd.click()
+        time.sleep(1)
+        search = driver.find_element_by_xpath('//*[@id="button-1106-btnEl"]')
         search.click()
         time.sleep(5)
+        try:
+            page = WebDriverWait(driver,36,3)
+            data = page.until(EC.presence_of_element_located((By.XPATH,'//*[@id="gridview-1143-record-407"]/tbody/tr/td[1]/div')))
+        except TimeoutException:
+            print("No data available")
+        time.sleep(15)
         html = driver.page_source
-        soup = bsoup(html)
-
+        soup = bsoup(html,'lxml')
+        data = open("emdata.html",'w')
+        data.writelines(soup.contents)
+        data.close()
 
         
     def tearDown(self):
