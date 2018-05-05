@@ -2,13 +2,15 @@ from configparser import ConfigParser
 import unittest
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
 class PythonOrgSearch(unittest.TestCase):
     user = ""
     password = ""
     driverPath = ""
-    url
+    url = ""
     def setUp(self):
         config = ConfigParser()
         config.read('config.ini')
@@ -21,7 +23,7 @@ class PythonOrgSearch(unittest.TestCase):
         driver = self.driver
         url = self.url
         #driver.get(self.url)
-        ready = WebDriverWait()
+        ready = WebDriverWait(url,10).until(EC.presence_of_element_located((By.ID, 'loginwindow-1010')))
         #time.sleep(13)
         #self.assertIn("emdat_db", driver.title)
         user = driver.find_element_by_id("textfield-1012-inputEl")
@@ -31,8 +33,6 @@ class PythonOrgSearch(unittest.TestCase):
         log = driver.find_element_by_id("button-1017-btnInnerEl")
         print("Clicked")
         log.click()
-        print("After click")
-        time.sleep(5)
         #assert "No results found." not in driver.page_source
         page = driver.page_source
         print(page)
