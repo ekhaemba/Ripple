@@ -46,11 +46,12 @@ class PythonOrgSearch(unittest.TestCase):
         step = 10
         table = None
         for i in range(0,230,step):
-            print(i,i+step)
+            
             countryRadio = driver.find_element_by_id("radiofield-1055-inputEl")
             countryRadio.click()
             countryTop = driver.find_element_by_xpath('//*[@id="boundlist-1079-listEl"]/li[{}]'.format(i+1))
             countryBot = driver.find_element_by_xpath('//*[@id="boundlist-1079-listEl"]/li[{}]'.format(i+step))
+            print("Getting countries {}:{} to {}:{}".format(i+1,countryTop.text,i+step,countryBot.text))
             addBtn = driver.find_element_by_xpath('//*[@id="button-1085-btnIconEl"]')
             ActionChains(driver).key_down(Keys.SHIFT).click(countryTop).click(countryBot).key_up(Keys.SHIFT).perform()
             addBtn.click()
@@ -66,7 +67,7 @@ class PythonOrgSearch(unittest.TestCase):
             geo.click()
             hydro.click()
             meteor.click()
-            time.sleep(1)
+            #time.sleep(1)
             # Search options
 
             available = driver.find_element_by_xpath('//*[@id="boundlist-1095-listEl"]')
@@ -95,15 +96,19 @@ class PythonOrgSearch(unittest.TestCase):
                 print("No data available")
             '''
             #time.sleep(15)
+            if (i==220):
+                time.sleep(15)
             html = driver.page_source
             soup = bsoup(html,'lxml')
             table = soup.find(name='div',attrs={'class':'x-grid-view','id':'gridview-1143'})
             #print(table)
             data.write(str(table.encode('utf-8')))
+            print("Wrote data")
             reset = driver.find_element_by_xpath('//*[@id="button-1107-btnInnerEl"]')
             reset.click()
-            time.sleep(1)
-        data.write(str(table.encode('utf-8')))
+            time.sleep(.5)
+        time.sleep(10)
+        #data.write(str(table.encode('utf-8')))
         data.close()
         
     def tearDown(self):
