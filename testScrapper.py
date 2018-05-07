@@ -1,6 +1,7 @@
 from configparser import ConfigParser
 import unittest
 import selenium
+import sys
 from bs4 import BeautifulSoup as bsoup
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -8,7 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import TimeoutException, WebDriverException
 import time
 class PythonOrgSearch(unittest.TestCase):
     user = ""
@@ -96,13 +97,96 @@ class PythonOrgSearch(unittest.TestCase):
                 print("No data available")
             '''
             #time.sleep(15)
-            if (i==220):
-                time.sleep(15)
-            html = driver.page_source
-            soup = bsoup(html,'lxml')
-            table = soup.find(name='div',attrs={'class':'x-grid-view','id':'gridview-1143'})
+            #if (i==220):
+            #    time.sleep(15)
+
+            # Get data table
+            mainTable = driver.find_element_by_xpath('//*[@id="gridview-1143"]/div[2]')
+            # Get top item
+            top = mainTable.find_elements_by_class_name('x-grid-item')[0]
+            # select it
+            top.click()
+            # Get the soup
+            html = top.get_attribute('innerHTML')
+            id = bsoup(top.get_attribute('outerHTML'),'html.parser').table.attrs['id']
+            oldid = id
+            print("Writing table")
+            while True:
+
+                # Edit this block of code to determine what goes out to the file
+                # Start block
+                # Get the soup
+                soup = bsoup(html,'lxml')
+                # Print out the id
+                data.write(id)
+                # Print out the contents of each table row
+                data.write(str(soup.encode('utf-8')))
+                # End block
+
+                # Press the down key
+                ActionChains(driver).key_down(Keys.DOWN).key_up(Keys.DOWN).perform()
+                # Update main table
+                mainTable = driver.find_element_by_xpath('//*[@id="gridview-1143"]/div[2]')
+                try:
+                    mainTable = driver.find_element_by_xpath('//*[@id="gridview-1143"]/div[2]')
+                    # Try to get the newly selected element
+                    top = mainTable.find_element_by_class_name('x-grid-item-selected')
+                    # Get the soup
+                    html = top.get_attribute('innerHTML')
+                    id = bsoup(top.get_attribute('outerHTML'),'html.parser').table.attrs['id'] 
+                    if oldid == id:
+                        # Press down one more time to make sure its the bottom of the page
+                        ActionChains(driver).key_down(Keys.DOWN).key_up(Keys.DOWN).perform()
+                        mainTable = driver.find_element_by_xpath('//*[@id="gridview-1143"]/div[2]')
+                        # Try to get the newly selected element
+                        tmp = mainTable.find_element_by_class_name('x-grid-item-selected')
+                        # Get the soup
+                        tmpid = bsoup(tmp.get_attribute('outerHTML'),'html.parser').table.attrs['id'] 
+                        if tmpid == id:
+                            break
+                    else:
+                        oldid = id
+                except Exception:
+                    print("Crash, fixing now")                    
+                    # Grab id number
+                    k=id.split('-')[3]
+                    newID = id[:-len(k)]
+                    #print("{}{}".format(newID,k))
+                    while True:
+                        try:
+                            while True:
+                                try:
+                                    #print("Searching for item: {}".format(newID+k))
+                                    # Try to get a new selected element
+                                    oldtop = None
+                                    mainTable = driver.find_element_by_xpath('//*[@id="gridview-1143"]/div[2]')
+                                    oldtop = mainTable.find_element_by_xpath('//*[@id="{}{}"]'.format(newID,k))
+                                except WebDriverException:
+                                    #time.sleep(1)
+                                    # Try another id
+                                    k=str(int(k)+1)
+                                    continue
+                                break
+                            # Found it
+                            #print(oldtop)
+                            oldtop.click()
+                        except WebDriverException:
+                            continue
+                        break
+                    #ActionChains(driver).key_down(Keys.DOWN).key_up(Keys.DOWN).perform()
+                    mainTable = driver.find_element_by_xpath('//*[@id="gridview-1143"]/div[2]')
+                    top = mainTable.find_element_by_class_name('x-grid-item-selected')
+                    #time.sleep(10)
+                    #sys.exit(0)
+                #if id == old:
+                #    break
+                #else:
+                #    old = id
+            #html = driver.page_source
+            #soup = bsoup(html,'lxml')
+            #table = soup.find(name='div',attrs={'class':'x-grid-view','id':'gridview-1143'})
             #print(table)
-            data.write(str(table.encode('utf-8')))
+            #data.write(str(table.encode('utf-8')))
             print("Wrote data")
             reset = driver.find_element_by_xpath('//*[@id="button-1107-btnInnerEl"]')
             reset.click()
