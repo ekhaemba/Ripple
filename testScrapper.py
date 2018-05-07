@@ -45,7 +45,6 @@ class PythonOrgSearch(unittest.TestCase):
         # Country selection
         data = open("emdata.html",'w')
         step = 10
-        table = None
         for i in range(0,230,step):
             
             countryRadio = driver.find_element_by_id("radiofield-1055-inputEl")
@@ -194,6 +193,7 @@ class PythonOrgSearch(unittest.TestCase):
         time.sleep(10)
         #data.write(str(table.encode('utf-8')))
         data.close()
+        print("Done")
         
     def tearDown(self):
         self.driver.close()
