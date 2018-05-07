@@ -17,6 +17,7 @@ class PythonOrgSearch(unittest.TestCase):
     password = ""
     driverPath = ""
     url = ""
+    
     def setUp(self):
         config = ConfigParser()
         config.read('config.ini')
@@ -45,9 +46,16 @@ class PythonOrgSearch(unittest.TestCase):
         time.sleep(1)
         # Country selection
         dataFile = open('emdata.csv','w')
+        validClasses = set([
+        'x-grid-cell-gridcolumn-1125',
+        'x-grid-cell-gridcolumn-1127',
+        'x-grid-cell-gridcolumn-1133',
+        'x-grid-cell-gridcolumn-1137',
+        'x-grid-cell-gridcolumn-1139'
+        ])
         with dataFile:
             writer = csv.writer(dataFile)
-            writer.writerow(['Date','ISO','Type','Death','Dollars'])
+            #writer.writerow(['Date','ISO','Type','Death','Dollars'])
             step = 10
             for i in range(0,230,step):
                 
@@ -119,11 +127,12 @@ class PythonOrgSearch(unittest.TestCase):
                     # Edit this block of code to determine what goes out to the file
                     # Start block
                     # Get the soup
-                    soup = bsoup(html,'lxml')
+                    soup = bsoup(html,'html.parser')
                     data = []
+                    
                     for idx,row in enumerate(soup.find_all('td')):
-                        if (idx==0 or idx==3 or idx==9 or idx==11 or idx==12):
-                            if (row.text == '\xa0'):
+                        if (len(set.intersection(set(row.attrs['class']),validClasses))):
+                            if (row.text=='\xa0'):
                                 data.append(str(0))
                             else:
                                 data.append(row.text)
