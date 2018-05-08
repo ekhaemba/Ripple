@@ -6,7 +6,6 @@ model = None
 view = View()
 
 def getValue(key, requestString):
-
     paramString = requestString.split(" ")[1].strip("/")
     pairs = paramString.split("&")
 
