@@ -5,7 +5,10 @@ from View import *
 model = Model()
 view = View()
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 4dac8ee3f338e28b34263b11e9df1a65335b1c49
 def getValues(requestString):
 
     params = {}
