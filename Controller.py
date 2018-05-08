@@ -2,25 +2,22 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from Model import *
 from View import *
 
-model = None
+model = Model()
 view = View()
 
-def getValue(key, requestString):
+
+def getValues(requestString):
+
+    params = {}
     paramString = requestString.split(" ")[1].strip("/")
     pairs = paramString.split("&")
 
-    for i in range(len(pairs)):
-        pair = pairs[i].split("=")
+    for pair in pairs:
+        key = pair.split("=")[0]
+        value = pair.split("=")[1]
+        params[key] = value
 
-        if len(pair) == 1:
-            return
-
-        tempKey = pair[0]
-        tempValue = pair[1]
-
-        if tempKey == key:
-
-            return tempValue
+    return params
 
 
 class RequestHandler(BaseHTTPRequestHandler):
@@ -31,20 +28,11 @@ class RequestHandler(BaseHTTPRequestHandler):
         global model
         global view
 
-        mode = getValue("mode", self.requestline)
-        message = format("%s is not a mode") % mode
+        params = getValues(self.requestline)
+        message = format("%s is not a mode") % params["mode"]
 
-        if mode == "echo":
-            message = "Hola Mundo"
-
-        if mode == 'init':
-            message = view.createGUI(model)
-
-        if mode == "newSim":
-
-            model = Model()
-            view = View()
-            message = view.createGUI(model)
+        model.update(params)
+        message = view.update(model)
             
 
         # Send response status code
