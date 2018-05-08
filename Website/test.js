@@ -18,9 +18,16 @@ function loadJSON(callback) {
 // Call to function with anonymous callback
 loadJSON(function(response) {
     // Do Something with the response e.g.
-    //jsonresponse = JSON.parse(response);
+    jsonresponse = JSON.parse(response);
 
     // Assuming json data is wrapped in square brackets as Drew suggests
-    //console.log(jsonresponse[0].name);
+    console.log(jsonresponse[0].name);
 
-});
+}); 
+function init() {
+    loadJSON(function(response) {
+     // Parse JSON string into object
+       var actual_JSON = JSON.parse(response);
+       console.log(actual_JSON)
+    });
+}
