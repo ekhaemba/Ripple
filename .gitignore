@@ -1,1 +1,6 @@
+.ipynb_checkpoints/*
+__pycache__/*
+.vscode/*
+venv/*
 config.ini
+**/config.py
