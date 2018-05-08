@@ -1,9 +1,16 @@
 [
 	{
+		"hs":"1001",
+		"name":"",
+		"components":[],
+		"uses":["1904"]
+	}
+	,
+	{
 		"hs":"1701",
 		"name":"Cane or beet sugar and chemically pure sucrose, in solid form",
 		"components":[],
-		"uses":["1806"]
+		"uses":["1806","1904"]
 	}
 	,
 	{
@@ -26,4 +33,12 @@
 		"components":["1701","1801","1804"],
 		"uses":[]
 	}
+	,
+	{
+		"hs":"1904",
+		"name":"",
+		"components":["1701","1001"],
+		"uses":[]
+	}
+
 ]

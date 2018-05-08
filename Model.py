@@ -71,9 +71,6 @@ def downloadDatabase():
         commodity = database[i][7]
         quantity = database[i][6]
         value = database[i][8]
-
-        if countryOne == 0:
-            print(database[i])
         
         if commodity != "-1":
         
@@ -103,12 +100,16 @@ def getUses(craftbook,commodity):
     for item in craftbook:
         if item["hs"] == commodity:
             return item["uses"]
+    
+    return []
 
 def getComponents(craftbook,commodity):
     
     for item in craftbook:
         if item["hs"] == commodity:
             return item["components"]
+
+    return []
 
 def horizontalProp(commodities,countries,change,country,item,exportQuan):
 
@@ -123,7 +124,6 @@ def horizontalProp(commodities,countries,change,country,item,exportQuan):
         totalPost = sum(exportQuan[j])
 
         deltaQ = totalPost/totalPrior
-        deltaV = 1/deltaQ
 
         for i in range(len(exportVal[0])):
             exportVal[j][i] *= deltaQ
@@ -131,6 +131,9 @@ def horizontalProp(commodities,countries,change,country,item,exportQuan):
         return deltaQ
 
 def verticalProp(craftbook,item,change):
+
+    deltaDemand = 1/change
+    # print(deltaDemand)
 
     visited = []
     modified = [item]
@@ -141,13 +144,14 @@ def verticalProp(craftbook,item,change):
         if mod not in visited:
             visited.append(mod)
 
-            for item in getComponents(craftbook,mod):
-                changes[item] = changes[mod]
-                modified.append(item)
+            for temp in getComponents(craftbook,mod):
+                modified.append(temp)
             
-            for item in getUses(craftbook,mod):
-                changes[item] = changes[mod]
-                modified.append(item)
+            for temp in getUses(craftbook,mod):
+                modified.append(temp)
+
+            if mod != item:
+                changes[mod] = deltaDemand
 
     return changes
 
@@ -174,10 +178,6 @@ def propagateChanges(country,changes,countries,commodities,exportQuan):
         for item in factor:
             results[item] = results.get(item,1) * factor[item]
 
-    #Get deltaV
-    for item in results:
-        results[item] = 1/results[item]
-
     return results
 
 def calcExportChange(countries,commodities,country,localChanges,globalChanges,exportVal,totalExports):
@@ -191,10 +191,11 @@ def calcExportChange(countries,commodities,country,localChanges,globalChanges,ex
         for item in globalChanges:
             j = commodities.index(item)
             diff = globalChanges[item]
+            if entry == country:
+                diff *= localChanges.get(item,1)
             newTotal += (diff-1)*exportVal[j][i]
 
-            if entry == country:
-                newTotal *= localChanges.get(item,1)
+
 
         if total == 0:
             newTotal = 1
@@ -225,6 +226,5 @@ class Model:
         if params["mode"] == "calc":
 
             country = 276
-            changes = {"1801":.5,"1804":.5}
+            changes = {"1001":0,"1804":.5}
             results = calcImpact(country,changes)
-            print(results)
