@@ -5,6 +5,7 @@ from View import *
 model = Model()
 view = View()
 
+
 def getValues(requestString):
 
     params = {}
