@@ -136,6 +136,7 @@ class PythonOrgSearch(unittest.TestCase):
                                 data.append(str(0))
                             else:
                                 data.append(row.text)
+                    #print(data)
                     writer.writerow(data)
                     
                     #print(date,iso,disType,deaths,dollars)
@@ -146,11 +147,11 @@ class PythonOrgSearch(unittest.TestCase):
                     # End block
                     
                     # Press the down key
-                    ActionChains(driver).key_down(Keys.DOWN).key_up(Keys.DOWN).perform()
+                    ActionChains(driver).key_down(Keys.DOWN).perform()
                     # Update main table
                     mainTable = driver.find_element_by_xpath('//*[@id="gridview-1143"]/div[2]')
                     try:
-                        mainTable = driver.find_element_by_xpath('//*[@id="gridview-1143"]/div[2]')
+                        # mainTable = driver.find_element_by_xpath('//*[@id="gridview-1143"]/div[2]')
                         # Try to get the newly selected element
                         top = mainTable.find_element_by_class_name('x-grid-item-selected')
                         # Get the soup
@@ -158,7 +159,7 @@ class PythonOrgSearch(unittest.TestCase):
                         id = bsoup(top.get_attribute('outerHTML'),'html.parser').table.attrs['id'] 
                         if oldid == id:
                             # Press down one more time to make sure its the bottom of the page
-                            ActionChains(driver).key_down(Keys.DOWN).key_up(Keys.DOWN).perform()
+                            #ActionChains(driver).key_down(Keys.DOWN).key_up(Keys.DOWN).perform()
                             mainTable = driver.find_element_by_xpath('//*[@id="gridview-1143"]/div[2]')
                             # Try to get the newly selected element
                             tmp = mainTable.find_element_by_class_name('x-grid-item-selected')
