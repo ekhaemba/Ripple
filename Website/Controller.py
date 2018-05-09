@@ -1,6 +1,10 @@
 import http.server
 import socketserver
 from configparser import ConfigParser
+from http.server import BaseHTTPRequestHandler, HTTPServer
+from Model import *
+from View import *
+
 def main():
     config = ConfigParser()
     config.read('webconfig.ini')
@@ -9,9 +13,8 @@ def main():
     httpd = socketserver.TCPServer(("", PORT), Handler)
     print("serving at port", PORT)
     httpd.serve_forever()
-from http.server import BaseHTTPRequestHandler, HTTPServer
-from Model import *
-from View import *
+
+
 
 model = Model()
 view = View()
