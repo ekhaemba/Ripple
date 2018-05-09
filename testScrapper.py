@@ -185,6 +185,7 @@ class PythonOrgSearch(unittest.TestCase):
                         if oldid == id:
                             time.sleep(1)
                             scroll = driver.find_element_by_xpath('//*[@id="disasterlist_disasterslist-1122-body"]')
+                            
                             wheel_element(scroll, 120)
                             print("Scrolling")
                             # Press down one more time to make sure its the bottom of the page

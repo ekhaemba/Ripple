@@ -21,14 +21,21 @@ def getValues(requestString):
     params = {}
     paramString = requestString.split(" ")[1].strip("/")
     pairs = paramString.split("&")
-
-    for pair in pairs:
-        key = pair.split("=")[0]
-        value = pair.split("=")[1]
-        params[key] = value
-
-    return params
-
+    if (len(paramString)>0):
+        try:
+            for pair in pairs:
+                key = pair.split("=")[0]
+                value = pair.split("=")[1]
+                params[key] = value
+        except IndexError:
+            print("Wrong arguments, {}".format(requestString))
+            return {'mode':'init'}
+        except Exception as err:
+            print(err)
+            return {'mode':'init'}
+        return params
+    else:
+        return {'mode':'init'}
 
 class RequestHandler(BaseHTTPRequestHandler):
 
@@ -40,9 +47,13 @@ class RequestHandler(BaseHTTPRequestHandler):
 
         params = getValues(self.requestline)
         message = format("%s is not a mode") % params["mode"]
-
-        model.update(params)
-        message = view.update(model)
+        id = ""
+        msg = ""
+        try:
+            id,msg = model.update(params)
+            message = view.update(msg,id)
+        except Exception:
+            message = view.update(model)
             
 
         # Send response status code
@@ -52,14 +63,31 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'text/html')
         self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-        self.send_header('Access-Control-Allow-Methods', 'GET')
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
         self.end_headers()
 
         # Write content as utf-8 data
         self.wfile.write(bytes(message, "utf8"))
         return
+    def do_OPTIONS(self):
+        global model
+        global view
+        params = getValues(self.requestline)
+        message = format("%s is not a mode") % params["mode"]
 
-
+        id,msg = model.update(params)
+        message = view.update(msg,id)
+        #print(message)
+        # Send headers
+        self.send_header('Content-type', 'text/html')
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+        self.end_headers()
+        
+        # Write content as utf-8 data
+        self.wfile.write(bytes(message, "utf8"))
+        return
 def run():
 
     # Server settings
