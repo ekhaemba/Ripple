@@ -10,8 +10,6 @@ from sklearn.linear_model import LinearRegression
 # Some Global variables
 countries = ['FRA','DEU','NGA','NLD','CIV','POL']
 commodities = ['1701']
-modelDatasets = importModelDatasets()
-models = createModelList()
 
 #Function Definitions
 def printList(pList):
@@ -376,3 +374,7 @@ def runIt(c,i):
     q = inputFunc(c,i)
     r = predict(q)
     return r
+
+# some more 
+modelDatasets = importModelDatasets()
+models = createModelList()
