@@ -217,7 +217,7 @@ def calcImpact(country,localChanges):
 class Model:
 
     def __init__(self):
-        pass
+        self.results = {}
 
     def update(self,params):
 
@@ -228,7 +228,4 @@ class Model:
 
             country = 276
             changes = {"1001":0,"1804":.5}
-            results = calcImpact(country,changes)
-            print(results)
-        if params["mode"]=="map":
-            return ("map","<div id=map></div>")
+            self.results = calcImpact(country,changes)
