@@ -68,7 +68,7 @@ def downloadDatabase():
         exOrIn = database[i][1]
         countryOne = database[i][2]
         countryTwo = database[i][4]
-        commodity = database[i][7]
+        commodity = str(database[i][7])
         quantity = database[i][6]
         value = database[i][8]
         
