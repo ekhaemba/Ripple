@@ -1,6 +1,7 @@
 import numpy
 import json
 import mysql.connector
+#import modelsBlackBoxEdition
 
 craftbookFile = 'craftbook.json'
 
@@ -83,7 +84,8 @@ def downloadDatabase():
             else:
                 if countryOne in countries:
                     j = countries.index(countryOne)
-                    exportQuan[i][j] += quantity
+                    if quantity != None:
+                        exportQuan[i][j] += quantity
                     exportVal[i][j] += value
 
         else:
@@ -228,3 +230,4 @@ class Model:
             country = 276
             changes = {"1001":0,"1804":.5}
             results = calcImpact(country,changes)
+            print(results)

@@ -1,6 +1,10 @@
 import http.server
 import socketserver
 from configparser import ConfigParser
+from http.server import BaseHTTPRequestHandler, HTTPServer
+from Model import *
+from View import *
+
 def main():
     config = ConfigParser()
     config.read('webconfig.ini')
@@ -9,9 +13,8 @@ def main():
     httpd = socketserver.TCPServer(("", PORT), Handler)
     print("serving at port", PORT)
     httpd.serve_forever()
-from http.server import BaseHTTPRequestHandler, HTTPServer
-from Model import *
-from View import *
+
+
 
 model = Model()
 view = View()
@@ -21,21 +24,12 @@ def getValues(requestString):
     params = {}
     paramString = requestString.split(" ")[1].strip("/")
     pairs = paramString.split("&")
-    if (len(paramString)>0):
-        try:
-            for pair in pairs:
-                key = pair.split("=")[0]
-                value = pair.split("=")[1]
-                params[key] = value
-        except IndexError:
-            print("Wrong arguments, {}".format(requestString))
-            return {'mode':'init'}
-        except Exception as err:
-            print(err)
-            return {'mode':'init'}
-        return params
-    else:
-        return {'mode':'init'}
+
+    for pair in pairs:
+        key = pair.split("=")[0]
+        value = pair.split("=")[1]
+        params[key] = value
+    return params
 
 class RequestHandler(BaseHTTPRequestHandler):
 
@@ -45,15 +39,23 @@ class RequestHandler(BaseHTTPRequestHandler):
         global model
         global view
 
-        params = getValues(self.requestline)
-        message = format("%s is not a mode") % params["mode"]
-        id = ""
-        msg = ""
-        try:
-            id,msg = model.update(params)
-            message = view.update(msg,id)
-        except Exception:
-            message = view.update(model)
+        print(self.requestline)
+
+        if self.requestline ==  "GET /mapdata.js HTTP/1.1":
+            message = open("mapData.js","r").read()
+
+        elif self.requestline ==  "GET /worldmap.js HTTP/1.1":
+            message = open("worldmap.js","r").read()
+
+        else:
+            params = getValues(self.requestline)
+            message = format("%s is not a mode") % params["mode"]
+            
+            model.update(params)
+            message = view.update(model.results)
+
+
+
             
 
         # Send response status code
@@ -69,6 +71,7 @@ class RequestHandler(BaseHTTPRequestHandler):
         # Write content as utf-8 data
         self.wfile.write(bytes(message, "utf8"))
         return
+    
     def do_OPTIONS(self):
         global model
         global view
@@ -88,6 +91,7 @@ class RequestHandler(BaseHTTPRequestHandler):
         # Write content as utf-8 data
         self.wfile.write(bytes(message, "utf8"))
         return
+
 def run():
 
     # Server settings
