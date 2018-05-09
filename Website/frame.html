@@ -1,0 +1,44 @@
+<html id="main">
+    <head>
+            <script type="text/javascript" src="./mapdata.js"></script>		
+            <script  type="text/javascript" src="./worldmap.js"></script>
+    </head>
+    <body>
+        <div>
+            <!-- Map -->
+            
+        </div>
+        <div>
+            <form>
+                Country &emsp;&emsp; <input id="country" type="text"></input><br>
+                Commodity &ensp; <input id="commodity" type="text"></input><br>
+                Change &emsp;&emsp; <input id="change" type="text"></input><br>
+            </form>
+            <!-- <button onclick="mode=calc&country=sendRequest(getElementById(country).innerHTML&commodity=sendRequest(getElementById(commodity).innerHTML)&change=sendRequest(getElementById(change).innerHTML"> -->
+            <button onclick="sendRequest('mode=calc')">
+                Calculate
+            </button>
+            <button onclick="sendRequest('mode=map')">
+                Map me
+            </button>
+        </div>
+    </body>
+</html>
+
+<script>
+    // window.onbeforeunload = function () {return false;}
+    function sendRequest(paramString){
+        var theUrl = "http://127.0.0.1:8080/" + paramString;
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', theUrl, true);
+        xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+        xhr.send();
+        xhr.onreadystatechange = processRequest;
+
+        function processRequest(e) {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                document.getElementById('main').innerHTML = xhr.responseText;
+            }
+        }
+    }
+</script>

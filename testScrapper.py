@@ -12,6 +12,28 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import TimeoutException, WebDriverException
 import time
+
+def wheel_element(element, deltaY = 120, offsetX = 0, offsetY = 0):
+  error = element._parent.execute_script("""
+    var element = arguments[0];
+    var deltaY = arguments[1];
+    var box = element.getBoundingClientRect();
+    var clientX = box.left + (arguments[2] || box.width / 2);
+    var clientY = box.top + (arguments[3] || box.height / 2);
+    var target = element.ownerDocument.elementFromPoint(clientX, clientY);
+
+    for (var e = target; e; e = e.parentElement) {
+      if (e === element) {
+        target.dispatchEvent(new MouseEvent('mouseover', {view: window, bubbles: true, cancelable: true, clientX: clientX, clientY: clientY}));
+        target.dispatchEvent(new MouseEvent('mousemove', {view: window, bubbles: true, cancelable: true, clientX: clientX, clientY: clientY}));
+        target.dispatchEvent(new WheelEvent('wheel',     {view: window, bubbles: true, cancelable: true, clientX: clientX, clientY: clientY, deltaY: deltaY}));
+        return;
+      }
+    }    
+    return "Element is not interactable";
+    """, element, deltaY, offsetX, offsetY)
+  if error:
+    raise WebDriverException(error)
 class PythonOrgSearch(unittest.TestCase):
     user = ""
     password = ""
@@ -53,6 +75,7 @@ class PythonOrgSearch(unittest.TestCase):
         'x-grid-cell-gridcolumn-1137',
         'x-grid-cell-gridcolumn-1139'
         ])
+        ##
         with dataFile:
             writer = csv.writer(dataFile)
             #writer.writerow(['Date','ISO','Type','Death','Dollars'])
@@ -136,6 +159,7 @@ class PythonOrgSearch(unittest.TestCase):
                                 data.append(str(0))
                             else:
                                 data.append(row.text)
+                    #print(data)
                     writer.writerow(data)
                     
                     #print(date,iso,disType,deaths,dollars)
@@ -145,18 +169,25 @@ class PythonOrgSearch(unittest.TestCase):
                     #data.write(str(soup.encode('utf-8')))
                     # End block
                     
+                    # Wait for table to load entirely
+                    #time.sleep(.5)
                     # Press the down key
-                    ActionChains(driver).key_down(Keys.DOWN).key_up(Keys.DOWN).perform()
+                    ActionChains(driver).key_down(Keys.DOWN).perform()
                     # Update main table
                     mainTable = driver.find_element_by_xpath('//*[@id="gridview-1143"]/div[2]')
                     try:
-                        mainTable = driver.find_element_by_xpath('//*[@id="gridview-1143"]/div[2]')
+                        # mainTable = driver.find_element_by_xpath('//*[@id="gridview-1143"]/div[2]')
                         # Try to get the newly selected element
                         top = mainTable.find_element_by_class_name('x-grid-item-selected')
                         # Get the soup
                         html = top.get_attribute('innerHTML')
                         id = bsoup(top.get_attribute('outerHTML'),'html.parser').table.attrs['id'] 
                         if oldid == id:
+                            time.sleep(1)
+                            scroll = driver.find_element_by_xpath('//*[@id="disasterlist_disasterslist-1122-body"]')
+                            
+                            wheel_element(scroll, 120)
+                            print("Scrolling")
                             # Press down one more time to make sure its the bottom of the page
                             ActionChains(driver).key_down(Keys.DOWN).key_up(Keys.DOWN).perform()
                             mainTable = driver.find_element_by_xpath('//*[@id="gridview-1143"]/div[2]')
@@ -168,7 +199,8 @@ class PythonOrgSearch(unittest.TestCase):
                                 break
                         else:
                             oldid = id
-                    except Exception:
+                    except Exception as err:
+                        #print(err)
                         print("Crash, fixing now")                    
                         # Grab id number
                         k=id.split('-')[3]

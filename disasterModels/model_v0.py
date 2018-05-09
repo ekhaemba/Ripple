@@ -7,7 +7,7 @@ from sklearn.svm import SVR
 from sklearn.linear_model import LinearRegression
 
 #importing dataset
-dataset = pd.read_csv('testData.csv')
+dataset = pd.read_csv('/Users/jasonreynolds/Documents/School/2018S/CPEG657/Project/gitFolder/Ripple/disasterModels/datasets/modelOut.csv')
 inputs = dataset.iloc[:,:-1].values
 output = dataset.iloc[:,-1].values
 

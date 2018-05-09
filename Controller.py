@@ -5,10 +5,6 @@ from View import *
 model = Model()
 view = View()
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 4dac8ee3f338e28b34263b11e9df1a65335b1c49
 def getValues(requestString):
 
     params = {}
@@ -59,7 +55,7 @@ def run():
     # Choose port 8080, for port 80, which is normally used for a http server, you need root access
     server_address = ('0.0.0.0', 8080)
     httpd = HTTPServer(server_address, RequestHandler)
-    print('Running Span...')
+    print('Running Ripple...')
     httpd.serve_forever()
 
 
