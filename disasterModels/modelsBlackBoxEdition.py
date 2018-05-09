@@ -2,10 +2,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+
 from sklearn.cross_validation import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVR
 from sklearn.linear_model import LinearRegression
+
+from emdata_parsing import get_trend_table as gtt
 
 # Some Global variables
 countries = ['FRA','DEU','NGA','NLD','CIV','POL']
@@ -378,3 +381,26 @@ def runIt(c,i):
 # some more 
 modelDatasets = importModelDatasets()
 models = createModelList()
+
+
+ds = gtt('BEL',1801)
+
+tmpList = []
+tmpEntry =[]
+numRows = len(ds)
+tmpTrend = None
+for line in range(numRows):
+    tmpEntry.append(ds.iloc[line,0])
+    tmpEntry.append(ds.iloc[line,1])
+    tmpEntry.append(ds.iloc[line,2])
+    tmpEntry.append(ds.iloc[line,3])
+
+    if line !=0:
+        tmpTrend = ds.iloc[line,3]/ds.iloc[line-1,3]
+        tmpEntry.append(tmpTrend)
+    else:
+        tmpTrend = None
+        tmpEntry.append(tmpTrend)
+        
+    tmpList.append(tmpEntry)
+    tmpEntry = []
