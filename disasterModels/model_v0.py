@@ -7,7 +7,7 @@ from sklearn.svm import SVR
 from sklearn.linear_model import LinearRegression
 
 #importing dataset
-dataset = pd.read_csv('/Users/jasonreynolds/Documents/School/2018S/CPEG657/Project/gitFolder/Ripple/disasterModels/datasets/modelOut.csv')
+dataset = pd.read_csv('/Users/jasonreynolds/Documents/School/2018S/CPEG657/Project/gitFolder/Ripple/disasterModels/datasets/modelIn/model-1701.csv')
 inputs = dataset.iloc[:,:-1].values
 output = dataset.iloc[:,-1].values
 
@@ -22,13 +22,14 @@ inputTrain, inputTest, outputTrain, outputTest = train_test_split(inputs,output,
 regressor = LinearRegression()
 regressor.fit(inputTrain,outputTrain)
 
-output_pred = regressor.predict(inputTest)
+testFromJup = np.asarray([[1. , 0. , 0. , 0. , 0. , 0. , 0.3]])
 
+#output_pred = regressor.predict(inputTest)
+output_pred2 = regressor.predict(testFromJup)
 
-plt.scatter(inputs,output,color = 'red')
-plt.plot(inputs,regressor.predict(inputs),color = 'blue')
-plt.title('Truth or Bluff')
-plt.xlabel('x axis')
-plt.ylabel('y axis')
-plt.show()
-
+#print(type(inputTrain))
+print(inputTrain[0])
+def runIt(country,intensity):
+    
+    resultDictionary = {'commodity','change'}
+    return resultDictionary
