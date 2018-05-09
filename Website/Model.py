@@ -68,7 +68,7 @@ def downloadDatabase():
         exOrIn = database[i][1]
         countryOne = database[i][2]
         countryTwo = database[i][4]
-        commodity = database[i][7]
+        commodity = str(database[i][7])
         quantity = database[i][6]
         value = database[i][8]
         
@@ -125,20 +125,21 @@ def horizontalProp(commodities,countries,change,country,item,exportQuan):
         totalPost = sum(exportQuan[j])
 
         deltaQ = totalPost/totalPrior
+        deltaV = 1/deltaQ
 
         for i in range(len(exportVal[0])):
-            exportVal[j][i] *= deltaQ
+            exportVal[j][i] *= deltaV
 
-        return deltaQ
+        return deltaV
 
-def verticalProp(craftbook,item,change):
+def verticalProp(craftbook,item,deltaV):
 
-    deltaDemand = 1/change
+    deltaQ = 1/deltaV
     # print(deltaDemand)
 
     visited = []
     modified = [item]
-    changes = {item:change}
+    changes = {item:deltaV}
     #Get vertical changes
     for mod in modified:
 
@@ -152,7 +153,7 @@ def verticalProp(craftbook,item,change):
                 modified.append(temp)
 
             if mod != item:
-                changes[mod] = deltaDemand
+                changes[mod] = deltaQ
 
     return changes
 

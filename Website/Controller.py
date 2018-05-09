@@ -5,14 +5,14 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from Model import *
 from View import *
 
-def main():
-    config = ConfigParser()
-    config.read('webconfig.ini')
-    PORT = config['web']['port']
-    Handler = http.server.SimpleHTTPRequestHandler
-    httpd = socketserver.TCPServer(("", PORT), Handler)
-    print("serving at port", PORT)
-    httpd.serve_forever()
+# def main():
+#     config = ConfigParser()
+#     config.read('webconfig.ini')
+#     PORT = config['web']['port']
+#     Handler = http.server.SimpleHTTPRequestHandler
+#     httpd = socketserver.TCPServer(("", PORT), Handler)
+#     print("serving at port", PORT)
+#     httpd.serve_forever()
 
 
 
@@ -39,8 +39,6 @@ class RequestHandler(BaseHTTPRequestHandler):
         global model
         global view
 
-        print(self.requestline)
-
         if self.requestline ==  "GET /mapdata.js HTTP/1.1":
             message = open("mapData.js","r").read()
 
@@ -53,10 +51,7 @@ class RequestHandler(BaseHTTPRequestHandler):
             
             model.update(params)
             message = view.update(model.results)
-
-
-
-            
+ 
 
         # Send response status code
         self.send_response(200)
@@ -72,26 +67,6 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.wfile.write(bytes(message, "utf8"))
         return
     
-    def do_OPTIONS(self):
-        global model
-        global view
-        params = getValues(self.requestline)
-        message = format("%s is not a mode") % params["mode"]
-
-        id,msg = model.update(params)
-        message = view.update(msg,id)
-        #print(message)
-        # Send headers
-        self.send_header('Content-type', 'text/html')
-        self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-        self.end_headers()
-        
-        # Write content as utf-8 data
-        self.wfile.write(bytes(message, "utf8"))
-        return
-
 def run():
 
     # Server settings

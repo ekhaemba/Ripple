@@ -6,4 +6,9 @@ class View:
 
     def update(self,results):
 
-        return = open("frame.html", "r").readlines()
+        message = ""
+        for line in open("frame.html", "r").readlines():
+            message += line
+
+        return message
+
