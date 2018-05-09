@@ -227,5 +227,6 @@ class Model:
         if params["mode"] == "calc":
 
             country = 276
-            changes = {"1001":0,"1804":.5}
+            changes = {"1001":0,"1804":0}
             self.results = calcImpact(country,changes)
+            print(self.results)

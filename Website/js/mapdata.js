@@ -71,7 +71,7 @@ var simplemaps_worldmap_mapdata={
   },
   state_specific: {
     AF: {
-      color: "#990000",
+      color: "#ff6666",
       name: "Afghanistan",
       description: "990"
     },

@@ -18,13 +18,13 @@ from View import *
 
 model = Model()
 view = View()
-
+path = os.path.dirname(__file__)
 def getValues(requestString):
 
     params = {}
     paramString = requestString.split(" ")[1].strip("/")
     pairs = paramString.split("&")
-
+    print(pairs)
     for pair in pairs:
         key = pair.split("=")[0]
         value = pair.split("=")[1]
@@ -32,23 +32,21 @@ def getValues(requestString):
     return params
 
 class RequestHandler(BaseHTTPRequestHandler):
-
+    
     # GET
     def do_GET(self):
-
         global model
         global view
+        global path
+        if self.requestline ==  "GET /js/mapdata.js HTTP/1.1":
+            message = open("js/mapData.js","r").read()
 
-        if self.requestline ==  "GET /mapdata.js HTTP/1.1":
-            message = open("mapData.js","r").read()
-
-        elif self.requestline ==  "GET /worldmap.js HTTP/1.1":
-            message = open("worldmap.js","r").read()
+        elif self.requestline ==  "GET /js/worldmap.js HTTP/1.1":
+            message = open("js/worldmap.js","r").read()
 
         else:
             params = getValues(self.requestline)
             message = format("%s is not a mode") % params["mode"]
-            
             model.update(params)
             message = view.update(model.results)
  

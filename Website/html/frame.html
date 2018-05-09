@@ -1,10 +1,15 @@
+<!DOCTYPE html>
 <html id="main">
     <head>
-            <script type="text/javascript" src="./mapdata.js"></script>		
-            <script  type="text/javascript" src="./worldmap.js"></script>
+            <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+            
     </head>
     <body>
-        <div id=map></div>
+        <div id=fullMap>
+                <script type="text/javascript" src="../js/mapdata.js"></script>		
+                <script  type="text/javascript" src="../js/worldmap.js"></script>
+                <div id=map></div>
+        </div>
         <div>
             <form>
                 Country &emsp;&emsp; <input id="country" type="text"></input><br>
@@ -12,14 +17,14 @@
                 Change &emsp;&emsp; <input id="change" type="text"></input><br>
             </form>
             <!-- <button onclick="mode=calc&country=sendRequest(getElementById(country).innerHTML&commodity=sendRequest(getElementById(commodity).innerHTML)&change=sendRequest(getElementById(change).innerHTML"> -->
-            <button onclick="sendRequest('mode=calc')">
+            <button id="calc" onclick="sendRequest('mode=calc')">
                 Calculate
             </button>
         </div>
     </body>
 </html>
 
-<script>
+<script type="text/javascript">
     // window.onbeforeunload = function () {return false;}
     function sendRequest(paramString){
         var theUrl = "http://127.0.0.1:8080/" + paramString;
@@ -31,7 +36,9 @@
 
         function processRequest(e) {
             if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log("Test");
                 document.getElementById('main').innerHTML = xhr.responseText;
+                //$('div.main').html(xhr.responseText).trigger('reset');
             }
         }
     }
