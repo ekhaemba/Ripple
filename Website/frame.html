@@ -1,7 +1,12 @@
 <html id="main">
+    <head>
+            <script type="text/javascript" src="./mapdata.js"></script>		
+            <script  type="text/javascript" src="./worldmap.js"></script>
+    </head>
     <body>
         <div>
-            <!-- Changes -->
+            <!-- Map -->
+            
         </div>
         <div>
             <form>
@@ -12,6 +17,9 @@
             <!-- <button onclick="mode=calc&country=sendRequest(getElementById(country).innerHTML&commodity=sendRequest(getElementById(commodity).innerHTML)&change=sendRequest(getElementById(change).innerHTML"> -->
             <button onclick="sendRequest('mode=calc')">
                 Calculate
+            </button>
+            <button onclick="sendRequest('mode=map')">
+                Map me
             </button>
         </div>
     </body>

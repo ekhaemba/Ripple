@@ -230,3 +230,5 @@ class Model:
             changes = {"1001":0,"1804":.5}
             results = calcImpact(country,changes)
             print(results)
+        if params["mode"]=="map":
+            return ("map","<div id=map></div>")
