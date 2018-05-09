@@ -2,7 +2,7 @@ import numpy
 import json
 import mysql.connector
 
-craftbookFile = '../craftbook.json'
+craftbookFile = 'craftbook.json'
 
 def downloadDatabase():
 
@@ -217,7 +217,7 @@ def calcImpact(country,localChanges):
 class Model:
 
     def __init__(self):
-        self.results = {}
+        pass
 
     def update(self,params):
 
@@ -228,4 +228,5 @@ class Model:
 
             country = 276
             changes = {"1001":0,"1804":.5}
-            self.results = calcImpact(country,changes)
+            results = calcImpact(country,changes)
+            print(results)
