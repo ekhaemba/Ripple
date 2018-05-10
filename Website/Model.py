@@ -215,6 +215,7 @@ def calcImpact(country,localChanges):
     countries,commodities,exportQuan,exportVal,totalExports = downloadDatabase()
     globalChanges = propagateChanges(country,localChanges,countries,commodities,exportQuan)
     results = calcExportChange(countries,commodities,country,localChanges,globalChanges,exportVal,totalExports)
+    #print(results)
     return results
 
 class Model:
@@ -236,7 +237,7 @@ class Model:
             cur.execute('SELECT countrycode,iso3dig FROM country where countryCode = "{}";'.format(code))
             
             iso=dict(cur.fetchall()).get(code,"DEU")
-            print(code,iso)
-            changes = {"1701":1,"1806":0}
+            #print(code,iso)
+            changes = {"1904":0,"1806":1}
             self.results = calcImpact(code,changes)
             #print(self.results)
