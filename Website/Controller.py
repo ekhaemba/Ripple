@@ -43,14 +43,16 @@ class RequestHandler(BaseHTTPRequestHandler):
 
         elif self.requestline ==  "GET /js/worldmap.js HTTP/1.1":
             message = open("js/worldmap.js","r").read()
-
+        elif self.requestline == "GET /html/map.html HTTP/1.1":
+            message = open("html/map.html","r").read()
         else:
-            params = getValues(self.requestline)
-            message = format("%s is not a mode") % params["mode"]
-            model.update(params)
-            message = view.update(model.results)
- 
-
+            try:
+                params = getValues(self.requestline)
+                message = format("%s is not a mode") % params["mode"]
+                model.update(params)
+                message = view.update(model.results)
+            except Exception:
+                message = open("js/worldmap.js","r").read()
         # Send response status code
         self.send_response(200)
 
