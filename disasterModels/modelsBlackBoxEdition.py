@@ -120,11 +120,6 @@ def calcImpactScore(dSet):
         tmpEntry = []
     return dSetR2
 
-def getComList(country,commodity):
-    """Enter parameter in format 'ISO' """
-    country = 'datasets/'+country+'-'+commodity+'.csv'
-    return pullItCom(country)
-
 def removeFirstComEntry(comList):
     """gets rid of countries whose adjusted trends are missing from comTrade"""
     editedList = []
@@ -142,13 +137,60 @@ def removeFirstComEntry(comList):
         
     return editedList
 
+#def getComList(country,commodity):
+#    """Enter parameter in format 'ISO' """
+#    country = 'datasets/'+country+'-'+commodity+'.csv'
+#    return pullItCom(country)
+
+def pullAndGenComList(iso,com):
+    ds = gtt(iso,com)    
+    tmpList = []
+    tmpEntry =[]
+    numRows = len(ds)
+    tmpTrend = None
+    tmpTrendAdj = None
+    trendList = []
+
+    for line in range(numRows):
+        tmpEntry.append(ds.iloc[line,0])
+        tmpEntry.append(ds.iloc[line,1])
+        tmpEntry.append(ds.iloc[line,2])
+        tmpEntry.append(ds.iloc[line,3])
+    
+        if line !=0:
+            tmpTrend = ds.iloc[line,3]/ds.iloc[line-1,3]
+            tmpEntry.append(tmpTrend)
+            trendList.append(tmpTrend)
+        else:
+            tmpTrend = None
+            tmpEntry.append(tmpTrend)
+                
+        tmpList.append(tmpEntry)
+        tmpEntry = []
+        
+    med = np.median(trendList)
+    ave = np.average(trendList)
+    std = np.std(trendList)
+    
+    dSetOut = []
+    for line in range(len(tmpList)):
+        if line != 0:
+            tmpEntry = []
+            tmpTrendAdj = (tmpList[line][-1]-med)/std
+            for n in range(5):
+                tmpEntry.append(tmpList[line][n])
+            tmpEntry.append(tmpTrendAdj)
+            dSetOut.append(tmpEntry)
+    return dSetOut
+
 def getComLists(countries,commodity):
     """be sure to use parameter in format ['ISO1','ISO2,...,'ISOn']"""
     l = len(countries)
     comLists = []
     for c in range(l):
         country = countries[c]
-        comLists.append(getComList(country,commodity))
+        #comLists.append(getComList(country,commodity))
+        comLists.append(pullAndGenComList(country,commodity))
     return removeFirstComEntry(comLists)
 
 def getDeathRate():
@@ -378,29 +420,8 @@ def runIt(c,i):
     r = predict(q)
     return r
 
-# some more 
+            
+# some more variables
 modelDatasets = importModelDatasets()
 models = createModelList()
 
-
-ds = gtt('BEL',1801)
-
-tmpList = []
-tmpEntry =[]
-numRows = len(ds)
-tmpTrend = None
-for line in range(numRows):
-    tmpEntry.append(ds.iloc[line,0])
-    tmpEntry.append(ds.iloc[line,1])
-    tmpEntry.append(ds.iloc[line,2])
-    tmpEntry.append(ds.iloc[line,3])
-
-    if line !=0:
-        tmpTrend = ds.iloc[line,3]/ds.iloc[line-1,3]
-        tmpEntry.append(tmpTrend)
-    else:
-        tmpTrend = None
-        tmpEntry.append(tmpTrend)
-        
-    tmpList.append(tmpEntry)
-    tmpEntry = []
