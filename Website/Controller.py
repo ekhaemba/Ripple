@@ -43,8 +43,15 @@ class RequestHandler(BaseHTTPRequestHandler):
 
         elif self.requestline ==  "GET /js/worldmap.js HTTP/1.1":
             message = open("js/worldmap.js","r").read()
+
         elif self.requestline == "GET /html/map.html HTTP/1.1":
             message = open("html/map.html","r").read()
+
+        elif self.requestline == "GET /legendZoom.png HTTP/1.1":
+            message = open("legendZoom.jpg","rb").read()
+
+        elif self.requestline == "GET /legend.png HTTP/1.1":
+            message = open("legend.jpg","rb").read()
         else:
             try:
                 params = getValues(self.requestline)
@@ -64,7 +71,9 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.end_headers()
 
         # Write content as utf-8 data
-        self.wfile.write(bytes(message, "utf8"))
+        if type(message) != bytes:
+            message = bytes(message, "utf8")
+        self.wfile.write(message)
         return
     
 def run():
