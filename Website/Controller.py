@@ -47,11 +47,11 @@ class RequestHandler(BaseHTTPRequestHandler):
         elif self.requestline == "GET /html/map.html HTTP/1.1":
             message = open("html/map.html","r").read()
 
-        elif self.requestline == "GET /legendZoom.png HTTP/1.1":
-            message = open("legendZoom.jpg","rb").read()
+        elif self.requestline == "GET /resource/legendZoom.jpg HTTP/1.1":
+            message = open("resource/legendZoom.jpg","rb").read()
 
-        elif self.requestline == "GET /legend.png HTTP/1.1":
-            message = open("legend.jpg","rb").read()
+        elif self.requestline == "GET /resource/legend.jpg HTTP/1.1":
+            message = open("resource/legend.jpg","rb").read()
         else:
             try:
                 params = getValues(self.requestline)
@@ -59,7 +59,9 @@ class RequestHandler(BaseHTTPRequestHandler):
                 model.update(params)
                 message = view.update(model.results)
             except Exception:
-                message = open("js/worldmap.js","r").read()
+                print("URL ERROR")
+                print(self.requestline)
+                message = "Invalid url, are you supposed to be using /mode=init?"
         # Send response status code
         self.send_response(200)
 
