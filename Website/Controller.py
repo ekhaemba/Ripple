@@ -1,5 +1,6 @@
-import http.server
+
 import socketserver
+import threading
 from configparser import ConfigParser
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from Model import *
@@ -79,14 +80,15 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.wfile.write(message)
         return
     
+class ThreadedHTTPServer(socketserver.ThreadingMixIn, HTTPServer):
+    """Handle requests in a separate thread."""
+
 def run():
 
     # Server settings
     # Choose port 8080, for port 80, which is normally used for a http server, you need root access
-    server_address = ('0.0.0.0', 8080)
-    httpd = HTTPServer(server_address, RequestHandler)
-    print('Running Span...')
-    httpd.serve_forever()
-
+    server = ThreadedHTTPServer(('', 8080), RequestHandler)
+    print('Running Ripple...')
+    server.serve_forever()
 
 run()
