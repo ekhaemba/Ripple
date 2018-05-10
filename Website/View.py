@@ -5,11 +5,11 @@ def clamp(x):
     return int(max(0, min(x, 255)))
 def red(x):
     if (x>0):
-        return clamp(255 - x*128)
+        return clamp(255 - np.log(np.abs(x))*255)
     return 255
 def green(x):
     if (x<0):
-        return clamp(255 + x*128)
+        return clamp(255 - np.sqrt(np.abs(x))*255)
     return 255
 def color(x):
     if (x==0):

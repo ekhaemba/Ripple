@@ -1,6 +1,8 @@
-import numpy
 import json
+
 import mysql.connector
+import numpy
+from numpy import random
 
 craftbookFile = '../craftbook.json'
 
@@ -228,6 +230,9 @@ class Model:
         if params["mode"] == "calc":
 
             country = 276
-            changes = {"1001":0,"1804":0}
+            x = random.rand()
+            y = random.rand()
+            changes = {"1701":0,"1804":0}
+            print(x,y)
             self.results = calcImpact(country,changes)
-            print(self.results)
+            #print(self.results)
