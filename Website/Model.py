@@ -230,9 +230,6 @@ class Model:
         if params["mode"] == "calc":
 
             country = 276
-            x = random.rand()
-            y = random.rand()
             changes = {"1701":0,"1804":0}
-            print(x,y)
             self.results = calcImpact(country,changes)
             #print(self.results)
