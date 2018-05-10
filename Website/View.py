@@ -5,11 +5,11 @@ def clamp(x):
     return int(max(0, min(x, 255)))
 def red(x):
     if (x>0):
-        return clamp(255 - .25*np.log(np.abs(x))*255)
+        return clamp(255 - np.sqrt(np.abs(x))*255)
     return 255
 def green(x):
     if (x<0):
-        return clamp(255 - .25*np.sqrt(np.abs(x))*255)
+        return clamp(255 - np.sqrt(np.abs(x))*255)
     return 255
 def color(x):
     if (x==0):
@@ -31,6 +31,12 @@ class View:
         pass
         
     def update(self,results):
+
+        # for code in results:
+# 
+            # print(results[code])   
+            # print(red(results.get(code,"FFFFFF")))
+            # print(green(results.get(code,"FFFFFF")))
        
 
         # Get all the export data
@@ -49,12 +55,16 @@ class View:
                         iso2 = data[c][2]
                         iso3 = data[c][3]
                         block = ""
+
                         if iso2 is not None and iso2[1] != "/":
                             
                             x = iso2+": {\n"
                             x+='\t color: "#{}",\n'.format(color(results.get(code,"FFFFFF")))
                             x+='\t name: "{}",\n'.format(name)
-                            x+='\t description: "{}"\n'.format(results.get(code,"No data"))
+                            localChange = results.get(code,"No data")
+                            if localChange != "No data":
+                                localChange = "{0:.2f}".format(100*localChange)+'%'
+                            x+='\t description: "{}"\n'.format(localChange)
                             if c<len(data)-1:
                                 x+="},\n"
                             else:
@@ -64,7 +74,10 @@ class View:
                             x = "NA"+": {\n"
                             x+='\t color: "#{}",\n'.format(color(results.get(code,"FFFFFF")))
                             x+='\t name: "{}",\n'.format(name)
-                            x+='\t description: "{}"\n'.format(results.get(code,"No data"))
+                            localChange = results.get(code,"No data")
+                            if localChange != "No data":
+                                localChange = "{0:.2f}".format(100*localChange)+'%'
+                            x+='\t description: "{}"\n'.format(localChange)
                             if c<len(data)-1:
                                 x+="},\n"
                             else:

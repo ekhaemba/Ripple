@@ -328,6 +328,7 @@
             <div id=map></div>                        
         </div>
         <div>
+          <div style="float: left;">
             <form>
                 Country &emsp;&emsp; <input id="country" type="text"></input><br>
                 Commodity &ensp; <input id="commodity" type="text"></input><br>
@@ -337,6 +338,26 @@
             <button id="calc" onclick="sendRequest('mode=calc')">
                 Calculate
             </button>
+          </div>
+          <div style="float: right;">
+            <div>
+              <center>
+                <h2>
+                  Legend
+                </h2>
+              </center>
+            </div>
+            <div>
+              &ensp;-10%
+              <img src = "legendZoom.png">
+              10%
+              <br>
+              -100%
+              <img src ="legend.png">
+              100%
+              </div>
+            </div>
+          </div>
         </div>
     </body>
 </html>

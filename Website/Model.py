@@ -205,7 +205,7 @@ def calcExportChange(countries,commodities,country,localChanges,globalChanges,ex
             newTotal = 1
             total = 1
                 
-        results[entry] = float("{0:.2f}".format(((newTotal/total) - 1)*100))
+        results[entry] = (newTotal/total) - 1
     
     return results
 
@@ -230,9 +230,7 @@ class Model:
         if params["mode"] == "calc":
 
             country = 276
-            x = random.rand()
-            y = random.rand()
-            changes = {"1701":x,"1804":y}
-            print(x,y)
+            changes = {"1701":1,"1806":0}
+
             self.results = calcImpact(country,changes)
             #print(self.results)
