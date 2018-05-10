@@ -4,7 +4,7 @@ var simplemaps_worldmap_mapdata={
     width: "responsive", //'700' or 'responsive'
     background_color: "#FFFFFF",
     background_transparent: "yes",
-    border_color: "#ffffff",
+    border_color: "#000000",
     popups: "detect",
     
     //State defaults
