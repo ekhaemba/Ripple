@@ -228,9 +228,15 @@ class Model:
             pass
         
         if params["mode"] == "calc":
-
-            country = 276
+            db = mysql.connector.connect(host="blockchain.cabkhfmbe846.us-east-2.rds.amazonaws.com", 
+            user="user", passwd="notatotallysafepassword", db="Blockchain")
+            code = int(params['country'])
+            impact = params['score']
+            cur = db.cursor()
+            cur.execute('SELECT countrycode,iso3dig FROM country where countryCode = "{}";'.format(code))
+            
+            iso=dict(cur.fetchall()).get(code,"DEU")
+            print(code,iso)
             changes = {"1701":1,"1806":0}
-
-            self.results = calcImpact(country,changes)
+            self.results = calcImpact(code,changes)
             #print(self.results)

@@ -90,7 +90,21 @@ class View:
                         #block+='name: "{}",\n'.format(name)
                         #block+='description: "{}"\n'.format(results[int(code)])
                         #block+='},\n'
-                                           
+            elif ('<select id = "country"' in line):
+                message +=line 
+                cur = self.db.cursor()
+                cur.execute("SELECT * FROM country")
+                data = cur.fetchall()
+                for c in range(len(data)):
+                    code = int(data[c][0])
+                    name = data[c][1]
+                    iso2 = data[c][2]
+                    iso3 = data[c][3]
+                    if (iso3 is not None):
+                        block = '<option value="{}">{} ({})</option>'.format(code,name,iso3)
+                    else:
+                        continue
+                    message+=block
             else:
                 message += line
             #message +=line

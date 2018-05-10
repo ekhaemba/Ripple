@@ -24,7 +24,7 @@ def getValues(requestString):
     params = {}
     paramString = requestString.split(" ")[1].strip("/")
     pairs = paramString.split("&")
-
+    print(pairs)
     for pair in pairs:
         key = pair.split("=")[0]
         value = pair.split("=")[1]
@@ -58,7 +58,8 @@ class RequestHandler(BaseHTTPRequestHandler):
                 message = format("%s is not a mode") % params["mode"]
                 model.update(params)
                 message = view.update(model.results)
-            except Exception:
+            except Exception as err:
+                print(err)
                 print("URL ERROR")
                 print(self.requestline)
                 message = "Invalid url, are you supposed to be using /mode=init?"

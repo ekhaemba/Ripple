@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html id="main">
     <head>
-
+      
     </head>
     <body>
         <div id=fullMap>
@@ -330,10 +330,16 @@
         <div>
           <div style="float: left;">
             <form>
-                Country &emsp;&emsp; <input id="country" type="text"></input><br>
-                Commodity &ensp; <input id="commodity" type="text"></input><br>
-                Change &emsp;&emsp; <input id="change" type="text"></input><br>
+                Country &emsp;&emsp; <select id = "country">
+
+                </select><br>
+                Impact &ensp; <input id="impact" oninput="outputUpdate(value)" type="range" min = "0" max = "1" step=".01" value = ".5"></input><output for="impact" id = "impScore">.5</output><br>
             </form>
+            <script>
+                function outputUpdate(value){
+                  document.querySelector('#impScore').value = value;
+                }
+              </script>
             <!-- <button onclick="mode=calc&country=sendRequest(getElementById(country).innerHTML&commodity=sendRequest(getElementById(commodity).innerHTML)&change=sendRequest(getElementById(change).innerHTML"> -->
             <button id="calc" onclick="sendRequest('mode=calc')">
                 Calculate
@@ -365,7 +371,12 @@
 <script type="text/javascript" >
     // window.onbeforeunload = function () {return false;}
     function sendRequest(paramString){
-        var theUrl = "http://127.0.0.1:8080/" + paramString;
+        var sel = document.getElementById("country")
+        var theURL = "http://127.0.0.1:8080/" + paramString;
+        
+        var country = sel.options[sel.selectedIndex].value;
+        theUrl = theURL+"&country="+country+ "&score="+document.querySelector('#impScore').value;
+        
         var xhr = new XMLHttpRequest();
         xhr.open('GET', theUrl, true);
         xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
