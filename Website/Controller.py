@@ -24,7 +24,7 @@ def getValues(requestString):
     params = {}
     paramString = requestString.split(" ")[1].strip("/")
     pairs = paramString.split("&")
-    print(pairs)
+
     for pair in pairs:
         key = pair.split("=")[0]
         value = pair.split("=")[1]
