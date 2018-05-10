@@ -96,7 +96,11 @@ def get_trend_table(iso,commodity):
     trades = get_trade_data(con)
     country_isos = list(trades.rt3ISO.unique())
     commodities = list(trades.cmdCode.unique())
-    assert iso in country_isos,"This iso isn't within the list of isos"
-    assert commodity in commodities,"This commodity isn't within the list of commodities"
+    assert iso in country_isos,"This iso isn't within the list of isos:"+str(iso)
+    assert commodity in commodities,"This commodity isn't within the list of commodities:"+str(commodity)
     return getTrend(trades,iso,commodity)
 
+def get_wld_comm(iso):
+    engine, con = eng_connector(user=username,password=password,host=hostname,port=port,database=database)
+    trades = get_trade_data(con)
+    return trades.loc[(trades['ptCode']==0)&(trades['rt3ISO']==iso)]
