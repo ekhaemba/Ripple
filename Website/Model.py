@@ -231,5 +231,6 @@ class Model:
 
             country = 276
             changes = {"1701":1,"1806":0}
+
             self.results = calcImpact(country,changes)
             #print(self.results)
