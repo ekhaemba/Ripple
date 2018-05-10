@@ -100,3 +100,7 @@ def get_trend_table(iso,commodity):
     assert commodity in commodities,"This commodity isn't within the list of commodities"
     return getTrend(trades,iso,commodity)
 
+def get_wld_comm(iso):
+    engine, con = eng_connector(user=username,password=password,host=hostname,port=port,database=database)
+    trades = get_trade_data(con)
+    return trades.loc[(trades['ptCode']==0)&(trades['rt3ISO']==iso)]
