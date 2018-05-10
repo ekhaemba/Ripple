@@ -48,10 +48,10 @@ class RequestHandler(BaseHTTPRequestHandler):
             message = open("html/map.html","r").read()
 
         elif self.requestline == "GET /legendZoom.png HTTP/1.1":
-            message = open("legendZoom.jpg","rb").read()
+            message = open("resource/legendZoom.jpg","rb").read()
 
         elif self.requestline == "GET /legend.png HTTP/1.1":
-            message = open("legend.jpg","rb").read()
+            message = open("resource/legend.jpg","rb").read()
         else:
             try:
                 params = getValues(self.requestline)
