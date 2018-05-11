@@ -1,422 +1,552 @@
 <!DOCTYPE html>
 <html id="main">
-    <head>
-      <style>
-                img {
-            max-width: 100%;
-            max-height: 100%;
-        }
 
-        .logo {
-            float: right;
-            height: 100px;
-            width: 200px;
-        }
-        .fullMap{
-            max-width: 1000px;
-        }
-        </style>
-    </head>
-    <body onload="updateWidth()">
-        <div id=fullMap class = "fullMap">
-
-            <script type="text/javascript" >
-            var simplemaps_worldmap_mapdata={
-  main_settings: {
-   //General settings
-    width: "responsive", //'700' or 'responsive'
-    background_color: "#FFFFFF",
-    background_transparent: "yes",
-    border_color: "#000000",
-    popups: "detect",
-    
-    //State defaults
-    state_description: "State description",
-    state_color: "#808080",
-    state_hover_color: "#3B729F",
-    state_url: "https://github.com/kburd/Ripple",
-    border_size: .3,
-    all_states_inactive: "no",
-    all_states_zoomable: "no",
-    
-    //Location defaults
-    location_description: "Location description",
-    location_color: "#FF0067",
-    location_opacity: 0.8,
-    location_hover_opacity: 1,
-    location_url: "",
-    location_size: 25,
-    location_type: "square",
-    location_image_source: "frog.png",
-    location_border_color: "#FFFFFF",
-    location_border: 2,
-    location_hover_border: 2.5,
-    all_locations_inactive: "no",
-    all_locations_hidden: "no",
-    
-    //Label defaults
-    label_color: "#d5ddec",
-    label_hover_color: "#d5ddec",
-    label_size: 22,
-    label_font: "Arial",
-    hide_labels: "no",
-   
-    //Zoom settings
-    zoom: "yes",
-    back_image: "no",
-    initial_back: "no",
-    initial_zoom: -1,
-    initial_zoom_solo: "no",
-    region_opacity: 1,
-    region_hover_opacity: 0.6,
-    zoom_out_incrementally: "yes",
-    zoom_percentage: 0.99,
-    zoom_time: 0.5,
-    
-    //Popup settings
-    popup_color: "white",
-    popup_opacity: 0.9,
-    popup_shadow: 1,
-    popup_corners: 5,
-    popup_font: "12px/1.5 Verdana, Arial, Helvetica, sans-serif",
-    popup_nocss: "no",
-    
-    //Advanced settings
-    div: "map",
-    auto_load: "yes",
-    url_new_tab: "yes",
-    images_directory: "default",
-    fade_time: 0.1,
-    link_text: "View Website",
-    state_image_url: "",
-    state_image_position: "",
-    location_image_url: ""
-  },
-  state_specific: {
-   
-  },
-  locations: {
-  },
-  labels: {},
-  regions: {
-    "0": {
-      name: "North America",
-      states: [
-        "MX",
-        "CA",
-        "US",
-        "GL",
-        "BM"
-      ]
-    },
-    "1": {
-      name: "South America",
-      states: [
-        "EC",
-        "AR",
-        "VE",
-        "BR",
-        "CO",
-        "BO",
-        "PE",
-        "BZ",
-        "CL",
-        "CR",
-        "CU",
-        "DO",
-        "SV",
-        "GT",
-        "GY",
-        "GF",
-        "HN",
-        "NI",
-        "PA",
-        "PY",
-        "PR",
-        "SR",
-        "UY",
-        "JM",
-        "HT",
-        "BS",
-        "FK",
-        "AI",
-        "AG",
-        "AW",
-        "BB",
-        "VG",
-        "KY",
-        "DM",
-        "MQ",
-        "LC",
-        "VC",
-        "GD",
-        "GP",
-        "MS",
-        "TC",
-        "SX",
-        "MF",
-        "KN",
-        "CW"
-      ]
-    },
-    "2": {
-      name: "Europe",
-      states: [
-        "IT",
-        "NL",
-        "NO",
-        "DK",
-        "IE",
-        "GB",
-        "RO",
-        "DE",
-        "FR",
-        "AL",
-        "AM",
-        "AT",
-        "BY",
-        "BE",
-        "LU",
-        "BG",
-        "CZ",
-        "EE",
-        "GE",
-        "GR",
-        "HU",
-        "IS",
-        "LV",
-        "LT",
-        "MD",
-        "PL",
-        "PT",
-        "RS",
-        "SI",
-        "HR",
-        "BA",
-        "ME",
-        "MK",
-        "SK",
-        "ES",
-        "FI",
-        "SE",
-        "CH",
-        "TR",
-        "CY",
-        "UA",
-        "XK",
-        "MT",
-        "FO"
-      ]
-    },
-    "3": {
-      name: "Africa and the Middle East",
-      states: [
-        "QA",
-        "BH",
-        "SA",
-        "AE",
-        "SY",
-        "OM",
-        "KW",
-        "PK",
-        "AZ",
-        "AF",
-        "IR",
-        "IQ",
-        "IL",
-        "PS",
-        "JO",
-        "LB",
-        "YE",
-        "TJ",
-        "TM",
-        "UZ",
-        "KG",
-        "NE",
-        "AO",
-        "EG",
-        "TN",
-        "GA",
-        "DZ",
-        "LY",
-        "CG",
-        "GQ",
-        "BJ",
-        "BW",
-        "BF",
-        "BI",
-        "CM",
-        "CF",
-        "TD",
-        "CI",
-        "CD",
-        "DJ",
-        "ET",
-        "GM",
-        "GH",
-        "GN",
-        "GW",
-        "KE",
-        "LS",
-        "LR",
-        "MG",
-        "MW",
-        "ML",
-        "MA",
-        "MR",
-        "MZ",
-        "NA",
-        "NG",
-        "ER",
-        "RW",
-        "SN",
-        "SL",
-        "SO",
-        "ZA",
-        "SD",
-        "SS",
-        "SZ",
-        "TZ",
-        "TG",
-        "UG",
-        "EH",
-        "ZM",
-        "ZW",
-        "RE",
-        "KM",
-        "SC",
-        "MU",
-        "CV",
-        "IC",
-        "ST",
-        "YT"
-      ]
-    },
-    "4": {
-      name: "South Asia",
-      states: [
-        "SG",
-        "TW",
-        "IN",
-        "AU",
-        "MY",
-        "NP",
-        "NZ",
-        "TH",
-        "BN",
-        "JP",
-        "VN",
-        "LK",
-        "SB",
-        "FJ",
-        "BD",
-        "BT",
-        "KH",
-        "LA",
-        "MM",
-        "KP",
-        "PG",
-        "PH",
-        "KR",
-        "ID",
-        "CN",
-        "MV",
-        "NC",
-        "VU",
-        "NR"
-      ]
-    },
-    "5": {
-      name: "North Asia",
-      states: [
-        "MN",
-        "RU",
-        "KZ"
-      ]
+<head>
+  <style>
+    img {
+      max-width: 100%;
+      max-height: 100%;
     }
-  },
-  data: {
-  }
-};
-            </script>		
-            <script  type="text/javascript" src="../js/worldmap.js"></script>
-            <div id="logo" class="logo">
-                <img src = "../resource/RIPPLE.png" id="imgLogo" width = 700>
-            </div>
-            <div id=map on="updateWidth()"></div>                        
-            
-          <div style="float: right;">
-              <div>
-                <center>
-                  <h2>
-                    Legend
-                  </h2>
-                </center>
-              </div>
-              <div>
-                &ensp;-10%
-                <img src = "../resource/legendZoom.jpg">
-                10%
-                <br>
-                -100%
-                <img src ="../resource/legend.jpg">
-                100%
-                </div>
-              </div>
-            <script type="text/javascript">
-              function updateWidth(){
-                var w = simplemaps_worldmap_mapdata.width;
-                var img = document.getElementById("imgLogo");
-                console.log(w);
-                //img.style.width = w;
-              }
-          </script>
-          </div>
-        <div>
-          <div style="float: left;">
-            <form>
-                Country &emsp;&emsp; <select id = "country">
 
-                </select><br>
-                Impact &ensp; <input id="impact" oninput="outputUpdate(value)" type="range" min = "0" max = "1" step=".01" value = ".5"></input><output for="impact" id = "impScore">.5</output><br>
-            </form>
-            <script>
-                function outputUpdate(value){
-                  document.querySelector('#impScore').value = value;
-                }
-              </script>
-            <!-- <button onclick="mode=calc&country=sendRequest(getElementById(country).innerHTML&commodity=sendRequest(getElementById(commodity).innerHTML)&change=sendRequest(getElementById(change).innerHTML"> -->
-            <button id="calc" onclick="sendRequest('mode=calc')">
-                Calculate
-            </button>
-          </div>
-          </div>
-        </div>
-    </body>
+    .logo {
+      float: right;
+      height: 100px;
+      width: 300px;
+    }
+
+    .fullMap {
+      max-width: 1000px;
+    }
+
+    .button {
+      -webkit-transition-duration: 0.4s;
+      transition-duration: 0.4s;
+      background-color: black;
+      color: #ffffff;
+      border-radius: 4px;
+      font-size: 16px;
+      font-family: sans-serif;
+      padding: 4px 8px;
+    }
+
+    .button:hover {
+      background-color: #555555;
+      color: black;
+    }
+
+    .text {
+      font-family: sans-serif;
+    }
+
+    .select {
+      font-size: 13px;
+    }
+
+    input[type=range] {
+      height: 26px;
+      -webkit-appearance: none;
+      margin: 10px 0;
+      width: 75%;
+    }
+
+    input[type=range]:focus {
+      outline: none;
+    }
+
+    input[type=range]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 14px;
+      cursor: pointer;
+      animate: 0.2s;
+      box-shadow: 1px 1px 1px #50555C;
+      background: #50555C;
+      border-radius: 14px;
+      border: 0px solid #000000;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      box-shadow: 0px 0px 0px #000000;
+      border: 0px solid #000000;
+      height: 20px;
+      width: 40px;
+      border-radius: 12px;
+      background: #529DE1;
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -3px;
+    }
+
+    input[type=range]:focus::-webkit-slider-runnable-track {
+      background: #50555C;
+    }
+
+    input[type=range]::-moz-range-track {
+      width: 100%;
+      height: 14px;
+      cursor: pointer;
+      animate: 0.2s;
+      box-shadow: 1px 1px 1px #50555C;
+      background: #50555C;
+      border-radius: 14px;
+      border: 0px solid #000000;
+    }
+
+    input[type=range]::-moz-range-thumb {
+      box-shadow: 0px 0px 0px #000000;
+      border: 0px solid #000000;
+      height: 20px;
+      width: 40px;
+      border-radius: 12px;
+      background: #529DE1;
+      cursor: pointer;
+    }
+
+    input[type=range]::-ms-track {
+      width: 100%;
+      height: 14px;
+      cursor: pointer;
+      animate: 0.2s;
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
+
+    input[type=range]::-ms-fill-lower {
+      background: #50555C;
+      border: 0px solid #000000;
+      border-radius: 28px;
+      box-shadow: 1px 1px 1px #50555C;
+    }
+
+    input[type=range]::-ms-fill-upper {
+      background: #50555C;
+      border: 0px solid #000000;
+      border-radius: 28px;
+      box-shadow: 1px 1px 1px #50555C;
+    }
+
+    input[type=range]::-ms-thumb {
+      margin-top: 1px;
+      box-shadow: 0px 0px 0px #000000;
+      border: 0px solid #000000;
+      height: 20px;
+      width: 40px;
+      border-radius: 12px;
+      background: #529DE1;
+      cursor: pointer;
+    }
+
+    input[type=range]:focus::-ms-fill-lower {
+      background: #50555C;
+    }
+
+    input[type=range]:focus::-ms-fill-upper {
+      background: #50555C;
+    }
+  </style>
+</head>
+
+<body>
+  <div id=fullMap>
+    <div style="float: left;">
+      <div>
+        <center>
+          <h2>
+            Legend
+          </h2>
+        </center>
+      </div>
+      <div>
+        &ensp;-10%
+        <img src="../resource/legendZoom.jpg"> 10%
+        <br> -100%
+        <img src="../resource/legend.jpg"> 100%
+      </div>
+    </div>
+    <div>
+      <img src="../resource/RIPPLE.png" class="logo">
+    </div>
+    <script type="text/javascript">
+      var simplemaps_worldmap_mapdata = {
+        main_settings: {
+          //General settings
+          width: "responsive", //'700' or 'responsive'
+          background_color: "#FFFFFF",
+          background_transparent: "yes",
+          border_color: "#000000",
+          popups: "detect",
+
+          //State defaults
+          state_description: "State description",
+          state_color: "#808080",
+          state_hover_color: "#3B729F",
+          state_url: "https://github.com/kburd/Ripple",
+          border_size: .3,
+          all_states_inactive: "no",
+          all_states_zoomable: "no",
+
+          //Location defaults
+          location_description: "Location description",
+          location_color: "#FF0067",
+          location_opacity: 0.8,
+          location_hover_opacity: 1,
+          location_url: "",
+          location_size: 25,
+          location_type: "square",
+          location_image_source: "frog.png",
+          location_border_color: "#FFFFFF",
+          location_border: 2,
+          location_hover_border: 2.5,
+          all_locations_inactive: "no",
+          all_locations_hidden: "no",
+
+          //Label defaults
+          label_color: "#d5ddec",
+          label_hover_color: "#d5ddec",
+          label_size: 22,
+          label_font: "Arial",
+          hide_labels: "no",
+
+          //Zoom settings
+          zoom: "yes",
+          back_image: "no",
+          initial_back: "no",
+          initial_zoom: -1,
+          initial_zoom_solo: "no",
+          region_opacity: 1,
+          region_hover_opacity: 0.6,
+          zoom_out_incrementally: "yes",
+          zoom_percentage: 0.99,
+          zoom_time: 0.5,
+
+          //Popup settings
+          popup_color: "white",
+          popup_opacity: 0.9,
+          popup_shadow: 1,
+          popup_corners: 5,
+          popup_font: "12px/1.5 Verdana, Arial, Helvetica, sans-serif",
+          popup_nocss: "no",
+
+          //Advanced settings
+          div: "map",
+          auto_load: "yes",
+          url_new_tab: "yes",
+          images_directory: "default",
+          fade_time: 0.1,
+          link_text: "View Website",
+          state_image_url: "",
+          state_image_position: "",
+          location_image_url: ""
+        },
+        state_specific: {
+
+        },
+        locations: {
+        },
+        labels: {},
+        regions: {
+          "0": {
+            name: "North America",
+            states: [
+              "MX",
+              "CA",
+              "US",
+              "GL",
+              "BM"
+            ]
+          },
+          "1": {
+            name: "South America",
+            states: [
+              "EC",
+              "AR",
+              "VE",
+              "BR",
+              "CO",
+              "BO",
+              "PE",
+              "BZ",
+              "CL",
+              "CR",
+              "CU",
+              "DO",
+              "SV",
+              "GT",
+              "GY",
+              "GF",
+              "HN",
+              "NI",
+              "PA",
+              "PY",
+              "PR",
+              "SR",
+              "UY",
+              "JM",
+              "HT",
+              "BS",
+              "FK",
+              "AI",
+              "AG",
+              "AW",
+              "BB",
+              "VG",
+              "KY",
+              "DM",
+              "MQ",
+              "LC",
+              "VC",
+              "GD",
+              "GP",
+              "MS",
+              "TC",
+              "SX",
+              "MF",
+              "KN",
+              "CW"
+            ]
+          },
+          "2": {
+            name: "Europe",
+            states: [
+              "IT",
+              "NL",
+              "NO",
+              "DK",
+              "IE",
+              "GB",
+              "RO",
+              "DE",
+              "FR",
+              "AL",
+              "AM",
+              "AT",
+              "BY",
+              "BE",
+              "LU",
+              "BG",
+              "CZ",
+              "EE",
+              "GE",
+              "GR",
+              "HU",
+              "IS",
+              "LV",
+              "LT",
+              "MD",
+              "PL",
+              "PT",
+              "RS",
+              "SI",
+              "HR",
+              "BA",
+              "ME",
+              "MK",
+              "SK",
+              "ES",
+              "FI",
+              "SE",
+              "CH",
+              "TR",
+              "CY",
+              "UA",
+              "XK",
+              "MT",
+              "FO"
+            ]
+          },
+          "3": {
+            name: "Africa and the Middle East",
+            states: [
+              "QA",
+              "BH",
+              "SA",
+              "AE",
+              "SY",
+              "OM",
+              "KW",
+              "PK",
+              "AZ",
+              "AF",
+              "IR",
+              "IQ",
+              "IL",
+              "PS",
+              "JO",
+              "LB",
+              "YE",
+              "TJ",
+              "TM",
+              "UZ",
+              "KG",
+              "NE",
+              "AO",
+              "EG",
+              "TN",
+              "GA",
+              "DZ",
+              "LY",
+              "CG",
+              "GQ",
+              "BJ",
+              "BW",
+              "BF",
+              "BI",
+              "CM",
+              "CF",
+              "TD",
+              "CI",
+              "CD",
+              "DJ",
+              "ET",
+              "GM",
+              "GH",
+              "GN",
+              "GW",
+              "KE",
+              "LS",
+              "LR",
+              "MG",
+              "MW",
+              "ML",
+              "MA",
+              "MR",
+              "MZ",
+              "NA",
+              "NG",
+              "ER",
+              "RW",
+              "SN",
+              "SL",
+              "SO",
+              "ZA",
+              "SD",
+              "SS",
+              "SZ",
+              "TZ",
+              "TG",
+              "UG",
+              "EH",
+              "ZM",
+              "ZW",
+              "RE",
+              "KM",
+              "SC",
+              "MU",
+              "CV",
+              "IC",
+              "ST",
+              "YT"
+            ]
+          },
+          "4": {
+            name: "South Asia",
+            states: [
+              "SG",
+              "TW",
+              "IN",
+              "AU",
+              "MY",
+              "NP",
+              "NZ",
+              "TH",
+              "BN",
+              "JP",
+              "VN",
+              "LK",
+              "SB",
+              "FJ",
+              "BD",
+              "BT",
+              "KH",
+              "LA",
+              "MM",
+              "KP",
+              "PG",
+              "PH",
+              "KR",
+              "ID",
+              "CN",
+              "MV",
+              "NC",
+              "VU",
+              "NR"
+            ]
+          },
+          "5": {
+            name: "North Asia",
+            states: [
+              "MN",
+              "RU",
+              "KZ"
+            ]
+          }
+        },
+        data: {
+        }
+      };
+    </script>
+    <script type="text/javascript" src="../js/worldmap.js"></script>
+    <div id=map></div>
+  </div>
+  <div>
+    <div style="float: left;">
+      <form class="text">
+        Country &emsp;&emsp;
+        <select id="country">
+
+        </select>
+        <br>
+        Impact &ensp;&ensp;&ensp;
+        <input id="impact" oninput="outputUpdate(value)" type="range" min="0" max="1" step=".01" value=".5"></input>
+        <output for="impact" id="impScore">.5</output>
+        
+      </form>
+      <script>
+        function outputUpdate(value) {
+          document.querySelector('#impScore').value = value;
+        }
+      </script>
+      <!-- <button onclick="mode=calc&country=sendRequest(getElementById(country).innerHTML&commodity=sendRequest(getElementById(commodity).innerHTML)&change=sendRequest(getElementById(change).innerHTML"> -->
+      <button class="button" "text" id="calc" onclick="sendRequest('mode=calc')">
+        Calculate
+      </button>
+    </div>
+
+  </div>
+  </div>
+</body>
+
 </html>
 
-<script type="text/javascript" >
-    // window.onbeforeunload = function () {return false;}
-    function sendRequest(paramString){
-        var sel = document.getElementById("country")
-        var theURL = "http://127.0.0.1:8080/" + paramString;
-        
-        var country = sel.options[sel.selectedIndex].value;
-        theUrl = theURL+"&country="+country+ "&score="+document.querySelector('#impScore').value;
-        
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', theUrl, true);
-        xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-        xhr.send();
-        xhr.onreadystatechange = processRequest;
+<script type="text/javascript">
+  // window.onbeforeunload = function () {return false;}
+  function sendRequest(paramString) {
+    var sel = document.getElementById("country")
+    var base = window.location.host;
+    console.log(base);
+    var theURL = "http://"+base+"/" + paramString;
 
-        function processRequest(e) {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                console.log("Test");
-                //document.getElementById('main').innerHTML = xhr.responseText;
-                //$('#fullMap').load("../html/map.html");
-                location.href=location.href;
-            }
-        }
+    var country = sel.options[sel.selectedIndex].value;
+    theUrl = theURL + "&country=" + country + "&score=" + document.querySelector('#impScore').value;
+    console.log(theUrl);
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', theUrl, true);
+    xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+    xhr.send();
+    xhr.onreadystatechange = processRequest;
+
+    function processRequest(e) {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        //document.getElementById('main').innerHTML = xhr.responseText;
+        //$('#fullMap').load("../html/map.html");
+        //location.href = location.href;
+        var data = JSON.parse(xhr.responseText);
+        //console.log(xhr.responseText);
+        //console.log(JSON.parse(xhr.responseText));
+        //var tmp = 'US: {color: "#202020",name: "Afghanistan",description: "No data"}'
+        simplemaps_worldmap_mapdata.state_specific = data;
+        simplemaps_worldmap.load();
+      }
     }
+  }
 </script>

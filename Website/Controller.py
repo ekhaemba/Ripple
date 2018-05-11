@@ -56,7 +56,8 @@ class RequestHandler(BaseHTTPRequestHandler):
             message = open("resource/legend.jpg","rb").read()
         elif self.requestline == "GET /resource/RIPPLE.png HTTP/1.1":
             message = open("resource/RIPPLE.png","rb").read()
-            
+        elif self.requestline == "GET /favicon.ico HTTP/1.1":
+            message = open("resource/RIPPLE.ico","rb").read()
         else:
             try:
                 params = getValues(self.requestline)
@@ -76,7 +77,7 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'text/html')
         self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST')
         self.end_headers()
 
         # Write content as utf-8 data
@@ -85,15 +86,21 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.wfile.write(message)
         return
     
-class ThreadedHTTPServer(socketserver.ThreadingMixIn, HTTPServer):
-    """Handle requests in a separate thread."""
-
+#class ThreadedHTTPServer(socketserver.ThreadingMixIn, HTTPServer):
+#    """Handle requests in a separate thread."""
 def run():
 
     # Server settings
     # Choose port 8080, for port 80, which is normally used for a http server, you need root access
-    server = ThreadedHTTPServer(('', 8080), RequestHandler)
-    print('Running Ripple...')
-    server.serve_forever()
+    #server = ThreadedHTTPServer(('localhost', 8080), Handler)
+    #print('Running Ripple...')
+    #server.serve_forever()
+    server_address = ('0.0.0.0', 8080)
 
-run()
+    httpd = HTTPServer(server_address, RequestHandler)
+
+    print('Running Span...')
+
+    httpd.serve_forever()
+if __name__ == '__main__':
+    run()
