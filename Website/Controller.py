@@ -25,7 +25,7 @@ def getValues(requestString):
     params = {}
     paramString = requestString.split(" ")[1].strip("/")
     pairs = paramString.split("&")
-
+    print(pairs)
     for pair in pairs:
         key = pair.split("=")[0]
         value = pair.split("=")[1]
@@ -48,10 +48,10 @@ class RequestHandler(BaseHTTPRequestHandler):
         elif self.requestline == "GET /html/map.html HTTP/1.1":
             message = open("html/map.html","r").read()
 
-        elif self.requestline == "GET /legendZoom.png HTTP/1.1":
+        elif self.requestline == "GET /resource/legendZoom.jpg HTTP/1.1":
             message = open("resource/legendZoom.jpg","rb").read()
 
-        elif self.requestline == "GET /legend.png HTTP/1.1":
+        elif self.requestline == "GET /resource/legend.jpg HTTP/1.1":
             message = open("resource/legend.jpg","rb").read()
         else:
             try:
@@ -59,8 +59,11 @@ class RequestHandler(BaseHTTPRequestHandler):
                 message = format("%s is not a mode") % params["mode"]
                 model.update(params)
                 message = view.update(model.results)
-            except Exception:
-                message = open("js/worldmap.js","r").read()
+            except Exception as err:
+                print(err)
+                print("URL ERROR")
+                print(self.requestline)
+                message = "Invalid url, are you supposed to be using /mode=init?"
         # Send response status code
         self.send_response(200)
 

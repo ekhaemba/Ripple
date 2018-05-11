@@ -11,12 +11,11 @@ from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import RANSACRegressor
 
 from emdata_parsing import get_trend_table as gtt
-
+import os
 ########################################################################
 # Some Global variables
 countries = ['FRA','DEU','NGA','NLD','CIV','POL']
 commodities = ['1001','1701','1801','1804']#,'1904','1806'
-
 ########################################################################
 #Function Definitions
 def printList(pList):
@@ -114,7 +113,7 @@ def groupByYear(dSet):
     return(dSetR1)
 
 def getDeathRate():
-    file = open('datasets/deathrate.txt','r')
+    file = open(os.path.abspath('../csv/datasets/deathrate.txt','r'))
     rawLines = []
     tmpList = []
     deathList = []
@@ -201,7 +200,7 @@ def calcImpactScore(dSet):
     return dSetR2
 
 def processEmdat():
-    emDat = pullItEm('datasets/emdata.csv')
+    emDat = pullItEm(os.path.abspath('../csv/datasets/emdata.csv'))
     emDat = fixYear(emDat)
     emDat = groupByYear(emDat)
     deathRate = calcDeathRate()
@@ -258,7 +257,7 @@ def getComList(country,commodity):
     Parameter(s):country (string, three letter ISO code), commodity(string,HS code)
     Returns:
     """    
-    country = 'datasets/'+country+'-'+commodity+'.csv'
+    country = os.path.abspath('../csv/datasets/'+country+'-'+commodity+'.csv')
     return pullItCom(country)
 
 def getComLists(countries,commodity):
@@ -297,7 +296,7 @@ def pullAndGenComList(iso,com):
         tmpEntry = []
         
     med = np.median(trendList)
-#    ave = np.average(trendList)
+    ave = np.average(trendList)
     std = np.std(trendList)
     
     dSetOut = []
@@ -309,7 +308,7 @@ def pullAndGenComList(iso,com):
                 tmpEntry.append(tmpList[line][n])
             tmpEntry.append(tmpTrendAdj)
             dSetOut.append(tmpEntry)
-    filename = 'datasets/'+iso+"-"+str(com)+'.csv'
+    filename = os.path.abspath('../csv/datasets/'+iso+"-"+str(com)+'.csv')
     writeThisBitchOut(tmpList,filename)
     return dSetOut
 
@@ -361,7 +360,7 @@ def generateCompleteHR(countries,commodity):
     comList = getComLists(countries,commodity)
     emDat = processEmdat()
     result = combineComEm(comList,emDat)
-    filename = 'datasets/humanReadable/'+'HR-'+commodity+'.csv'
+    filename = os.path.abspath('../csv/datasets/humanReadable/'+'HR-'+commodity+'.csv')
     writeThisBitchOut(result,filename)
     return result
 
@@ -392,7 +391,7 @@ def generateCompleteMDL(countries,commodity):
             tmpEntry.append(line[4])
             tmpList.append(tmpEntry)
             tmpEntry = []
-    filename = 'datasets/modelIn/'+'model-'+commodity+'.csv'
+    filename = os.path.abspath('../csv/datasets/modelIn/'+'model-'+commodity+'.csv')
     writeThisBitchOut(tmpList,filename)
     return tmpList
 
@@ -420,7 +419,8 @@ def importModelDatasets():
     tmpDS = None
     filename = ''
     for c in commodities:
-        filename = '/Users/jasonreynolds/Documents/School/2018S/CPEG657/Project/gitFolder/Ripple/disasterModels/datasets/modelIn/model-'+c+'.csv'
+        filename = os.path.abspath('../csv/datasets/modelIn/model-'+c+'.csv')
+        #print(filename)
         tmpDS = pd.read_csv(filename)
         dSets.append(tmpDS)
         tmpDS = None
@@ -432,7 +432,7 @@ def importModelDatasets():
     
 def getInsOuts(dSet):
     inputs = dSet.iloc[:,:-1].values
-    outputs = dSet.iloc[:,-1:].values
+    outputs = dSet.iloc[:,-1].values
     return inputs,outputs
 
 def splitTrainTest(inputs,outputs):
@@ -520,10 +520,11 @@ def RANSACIt(c,i):
 
 ########################################################################
 # some more variables
+
 modelDatasets = importModelDatasets()
 models = createModelRegressors()
 RANSACModels = createModelRegressorsRANSAC()
-
+print(runIt('FRA',.5))
 ########################################################################
 #Comparing models
 #
@@ -557,57 +558,4 @@ Description:
 Parameter(s):
 Returns:
 """
-def pullAndGenComLists(iso,com):
-    for i in iso:
-        for c in com:
-            pullAndGenComList(i,c)
 
-def getComListFromTotalExportSheet(iso):
-    file = 'datasets/'+iso+'-TotalExports.csv'
-
-    try:
-        dataset = pd.read_csv(file)
-    except:
-        print("ERROR:pullItCom("+file+")")    
-        dataset =[]
-        pass
-    
-    dSet = []
-    tmpList = []
-    tmpListList = []
-    tmpCom = dataset.iloc[0,2]
-    numRows = len(dataset)
-    if (numRows !=0):
-        for n in range(numRows):
-            for ent in dataset.iloc[n,:4]:
-                tmpList.append(ent)
-#            tmpListList.append(tmpList)
-#            tmpList = []
-            if (tmpCom != dataset.iloc[n,2]):
-                tmpCom = dataset.iloc[n,2]
-                dSet.append(tmpListList)
-                tmpListList = []
-                tmpListList.append(tmpList)
-                tmpList = []
-            else:
-                tmpListList.append(tmpList)
-                tmpList = []               
-    return dSet
-
-def sortIt(dSet):
-    sortedDSet = []
-    for d in dSet:
-        sortedDSet.append(sorted(d,key=lambda item:item[0]))
-    return sortedDSet
-
-
-#            
-#>>> student_tuples = [
-#        ('john', 'A', 15),
-#        ('jane', 'B', 12),
-#        ('dave', 'B', 10),
-#]
-#>>> sorted(student_tuples, key=lambda student: student[2])   # sort by age
-#[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
-#
-#        
