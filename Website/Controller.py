@@ -62,7 +62,7 @@ class RequestHandler(BaseHTTPRequestHandler):
                 params = getValues(self.requestline)
                 message = format("%s is not a mode") % params["mode"]
                 model.update(params)
-                message = view.update(model.results)
+                message = view.update(model.results,params)
             except Exception as err:
                 print(err)
                 #print("URL ERROR")
