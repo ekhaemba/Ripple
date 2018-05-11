@@ -42,10 +42,12 @@ class View:
 
         # Get all the export data
         message = ""
+        calc = False
         for line in open(os.path.join(self.path,"html/frame.html"), "r").readlines():
             if ("state_specific: {" in line):
               
                 if params["mode"] == "calc":
+                    calc=True
                     message += "{\n"
                 else:
                     message +=line
@@ -62,31 +64,56 @@ class View:
                         block = ""
                         
                         if iso2 is not None and iso2[1] != "/":
-                            
-                            x = iso2+": {\n"
-                            x+='\t color: "#{}",\n'.format(color(results.get(code,"FFFFFF")))
-                            x+='\t name: "{}",\n'.format(name)
-                            localChange = results.get(code,"No data")
-                            if localChange != "No data":
-                                localChange = "{0:.2f}".format(100*localChange)+'%'
-                            x+='\t description: "{}"\n'.format(localChange)
-                            if c<len(data)-1:
-                                x+="},\n"
+                            if(calc):
+                                x = '"'+iso2+'": {\n'
+                                x+='\t "color": "#{}",\n'.format(color(results.get(code,"FFFFFF")))
+                                x+='\t "name": "{}",\n'.format(name)
+                                localChange = results.get(code,"No data")
+                                if localChange != "No data":
+                                    localChange = "{0:.2f}".format(100*localChange)+'%'
+                                x+='\t "description": "{}"\n'.format(localChange)
+                                if c<len(data)-1:
+                                    x+="},\n"
+                                else:
+                                    x+="}\n"
                             else:
-                                x+="}\n"
+                                x = iso2+": {\n"
+                                x+='\t color: "#{}",\n'.format(color(results.get(code,"FFFFFF")))
+                                x+='\t name: "{}",\n'.format(name)
+                                localChange = results.get(code,"No data")
+                                if localChange != "No data":
+                                    localChange = "{0:.2f}".format(100*localChange)+'%'
+                                x+='\t description: "{}"\n'.format(localChange)
+                                if c<len(data)-1:
+                                    x+="},\n"
+                                else:
+                                    x+="}\n"
                             message+=x
                         elif iso3 =="NAM":
-                            x = "NA"+": {\n"
-                            x+='\t color: "#{}",\n'.format(color(results.get(code,"FFFFFF")))
-                            x+='\t name: "{}",\n'.format(name)
-                            localChange = results.get(code,"No data")
-                            if localChange != "No data":
-                                localChange = "{0:.2f}".format(100*localChange)+'%'
-                            x+='\t description: "{}"\n'.format(localChange)
-                            if c<len(data)-1:
-                                x+="},\n"
+                            if(calc):
+                                x = '"NA": {\n'
+                                x+='\t "color": "#{}",\n'.format(color(results.get(code,"FFFFFF")))
+                                x+='\t "name": "{}",\n'.format(name)
+                                localChange = results.get(code,"No data")
+                                if localChange != "No data":
+                                    localChange = "{0:.2f}".format(100*localChange)+'%'
+                                x+='\t "description": "{}"\n'.format(localChange)
+                                if c<len(data)-1:
+                                    x+="},\n"
+                                else:
+                                    x+="}\n"
                             else:
-                                x+="}\n"
+                                x = "NA: {\n"
+                                x+='\t color: "#{}",\n'.format(color(results.get(code,"FFFFFF")))
+                                x+='\t name: "{}",\n'.format(name)
+                                localChange = results.get(code,"No data")
+                                if localChange != "No data":
+                                    localChange = "{0:.2f}".format(100*localChange)+'%'
+                                x+='\t description: "{}"\n'.format(localChange)
+                                if c<len(data)-1:
+                                    x+="},\n"
+                                else:
+                                    x+="}\n"
                             message+=x
                             #block+="{}: {\n".format(str(iso2))
                             #print(block) 
@@ -97,7 +124,7 @@ class View:
                         #block+='},\n'
                     #                   #"""
                         
-            elif ('<select id = "country"' in line) and params["mode"] != "calc":
+            elif ('<select id="country"' in line) and params["mode"] != "calc":
                 message +=line 
                 cur = self.db.cursor()
                 cur.execute("SELECT * FROM country")
@@ -119,6 +146,6 @@ class View:
 
         if params["mode"] == "calc":
             message += "}"
-            print(message)
+            #print(message)
         return message
 

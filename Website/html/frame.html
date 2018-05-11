@@ -538,10 +538,12 @@
         //document.getElementById('main').innerHTML = xhr.responseText;
         //$('#fullMap').load("../html/map.html");
         //location.href = location.href;
-        simplemaps_worldmap.load();
-        console.log(xhr.responseText);
+        var data = JSON.parse(xhr.responseText);
+        //console.log(xhr.responseText);
+        //console.log(JSON.parse(xhr.responseText));
         //var tmp = 'US: {color: "#202020",name: "Afghanistan",description: "No data"}'
-        //simplemaps_worldmap_mapdata.state_specific = JSON.parse(tmp)
+        simplemaps_worldmap_mapdata.state_specific = data;
+        simplemaps_worldmap.load();
       }
     }
   }
