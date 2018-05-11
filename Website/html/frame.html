@@ -15,6 +15,27 @@
         .fullMap{
             max-width: 1000px;
         }
+        .button {
+          -webkit-transition-duration: 0.4s; 
+          transition-duration: 0.4s;
+          background-color:black;
+          color:#e7e7e7;
+          border-radius: 4px;
+          font-size: 16px;
+          font-family: sans-serif;
+          padding:14px 40px;
+        }
+
+        .button:hover {
+            background-color: #555555; 
+            color:black;
+        }
+        .text{
+          font-family: sans-serif;
+        }
+        .select{
+          font-size: 13px;
+        }
         </style>
     </head>
     <body onload="updateWidth()">
@@ -346,7 +367,8 @@
             <div style="float: left;">
                 <div>
                   <center>
-                    <h2>
+                    
+                    <h2 style="font-family: sans-serif">
                       Legend
                     </h2>
                   </center>
@@ -376,10 +398,10 @@
         <div>
           <div style="float: left;">
             <form>
-                Country &emsp;&emsp; <select id = "country">
+                Country &emsp;&emsp; <select id = "country" class="select" "text">
 
                 </select><br>
-                Impact &ensp; <input id="impact" oninput="outputUpdate(value)" type="range" min = "0" max = "1" step=".01" value = ".5"></input><output for="impact" id = "impScore">.5</output><br>
+                Impact &emsp;&emsp; <input id="impact" oninput="outputUpdate(value)" type="range" min = "0" max = "1" step=".01" value = ".5"></input><output for="impact" id = "impScore">.5</output><br>
             </form>
             <script>
                 function outputUpdate(value){
@@ -387,7 +409,7 @@
                 }
               </script>
             <!-- <button onclick="mode=calc&country=sendRequest(getElementById(country).innerHTML&commodity=sendRequest(getElementById(commodity).innerHTML)&change=sendRequest(getElementById(change).innerHTML"> -->
-            <button id="calc" onclick="sendRequest('mode=calc')">
+            <button class="button" id="calc" onclick="sendRequest('mode=calc')">
                 Calculate
             </button>
           </div>
