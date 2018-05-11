@@ -90,11 +90,12 @@ def downloadDatabase():
                     exportVal[i][j] += value
 
         else:
-            if exOrIn == 2:
-                year = database[i][0]
-                if year == 2017:
-                    j = countries.index(countryOne)
+            try:
+                j = countries.index(countryOne)
+                if exOrIn == 2 and totalExports[j]<value:
                     totalExports[j] = value
+            except ValueError:
+                pass
 
     return countries,commodities,exportQuan,exportVal,totalExports
 
@@ -237,7 +238,7 @@ class Model:
             cur.execute('SELECT countrycode,iso3dig FROM country where countryCode = "{}";'.format(code))
             
             iso=dict(cur.fetchall()).get(code,"DEU")
+
             #print(code,iso)
             changes = {"1904":0,"1806":1}
             self.results = calcImpact(code,changes)
-            #print(self.results)
