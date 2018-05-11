@@ -539,8 +539,9 @@
         //$('#fullMap').load("../html/map.html");
         //location.href = location.href;
         simplemaps_worldmap.load();
-        var tmp = 'US: {color: "#202020",name: "Afghanistan",description: "No data"}'
-        simplemaps_worldmap_mapdata.state_specific = JSON.parse(tmp)
+        console.log(xhr.responseText);
+        //var tmp = 'US: {color: "#202020",name: "Afghanistan",description: "No data"}'
+        //simplemaps_worldmap_mapdata.state_specific = JSON.parse(tmp)
       }
     }
   }
