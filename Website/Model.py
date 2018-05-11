@@ -3,7 +3,7 @@ import json
 import mysql.connector
 import numpy
 from numpy import random
-
+from scripts.modelsBlackBoxEdition import Sim 
 craftbookFile = '../craftbook.json'
 
 def downloadDatabase():
@@ -233,12 +233,22 @@ class Model:
             db = mysql.connector.connect(host="blockchain.cabkhfmbe846.us-east-2.rds.amazonaws.com", 
             user="user", passwd="notatotallysafepassword", db="Blockchain")
             code = int(params['country'])
-            impact = params['score']
+            impact = float(params['score'])
             cur = db.cursor()
             cur.execute('SELECT countrycode,iso3dig FROM country where countryCode = "{}";'.format(code))
             
             iso=dict(cur.fetchall()).get(code,"DEU")
-
+            sim = Sim()
+            print("here")
+            changes = sim.runIt(iso,impact)
+            print("Not here")
+            print(iso,impact)
+            print(changes)
             #print(code,iso)
             changes = {"1904":0,"1806":1}
             self.results = calcImpact(code,changes)
+# some more variables
+if __name__=="__main__":
+    sim = Sim()
+    change = sim.runIt('FRA',.5)
+    print(change)

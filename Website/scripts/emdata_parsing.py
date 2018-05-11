@@ -9,7 +9,7 @@ import sys
 import pandas as pd
 import mysql.connector
 from sqlalchemy import create_engine
-from config import *
+from .config import *
 from IPython.display import display
 
 
