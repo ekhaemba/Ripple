@@ -30,7 +30,7 @@ class View:
             user="user", passwd="notatotallysafepassword", db="Blockchain")
         pass
         
-    def update(self,results):
+    def update(self,results,params):
 
         # for code in results:
 # 
@@ -40,11 +40,13 @@ class View:
        
 
         # Get all the export data
-        
         message = ""
         for line in open(os.path.join(self.path,"html/frame.html"), "r").readlines():
             if ("state_specific: {" in line):
-                message +=line
+                if params["mode"] == "calc":
+                    message += "{\n"
+                else:
+                    message +=line
                 if(len(results)>0):
                     cur = self.db.cursor()
                     cur.execute("SELECT * FROM country")
@@ -90,7 +92,9 @@ class View:
                         #block+='name: "{}",\n'.format(name)
                         #block+='description: "{}"\n'.format(results[int(code)])
                         #block+='},\n'
-            elif ('<select id = "country"' in line):
+
+                
+            elif ('<select id = "country"' in line) and params["mode"] != "calc":
                 message +=line 
                 cur = self.db.cursor()
                 cur.execute("SELECT * FROM country")
@@ -106,7 +110,12 @@ class View:
                         continue
                     message+=block
             else:
-                message += line
+                if params["mode"] != "calc":
+                    message += line
             #message +=line
+
+        if params["mode"] == "calc":
+            message += "}"
+            print(message)
         return message
 
