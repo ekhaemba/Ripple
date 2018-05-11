@@ -251,7 +251,7 @@ class Model:
             print(iso,impact)
             print(changes)
             #print(code,iso)
-            changes = {"1904":0,"1806":1}
+            #changes = {"1904":0,"1806":1}
             self.results = calcImpact(code,changes)
 # some more variables
 if __name__=="__main__":
