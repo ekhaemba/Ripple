@@ -18,7 +18,7 @@ import sys
 
 
 
-model = Model()
+# model = Model()
 view = View()
 path = os.path.dirname(__file__)
 def getValues(requestString):
@@ -37,7 +37,7 @@ class RequestHandler(BaseHTTPRequestHandler):
     
     # GET
     def do_GET(self):
-        global  model
+        # global  model
         global view
 
         if self.requestline ==  "GET /js/mapdata.js HTTP/1.1":
@@ -60,6 +60,7 @@ class RequestHandler(BaseHTTPRequestHandler):
             message = open("resource/RIPPLE.ico","rb").read()
         else:
             try:
+                model = Model()
                 params = getValues(self.requestline)
                 message = format("%s is not a mode") % params["mode"]
                 model.update(params)
@@ -86,8 +87,10 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.wfile.write(message)
         return
     
-#class ThreadedHTTPServer(socketserver.ThreadingMixIn, HTTPServer):
-#    """Handle requests in a separate thread."""
+class ThreadedHTTPServer(socketserver.ThreadingMixIn, HTTPServer):
+   """Handle requests in a separate thread."""
+
+
 def run():
 
     # Server settings
@@ -97,7 +100,7 @@ def run():
     #server.serve_forever()
     server_address = ('0.0.0.0', 8080)
 
-    httpd = HTTPServer(server_address, RequestHandler)
+    httpd = ThreadedHTTPServer(server_address, RequestHandler)
 
     print('Running Span...')
 
