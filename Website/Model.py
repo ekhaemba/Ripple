@@ -14,7 +14,7 @@ def downloadDatabase():
 
     # Get all the export data
     cur = db.cursor()
-    cur.execute("SELECT * FROM cocoapuffs")
+    cur.execute("SELECT * FROM trades")
     database = []
     oldTable = cur.fetchall()
 
@@ -69,25 +69,31 @@ def downloadDatabase():
     for i in range(len(database)):
         exOrIn = database[i][1]
         countryOne = database[i][2]
-        countryTwo = database[i][4]
-        commodity = str(database[i][7])
-        quantity = database[i][6]
-        value = database[i][8]
+        countryTwo = database[i][5]
+        commodity = str(database[i][9])
+        quantity = database[i][8]
+        value = database[i][10]
+
+        
         
         if commodity != "-1":
-        
-            i = commodities.index(commodity)
-            if exOrIn == 1:
-                if countryTwo in countries:
-                    j = countries.index(countryTwo)
-                    exportQuan[i][j] += quantity
-                    exportVal[i][j] += value
-            else:
-                if countryOne in countries:
-                    j = countries.index(countryOne)
-                    if quantity != None:
+
+            try:
+                i = commodities.index(commodity)
+                if exOrIn == 1:
+                    if countryTwo in countries:
+                        j = countries.index(countryTwo)
                         exportQuan[i][j] += quantity
-                    exportVal[i][j] += value
+                        exportVal[i][j] += value
+                else:
+                    if countryOne in countries:
+                        j = countries.index(countryOne)
+                        if quantity != None:
+                            exportQuan[i][j] += quantity
+                        exportVal[i][j] += value
+
+            except ValueError:
+                pass
 
         else:
             try:
