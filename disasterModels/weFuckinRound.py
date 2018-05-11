@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu May 10 17:28:57 2018
+
+@author: jasonreynolds
+"""
+
 ########################################################################
 #importing the libraries 
 import numpy as np
@@ -431,8 +439,8 @@ def importModelDatasets():
 #Modeling Functions
     
 def getInsOuts(dSet):
-    inputs = dSet.iloc[:,:-1].values
-    outputs = dSet.iloc[:,-1:].values
+    inputs = dSet.iloc[:,:-2].values
+    outputs = dSet.iloc[:,-2:].values
     return inputs,outputs
 
 def splitTrainTest(inputs,outputs):
@@ -557,57 +565,4 @@ Description:
 Parameter(s):
 Returns:
 """
-def pullAndGenComLists(iso,com):
-    for i in iso:
-        for c in com:
-            pullAndGenComList(i,c)
 
-def getComListFromTotalExportSheet(iso):
-    file = 'datasets/'+iso+'-TotalExports.csv'
-
-    try:
-        dataset = pd.read_csv(file)
-    except:
-        print("ERROR:pullItCom("+file+")")    
-        dataset =[]
-        pass
-    
-    dSet = []
-    tmpList = []
-    tmpListList = []
-    tmpCom = dataset.iloc[0,2]
-    numRows = len(dataset)
-    if (numRows !=0):
-        for n in range(numRows):
-            for ent in dataset.iloc[n,:4]:
-                tmpList.append(ent)
-#            tmpListList.append(tmpList)
-#            tmpList = []
-            if (tmpCom != dataset.iloc[n,2]):
-                tmpCom = dataset.iloc[n,2]
-                dSet.append(tmpListList)
-                tmpListList = []
-                tmpListList.append(tmpList)
-                tmpList = []
-            else:
-                tmpListList.append(tmpList)
-                tmpList = []               
-    return dSet
-
-def sortIt(dSet):
-    sortedDSet = []
-    for d in dSet:
-        sortedDSet.append(sorted(d,key=lambda item:item[0]))
-    return sortedDSet
-
-
-#            
-#>>> student_tuples = [
-#        ('john', 'A', 15),
-#        ('jane', 'B', 12),
-#        ('dave', 'B', 10),
-#]
-#>>> sorted(student_tuples, key=lambda student: student[2])   # sort by age
-#[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
-#
-#        
