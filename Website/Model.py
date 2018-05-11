@@ -90,11 +90,12 @@ def downloadDatabase():
                     exportVal[i][j] += value
 
         else:
-            if exOrIn == 2:
-                year = database[i][0]
-                if year == 2017:
-                    j = countries.index(countryOne)
+            try:
+                j = countries.index(countryOne)
+                if exOrIn == 2 and totalExports[j]<value:
                     totalExports[j] = value
+            except ValueError:
+                pass
 
     return countries,commodities,exportQuan,exportVal,totalExports
 
@@ -233,4 +234,3 @@ class Model:
             changes = {"1701":1,"1806":0}
 
             self.results = calcImpact(country,changes)
-            #print(self.results)
