@@ -140,7 +140,7 @@ class View:
                         #block+='description: "{}"\n'.format(results[int(code)])
                         #block+='},\n'
                     #"""
-            elif ('<select id = "country"' in line):
+            elif ('<select id="country"' in line):
                 message +=line 
                 cur = self.db.cursor()
                 cur.execute("SELECT * FROM country")
