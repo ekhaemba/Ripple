@@ -5,6 +5,7 @@ from configparser import ConfigParser
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from Model import *
 from View import *
+import sys
 
 # def main():
 #     config = ConfigParser()
@@ -36,9 +37,9 @@ class RequestHandler(BaseHTTPRequestHandler):
     
     # GET
     def do_GET(self):
-        global model
+        global  model
         global view
-        global path
+
         if self.requestline ==  "GET /js/mapdata.js HTTP/1.1":
             message = open("js/mapData.js","r").read()
 
@@ -53,6 +54,9 @@ class RequestHandler(BaseHTTPRequestHandler):
 
         elif self.requestline == "GET /resource/legend.jpg HTTP/1.1":
             message = open("resource/legend.jpg","rb").read()
+        elif self.requestline == "GET /resource/RIPPLE.png HTTP/1.1":
+            message = open("resource/RIPPLE.png","rb").read()
+            
         else:
             try:
                 params = getValues(self.requestline)
@@ -61,7 +65,8 @@ class RequestHandler(BaseHTTPRequestHandler):
                 message = view.update(model.results)
             except Exception as err:
                 print(err)
-                print("URL ERROR")
+                #print("URL ERROR")
+                print(sys.exc_info()[0])
                 print(self.requestline)
                 message = "Invalid url, are you supposed to be using /mode=init?"
         # Send response status code
