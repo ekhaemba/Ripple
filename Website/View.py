@@ -31,7 +31,7 @@ class View:
             user="user", passwd="notatotallysafepassword", db="Blockchain")
         pass
         
-    def update(self,results):
+    def update(self,results,params):
 
         # for code in results:
 # 
@@ -41,59 +41,15 @@ class View:
        
 
         # Get all the export data
-        
         message = ""
         for line in open(os.path.join(self.path,"html/frame.html"), "r").readlines():
             if ("state_specific: {" in line):
-                message +=line
-                c=0
-                #print(results)
-                """"
-                for key,value in results.items():
-                   # print(key,value)
-                    cur = self.db.cursor()
-                    cur.execute('SELECT * FROM Blockchain.country where  countryNameFull not like "%Former%" and iso2Dig is not Null and countryCode = {} ORDER BY countryCode ASC;'.format(key))
-                    #print("Fetched")
-                    data = cur.fetchall()
-                    if (len(data)<=0):
-                        continue
-                    data = data[0]
-                    code = int(data[0])
-                    name = data[1]
-                    iso2 = data[2]
-                    iso3 = data[3]
+              
+                if params["mode"] == "calc":
+                    message += "{\n"
+                else:
+                    message +=line
 
-                    if iso2 is not None and iso2[1] != "/":                    
-                        x = iso2+": {\n"
-                        x+='\t color: "#{}",\n'.format(color(results.get(code,"FFFFFF")))
-                        x+='\t name: "{}",\n'.format(name)
-                        localChange = results.get(code,"No data")
-                        if localChange != "No data":
-                            localChange = "{0:.2f}".format(100*localChange)+'%'
-                        x+='\t description: "{}"\n'.format(localChange)
-                        if c<len(results)-1:
-                            x+="},\n"
-                        else:
-                            x+="}\n"
-                        message+=x
-                        #print(x)
-                    elif iso3 =="NAM":
-                        x = "NA"+": {\n"
-                        x+='\t color: "#{}",\n'.format(color(results.get(code,"FFFFFF")))
-                        x+='\t name: "{}",\n'.format(name)
-                        localChange = results.get(code,"No data")
-                        if localChange != "No data":
-                            localChange = "{0:.2f}".format(100*localChange)+'%'
-                        x+='\t description: "{}"\n'.format(localChange)
-                        if c<len(results)-1:
-                            x+="},\n"
-                        else:
-                            x+="}\n"
-                        #print(c)
-                        message+=x
-                    c+=1
-                    """
-                    #"""
                 if(len(results)>0):
                     cur = self.db.cursor()
                     cur.execute("SELECT * FROM country;")
@@ -139,8 +95,9 @@ class View:
                         #block+='name: "{}",\n'.format(name)
                         #block+='description: "{}"\n'.format(results[int(code)])
                         #block+='},\n'
-                    #"""
-            elif ('<select id = "country"' in line):
+                        
+            elif ('<select id = "country"' in line) and params["mode"] != "calc":
+
                 message +=line 
                 cur = self.db.cursor()
                 cur.execute("SELECT * FROM country")
@@ -156,7 +113,12 @@ class View:
                         continue
                     message+=block
             else:
-                message += line
+                if params["mode"] != "calc":
+                    message += line
             #message +=line
+
+        if params["mode"] == "calc":
+            message += "}"
+            print(message)
         return message
 
