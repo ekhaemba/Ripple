@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Thu May 10 17:28:57 2018
-
-@author: jasonreynolds
-"""
-
 ########################################################################
 #importing the libraries 
 import numpy as np
@@ -22,7 +14,7 @@ from emdata_parsing import get_trend_table as gtt
 
 ########################################################################
 # Some Global variables
-countries = ['FRA','DEU','NGA','NLD','CIV','POL']
+countries = ['FRA','DEU','NGA','NLD','CIV','POL','USA']
 commodities = ['1001','1701','1801','1804']#,'1904','1806'
 
 ########################################################################
@@ -219,113 +211,117 @@ def processEmdat():
 
 ########################################################################
 # ComTrade Functions
-def pullItCom(file):
-    """
-    Description:
-    Parameter(s):
-    Returns:
-    """
+def getComListFromTotalExportSheet(iso):
+    file = 'datasets/'+iso+'-TotalExports.csv'
     try:
         dataset = pd.read_csv(file)
     except:
         print("ERROR:pullItCom("+file+")")    
-        
+        dataset =[]
         pass
+    
     dSet = []
-    tempList = []
-    numRows = len(dataset)
-    for n in range(numRows):
-        for line in dataset.iloc[n,:7]:
-            tempList.append(line)
-        dSet.append(tempList)
-        tempList = []
-    return dSet
-
-def removeFirstComEntry(comList):
-    """gets rid of countries whose adjusted trends are missing from comTrade"""
-    editedList = []
-    tmpEntry = []
-    
-    for c in comList:
-        for l in c:
-            if (str(l[4])==str(l[5]) and str(l[5])=='nan'):
-                print("edit out")
-                pass
-            else:
-                tmpEntry.append(l)
-        editedList.append(tmpEntry)
-        tmpEntry = []
-    if(len(editedList)==0):
-        print("ZERO SIZE LIST"+comList[0][1])
-    return editedList
-
-#DEPRECATED
-def getComList(country,commodity):
-    """
-    Description:
-    Parameter(s):country (string, three letter ISO code), commodity(string,HS code)
-    Returns:
-    """    
-    country = 'datasets/'+country+'-'+commodity+'.csv'
-    return pullItCom(country)
-
-def getComLists(countries,commodity):
-    """be sure to use parameter in format ['ISO1','ISO2,...,'ISOn']"""
-    comLists = []
-    for c in countries:#range(l):
-        comLists.append(getComList(c,commodity))
-        #comLists.append(pullAndGenComList(c,commodity))
-    return removeFirstComEntry(comLists)
-
-def pullAndGenComList(iso,com):
-    print("Pulling COMLIST:"+iso+"-"+str(com)+"...")
-    ds = gtt(iso,com)    
     tmpList = []
-    tmpEntry =[]
-    numRows = len(ds)
-    tmpTrend = None
-    tmpTrendAdj = None
-    trendList = []
+    tmpListList = []
+    tmpCom = dataset.iloc[0,2]
+    numRows = len(dataset)
+    if (numRows !=0):
+        for n in range(numRows):
+            for ent in dataset.iloc[n,:4]:
+                tmpList.append(ent)
 
-    for line in range(numRows):
-        tmpEntry.append(ds.iloc[line,0])
-        tmpEntry.append(ds.iloc[line,1])
-        tmpEntry.append(ds.iloc[line,2])
-        tmpEntry.append(np.log10(ds.iloc[line,3]))
+            if (tmpCom != dataset.iloc[n,2]):
+                tmpCom = dataset.iloc[n,2]
+                dSet.append(tmpListList)
+                tmpListList = []
+                tmpListList.append(tmpList)
+                tmpList = []
+            else:
+                tmpListList.append(tmpList)
+                tmpList = []               
+
+    sortedDSet = []
     
-        if line !=0:
-            tmpTrend = ds.iloc[line,3]/ds.iloc[line-1,3]
-            tmpEntry.append(tmpTrend)
-            trendList.append(tmpTrend)
-        else:
-            tmpTrend = None
-            tmpEntry.append(tmpTrend)
-                
-        tmpList.append(tmpEntry)
-        tmpEntry = []
+    for d in dSet:
+        sortedDSet.append(sorted(d,key=lambda item:item[0]))
         
-    med = np.median(trendList)
-#    ave = np.average(trendList)
-    std = np.std(trendList)
-    
-    dSetOut = []
-    for line in range(len(tmpList)):
-        if line != 0:
-            tmpEntry = []
-            tmpTrendAdj = (tmpList[line][-1]-med)/std
-            for n in range(5):
-                tmpEntry.append(tmpList[line][n])
-            tmpEntry.append(tmpTrendAdj)
-            dSetOut.append(tmpEntry)
-    filename = 'datasets/'+iso+"-"+str(com)+'.csv'
-    writeThisBitchOut(tmpList,filename)
-    return dSetOut
+    return sortedDSet#dOut
 
-def pullAndGenComLists(countries,commodities):
-    for com in commodities:
-        for c in countries:
-            pullAndGenComList(c,int(com))
-    return True
+
+def sortIt(dSet):
+    sortedDSet = []
+    for d in dSet:
+        sortedDSet.append(sorted(d,key=lambda item:item[0]))
+    return sortedDSet
+
+def calcTrends(dSet):
+    tmpEntry = []
+    tmpLst = []
+    adjDSet = []
+
+    for lst in dSet:
+        for line in range(len(lst)):
+            for index in range(4):
+                tmpEntry.append(lst[line][index])
+            if line != 0:
+                tmpEntry.append(tmpEntry[3]/lst[line-1][3])
+                tmpLst.append(tmpEntry)                
+            tmpEntry = []
+        
+        adjDSet.append(tmpLst)
+        tmpLst = []
+    
+    outLst = adjDSet#[]
+ 
+    return outLst
+
+def calcAdjTrend(dSet):
+    tmpTrnd = []
+    
+    for line in dSet:
+        tmpTrnd.append(line[4])
+        
+    med = np.median(tmpTrnd)            
+    std = np.std(tmpTrnd)    
+
+    tmpEntry = []
+    tmpLst = []
+    
+    for line in dSet:
+        for index in range(5):
+            tmpEntry.append(line[index])
+        tmpEntry.append((tmpEntry[4]-med)/std)
+        tmpLst.append(tmpEntry)
+        tmpEntry = []
+    return tmpLst
+
+def genTotalCSV(iso):
+    a = getComListFromTotalExportSheet(iso)
+    b = calcTrends(a)
+    
+    dOut = []
+    for lst in b:
+        if len(lst)>1:
+            try:
+                dOut.append(calcAdjTrend(lst))
+            except:
+                print('fail')
+                pass
+            
+    outD = []
+    tmpLst = []
+    for lst in dOut:
+        for line in lst:
+             tmpLst.append(line[:3]+line[4:])
+        outD.append(tmpLst)
+        tmpLst = []
+        com = outD[-1][0][2]
+        filename = 'datasets/'+iso+'-'+str(com)+'.csv'
+        writeThisBitchOut(outD[-1],filename)
+
+    return 'completed'
+
+
 
 ########################################################################
 # combining Functions
@@ -436,11 +432,13 @@ def importModelDatasets():
     return dSets
 
 ########################################################################
+
+########################################################################
 #Modeling Functions
     
 def getInsOuts(dSet):
-    inputs = dSet.iloc[:,:-2].values
-    outputs = dSet.iloc[:,-2:].values
+    inputs = dSet.iloc[:,:-1].values
+    outputs = dSet.iloc[:,-1:].values
     return inputs,outputs
 
 def splitTrainTest(inputs,outputs):
@@ -452,14 +450,6 @@ def regress(inputTrain,outputTrain):
     regressor.fit(inputTrain,outputTrain)
     return regressor
 
-def predict(arg):
-    predictList = []
-    resultDict = {'commodity':'change'}
-    for m in models:
-        predictList.append(m.predict(arg))
-    for c in commodities:
-        resultDict[c] = predictList[commodities.index(c)][0]
-    return resultDict
 
 def createModelRegressors():
     tmpI = []
@@ -468,8 +458,19 @@ def createModelRegressors():
     for m in modelDatasets:
         tmpI,tmpO = getInsOuts(m)
         iTr,iT,oTr,oT = splitTrainTest(tmpI,tmpO)
-        regs.append(regress(iTr,oTr))
+        r = regress(iTr,oTr)
+        regs.append(r)
+        print(r.score(iT,oT))
     return regs
+
+def predict(arg):
+    predictList = []
+    resultDict = {'commodity':'change'}
+    for m in models:
+        predictList.append(m.predict(arg))
+    for c in commodities:
+        resultDict[c] = predictList[commodities.index(c)][0]
+    return resultDict
 
 def inputFunc(country, intensity):
     headers = []
@@ -493,76 +494,52 @@ def runIt(c,i):
     r = predict(q)
     return r
 
-########################################################################
-# RANSAC REGRESSION
-
-def createModelRegressorsRANSAC():
-    tmpI = []
-    tmpO = []
-    regs = []
-    for m in modelDatasets:
-        tmpI,tmpO = getInsOuts(m)
-        iTr,iT,oTr,oT = splitTrainTest(tmpI,tmpO)
-        regs.append(regressRANSAC(iTr,oTr))
-    return regs
-
-def regressRANSAC(inputTrain,outputTrain):
-    regressor = RANSACRegressor()
-    regressor.fit(inputTrain,outputTrain)
-    return regressor
-
-def predictRANSAC(arg):
-    predictList = []
-    resultDict = {'commodity':'change'}
-    for m in RANSACModels:
-        predictList.append(m.predict(arg))
-    for c in commodities:
-        resultDict[c] = predictList[commodities.index(c)][0]
-    return resultDict
-
-def RANSACIt(c,i):
-    q = inputFunc(c,i)
-    r = predictRANSAC(q)
-    return r
-
 
 ########################################################################
 # some more variables
-modelDatasets = importModelDatasets()
-models = createModelRegressors()
-RANSACModels = createModelRegressorsRANSAC()
-
+#modelDatasets = importModelDatasets()
+#models = createModelRegressors()
 ########################################################################
-#Comparing models
-#
-#i,o = getInsOuts(modelDatasets[0])
-#iT,iTt,oT,oTt = splitTrainTest(i,o)
-#
-#RANSAC = regressRANSAC(iT,oT)
-#LIN = regress(iT,oT)
-#
-#ranP = RANSAC.predict(iT)
-#linP = LIN.predict(iT)
-#
-#tmpIT = []
-#for line in iT:
-#    tmpIT.append(line[-1])
-#
-#plt.scatter(tmpIT,oT, color = 'red')
-##plt.plot(tmpIT,linP, color = 'blue')
-#plt.plot(tmpIT,ranP, color = 'orange')
-#plt.title('Comparison of Regressions')
-#plt.xlabel('Disaster Impact')
-#plt.ylabel('Economic impact')
-#plt.ylim(-2.5,2.5)
-#plt.show()
-#
-#
-#
-#
-"""
-Description:
-Parameter(s):
-Returns:
-"""
+    
+def main():
+    emdata = processEmdat()
+    
+def getAndPruneTotalList(iso):
+    dataset = pd.read_csv('datasets/'+iso+'-TotalExports.csv')
+    
+    tmpEntry = []
+    dSet = []
+    
+    for line in range(len(dataset)):
+        tmpYear = dataset.iloc[line][1]
+        tmpISO = dataset.iloc[line][10]
+        tmpCom = dataset.iloc[line][21]
+        tmpExp = dataset.iloc[line][29]
+        tmpEntry.append(tmpYear)
+        tmpEntry.append(tmpISO)
+        tmpEntry.append(tmpCom)
+        tmpEntry.append(tmpExp)
+        dSet.append(tmpEntry)
+        tmpEntry = []
+    
+    print("full sheet comtrade data pulled...")
+    return dSet
 
+
+
+
+    
+def divideTotalListByCommodity(dataset):
+    tmpDataset = []
+    tmpComList = []
+    currCom = dataset[0][2]
+    for line in dataset:
+        if line[2] == currCom:
+            tmpComList.append(line)
+        else:
+            currCom = line[2]
+            tmpDataset.append(tmpComList)
+            tmpComList = []
+    return tmpDataset
+            
+        
