@@ -65,92 +65,59 @@ def get_disaster_frame(emdat_df):
     return dis_frame
 #%%
 #Create consolidated table from disaster frame
-def get_consolidated_table(dis_frame):
-    unique_years = get_unique_years(emdat_df)
-    sum_dis_frame = None
-    for year in unique_years:
-        this_year = dis_frame[dis_frame['DisYear']==year]
-        unique_countries = this_year['ISO'].unique()
-        for country in unique_countries:
-            this_frame = this_year.loc[this_year['ISO'] == country]
-            row = None
-            if len(this_frame) > 1:
-                result_series = this_frame[['Deaths','DollarDmg']].apply(np.sum,axis=0)#Series
-                remaining_series = pd.Series([year,country],index=['DisYear','ISO'])#Series
-                row = pd.concat([remaining_series,result_series])#Series
-                row = pd.DataFrame(row).T#DataFrame
-            else:
-                row = this_frame#DataFrame
-            sum_dis_frame = pd.concat([sum_dis_frame,row])
-    assert(sum_dis_frame[sum_dis_frame.duplicated(['DisYear','ISO'])].empty)
-    return sum_dis_frame
+def consolidate(disaster_frame):
+    return disaster_frame.groupby(['DisYear','ISO'],as_index=False).sum()
 #%%
 #Create adjusted table from consolidated table
-def get_dis_adj(sum_dis_frame):
-    def set_adj_dollars(x):
-        return log(x.DollarDmg + 1,10)/10
-    def set_adj_death_rate(x,isolist):
-        inlist = x.ISO in isolist
-        if inlist:
-            return x.Deaths/((death_df.Population/1000)*death_df.deathRate)
+def adj_consolidated(consolidated):
+    def adjust(x, isolist):
+        adj_dollars = log(x.DollarDmg + 1,10)/10
+        adj_deaths = 0
+        if x.ISO in isolist:
+            this_pop = death_df.loc[death_df.ISO==x.ISO,'Population']
+            this_deathrate = death_df.loc[death_df.ISO==x.ISO,'deathRate']
+            adj_deaths = x.Deaths/((this_pop/1000)*this_deathrate)
         else:
-            return x.Deaths
-    def impact_calc(x):
-        return x['AdjDeath'] + x['AdjDollarDmg']
-    adj_frame = sum_dis_frame.copy()
-    the_iso_list = death_df.ISO.unique()
-    adj_frame.loc[:,'AdjDeath'] = sum_dis_frame.apply(set_adj_death_rate, args=(the_iso_list,) ,axis=1)#Series
-    adj_frame.loc[:,'AdjDollarDmg'] = sum_dis_frame.apply(set_adj_dollars,axis=1)
-    print(adj_frame.columns)
-    adj_frame.loc[:,'Impact'] = adj_frame.apply(impact_calc,axis=1)
-    adj_frame = adj_frame.drop(columns=['Deaths','DollarDmg'])
-    return adj_frame
+            adj_deaths =  x.Deaths
+        impact = adj_dollars + adj_deaths
+        return pd.Series([x.DisYear,x.ISO,adj_deaths,adj_dollars,impact],index=['DisYear','ISO','AdjDeath','AdjDollarDmg','Impact'])
+    return consolidated.apply(adjust, args=(death_df['ISO'].unique(),), axis=1)
 #%%
 #
 #Regarding Comtrade
 #
-def get_trend_table(trades,iso):
-    #Get the trades where the partner is World, commodity code is not Total, the ISO is not null, the ISO is this iso
-    iso_trades = trades[(trades['rgCode']==2)&(trades['ptCode']==0)&(trades['cmdCode']!=-1)&(trades['rt3ISO'].notnull())&(trades['rt3ISO'] == iso)]
-    #For a given iso frame
-    commodities = iso_trades.cmdCode.unique()
-    trend_frame = None
-    for commodity in commodities:
-        this_trend = iso_trades.loc[iso_trades.cmdCode == commodity]
-        #Sort ascending by year
-        this_trend = this_trend.sort_values('yr')
-        #Add the trend column
-        this_trend.loc[:,'Trend'] = this_trend['TradeQuantity'].pct_change()
-        #Drop the first record
-        this_trend = this_trend.iloc[1:]
-        median_trend = this_trend.Trend.median()
-        std_dev = this_trend.Trend.std()
-        trend = this_trend.Trend
-        this_trend.loc[:,'AdjTrend'] = trend.apply(lambda x: (x-median_trend)/std_dev)
-        trend_frame = pd.concat([this_trend,trend_frame])
-    print("Finished ISO",iso)
-    if trend_frame is not None:
-        return trend_frame.drop(columns=['Trend'])
-    else:
-        return trend_frame
+def get_world_trades(trades):
+    return trades[(trades['rgCode']==2)&(trades['ptCode']==0)&(trades['cmdCode']!=-1)&(trades['rt3ISO'].notnull())]
+def get_trends(world_trades):
+    trades_copy = world_trades.copy()
+    trades_copy = trades_copy.sort_values('yr')
+    groupies = trades_copy.groupby(['rt3ISO','cmdCode'])
+    #Based on the quantity series create a frame with two columns.
+    #One is the pct change with the infinities
+    #The other is the pct_change where the inf = 0. As in nothing changed.
+    def trendy(quant_series):
+        return pd.DataFrame({'Trend':quant_series.pct_change(),'FilledTrend':quant_series.pct_change().replace(np.inf,0)})
+    #Based on the filled trend series create a dataframe with a single column
+    #The adjusted value of the filled trend
+    def trend_adj(filled_trend):
+        #For each value return the difference to the median and divide by std deviation. 
+        #Like a zscore
+        def adjust(value):
+            return (value - filled_trend.median())/filled_trend.std()
+        return pd.DataFrame({'AdjTrend':filled_trend.apply(adjust)})
+    trades_copy = pd.concat([trades_copy,groupies['TradeQuantity'].apply(trendy)],axis=1)
+    trades_copy = trades_copy.dropna(subset=['FilledTrend'])
+    groupies = trades_copy.groupby(['rt3ISO','cmdCode'])#Regroup for added columns
+    trades_copy = pd.concat([trades_copy,groupies['FilledTrend'].apply(trend_adj)],axis=1)
+    groupies = trades_copy.groupby(['rt3ISO','cmdCode'])#Regroup for added column
+    return trades_copy
 #%%
-def get_all_trends(trades):
-    isos = trades[(trades['rt3ISO'].notnull())].rt3ISO.unique()
-    all_trends = None
-    for iso in isos:
-        all_trends = pd.concat([all_trends,get_trend_table(trades,iso)])
-    print("Done gathering all trends")
-    return all_trends
-#%%
-all_trends = get_all_trends(trades)
-#%%
-#us_trends = all_trends[all_trends.rt3ISO=='USA']
-dis_adj = get_dis_adj(get_consolidated_table(get_disaster_frame(emdat_df)))
-joined_table = pd.merge(all_trends,dis_adj,left_on=['yr','rt3ISO'],right_on=['DisYear','ISO'],how='left',indicator=True)
+dis_adj = adj_consolidated(consolidate(get_disaster_frame(emdat_df)))
+world_trades = get_world_trades(trades)
+trends_table = get_trends(world_trades)
+joined_table = pd.merge(trends_table,dis_adj,left_on=['yr','rt3ISO'],right_on=['DisYear','ISO'],how='left',indicator=True)
 #%%
 matched = joined_table[joined_table['_merge']=='both']
 matched = matched[['cmdCode','ISO','rtTitle','yr','TradeQuantity','AdjTrend','AdjDeath','AdjDollarDmg','Impact']]
-matched = matched.set_index(['cmdCode','ISO']).sort_index()
 #%%
-#commodities = matched.index.get_level_values(0).unique()
-#np.random.choice(commodities,1)
+
