@@ -12,6 +12,7 @@ from sqlalchemy import create_engine
 import mysql.connector
 import numpy as np
 from math import log
+import matplotlib.pyplot as plt
 #%%
 def eng_connector(user=None,password=None,host=None,port=None,database=None):
     engine = create_engine('mysql+mysqlconnector://{user}:{password}@{host}:{port}/{database}'.format(user=username,password=password,host=hostname,port=port,database=database), echo=False)
@@ -110,7 +111,7 @@ def get_trends(world_trades):
     groupies = trades_copy.groupby(['rt3ISO','cmdCode'])#Regroup for added columns
     trades_copy = pd.concat([trades_copy,groupies['FilledTrend'].apply(trend_adj)],axis=1)
     groupies = trades_copy.groupby(['rt3ISO','cmdCode'])#Regroup for added column
-    return trades_copy
+    return trades_copy.reset_index()
 #%%
 dis_adj = adj_consolidated(consolidate(get_disaster_frame(emdat_df)))
 world_trades = get_world_trades(trades)
@@ -120,4 +121,15 @@ joined_table = pd.merge(trends_table,dis_adj,left_on=['yr','rt3ISO'],right_on=['
 matched = joined_table[joined_table['_merge']=='both']
 matched = matched[['cmdCode','ISO','rtTitle','yr','TradeQuantity','AdjTrend','AdjDeath','AdjDollarDmg','Impact']]
 #%%
-
+iso_set = death_df['ISO'].unique()
+death_matches = matched[matched['ISO'].apply(lambda x: x in iso_set)]
+plot_count = 0
+max_plots = 10
+for commodity, comgroup in death_matches.groupby('cmdCode'):
+    if plot_count > max_plots:
+        break
+    plot_count += 1
+    iso_groups = comgroup.groupby('ISO')
+    fig, ax = plt.subplots(figsize=(8,6))
+    for iso, isogrp in iso_groups:
+        isogrp.plot(x='yr',y='AdjTrend',legend=True, label=iso, ax=ax, title=commodity)
