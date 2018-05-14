@@ -1,0 +1,43 @@
+{
+	"1001":{
+		"components":[],
+		"uses":["1904"],
+		"demandElasticity":-1,
+		"supplyElasticity":1
+	},
+
+	"1701":{
+		"components":[],
+		"uses":["1806","1904"],
+		"demandElasticity":-1,
+		"supplyElasticity":1
+	},
+
+	"1801":{
+		"components":[],
+		"uses":["1804","1806"],
+		"demandElasticity":-1,
+		"supplyElasticity":1
+	},
+	
+	"1804":{
+		"components":["1801"],
+		"uses":["1806"],
+		"demandElasticity":-1,
+		"supplyElasticity":1
+	},
+	
+	"1806":{
+		"components":["1701","1801","1804"],
+		"uses":[],
+		"demandElasticity":-1,
+		"supplyElasticity":1
+	},
+
+	"1904":{
+		"components":["1701","1001"],
+		"uses":[],
+		"demandElasticity":-1,
+		"supplyElasticity":1
+	}
+}
