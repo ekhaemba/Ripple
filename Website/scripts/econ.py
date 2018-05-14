@@ -273,4 +273,11 @@ def getEconEffect(groundZero,disasterChanges):
 
             exportChanges[country] -= commodityChange*exportsByCommodity.get(commodity,{}).get(country,0)/totalExports.get(country,1)
 
+    for country in exportChanges:
+        exportChanges[country] += -1
+
     return exportChanges
+
+
+
+# print(getEconEffect("276",{"1904":.9,"1804":.75}))
