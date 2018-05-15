@@ -4,13 +4,10 @@ Spyder Editor
 
 This is a temporary script file.
 """
-
+#%%
 import pandas as pd
-from config import get_trade_data, upload_db
-import mysql.connector
-from mysql.connector.errors import IntegrityError
-from sqlalchemy import create_engine , exc
-
+from config import get_trade_data, upload_db, eng_connector
+#%%
 def prune_columns(frame):
   important_columns = ['yr','rgCode', 'rtCode','rtTitle', 'rt3ISO', 'ptCode', 'ptTitle', 'pt3ISO', 'TradeQuantity', 'cmdCode', 'TradeValue']
   frame = frame[important_columns]
@@ -65,9 +62,9 @@ def clean_df_db_dups(df, tablename, engine, dup_cols=[],
     df = df[df['_merge'] == 'left_only']
     df.drop(['_merge'], axis=1, inplace=True)
     return df
-
-df_iter = pd.read_csv("~/Ripple/ivorycoast_export.csv",chunksize=10000,encoding = "ISO-8859-1")
-
+#%%
+df_iter = pd.read_csv("~/Ripple/oil_exports.csv",chunksize=10000,encoding = "ISO-8859-1")
+eng, con = eng_connector()
 #result = eng.execute("SELECT yr, rtCode, ptCode, cmdCode, COUNT(*) FROM trades GROUP BY yr, rtCode, ptCode, cmdCode HAVING COUNT(*) > 1")
 #eng.execute("ALTER IGNORE TABLE trades ADD UNIQUE INDEX id (yr, rtCode, ptCode, cmdCode, rgCode);")
 frame = get_trade_data()
@@ -78,7 +75,7 @@ frame = get_trade_data()
 # =============================================================================
 
 # =============================================================================
-# dup_cols = dup_cols=['yr','rtCode','ptCode','cmdCode']
+# dup_cols = dup_cols=['yr','rtCode','ptCode','cmdCode','rgCode']
 # tablename='trades'
 # chunk_count = 0
 # my_frame = None

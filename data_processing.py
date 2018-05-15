@@ -11,6 +11,14 @@ from config import get_trade_data
 import numpy as np
 from math import log
 import matplotlib.pyplot as plt
+from sklearn.neural_network import MLPRegressor
+from sklearn.gaussian_process import GaussianProcessRegressor
+from sklearn.neighbors import KNeighborsRegressor, RadiusNeighborsRegressor
+from sklearn.linear_model import LinearRegression, Ridge, Lasso, ElasticNet, SGDRegressor
+from sklearn.ensemble import RandomForestRegressor, AdaBoostRegressor, BaggingRegressor, ExtraTreesRegressor, GradientBoostingRegressor
+from sklearn.svm import SVR
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score
 #%%
 def split_dates(frame):
     dates = frame.DisDate
@@ -167,3 +175,36 @@ def do_all():
     return resultant_table, joined_table, dis_adj, trends_table
 #%%
 result_frame, joined_frame, dis_adj_frame, trends_frame = do_all()
+#%%
+def pred(result_frame,commodity,model,columns_excluded = ['yr','cmdCode'], predicted_column = 'Impact'):
+    comm_groups = result_frame.groupby('cmdCode')
+    this_group = comm_groups.get_group(commodity)
+    y = this_group[predicted_column]
+    X_train, X_test, y_train, y_test = train_test_split(this_group.drop(columns=predicted_column), y, test_size=0.25)
+    train_predictors = X_train.drop(columns=columns_excluded)
+    test_predictors = X_test.drop(columns=columns_excluded)
+    model.fit(train_predictors,y_train)
+    test_predicted = model.predict(test_predictors)
+    fig, ax = plt.subplots(figsize=(8,6))
+#    plt.scatter(X_test['yr'],test_predicted)
+    countries_frame = X_test.drop(columns=['yr','cmdCode','AdjTrend'])
+    for column in countries_frame:
+        this_country_bool = countries_frame[column] == 1
+        if not this_country_bool.any():
+            print('None are true',column)
+            continue
+        years = X_test.loc[this_country_bool,'yr']
+        predictions = test_predicted[this_country_bool]
+        actual = y_test[this_country_bool]
+        ax.scatter(years,predictions,label='Pred {}'.format(column))
+        ax.scatter(years,actual,label='Actual {}'.format(column))
+    ax.legend()
+    plt.show()
+    return model, X_test, test_predicted, y_test
+#%%
+this_model = MLPRegressor()
+#excluded_columns = ['cmdCode'] 
+excluded_columns = ['yr','cmdCode'] 
+this_model, x_test, predicted, actual = pred(result_frame,1801,this_model,columns_excluded=excluded_columns)
+#this_model.score(x_test.drop(columns=excluded_columns),actual)
+cross_val_score(this_model, x_test.drop(columns=excluded_columns), actual, cv=4)
