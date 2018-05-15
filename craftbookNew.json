@@ -39,5 +39,19 @@
 		"uses":[],
 		"demandElasticity":-1,
 		"supplyElasticity":1
+	},
+
+	"2709":{
+		"components":[],
+		"uses":["2710"],
+		"demandElasticity":-0.1,
+		"supplyElasticity":1
+	},
+
+	"2710":{
+		"components":["2709"],
+		"uses":[],
+		"demandElasticity":-0.1,
+		"supplyElasticity":1
 	}
 }
