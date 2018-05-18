@@ -3,7 +3,8 @@ import json
 import numpy
 import mysql.connector
 
-craftbookFile = "../craftbookNew.json"
+# craftbookFile = "../craftbookNew.json"
+craftbookFile = "craftbookNew.json"
 
 host="blockchain.cabkhfmbe846.us-east-2.rds.amazonaws.com"
 user="user"
@@ -278,22 +279,23 @@ def getCostChanges(priceChanges):
 
 def getEconEffect(groundZero,disasterChanges):
 
-    print(groundZero)
+    # print(groundZero)
 
     quanChanges = getAllQuanChanges(disasterChanges,groundZero)
     priceChanges = getPriceChanges(quanChanges,disasterChanges)
     costChanges = getCostChanges(priceChanges)
 
-    print(quanChanges)
-    print(priceChanges)
-    print(costChanges)
+    # print(quanChanges)
+    # print(priceChanges)
+    # print(costChanges)
 
 
     exportsByCommodity = getCommodityExports(quanChanges)
     totalExports = getTotalExports()
 
     exportChanges = {}
-    commodities = getCommodities()
+    # print(costChanges)
+    # print(getCountries())
     for country in getCountries():
         exportChanges[country] = 1
         for commodity in costChanges:
@@ -304,6 +306,9 @@ def getEconEffect(groundZero,disasterChanges):
             # print(country,commodity,commodityChange)
             exportChanges[country] -= (1-commodityChange)*exportsByCommodity.get(commodity,{}).get(country,0)/totalExports.get(country,1)
             # print("Ratio: ", exportsByCommodity.get(commodity,{}).get(country,0)/totalExports.get(country,1))
+            if country == 276 and commodity == "1806":
+                print((1-commodityChange)*exportsByCommodity.get(commodity,{}).get(country,0)/totalExports.get(country,1))
+    
     for country in exportChanges:
         exportChanges[country] += -1
 
