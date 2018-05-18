@@ -135,7 +135,9 @@ def run():
     httpd = ThreadedHTTPServer(server_address, RequestHandler)
 
     print('Running Ripple...')
-
-    httpd.serve_forever()
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        print("Ending server due to keyboard interrupt")
 if __name__ == '__main__':
     run()
