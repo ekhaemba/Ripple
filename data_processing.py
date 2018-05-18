@@ -176,35 +176,77 @@ def do_all():
 #%%
 result_frame, joined_frame, dis_adj_frame, trends_frame = do_all()
 #%%
-def pred(result_frame,commodity,model,columns_excluded = ['yr','cmdCode'], predicted_column = 'Impact'):
-    comm_groups = result_frame.groupby('cmdCode')
+def pred(comm_groups,commodity,model,columns_excluded = ['yr','cmdCode'], predicted_column = 'Impact',plot_country=None, plot=False):
+    #Split by group, then get the group
     this_group = comm_groups.get_group(commodity)
+    
     y = this_group[predicted_column]
     X_train, X_test, y_train, y_test = train_test_split(this_group.drop(columns=predicted_column), y, test_size=0.25)
     train_predictors = X_train.drop(columns=columns_excluded)
     test_predictors = X_test.drop(columns=columns_excluded)
     model.fit(train_predictors,y_train)
     test_predicted = model.predict(test_predictors)
-    fig, ax = plt.subplots(figsize=(8,6))
-#    plt.scatter(X_test['yr'],test_predicted)
     countries_frame = X_test.drop(columns=['yr','cmdCode','AdjTrend'])
-    for column in countries_frame:
-        this_country_bool = countries_frame[column] == 1
-        if not this_country_bool.any():
-            print('None are true',column)
-            continue
-        years = X_test.loc[this_country_bool,'yr']
-        predictions = test_predicted[this_country_bool]
-        actual = y_test[this_country_bool]
-        ax.scatter(years,predictions,label='Pred {}'.format(column))
-        ax.scatter(years,actual,label='Actual {}'.format(column))
-    ax.legend()
-    plt.show()
-    return model, X_test, test_predicted, y_test
+    if plot:
+        fig, ax = plt.subplots(figsize=(8,6))
+        if plot_country is not None:
+            this_country_bool = countries_frame[plot_country] == 1
+            if not this_country_bool.any():
+                print('None are true',plot_country)
+            else:
+                years = X_test.loc[this_country_bool,'yr']
+                predictions = test_predicted[this_country_bool]
+                actual = y_test[this_country_bool]
+                ax.scatter(years,predictions,label='Pred {}'.format(plot_country))
+                ax.scatter(years,actual,label='Actual {}'.format(plot_country))
+                ax.legend()
+                plt.show()
+        else:
+            for column in countries_frame:
+                this_country_bool = countries_frame[column] == 1
+                if not this_country_bool.any():
+                    print('None are true',column)
+                    continue
+                years = X_test.loc[this_country_bool,'yr']
+                predictions = test_predicted[this_country_bool]
+                actual = y_test[this_country_bool]
+                ax.scatter(years,predictions,label='Pred {}'.format(column))
+                ax.scatter(years,actual,label='Actual {}'.format(column))
+            ax.legend()
+            plt.show()
+    return model, this_group
 #%%
-this_model = MLPRegressor()
-#excluded_columns = ['cmdCode'] 
-excluded_columns = ['yr','cmdCode'] 
-this_model, x_test, predicted, actual = pred(result_frame,1801,this_model,columns_excluded=excluded_columns)
-#this_model.score(x_test.drop(columns=excluded_columns),actual)
-cross_val_score(this_model, x_test.drop(columns=excluded_columns), actual, cv=4)
+def test_models(result_frame,model_list,commodity,excluded_columns = ['yr','cmdCode'],dep_variable='Impact'):
+    best_score = -1
+    best_model_name = ''
+    best_model = None
+    group = None
+    for model in model_list:
+        this_model = model()
+        model_name = this_model.__class__.__name__
+        print("Current model",model_name)
+        groups = result_frame.groupby('cmdCode')
+        this_model, group = pred(groups,1801,this_model,columns_excluded=excluded_columns)
+        this_score = cross_val_score(this_model, group.drop(columns=excluded_columns+[dep_variable]), group[dep_variable], cv=4).mean()
+        if this_score > best_score:
+            print(best_model,"was beaten by",model_name)
+            best_model_name = model_name
+            best_score = this_score
+            best_model = this_model
+    print("Best model was",best_model_name,'with a score of',best_score)
+    return best_model, group
+model_list = [MLPRegressor,GaussianProcessRegressor,KNeighborsRegressor,LinearRegression, Ridge, Lasso, ElasticNet, SGDRegressor,RandomForestRegressor, AdaBoostRegressor, BaggingRegressor, ExtraTreesRegressor, GradientBoostingRegressor,SVR]
+best, group = test_models(result_frame,model_list,1701)
+#%%
+excluded_columns = ['yr','cmdCode']
+predictors = group.drop(columns=['yr','cmdCode'] + ['Impact'])
+predictions = best.predict(predictors)
+plt.scatter(group.yr,predictions,label='Predicted',)
+plt.scatter(group.yr,group.Impact,label='Actual')
+plt.xlabel('Year')
+plt.ylabel('Impact')
+plt.title('{} Regression results for all countries'.format(best.__class__.__name__))
+plt.legend()
+plt.show()
+this_score = cross_val_score(best, group.drop(columns=excluded_columns+['Impact']), group['Impact'], cv=4).mean()
+print(this_score)
