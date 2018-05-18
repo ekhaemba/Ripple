@@ -1871,17 +1871,4132 @@ var simplemaps_worldmap_mapinfo = {
 }
 
 /* Map logic - do not edit */
-eval((function(x) {
-  var d = "";
-  var p = 0;
-  while (p < x.length) {
-      if (x.charAt(p) != "`") d += x.charAt(p++);
-      else {
-          var l = x.charCodeAt(p + 3) - 28;
-          if (l > 4) d += d.substr(d.length - x.charCodeAt(p + 1) * 96 - x.charCodeAt(p + 2) + 3104 - l, l);
-          else d += "`";
-          p += 4
-      }
-  }
-  return d
-})("(function (plugin_name) {` .') ` \"(funcName, baseObj) {` ,$ = ` \"%|| \"docReady\";` E# =` N$ || window;var readyList = []` )&Fired = false` -&EventHandlersInstall` ='`!e%` H!() {if (!` h&) {` r)true;for (var i = 0; i <`!N&.length; i++` V$List[i].fn.call(`\"*\",` K&[i].ctx);}`\"1+}}`!U*StateChange`!f$document.` 7& === \"complete\"`!?$();}}`#P#[`#x$]`$%#`$O\"callback, context` ~#`\"e)setTimeout`%/*` U$(` T$;}, 1);return;} else`\"h'.push({fn:`!,'tx:` X#});}`!{B || !` >%attach`%5! && ` F5interactiv`\"~!`\"+'` E!`!v!`!m#`%L&`%{2`#{,add` D!Listener) {` #5(\"DOMContentLoaded\"`%S#,`' \");`%j\"` G/loa` <.`#`$`\"]0(\"on` I!statec`&$!` Y$`&1'`!)&` M*`!$(`'%$`(j5`(G!}};})(`*7&,`*&#);`%q'console, Object, Array`#N#typeof ` =#`$U\"undefined`%6!` 4*.log` 6,) {` W% {};` >)`'t') {}`&O\"` m#`!K\".create !== \"` F$\") {` 1*` ^(o`-'#` )!F` t!F.prototype = o`(0# new F;`!0#!`\"U!` ?&.forEach) {` #3`!))fn, scope) {`,8*, len = this`,9& < len; ++i) {`,7$` ]!,` F![i], i` &\")`$h!})`,X#.`$M%` )#`$U$` (#`$^\";})()`.k!helper =`04\"`#g%` $%delete_element(e) {e.parentNode.removeChild(e);`-O&clear_sets(arr`\"I-`\"A\"arr`.k+var set = arr[i];set`#M$`!X'`!B\"`!7\"();})` C!splice(0, se`/k$)`/ *placeAll(str, find,` .$`.l!`%8!str.` .#(new RegExp(` H\"\"g\")` J&`\"G'to_float(str`\"##num = parseF` 2%;if (isNaN(num)`!-&`2X\"`.g&`&c\"um`!v(`+f$(obj,`(!, fn`)N#obj`*p() {obj[\"e\" +` F! + fn`0v!n;obj[` &*`%4(` D0`&:$e` w!;};`! +(\"on` J$, ` r*`-6&` P!`-c,`\" $`-d&`\"H&linePath(startX, ` #!Y, endX, endY`%p$tart = {x:` D$y` $\"Y}`'h!end` 9\"` U\"y:endY}`*K$\"M\" +` _\".x + \" ` &&y` +!L\" + end` 4'end.y`'j)one(src`.O!n`&1!`,O'` .' != \"o`)Y!`-k!` /(=== null`&h'` 4&;}`&6!ew` E&` 3(`*]!tructor();`),'i` Z)) {` Y'[i] =`!l.[i]`0m!`-L$`!6*isMobi`/9\"Android:`%z)` Q$avigator.userAgent.match(/` P#/i);}, BlackBerry` 8L` P&` d#iOS` 4LiPhone|iPad|iPo`!M$Opera` <L` P!\\sMini` `#W`(Y!s` 9LIE`#^\"` _#an`\"e2`$#$.`#J#() ||` ,&`\"u&` *+iOS` #+`!u!` %+`!u#(`1(!`!6%isF` $#`.q%ToCheck`)J#getT`3R\"{`(}%` ;+ &&` ?$.toString`2J\"` b-=== \"[`(L\" `!2$]\"`)2'findPos(obj`1x(getStyle`-n\"styleProp`-j'curren` @\"`!u#y = ` +,[` S%]`,h$if `-P$getComputed` Y,` +3`!K\"`*D!` n)`#$#`+L(scrollDist(` q#html = document.getE`4@\"sByTagName(\"html\")[0]`11!html.` e\"Top &&` U&` `$` ]#` <&`&:&[` T'Left,`!?!` @&`\"h)` |+||` NY +` ?<`!=0` 4>`!f,` F%body`!D1` .0`!6\"` E3`$f&[0, 0]`-u\"body_posi`$y!=`&z&` Y), \"` <$\")`$]!` I+= \"relative\") {`!4+tyle.` z'\"static\"`!=\"`'S#` vC` K#top` #$left =` .# = 0, scr`(Q\", fixed = false;while ((` ;\"scr.parentNode) &&` U!!`'C'body) {` $-` O\"`%F'|| 0;`!5#` 1)`&G#0`#*!`\"1%scr`\"#)`#6!`!_!\") {`!e$true;}}if (` -\"&& !`)v#opera`)5#scrDist`\"%\"`)O%;`!f$+` 3!Dist[0]`!]$` *'1];}do`\"4&+`+e\"offsetLeft` I'` /&Top;} `#C#obj`,:#` 7\"P`#J!);`%#;`%r)`.k$[`!A#,`$e#]`+m'distance(xy0, xy1`\"[#x0 = xy0.x`%J!y` '$y` *!x1` *!1` 6$` '$` 8\"dx = x1 - x0` +\"y = y1 - y0`!M$Math.sqrt(dy * dy + dx * dx)`!U'rotate(point, transform`!^$ = ` 6![0]`!D\"` (%1` +\"str = Raphael.` W%Path(\"M\" + x + \",\" + y` u(`1e%(`(6\"re = /M(-?\\d+.?\\d*),(` \"'/` A!m = re.exec(str)`#z%m[1], m[2]`#r(bbox_union(arr`\"-$a = [`!y\"x2` \"'y2` /'y` %#for (var i = 0; i < arr.length; i++` q#bb = arr[i];xa.push(bb.x);x2` $'2);y` %&y);y` 3'y2)`+W\"x = helper.min(xa`# \"x2` -'ax(x2` 2#y` B*y` /$` A+y2a`#+%{x:x, x2:x2, y:y, y2:y2, width:x2 - x, height:y2 - y}`#R'mi`#Q!ay`/T&`&P!min.apply(Math, ` >\"` M(ax` C2ax` ;:`''\"_bbox(bbox`&.`$P!bbox.x,`%9!.y`$i\"b` /&2` ,*c` A.2` 4\"d` A/` 4#a2 =`(T$a`!;(`!'\"` 3'b` --c` 3'c` --d` 3'd` --x_`\"p! = [a2[0], b2` \"!c` (\"d2[0]`':#` >)1` E\"1` E\"1` E\"1` D#x_min =`$m!` {#`!'$max =`$M!` ,)y` G'`!\"#` 0%` I%` 0%`&F'_min`&I!` #\"x2:` !`&V\"` $\"`&X#` d!-`!V\"`&\\&` /#` Z!`&a(x_in`!)\"(x, `1 $i = a`)c$`/s#i--) {if (a[i] === x`&_&`1{#` '#`3w\"` &${min:`!I!max:`!g!addEvent:a` \"#, isMobile:i` \"#, linePath:l` \"#, clone:clone, isF`\"!#:i` \"%, findPos:f` \"\", replaceAll:r` \"%,`(+(:`(8'` 1$` -#`'<\"`-H\":`-O&,`1Z%:`1d$,`#C':`#O&, clear_sets:c` \"%, delete_element:d` \"), to_float:t` \"#};})`/o#mapdata = window[plugin_name + \"_` :#\"] ? ` \"=:`$J#` s#info` ]9info` [;` <#` k+` =!= ` E'.subs`2*\"0,` ,)`&X\" - 3).`$O#(\"simplemaps_\", \"\"`*U#emo =`&^\"`+C!randed =`!3'autoload`*4&`)~\"hooks_object = {over_s`%;!` X!, ` -!region` &)loca`&W!` -$ut` J+ut` H,ut` F-click` K*` -\"` M*` .\"` K.ose_popup` +$zoomable_` f/` -+` s+omple` C&refresh_` (,zooming` '-back`!`*xy` *\"}`#e!`$v#`#l!`#[+[]`#Y*` '%`\"G%` -!`#X%` &$` C(`#O([]`#J*` &&` G'`#C+[], pre` G,` *%` O'` +%`!\"+`$\"&[]`#r3` &/`!G(`#K$[]`#m/` T$`#p)[]`#s#`\")&xy:[]`#n\"api`'Q'`*K#:`*S#,`*E$:`)j#, load:load,`(3\":helper.`.L!(`(@()`)e%` 6/` .(), copy:`1*%(`0~#new_` C\"`!P(` [)this.` 3#)`!e&` /1info)`!%n` z!copy`\"r'};`+@*.push(`\"&&`4Q%` )&;}, cre`)G!`\"CB`/6?`!p)` 0<)`.e$`#>&`/??` \\C` J\"` x'`#%~`#NUmobile_device`!2$isM` 2!.any() ?`0h!`\"'$};`$K%load`$P$`(p)this`4,+` 6&`'<$`3S+` 3*info;if (!` [$|| !`'R$ {console.log(\"The`!!%o` j&`!H#is missing or corrupted.\"`\"k$;}`2I/`!D'` 5!`/\"0` 9'` .(`3q\"ack_image, ` \"!s_directory, di` \"%`-F!_specific, main_settings, normalizing_factor`#v&pre`#{$` X* =`\"h$.` +*;` q)` <'` +)`!|!scripts = document.getElementsByTagName(\"` C\"\")`$j\"ysrc =` V$[` _#.length - 1].src;`\"u&`!@!`!2'.` 0'!= \"no\" ?` )6`&o#;`#T,` f-` 0-!= \"default` p.` =-`! $` u(` 4-?`$z- :`\"m\".substring(0,` ,#lastIndexOf(\"/worldmap.js\") + 1) + \"map`\"C\"s/\"`'\"\"ignore_pos, fly_in, rotat`,g!nual_zoom, responsive, div, initi` 6%` \"(_solo, tooltip_` a\", last`42\"ed` 4&up, `4A\"s`&a&get_`!g!nfo() {div`#q-` /!== undefined ?`\"<!\" :` 8.;`!T(`$[.` 0)` e+-1` `-` D(` m)`\"U!` b9` ;#= \"yes\" &&`#-) != -1`-T+;`$2\"` f-` 1\"_fr`!d-||` .9`'~$` y!`\",-` A';`%+&`!--width` h!` ;&\"`!j,`&$\"` K-` 0#`(6,` 0#`);%f (` Y$= \"0\") {` h%` =\"}zooming_o`\"m.`$f#`\"=,true;`'O'` G-` /)`$@$`\"(,`'+\"`-,\"info.`*T#_` 2$&& `!Q'?` /5`\"A(`-v$` 5#) {` {)` 0(;}` E(labels) {` #\"` D'` +\";}`)>*`#7%`)G(` ,%`)P&` *%`*|&`#q&`1O$ground`+Q\"_url,` $.bbox,`\"k!_time` $#mobil` %$incr`0'!, custom_shapes, popup_centered` ($orientation, order_number` i#percent`3+\"`({#back, link_text` D\"`$<\", fade`!W#hide_eastern_`#<\", `#D\",`-i$`$`$`#Z#var adjacent_opacity` 0!op` \"&`\";%al` +!` W!_size` $'color` %'` U(new_tab` '!`!8%oc`\"a!` <)hook`!O\"b`\"v\"` |%`#G#` |%` *\"max`*+!` ('` c(` ,\"shadow` Y)rner`!\"\"` ,\"nocs` $(font`/H*refreshable`/U%`%r0`4S1` 4-`4V0` 4-`({$`&b1` f>` A!` h=` A!`!\"$`#5#` `8transparent`+Z(0 : 1;`%O&` R-` 0'`!D,` 0': 22` _#`%&!` P3` 6\"` R2` 6\": \"#ffffff\";`&W#` [-url_` 3%`-Z3`&v4`!G.` 1,`!M-` 1,: 1;`'k!` [-js_` 2#`!?3`(2'`$:.` 1'`%--` 1': 1.5;`(l'` Y-` 0(` Z,` 0(`#`(`,t-` _3` 6(` f2` 6(: \"auto` w$`.,$`!Z4` 7$`!^3` 7$` g+`$b4` 0*`!V3`$k%0.9` i#`+q\"` X3` 6#> -1` \\3` ;#: 1`$<%`,Q!`$.5` 8\"`$14` 8\": `%+$`--!` U3` 5#`&F3`.L*` L3` 6%`!:2` 6%` g*font` Z3` 6!` W2` 6!: \"12px/1.5 Verdana, Arial, Helvetica, sans-serif\";`2,'`!$-`4'!out_` :'ly`\"o!no\" ?`!q\" :`\"v!;`32,` ^-` 0-`!z,` 0-: 0.3;`!B!tim`*5.` 0&` [,` 0&: 0.5` ^\"`!~%` S2` 5&` Y1` 5&: 2` k\"mobil`!@3` 4$`\"w2fade`!~2` 0&`!6,` 0&* 1000 : 200`0D\"`'@\"pdata`/}\"s;custom_shape`'S.` 0*` {,` 0*: {};initial_back` ]-` 0)&&` \"8!`\"h%` *7`(*$hide_eastern_`\">'` M(` /1`)`3link_tex`%0.` 0&`1c-` 1%: \"View Website\";back_imag`1//` 1&`\":4` 8'`!X$`1U\"numbe`19.` 0)` ],` 0)` g$`&d!percent`!Q0` 0,`'c1` 5'`/U!9;}func`1O!is_onclick(`,\"!s) {if ` &#`$\"!on_` <!\") {return`'|\"} else ` ?+detect\" && touch` ?2` ,$`\"@\"}`!B*ff`!26ff`!03` b,var vml;var tough` %!ie` ,!ios` #!`\"3$` (!`2]#ff =` _#var reload` &)`\"3!` I&s;`!u%get_client_info() {vml = Raphael.typ`+L\"VML`'K-ie = document.all` 0-os = helper.isM`,<!.iOS()` ;,`!_!` :/any` ;.`#Y$`1F._up`3x1` 3!:`1t0s;`#M$`#+%`#M(`$r*;`$B!map_outer`#O!map_inn` $&div` 0%hold` ='zoom`#t&create_dom_structure() {` ^\"`#P(getEl`0&!ById(div);` u&` ,: + \"` B#\") ?` Y8` =*`$]%f (`!#&`!W%.removeChild` 4(`&M\"t_to_del`!A7\"tt_sm_\" + `\",!if (` O%) {` #%.parentNode`!()` C&;}}`\"Y2`#]\"`!/#(\"div\"`#4\"`$[!` %Azoom` $A`%@!` sF.id = `#n$` .!\"`!(%` /*zoom` 6\"` !` /*` .!` 8\"`\"Z\"` 1*`$h#` 4(style.posi`&b!= \"relative` y(` &<`!\"` 4.absolut` 3/left = \"3px`\"?'` B<` :'top = \"40` N/` a8zIndex = \"1`!D.` -,div.append`'I.`#:'` 3,zoom` $9`!/!` %9`#s!`+]#transform_rotat`/C\"widt`/C\"height` &!scal` 9\"original_` >&` *%` F'initial_view` ,!normalizing_facto`,K\"ratio`!.&_to` ^$`,Q-imensions(res` d!`*}&`#`\"` ^! = \"`&W/` 1'if (responsive) {` 4$` f#offsetW`\";!if (` 9\"< 1` 9.`+*'` J(`*~'`!0+` \"\"+ \"px\"`4=%` k&`0N(` /#== undefined ? 800`0s-`$%\"`\"V1`!\"*` (** 1`.P$info.calibrate) {`$T( = {};` &(.x = -1 * ` K-.x_adjust` C*y` 76y` <1x2 =`%y).x +` K/`\"V\"` ~*2 = (` ^,-` _+) /` \\/`&j\"`$1$`\"W+` G$`'P)}`($*`!e-`!(.;`(B+` C,y` B-y;`(/+ =`):+ /`)6-` A%` 9$`(r,`)A.` c01000`%b!!`),'`*k!` p'`*g+`#A! =`&9#`+W\") {var bbox_array = [];for (`+-! in`#Y%state_` B&` T%`#{'` 4,[i];` $&.push(bb`-$#path` G! = helper.` G!union(` ~'`,'!center_x = 0.5 * (` W%.x2 +` e&.x) *`-T'` S#y` F0y` L*y` P&`.Y,`2d!\" + ` (#+ \",\" +`!N&` \"+y`.&\"iv`\"4&` T\"`!%!`'~),`/e-)`&f&`':$riv`(r#`&y.riv.`%z#}` a&`%I$\"s\" +`\"0\"`!\\%` $&0,0\"`\"C& =`\"8$?`!J'` F$`\"c-:` 5,;}`$t#pe`0g\"everything` *!all_lines` %%visible_`%v!` 1\"location_label` A&externa` J4` C'`!M%` @!`!T,`'2!ackground` >!` %&_col`2b#` *'imag` S\"all_pil`!L'`!o'all_region` &&`\"&$`!S#op` #+bottom` &+` T!`\"*\"`3e,canvas() {`#a! = Raphael(map_inner,`*_\", `%O\");`\" & =`$7\".set(` -(`\"R\"` 6%rect`/!+ -`+z,* 2,`-G+` 9(`&y#` A!` I-5` )'` @%5)`,9!`#i,_url`+h#` *\"`+/#` 7-` 3!?`$H-` 2\":`!^)`\"O(` @!`\"R%` )!`!/1,`!4'.x,` \"(y` .*`0J!` 35` /+y`#|(`-^#`!/+);}` (7`$V!` X)`'j%(`'n+` 9)hide();`';&`%O+`)N.` ./`'i#` '/`'J%` -+`'w)`&a,`'+` c0`(3!` *+`+%+`!n7` (5`+Q*` ./`*R!`!=0` =/`-.&` B+` /&`$a\"`#s&,`+!*,`'<'` 4#`!u!` &\"`!_*`3K#trial_`.S&map_` /! = false`+<-` L\"text() {if (!demo) {return;}if (`!L$.hostname.match(\"simplemaps.com\")) {demo`!&%` Y(`!D%`*##parent =`!\\&.` -\"Node;` %\".removeChild` V';`\"'.}` '(document.`\"@\"Element(\"div\"` R'.style.cssText = \"display:inline !important\"` E-posi`#E!= \"absolute\"`,X\"randed`\"@#h = 20`$*!w = 140;} else` 5&3` 5&200`\" '`!$#left =`/N\" - w + \"px`!A.top =`/m# - h` 04zIndex = \"1` 7\"`0P!.append`#[-`&*'`0}+` 5!, w, h`/1#`\"M)t`#O\"` U'.`&D!w - 5, h * 0.5, \"S`%w+;text.attr({'text-anchor':\"end\", 'font-size':14` ($w`\"T!':\"bold\", cursor:\"pointer` O%family':\"a`!{!sans-serif\", title:\"Built with `!W\"Maps\"})`$N)`!iS Trial`!vL8`!\\f});}`!7!node.setAttribute(\"href\", \"http://`*0,`!n\"click(`+B%() {window.`*&ref =` P4;}`,J#`#1!_back`'}!back_arrow`,8-` 6!button() {` @&`.0+`(a$35` &!`(z!5`&w\"ack`3F#`$Z\"`3|\"`!k$ = directory +`!E\"` =!` c!img = new I` /!img.onload = `\"\\* = img.`)i!;h` '#`)O\";make`!q\"();}` a!src` ?!`!@(`&>%` B*` %` +( {`#;&`)Q+outer`)S)`\"S,`#=&`#?*` i!.` E!(`!M*, 0, 0` m$` P,`'H#`&d,}` 7/reg_num = -1` 3'`2o\"` >,` T(`&X#` ,!` &!_handler`)P*` X\"path = \"m503.7,743.8c190.3-96.6 132.9-417.05-155.6-409.71v-128.7l-228.1,195.0 ` &\"205.8v-131.6c240.9-5.5 229.9,202.8 ` e!,269.3z\"`%|!`!I\"color`2N!in_settings.` 0(? ` \"6: \"#cecece` c-_bord`.|!` F5` ;$` g7` ;$: \"#808080` }(size = 0.0`(v\"`$:'box`%m*rect(`%_'`%R#fill:\"black\", opacity:0`,T.}`*$\"`&b:path(`$~&` }$stroke:`\"&., '` 6\"-`)X!':2` (&`!E#':1, `!a!` T', 'fill` 7)`!_..scale`!I#size,`#-', -2, -6`'_F_box`'jW` 2,box);}if (!initial`#?!`-~).hide();}}`.x!zoom_in`$$!` '!out` #&`/,%` )!ab` 0)in`)U\"` O)` ,#`/J,` h\"`/U!s(`,1#`/0.`!+%`,u+zoom`&?!80`%m\"`!8$`*Q% 64,13.787 0,100.426 m -50.213,` \"\"2001 ` 6#,`'o#` b$`'W\"`!8%`'>:`)Y$`'S'.7`420`&#\"gray\"`&i-1`'z#`!<$v`1T!`!:)`'y!`\"B(`'q+` c33`'Y7`)Q%`'EG0.3, 0.3`'[#2)`$E\"in`4*+` /#`&s\"`#P',`\"5+`\"M'out`$\\'`$^\",64.000999`$:1out`$754`#O~`!;'`$59`\"2$`#Q~`$1>55`$6#out`$@0out`$J'`#Z#`$O#`\"?&)`*.&mov`*0\"ing_dimensions(dire` =!`*:'last_destination.sm.` I..w / ` V%`*n%` 6Ch` L-x` 3Fx + (`!=E- w) / 2`!!!y` \\Fy` [Gh - h` |&r = w / (original_`%q! * `%(!);return {x:x, y:y, w:w, h:h, r:r};}`$Q%`!&$allowed`#dj` =$`&A\"` 3% < 1 ? true : false;if (`1^$zoom != -1 &&`\"o2type == \"manual\" || ` S(_solo)`!}#` 1$`# \"= region_array[` J(]`\"\"4`\")!outside_` K#`$ !>` n+- 1`\"&!`\"N(&&` K,`!O%` a+is_` .\"`\"C-,`!Z7)`#6#` `)`\"[1 {` '!to(` R8`%w#`$2\"}}}`!}/w >`!C*-1`##5 - 1) {if (!`!*E-1]);}`!<*` '#true`'2+_about`'/)`!*!`'C6) {` i\";}var `#_' = {sm:{type:`&7$, zp:1}}`$s%_tween) {`$9,` A:`(DB = current_viewbox` D1b`2P\"{x:` ?+.x /`*e\", y` ,-y` 3&`'/!` 0-w` 7&height` 1-h` :$}`#9\"new`!q*`/n>`#E!!` K*`$*'`\"`@` O*`1t\"to(` P');}` 1!in_click = `%o%(`&S$`%v\"` A#crement);}`2a%` :=1 /`&`\"` R)api_object`!y!_in =` ?$` m\"` 2-`-a\"`!**`!A\"in.` )!`!_$` 6\"`4C'` 3'` R%` 8#in.touchend` F5` 3*` W'`$z!cattr, la` \"!r` (\"`)h#map, label_attributes, loc`#}!s, set_state` %\"` G!, ela;`#H%set` S'() {` W% = mapdata.` +%;`!L! = [];`!P!` %\"`!H&` 3$`!H*` ?#` G&ela` #\"var`!?!`+{$` G(`%))`+&\"faul` E$ = {};` &*.color =`,R#` .+hover_` &9opacity`\"W!in_settings.`!Y#` 7$? ` \"9: 1`!&2` `;` 7*` n3` 7*: 0.6` },url`\")4descrip`-j#` #<_mobile` 24inactiv` '5zoomab` [!`0W!` 0+popup`\"T4` 8!s`\"M4` 7#: ` #\"`%6-ascade` d4` 8#_all == \"yes\" ?`!_! :`!q6_percentage`+&$` (&` A,x`\"]4y`\"v4x2` :5` 0&if `4I#s) {for (var`*m# in` ##` 0)i = 0; i <` 6$[` \"\"].`*z!s.length; i++`)%#` 4! =` :3[i`*I([` 0!]` E%;}}}`!3&d`!H*`*a![id] = O`.]\"create(`\"G*`1b\"`!7$id].url` T(`&2(`\"v\"`!+&prop`!,'[id]) {` b+[prop] != \"`!4#\"` t(` 8#`\"Y&` +%;}` T2`&#$` Q1`'|!` >7no` B2`\"4#}}}`-d%`#j!`-Q7` ;%` ,)id`-x+` ;$`-{'` .!`-|%`(N*`!0\"` 7!` A+image_`+o\"` @0` 6&`)~,` 0,`)-,` t(siz`).` U(` <!` f8` <!: \"auto\"` o1posi`-T#` M6` <%` p8` <%: \"center` |2x` n9x` g9x : \"0` b2`0r.` N(`0k.` 0*` ^6`%@8` 6(` d8` <\"`$p8`2>\"`%r<` <&` r8` <&` p>`&#=` <'` r>`&.>` B\"`&1A` <+` |>`&:D` H\"`&J:` <$` t>`&X8` <\"`&\\:` <$` h>`&j8` <\"`&j>` <(` p>`&|8` p>` 7'`,j2ourc`2#&` 5*descrip`%K7` 7'` M+`(M6url`!;,nactiv`'s.all` =\"s_` :&`2I# ?`29!`\"b4id` R9hidden` BG_label`\"r3bord`#p5` 0)`% ,` 0): \"#ffffff`&1,` @#`$t8` 0/` v3`%v>` <)`,*1` 0.` p9`,.#` x0empha` }#`$'!` 1+zoom_percentage = ` #+` =/abl`%!9` :&`${Apopup`'73` 7!s`)q3` 6#: ` #\"` h+opacit`,\"4` 6$` d2` 6$: 1`*_1` ^:` 6*` l2` 6*` v.`*P'_mobi`#_/`*s-` A$? ` \"5`#z$var region_id =` $$map[id] ?` 5$` )$` P$if (` N&&& rattr[` *%].cascade) {` G!` .-olor) {`\"@*`),$` 92;}` V1`(~'` `-`)}*` ?8` f3`#1'` l-`/+*` ?8` f3url` d-`/L\"` 70` N3`/+$` Y-`/e'` <5`#;4i`$U!`/X1` 81;}}c` 3!id] = Object.create(` Z))`%w!mapnam`*t\"us\" && (id` *!GU\" || ` '#PR` \"(VI` \"(MP` \"(AS\")) {`!>%`!h$`-(\"`\"C!`!#0`11!eastern`18\"s)`!C(VT` y(NJ` \"(DE` 0(DC` =)H`!^)A` \"(C` g)R`\"'*D`!t/`2n%`\"&#for (var prop in`*B#specific[id]`)2#` '.[prop] != \"`$2#\"`!$(` 8#=` `/` 5\"`#E\"` _5`/d$` _1tru`&L#` C9no` I2`+v\"}` \\!`-s6`*G#= \"off` \\)`*`+` .&`*[#};`#P%id in mapinfo.paths) {se`'?#(id);}}`-{!set`$:\"_attributes = func`*v!() {var `'$`$d${}`/c%` .!.font_famil`0`.` {\"font`0X-` 0': \"arial,sans-serif\"` v+`\"U$` P0` 6\"` j2` 6\": \"white` f,`#K*` L0` 6(` l2` 6(:`# *`$:#` &*size = ` W\"size`!D,`*Z\"` }*`(d&s`'\"% ?`&t!`24%` Y*line`&S%`!3+ca`3}/`!J#` 7!`\"42` 6\"` y2` 7!_limit` i-` 0(` j,` 0(: 0.125` k+rotat`!W4` 6#`!Z2` 6#: 0`\"i/`$y9` 6'` e2` 6': \"#000000`&.,` @!`%(#` L5` ;!` j7` ;!: \"1` i1x`$l3` 8!y` &3parent_typ`1$!`*u!` n,` =#id` M3anch`#&5` 6#`\" 2` 6#: \"middl`!(.ill` ~3width`!#-pill_` 5\"`!\",` 0'`'!2`#(4`##4`4!\" \"Not Named`!n,displa` G4`#D'`.*-s`\"(-impor` 4&`0|\" ? {} :`/[%` V*` r!apply_`/(,`/O&id) {`/k,[id] = Object.create(` W))`0}&`4X$`!/*`4U'` '.`4J2`!20`3/%` M4`4%\"` j5`4`'` b9true` H?no` I=`$l\"}`3R#`#y\"mapdata`#g4if (!` a0`#dS}`$+-`$#-`#OY`#n2`#9_`#2^`\"Q%id`&b.) {`'|/(id`#'(` S\"` B+`$T)` K\"se`(V5` m4` S5;`%g\"` n!ocation`\"@'` t)) {`+!)` H# = {}`+W&` /#`3Ae06`3(` v$`23`!z$`2}3` 1*: \"#FF0067`-s'` y$hover`4%4` `$` 9(` t5` 9(`/m-`!'$borde` o7` 9#` l5` 9#: 1.`\"{/` 8\"`!n<` 9)` k;`#6)FFFF`#*5`!z<` 9)`#&;`\"=%2`&=/ize` l6siz`#c/descrip`'?#` D3` :'` E9_mobil`!)7` 9/? ` \"8`%U5url` m6url` @.inactiv`!L.all` =%s_` =&`-z# ?`-_!`!16typ`\"87typ` A/posi`#m#\"top`%h/puls` \\7` 8#`!<D` J!`%>!` T;` >\"`&L5` 9': 4` o5peed` h=` @!` j<` @!: 0.5`/ !` 0\"`)g;` :'`!J4` Z$` \"(&&` \")!= \"auto\" ?` +)`#K5image_sourc`#K7` 9)`\"E5` 9): \"`+H0id`',<` >!` t,` 0/: \"no\",`2'-.opacity =` *-_` 4#`2?3 =`&l!`-:4` n&`,p9` ?$`-5;` ?$`#{;`*v9` 9&`#u;url` i<`*2'` N9` ?%` t;` ?%: \"center`*|0opup`'y7opups`(t7` :\": ` #\"` n.x =`\">4y ` \"5displa`$n7` 9$`!@5` 9$: \"all`'OUden`-U5if (`/?3= undefined) {`/c4\"square\";}for (var id in`22%s) {lattr[id] = Object.create`!+-);` ^%prop` \\)[id]) {if (` 7!== \"overwrite`%i#` E$\"`!*(`'x)` b)[prop];continue;}` p)reg` Z-`$l&` 7$` O\"` d/`.\"!`\":#` X)` 8#`!62` U5`$[$` U1`+m!` >9no` D2`%B\"}` W!!`\">&`+R)`\"U)`,W,` 0&`-P$` V2`0^!` W/`1H$` .&`1y\"}}}`2S!set_line_attributes = func`*t!() {var`.|&ine = {}`(E&ine` n\"`):.in`24$`)5-` 1&: \"#cecece`)9'ine.siz`2</ine_` 5!` ^1` 5!: 1` \\*dash` T2` 5!` U1` 5!`2|!var lin`\"t!mapdata` >!`-/\"` $(:` '%borders`)&&`)p#ines) {ela`)S:ine`)Y0ine`)](` '%`'}2` #`('&` A*`'K#` U+`'~'` P,`'|'` B/`'}\"` D,`'y$}};set_`*0\"`&B'()` 3!stat`&X(` 0#label` $/`/<$` (.`'=*();}var currently_zooming`!Q%var max_width` )!` B&pann` <,` 3'inch` 3(`(L%`$g\"_tooltip`([$find_pos = helper.findPos(map_inner)` ~!x0_page =` J%[0]` 5!y` (.1` 4\"x0 = 0` >#` \"%h` ,%w` +%u`'J\"` P\"_mid` O\"_` \"$left = 5` (!tt, h;return {`\"2\":`*p)tt = documen`'?$Element(\"div\");tt.setA`$-$(\"id\", \"tt_sm_\" + div` @\"tyle.posi` z!= \"absolute\"` 5&`08'none\";`#5%.appendChild(tt)` /'onmousemove = this.pos;tt` \"4}, show`\"A'e`\"/\"`2{$opup_off) {`\"y\";}ignore`$|#`%M\"if (tt == null) {`%M#`*H$);}`\"%0block`\"I'zIndex = 2` *&maxWidt`,r\"`'9# + \"px` T!`\"S!HTML = `!t#.sm.content;`!@$updat`!o!`\"8%;}, reset_pos`\"V'x, y,` d$`\"`#`\"6\"undefined`\"+2` +#` k#(y0 + y, x0 + x` h&;}, `!E&`#e1` [,u, l` S*` K+, manual`!h#` $%u`#1!nual.u;l` #&l;} else` <\"ie ? ev`'T!lientY +`'b&`'m$`'g#.scrollTop : e.pageY` v!` U-X` D>Left` ^%X;}u = u -`*Y$` s!l -`+#$`&C!`&j% || `###_`\"2\" || `&s'` 5'up && on_click`'B'`#W0`#]!`%G.`#x*`#d\"!tt || !u || !l` n'`+o! =`%9\"0.5 * `.V\"`+~! = `%[!` 3\"height`\"9!l >`,I\" && u >`,L\") {quad = 4`$R$` G\"<` 093` ?*` m)<` =,2`%K%var ` .#1`0q#entered`({& &&`)$(`#R$ &&`$:$` J&`3c# || ` (/auto\" &&`\"y\" < 401) ?`4!! :`+V'` N$`.i!`*w#top = \"-100`*j#` 2\"`/W#` '.bottom`.O!uto` .'righ` N!` 2\"h = parseInt(tt.offsetH`$D!, 10);w` -1`,G!` ;\"var side =`\"4#- w > 0 ?`%0#(` .%) :`1p#bar`34!`!I!- h` C*` .&` L\"`\"Y+bar`-P'`\"])`!D!` ,,`\"E+`\"l5`%Q$`)4'rienta`1z\"= \"below\"`(.#`%v\"= 3`&3&1;}` .(4`&J)`&z'` h2above` n,1`'[)` .(2`(B)` .)1`%q(`%35`#H\"u + 5`#84l + ` &!` 00`#I+`\"5'`!W(` jZ` |$`%|$l`!R8`!/63`!41`&?%`!&2`)/#`!_+`\"h.3`\"SC` Zd`\"?Q}}, hide`/_'`&C#tt != undefin`+j*display = \"none\";}find`11!= helper.findPos(map_inner)`,b!` A$) {`20# = ` -$[0];`2V#` *(1];}}};}`!Z%getxy(lat, lng`!i#mapinfo.proj`(S!lambert\")`/N\"` 2\" ` /#`%B(` I-xy\") {alert(\"This map only supports x/y loc`)b!s.  These can be added to the mapdata.js file.\")`! 9robinson_pacific`!q+` /,` O9mercator` U+` /$`2G)` q+`2U\"initial = {lat:`#k$:lng};`$'%interse` (!(x0, y0, r0, x1, y1, r1`!:#a, dx, dy, d, h, rx, ry`/x!x2, y2` &!dx = x1 - x`03\"dy = y1 - y` *# = Math.sqrt(dy * dy + dx * dx`1:\"a = (r0 * r0 - r1 * r1 + d * d) / (2` %!`!9# = x0` ]$a / d` 4!y2 = y` 4!y` ,)h`!8)` &a * a` o\"rx = -` S\"(h /`!%$ry =`!\"\"` *(xi = x2 + rx` *#_prime` 1\"-` /$yi = y` C!`#6\"y` >&y` C!y;return {opt1:{x:xi, y:yi}, opt2` -\"` P\"` 3\"` &\"`(|)`(F#(lat`)#\"`!v!adian = 0.017453293`!@!pi`\"h$PI` +\"hi`)-!tlng.lat *` V#` 9!lam` 3'ng` 0*phi0 = 45` D-0 = 9`#g!` A)1 = 33` &-2` R/n`!`$log(` $!cos(phi1) * (1 /` 9\"` /#2)))` +$` I%tan(0.25 * pi + 0.` &!hi2` V*` /51))`%/\"F`!F$`!9(` ,!pow` n;1), n) / `\"3\"rho = F` T(`!'>` ^!` W$0` .N0` [\"`&H$x:rho` Z$sin(n * (lam -`$Y!)), y:`!&!-`!l!` D#cos` 9.`&a(`,2$`&`*earthRadius = 1`\"\"\"`&j4roundToNearest = `2L&` 4#, value) {`\")#`!W!floor(` 5! /` ^$) *` #$;}` z!getSign` k)` `+` ^\"< 0 ? -1 : 1` U#lng` U#` _#`\"@#.lng`$8\"la` v$` 2,at` ;#ng`&$$abs` M0` +0` U%ow`/{!`\"w((5,` R!- 1e-10);` ?\"` e!=`\" !0 : low`-J\"igh =` d!+ 5` m$Index` 0#/` 0#high` 0$` Q!` 1$ratio = (`!0\"low)` 3%AA = [0.8487, 0.84751182` &\"479598` &\"0213` %!3359314` '!257851` &!1475` Q\"0006949, 0.7821619` 3!7606049` T!7365867` l!7086645, 0.67777`!7#6447573` b!609875` 2\"5713448` b!5272973`!<!485626`!R\"45167814]`\"?!BB`\"?!, 0.0838426, 0.16768`!l\"251527`\"C!335370` _\"19`\"L#503055` Q!58689`!Z#718226`\"*\"533663`\"z#51804` j!915371`#U\"99339958, 1.06872269, 1.14066505, 1.2084152` ?!27035062, 1.31998003` '!523`\"3\"adj`$[!(AA[`%5%] - AA[`%]$]`(n!`%=!+` +)` Z$`\"y!(BB` T*BB` L2` ,(`,4'`!D\"*`(I!`0/$` )\"`(z!*`+G(, y:`!2\"*`)7%` 4)`,-0_pacific`,;*`)W\"`2D'- 150;if (lng < -180) {` A#ng + 360;}`!s#`-6%{lat:`)s&, lng:lng})`!A'mercator`!6*y`2H-tan(`*_' / 90 + `2c\"`4e# / 4))`21\"80`0($PI`/h(`\".&, y:y};}var calibrate = mapinfo.proj_coordinates;`!k%find_point(initial, pt1, pt2, pt3`!#` ]!` ;# =` *!` I$`,d\"pt1_proj` 5$pt1` 1$2` *+2` 1$3` *+3` 2#roj_r_pt1 = helper.distance(`!=(`!f!` _!` J+2` 6?`!P\"` S\"dist`!D$` G-` |#` ?1act` =2` I!` C\"scale =` z'/` T%`.Z\"`\"D#`\"M'/` P\"` 6%2` 3(2` 2)opts = interse`$q!(pt1.x`\"y!.y,` z\"`!L!` /\"2` -$`!Z#`!H!third`\"t?`$N\")`!T*emnan`!!`2A%` X,opts.o`!B#3) -`!,'`!A\"` _#2` B@`&t$` X*if (`!C%<` h%) {`(K&`!?%.x, y` $'y};} else` :0`#5!` D&2` I!`)*!rules`({,` 0!`!I\"ules) {for (var i in` O\"`(s#ru`%Y!` .![i`.Q\"condition_stri`,8!rule.` /%;try` Y\"` *% = eval`!-!` ?&);} catch (e) {console`,'!\"The` T'\" +`!&.+ \" is not valid JavaScript\");}if (`!!&`+##oin`&m!`!D!` (\"`,M$`+Z0`,G%[` F\"[0]]` #/1]` \"02]]);}}`/($` b:0` U)1` c)2])`-y\"tt_css_set = false`-c&set_` :\"() {if (` D&`&<%`0&'newStyle(str`\"v$a = document.getElementsByTagName(\"head\")[0`%F\"el` F(create` N#(\"style\");el.type = \"text/css\";el.media = \"screen\"`&o!el.` S!She`!s!` #).cssText = str`(*%el.appendChild(`!A+TextNod`\"C\");}pa` A)el`1n%el`\"u'getsupportedprop(proparray`(4$oot`\"R(`!/$`\"Y#;`(k'= 0; i < ` [%.length; i++`$H#` 3%[i]`)C!oot`\"V\"`!*#answer`.G\"` A%;` -%` #\".replace(\"borderRadius\", ` )#-r` +\")` ?6MozB` M+-moz-` 8EWebkit` S-w` 2!` =FboxShadow`!x\"x-s` (\"`![<` K'`!q#` 7@`!m$` R(`!i%` V'`%e#` Y\";}`.B#ound`\"3\"prop =`%m.[`$ -`#U/`#'/]`1:#cs`,S!` z+?`!*-+ \":`-k!popup_corners + \"px;\" : \"\"` l!min = width / 2 > 250 ?` '': 250;max_` .\"=` l#max` +\"?` }#` (%: min` y!`#)\"`\"P8`#]'`$F,`#{,`\"\\#s`\"]\"` p'?` |(`\"P%3 *`!R#` 8\"`\"V\"`\"o!3 ` \"54` %2rgba(0,0,0,.5)`#9$`)k!` A(< 0.01) {`!^#\"\"`/,\"m` (#.tt_mobile_sm{margin-top: 5px;} .tt_sm{\" +`%$\"+`\"H\"+ \"z-index: 1000000; backg`%2!-color`%!*lor + \"; padding: 7px; opacity:` A&` +#` G\"font` \\(font` 4\"` |#black`!b#nam`\"\"!float: left` \\\"-weight: bold` F\"custom_sm{overflow: hidden;}\";`\"z!+= \".btn_simplemaps{`!))text-decoration: none;`\"]&: #ffffff;display: inline-block;`\"a%5px`#k!`#z\": 0;`'i\"`#X!%; `*D)iz` O!`,H#box; `+E&` */` =4`!D!h`\"r#1.43`\"*\"align: center;white-space: nowrap;vertical` C$middle;-ms-touch-a`1e!: manipul`\"x!;to` \"5cursor: poi`!0!`\"G$user-select`#U#`\"D!` #0s` #/` 6.`\"Y\": 1px solid` +#`/n#: 4`'p!   `%)+:hover{  `%\"-underline;}`,Z\"xml_`&\\! = vml ? \"left`)\\!right`&2(xmark`'('\" +` V'`'c!`)M#left`)O\" `\",`$\\*0px;}\";newStyle(mcss);tt_css_set = true;}fun`$(! get_zooming_dimensions(element) {if ` &$.sm.` :.) {`18#` *9`+u\"bbox = helper.rotate_bbox` x(bbox, transform`.C\"gotoX =` ]!.x` *%Y` +$y` *%W` +$`(b!` .%H` /$`#'\"`1{\"atio` %!zp =`!t)p` 2!paperW`1##original`14#* scale` >&H` t!` =(`!%\"` A%`!|$` \"\"- (`!i\"/ zp -`!v\") * 0.5` F!Y` D#Y` C$H` ?(H` ?(W` D#` g\"` .!H` ,#` O\"`09!` :$` 1\">`+b\"_to`!a#) {`\"l!` a'`\"V&`!K#-= (`\"A(*`#>\"`!J&/ 2`!2)W /` x,;} else`! *H`!&$` s\"`#%#`!&%`#~\"`! *W`!$&`\"X$H *` |.`&x#{x:` p!, y` $!Y, w` $!W, h` $!H, r:` }!}`(8'reset_s`'&!attributes(region`(;#!` %%`!'\";}all` N\"s.stop();for (var i = 0; i < ` Q\".sm.` E#length; ++i) {var ` 4! =` \"\"_array[` G,[i]];` &!.attr(` %\"sm` )!`!j\");highlight_labels` @\", \"`\"<!\", false, \"` 3!\");}`\"T,las`\"b#(`\"Q#` -!destin`-O! && ` $,.sm.type ==` t$` /4`!d'`#Q#` 20ignore_`.r!) {` 2-`\"^!` `;;}`\"^-` B,, \"out`\"T0`#y\"`%\"G`$H$`%C\"` '#`!b!`$`&`!Q(`$k|`%\"E` X\"`\"T,`\"Y!or`(-#by_`(O!() {all`\"w#s.forEach(` P%`\"x*`!O&id == -1`#&'` 3*`0\\..r >`*f\"` P!`)E8`+d&`$>:;}})`*E-`\"&&` F(`!nW!`\"@%`!!Hshow_point(point, display, `'&'`%?#`)&\"` -(`):$`0 !` S#`)I!all\"`4V&true`#&$` :,out`)q!`* %`(6!` 6A`%}#` Q)`&0$`\"|\"Raphael.isPointInsideBBox(`!v+bbox, `\"^!.x,` \"#y)`!8,`!23`+r&`, +`!@#in`,v#`#\\$`#P'` l3`#k\"hreshold = helper.to_float`!8$)`#v!` ?&&&`2##<` T&` r-` '#`)G!;`%C%`!\\&t,`*D\"`%1#x = pt.x;var y` '\"y` (!potential = []` .!`#{\" =`*&$`+'\"`0O%` 0\"]`!q!`'D%`+{7item`,(&i++`!M#curren`)V#`!%%` I\"[i` z\"`%$6` Q)`%6&x, `%/!`\".%.push` <.id);}`$A%` ?+` 8*var `!x\" =`#%&`\")$`2E!` 8\"< `,=&`$3#`,H!` U$=` ;!if (` ]%[0] =`.n#`!*#`%r7pa`!?!mapinfo.paths`$.&id`\"y7Path(path`\"y&`%v7`/G'animate_transform(e, t, `0p$a = {` 4%:t}`!?!!vml && !touch` %!i) {e.` h#(a, zoom_time * 1000`.d&e`2Z\"a`0n)`1I!_corre` ,!`*T(, initial`.W#`1t\".hide(`3%)i` `$`'O!`!|#lbl =` ,(`&V$lbl.sm` b!) {continu`$n#`.L'` @#` (!0, ` (#`.Q1`!(&_set`!-%`0j!`!5!` V#id];` >#.show()`&$#` 9\"lin`*2$line_`%R#get_` '%(lbl);` F'`#O\"{path:` =%, `$Q'` \"$}`! *scal`!'$factor =`,<#>`\"F$` ?!_limit ?` 6#:` */`+\\!t = ` .\"`#8!,` n$*` 0\");`&C.` B!t`$~&`$4(pill`!X#pill =` \"!`#?.` d.pil` h+}}`&G(oc`$R!`&.D` H#`&P%` '*forEach(` v%(lct`*j#lct`&?'`)F\"`&6.` ?\"`&?%` )\"`&04` :!`%o(` I\"`$O:` 9'`$[.` ,-`$[.ct`$HAct`#f,);`#m&hide_and_`\"W!before`#`4`!=!`4M!`\"T(.sm.type;back_arrow`$,$`$KE;`+KB;`$f&update_`2\"\"s(`$t#helper.x_i`3C#(type, [\"`/5!\", \"` L\"\", \"out\"]`.w\"`*o!ll` h#_attributes`$i$`\"Q\"=` V%` M%` s!` E(`%N(`.=$` U)`!D\"` G6`!<$`(m!`#Y+` 6\"]` c2manual` t\"` ^!or` w#by_`&4!(`%9!(`#5/opacity`#@$` o!!=`\"~\" &&`%1\"!` x)all` y\"s.stop`)<#pill` $)` <#`-J\"'fill-`!&#':adjacent`!7$}` X(` *D`\"v)`!2\"` '(` R11` H,m.`2 #`+&/abel`+3$abel.sm &&`0h\"`-H'` #)`!B$` '*`!35}`!A+`4R${'stroke-width':`!e+border_hover_size * (` F! / original_` ,!) * normalizing_`+0%1.25}, zoom_time * 1000`&:%`$|(`!g5`$7;`\"<#`%C+`\"-3`\".#`!>m`,|3after`)i)`%%\"`+m#_` e!solo &&`,!$` 0!`(*!-1`(:!`-</`*+` g(back) {`-e'`0T$`#l#`1L$`*;'` j4`+H\" ||`!$< ||`!v%`!!<if (`*C\"`\"D\"`\"+3`*y$` U2`#g&zd_to_tween(bb`3k% {x:bb.x, y:bb.y, w:bb.w, h:bb.h};}var end_`!3'`2c!`$y\"wee` )\"current_viewbox;`!0&` C!o`0Y1, call`\"d#`*7\"st_`&o#d`*,!` %'`*'&` *' = false`0>\"`!?#ly_over && !`!-( ==`!a$` <#)) {out.call` O+);}`!%!click` ~'`\"^+`3|*;tooltip`3w$` (#_up` W%` |&zooming = true`->,` 7#_dimensions = get` O$` .'`2D*var to =`%()` \\=` R\"from` K+`\"`!` <?`2:!`\"`*` 52.r;`*R*before`%M1)`%&`3!\"Zoom`$A$`,a\") {`&N+ `$}%` <\";paper.setViewBox` S*.x,` B*.y,` \"+w` 2,h,`$h\"`,i(whenDone() {`,b;`\"5'`#O,`&!+`%Z0`&\"\"on`&u\"` (%`\"{\"`-h\"level();trigg`1[!ok(\"`$$$complete\", []);if (helper.isF`\"(#(`)R%) {` $$`+P!if (!vml && (!touch ||`*C\"mobile)`)5!`\";$ {`&$!able = new T` ($;`+<& = ` >%.`&T\"{from:from, to:to, du`&B!n:`0n,, easing:\"easeOutQuad\", step:`$:%`%i-`%|5;}, finish` S') {`$|%to`3L!`0H%`&R.to`&G.to.x, to.y, to.w` '!`&#&`%y&`/1(create_bbox`!X\"(auto) {var pri`!p!r`%V\"\"\"`*#!` B!` L\"array = {};for (` 6% in mapinfo.paths` j$ath_to_add =` 4*[` T!];` 5*Raphael._pathToAbsolute(` ;'`+X\"bt` C'pathBBox` 5.w = bt.x2 -` #!` 0!r`'\"!w < 10) {r = 10`4E& = 1`1g\"x = Math.round(bt.x * r) / r` e!y` 0-y` 2+2` 0.2` 5*x` 1.x` 8'`$()+= \"'\" +`#o#+` '#\":{x: \" + x + \",y:\" + y` '!x2` (!x2` 4\"` (\"y` )!},\";`$n,`$0#`#2!;}`%C+` #(.sub` $\"(0,` ,*length - 1)`!m.}\"`#y!!`&Q#console.log(\"The`*0!`&B-is: \\n\\n{\" +` ));}return` C-`.#'`'n#content(element`&|#` /# = ` 1#.sm.descrip`-r!var embedded_im`(5!data:image/svg+xml,%3Csvg%20`+r\"-backg`$m!%3D%22new%200%200%20256%20256%22%20height` C\"256px` 1\"i` U#Layer_1` /\"version` 4\"1.` .$`*p\"` 0\"` o3width` t-xml%3Aspace` 6\"preserve` 6%ns` 3\"http%3A%2F%2Fwww.w3.org%2F2000%2F`\"\\!` J'Axlink` =<1999%2F` F\"22%3E%3Cpath%20`\"Z#M137.051%2C128l75.475-7` \"!c2.5-2.5%2C2.5-6.5` C!0-9.051s` +\"-2.5` +\"%2C0L128%2C118.949L52.525%2C43.475%`#;!c` N!` i%` S*s`!*#`!$%%2C` 8!L` m#`!b#`!\\#%2C`!e#`!^'` K3`!7#1.`!M!1.` \"!2.88`!m!.8` i!4`!j#` +!s3.275-0.6`!\".525-` 5!`\"@$`#7\"`#0#`!C&` YG`!P\"` p6`#g:L`$R)z`%_!F`%\"\"`%o#3E`1'\"xmark_modern = \"<img id=\\\"xpic_sm`-*!_\" + div + \"\\\"src=\\\"\" +`)Y*` 7! style=\\\"`'w!: 18px;\\\" alt=\\\"Close\\\" border=\\\"0\\\" />`!?(vml`!C!a` a%line-`)k\": 1.5\\\"`!A<>X</a` j( = vml ?` y':`\"N)` F!url`,(*url ?`,;(url :`4@$url_sub = url` -!js_` ^\"` 4#`/%*11) == \"java`-(\":\" ? true : false` a!tab_click = \"(`.-$(){window.open(`#z\"url`\"L\",\\\"_newtab\\\")})()`!]\"reg` b%`!V#?` _1location.href`$v#` t%` k! :` D1top` :?`\"s'_clean = helper.replaceAll(`#/#, \"'\", \"\\\"\")` Q$`\"[1\" +` g*+ `!$'upon` O%new_tab ?`#S':`\"u&`2}!` e\") {` M)`!5$;}var mobile_par`1g6_` ?\"`%l*` -/: \"<div class=\\\"tt` 3#_sm\\\"><a` 1%btn_simplemaps\\\" onClick='`#f!`!e&+ \"'>\" + link_text + \"</a></div>\"`\"D!!`!M'` S$) {`(B$\"\";`\"9*\"\";}if `4`$`(!$== \"\" && ` d(`\"6.) {` ].var content` /$` (#` p#? (` 1+\"\")`\"0custom`#.!; /`\"X!` b$`\"V!`\"Q\"return` L.`#d\"div>` *,nam`$\"#`-$!`\"8&name` q&` J)`+L\"` L%`#K\"` =*`,m$clear: both;\\\"`$8#`!g#`!y&`\"V\"+`&J)` f&`\"5#}`(+$ is_forgery() {if (map`!k!!= \"continent\") {`\"j#`+p\"`$*!i = 0;for (` *!d in mapinfo.paths) {i++`%F\"i > 8` ^&true;} else` l,`!R)inside(small_`#N#, big` %$) {var ` <! =` \"\"` 4$.sm.zooming_dimensions`'N!` C!.w >` `(` :2.w`\"J1bb =` M,bbox`+G!big = {x:bb.x * scale, y:bb.y` &&x2` <!2` 7'` -!y` )%};`\",\"xbar`\"7$.x +` ##w / 2` <#y` 7(y` :%h` >!`\"K%` d\"`\"R!.x &&`#+#` X!` 0\"y`%D#` D'<` I\"2` A+` 1\"y2`$g,}`# *`$g%create_pattern(e, par`$Z#hovering = par.` *! ? \"_` %!`0i!`/!\"` W#_id =`4Z$` k$_`)6!.sm.id +` k%` S!exist` {\"docu`$N!getE`$X\"ById(` q&)`#,!` K$) {`16#delete`%+$` 7&`%M\"svg = map_inner.firstChild`!=!SVG_NS = svg`*q!spaceURI` 9!defs` 5#querySelector(\"defs`23#`![#`!x(`#O\"`\" #NS(`! \", \"` E#` S#`#*!`\"t#;` 4#.` 0!`\"L&` /%setAttribute(` a$Units\", \"objectBoundingBox` {$mage`!6A` E!` O#rect` 0Arect` M#bg_color`%f#` j!` +#?`%z!` &(:` -!` '!;rect`\"/+fill\", \"#ffffff\")` 10opacity\", \"0\");` z!` 6)NS(\"http://www.w3.org/1999/xlink\", \"` $!:href\"`'u!`!_#url)`#q%append`%o!(rect` $2` T!);defs` +)` E#);svg` ,)defs`$:'_posi`)N!`#5(` -$` C!auto` 1)size`3g!auto\" ?`*G! :`*>#`$d\"peat =` s-= \"` 6\"` B1manual` A2` 6\"` B1center` A2` 6\"` B1fi`0C!`!e#||`!7$||` j$?` H\" :`,h\"`/f\"ox = Raphael`28!BBox(`2A)[id]`&x#box_width =` (!.x2 -` ##` 8&height` ;$y` :%y` Z'2` [$` i#/` O(;`!I$_preload(`&)), `.Q%(`.?#` 6\"`!S$this.offsetWidth`%V'`!S%` 9'H`!/\"var `!R\"` b(/` L);`!1%get_per`!9$p`$N!`&(*`.G!auto`12#`$,,` 0#w2h > 1` '#`!0(>`\"w') {` ~\"1;} else` ($`!_*` G&;}` @$` m&`\"W#` q#` (\"` o&` V%2h` o1` W#`$>)` G)`!*$if (`&O\"` t%w2`!T&2h`\"u!`\"R\"` +$` A%per`!/+1 /` 0\"`\"%)per`#0#`#h0 * normalizing_factor`\"p,`4h#` w!`$[&`$q%`%M!new_`&0*`'+'*` W!` 9*`&9%` J,/ w2`&e\"`1R$x = 0` %)y ` \",` W!,` &%`&`#`'G&` Z&` *\"` \\\"`&E&) {` ^)`#[#` b*` /\" *`)S&`!g\"`$e'`'*%` ^,1` Z.1`0c\"`!W!`$-&x` w%`#z!`!e&` 9&y` ;$`\"@#`%{1` rJ0.5 * (`$J'-`$*,`2Q#`#5\"` D'` i#` D(`(L#;}`39/x\", 0`3Q1y\"` \"4`!;!\",`*<(` 30`!1\"` @$`!=$` 6/fill\", bg_color`3\\&`!?.`&J%` -4x` :'x` -Y`\">$`$N)` 54`\"C%`$i*`$>#`!Q/`%%#` +2y` 8%y` +2`!T$`%B.f (rotate`/\\#cx`-A%x +`*.-* 0.5`4\\\"y` @%y` <)`&*#` D\"`!90transform\", \"`!7\"(-\" + ` &\" + \",\" + cx ` \"%y + \")\");}` ^0`#E%`'1/);`-:#\"url(\\\"#\" +`#n$.id + \"\\\")\"`-V\"state_`&[!array = false`\"M!make_` =!`&|#storage,` P#` M!`32&creat` J#s(refresh`2Y#!` %&` ^( = {};` c'` +\"}`!D/mapinfo.` +,`!e!scaled_border`0D\"= ` \"(*` =\"`0J2* 1.25;`\"E& = `\"-%(id`%c#brand_new =`\"U([id] ?`#1\" : tru`#8\"` b$` M&? paper.path(`\"($paths[id]) :` g,`')!` W%) {` ;!.sm = {id:id};}`#Z!vml` 6%nod`%`,class\", \"sm`\"<\"_\" + id)`%@\"attrs = cattr`!4!` .$` [!s = {fill:` D!.`, !, opacity` .#` '#, stroke` /#`#}#` K#cursor:\"pointer\", '` H\"-` W#':1` *&`)<!':`$j.` 9&linejoin':\"round\"}`!u!` E#hov`!4$ =`\"?\"`!I$` /(?`\"Z\"` '0: main_setting`\"!*` x.`&Q#` [/` 5!` s1` 5!:`' (`'>/` r)` \".`'9@var ` M!`$h*`$V*` n\"`$a%`%('`\"j'`$y%`\"~.`$=;`!i&`*M#.sm.`,Y!`+n%if (`!,\"`,p\"url && `'Y#var`.[#paramete`'2!{` t!:` ]!`00$ur`!s$` '%` 3$siz`&w$` '&` 5$position` 4)` -$`1M%` 1)x`1C%` *)y` /$`\"v!` .)` -!`'%\"`2g$url =`-{$` .#(`.U#`\"C,)`#,.`+q!`$q&.fill =` r(`#J-`$(\"ur`#7>tru`#?5` ]%`#E5`%,&`#G9` A\"`#L:` >\"`#Y3` 7\"`#[7`&~'`#@X`(W+`#W0} else {` '@`/;!`!`#nactive) {` J'`-o\" = \"default\"`/n\"`'5)ource`06'.ignor`\"M#`%F6\"url(\" + directory +`,?#` m( + \")`!0#`!1#`-Z/||`,i4) &&` 5#empha` .\"`!c&` -$abl`'D%`#<$` -4`+*\"}` 6%`-FA`(R#attr`\"#!`\"h\"`(h$transform(t` \"$`) '`-l)` #&` 7&`.-.` #+` A&description`0H%` )'`!*'djacent`/(+'fill`3+&` =%` +#`.4'hid`1J&hid`\"[$` 4#_label` 4)` -\"`+*!brand_new`$A(reg`!q\"`#r,nam`!!&` (!`2J$` (!: mapinfo` *!s[id]`! !!` T)` ~(` j#id` z'`)f\"` q\"url`-?'`(V#` 5%` )$`$6'n_click = is_on` (!`'I#popup`%#'` +!_off` F#ff` 23`#)!s = []` +&zp`!>%zoom_percentag`!C'zoom`'E#` @&abl` 8'`%H'_mobi` B'` ).` M&type = \"` ,!\"`$}0`';$`%%)` ?%content`-J&` *#`-N\")`-w!sba = ` ,!_bbox_array`$j'ba) {` @\"Raphael.pathBBox(`%A$path`%D!);}var bbox = {x:sba.x, x2` $\"2, y` %!y, y` .\"y2`'['` R#bbox` '*.width` 4#.x2 -` ##` 8+height` @$y` ?%y`\")!`#5)`&y%hide()`,@%`(A,all_visible_` L!s.push`#=$`/s\"`(q-`#>&`#W$;all` K2;for (`4W!d in`(w%`#R!) {mak`!4#(id);}` ^'`!t$func`,!!style_background() {` $&`/\\\"`-r\"{fill:main_settings.` :,, `,3+` \"#, stroke:\"none\"}`%1#`+M\"`\"U\", last_destination, ` \"'`&X!initial_`(w!`\"-!`,&%` .-manual;`\"@%`'L#`!-\"s(refresh)`$Z\"!` %&`!H( = {}`2Y\"` Q#) {`#n+` /&var`(w\" = rattr`(1!`\"='object =` L$` 1+` 4!`!B! ?`\"n)`%Q!: paper.set()`)&\"`!e,.sm`!l\"` &%.`%1\"`,@\"`!}&` m&) {console.log(\"Duplicate R`!^\"\");continue`$N\"all_bb` l\"`\"a& = 0; i <`\">*`!9#.length; i++`#\"#`'o\"id`\"e%` D*[i`\"t\"`$}$`(8(` S$`0[(`!y+` u%+ \" does not exist`\"$)`*8)`!B\"` V0`1L%+ \" already assigned to a`!~#` p)`3(.id`$*-`*0'_id`$r#(vml &&`\"P\"`2@!gnore_hover && `1M#`)/! ||`/L$over`)C\"))`%L&`+0)`$Y\"` )'`-C$)`\"h\"` d\"x &&` n#y ` \"%x2` ,'2`-$#`%F\"{x:` =#, y` $#y`/C!` S$`/<!` T$}];}`\"`&`/?#helper` )!_union(` z\"`+&#attribu`'I\"{`+Y+` s\"`+e%cursor:\"pointer\"}`&(!`\"z!` D?`#B\"` .#}`$.!`#e') {` Z&.fill`3L%` ;!`#<(`$&( {`!1+` N*` @'` V(inactive`!(*`\":\" = \"default\"`#D(`\"6)` #&`&Q'`'H!`)*,name` 9'descrip`-x!`!]$` )'` 42_mobile` =0` 4#` M'ur`\"U&url` /'labels =`-')` 5&on_click = is_on` (!`#*#popup` A(content =`/{$` *#`-E#` k)`%P-` #+` A'adjacent`%r;` >$`&%%` X&zoomab`#\"'` )$` 9'`\")!_off`\"D#ff`\"/4zp` [)_percentag` c(`&&$` B%` )$` 9'type = \"`,k#` R(d`,^\"`1.+all`3O$`+R\"`#K*`1y'`&J$`'!(zooming_dimensions = get`4a!` +*` p%}`(<!`4>3[-1]`2a\"`*O!u`3g&` 6&;out`3%%` &\"`\"O%out\"` ,$`#P!1` d!`,7*clone(initial_view);bbox.width =` J!.x2 -` ##` 8\"height` 7$y` 6%y`!)$` #bbox`!;%`\"VGout);last_destina`)w#out`$Q!typeof `!p$zoom === \"`*]\"\") {` 0(_manual`#!\"` &/`#<#type:\"` -\"\", zp:1,`!~!:` H(` J4`!tI` P/)` k) = -1` |*solo = false;} else if ` _) != -1 && !` **in`%p))) {` K-in`4D\"` <#`#5+` 6! =` 7([` 5(]`!L>{console.log(\"The`$T*is not the id of a`!m# or`!1\"\");}`\"t.`(a!fly_in`(S-2`(Y'`%~*` 8,;` 4'`%76` d\"ivd`)~<`\"n0)` X!w = ivd.w` )!h` '#h` )!xinc` 7$ *`\".$ - 1) * 0.5` A!y` <&h` 02`!~*`&e2{x:ivd.x -`!2!, y` +!y -` |!, w:w * ` w\", h:h` #'r:` $\"};}}}func`#Q!`1S#lines() {var ` (! = mapdata.` *\"? ` \"*:` '%borders`.x\"` 8!`$p!turn;}for (i in` q\"` x' =` -\"[i]`\"!`03! = ela` +$b`4 %path(line` %!);b.transform(t` \"$);b.attr({stroke:`1%\"color, fill:\"none\", cursor:\"pointer\", '` N\"-dash`%E!':[` Z\"dash]` 7&`.D!'` u#size` 1&linejoin':\"round` l'miterlimit':4});b`/}%b`.S(.getBBox(true);all_external`$?\"`2C\"b);}` )/hide();`$u&get_label_bbox(e`#x#bb = e` }+if (vml` :%2` ?!_` 7*bb`0_(2` &#;}`(&!a = 0.5 * bb`1J\"`'w\"` +)` K#var pt` ~!sm.`$\"!0` 0!new_`![!{x:pt`'g\"a, y:pt`'d\"a, x2` 5\"+` 5\"` )!y +` 7!`!3!:`!9$, `!*\":`!1%};`&u\"`!\"#`!u\"`\"~\"`%2!`!@!` *\"set` )'make`#G\"`!w\"il` J$`(]-abel`(j!`4L%ear_sets([all` :#, ` '!ine` $#pills]);`!C'`%]\"`!\"&` *\"`!P+` )(attribut`)}!` #,.reverse();`\"$& = `!x%(id`%9#`)F$` S,[id`)V\"force_scale`0M%` T!lready_rotated` 3%`*x\"`!A,hasOwnProperty(id)`+1'`&c!rand_new`!B&`/!\"d] ?` u\" : tru`!8\"`\"q%`+1%set(`/A\"`&?\"`&4\"`)x\"x * 1, y` (#y * `0I#` G!`1?&pare` +!`\">&resize_` ++if (` g\"` 3\"_type == \"`2h# {` I%`4,(` G)id]`3y$` V6`1o\"` d)`1{)` @Nloc`1;!` g)` -$` ]5`$s!`#G$&& ` %#y &&`#0#) {if (` '\".sm.` }1`%f.`$p!`$$!.x`$j!` X$x` /#y` ))y` 0\"0` ()`+R#`&*` t!`!E*auto_size`&Z!`$l*` J!}}`\"D\"`\"*%console.log(\"The following object does not exist: \" + id)`+y#`#4\"`#'\"nam`\"k\"Not Named\"`#2)` :(`\"2'id` _\"`(;%`#c#!`#=+`*,#`#P&`,0#` +\"(`$n#x,`*O\".y], `3I'`(\"%x:` [#[0], y` %%1]}`-{'`)0%text(`$X#,`(k\".y` |$name`,|)`*,!`*<#`'#$`!q!` m$` =+;}` ,!`3=%` &$`2_! =`! #hid`$~( &&`%)(hid`-<$||`#M'hide)) {` d,`%C\"` -%`%X%` #\";` W&`/Z\"`4E\"` '!`3X\"` 7&`)d\"`&G!`)h'` 0,]` U3`#h!`/\\){'stroke-`2P!':0, fill`,q#color, 'font-size'` 2#size` 0$w`2y!':\"bold\", cursor:\"`$T!er\"` @$family` Z$font_` -\", 'text-anchor` 9$` (\"`. \"over`1S*{`!['h` :!`!g!` H#ut` 46` A#`#I*inactive`(L#`0}#`\"$\" = \"default\"`$]$attr`)>!` D\"`&j#`*k!`!,(` #&` 7&`!z.` #+` @'`!x,` #*` ?&`-R\" \"` ,!\"` .&id = id` '&`3m%`,l'?`4%):`'z#` )!` J+_limit`(;%` )'` ?&`.L!`)v\"` +&`.K!`*\"\"` +&`.K&`.E\"` 0%line_x` ~%` )\"` 0+y` 1*` l'lin`\"=!`3Q!` -%`+m\"` L%` )\"` 8#`,J%(`\",\"t`(I\", ` *!)`)=\"`1W#display`-i#`3A<`!6%` P# = \"out\"`3%J` S/`'0&` -#`-1%` :/main_settings`*p#_` 7$? ` \"9: \"all\";}` e7`\"m)`1R(`$&!||` :#pil`-j!`2y)`\"3(bbox = get`.6\"_bbox`,R%` i*`1S#`%8!path` P$` ($` O$` =$`0t%` 7\"` ?$` 7&`4_!`&'*` -!* normalizing_factor *`%U\" * 1.25` Z&` X! = {`./\"`+k#` 6!`.$#`-J/`.S*`!1%};line`+d\"` s&)` 0\"`1t%` '\"`*H5`#o!`($%` F#`\"42` 6%`+$-`#9#line;all`#`!`0p$in`4%%set` )(`$L!`&~&`'Q%state\" &&`%L'`$f$`%-%`4O$`%O$`#^!p = 0.1`#j\"calculated_`#5!` J$` Z!.` -\"* (1 + p * 3`%$\"pill` G%`!:\"` (\"?`!G#` (\":` n-` T&h`2J!`!!*` -#`!($`!&\"`!x)x - 0.5 *`!8'` A!y` :(y` 8*` q\"` B!r =`!2)/ 5`1}\"ill_array[id]`#A#`%/#` .*`*y%` 6(`(.!rect(x, y,`!R'` %#`!)\", r);` a*` y#;}pil`-`?` A!`'.$` &#`-.#`,f%` /%`2G)helper.clone`&%'`3q(`4]+mage) {` \\..f`\"Q\"cattr[` G'd].`)[!`\"'#`411`!13` :+`!-<` @+`!68h` G!`!I+adjacent`!7A` :/`$##`+Q!`\"o.`!x\"` g#x_in`%*\"`$g\"`/j', [`*!#,`0:\"])) {`!/&`)|#` b#bbox_union(`\"8'bbox,`*8*]`+/#` {B`3`#`!9% &&`2m'` 8\"`(*#` '\" =` \"#`'?#` =,];` \"\"`!d:` 6*`!p.` 6&zooming_dimensions`.b%` &;get_` '.(`\"-#;}`/P,`)E!all_pill`.t#`.3!`.k,`.H!`.-`3[#`*y#` '3if `#v- != \"out`/J!` (1all\" ||` 3&hide)` y(hide(`!4&all_visible_` @!`1\"$` I$`!;,`0p/location`!R!!`1{)) {` 6$` f5`2?!` &2` \"%`-<)` -%`(Z!!vml`\":$.node.setA`(|$(\"class\", \"sm`!!\"_\" + id`\"2#resize_`\"1\"`/I$adding = main_settings.`\"\"%auto_` >$? 1 +` %A* 2 : 1.3`0!size`.h!` 5$`'N)`2t#/ normalizing_factor` Y!lc`2l%`$-&` 5!old`#I# = lc`$G!` *\"`!1\"hape` 0&` *!_type`#I!` 7#= \"triangle\") {`!d#` \"!*`!|!`%y#` E*star` =.2;}`!j#_id`!/&id;l`.b!` 3\"].` K';make_`#=$(` <\")`\"L(`#W%`%S!` \\#`%j\"`2>)lct;`\"W) =`\"v'` -*`)4)` 3#`$[!`!S#true;}};for (var id in`&h#`/K' {`!y\"abel(`&D!`'X'`)8$function`+x!line_pat`!6$`&a\"bb`$v(bbox`\"]!w = bb.x2 -` #!` 0!h` /\"y` .#y` 0!r` T(scale ? ratio : 1` >!x_adj = 0.5 * (1 - r) * w` 9!y` '3h` V\"` s(`!~!`!F\"y` '-`!I\"miss`(q\"!x || !` 1\"`$F\"`&^!`'@.`+a$`&x!` =)`+i,` w#) {`!K)` ]&point0.x;`!S)` /-y`'P(`!\",`4 \"`!!*`!!`$>*`3i*;x`#9&p`$T\"+ ` $!)`!G!` 0'y` 3$y)`(P\"cur`!=!`\"C$ = {x:x, y:y}`#9\"ts = [];pt`';#{x:`%X$`$z!, y:` }#bb.y +`%d\")})` C- +` &I` 9&x` =\"x2), y:` M#`%z!` (G2 -` K%`'e!inner = {`)*'k in pts`#s#`\"x%abe`47!ts[k]` Z!distance_between = helper.` 2$(` Q),`#]-)`&R!k == 0 ||` `.<`!]#` i%) {` +#`!I$` v);` 5$`$e&`!$,` ;$` j$ =`!&-;}}return`\"($linePath(`!0(.x,`!V$` *\"y` &&`!%#` 7(` +$y`,1(`+0!_t(e, s, t, x, y, r`#u$x = x === undefined ? e.sm.x : `*j\"cy = y` 02y : y`#a!t` 3*) {t = \"0,0\"`4C#` 0-r =` `\"rotate;`\"n$\"t \" + t + \" s\" + s + \",\" + s ` \"$cx` ,%cy + \"r\" + r`1g#`0t)`,Y\"`1H(;`\"z%creat` /&s(refresh`\"|#`3Z\"paths = {`3N$:\"M -0.57735,.3333 .5` \"'0,-.6666 Z\", diamond:\"M 0,-0.5 -0.4,0 0,0.5 ` &\"Z\", marker:\"m-.015-.997c-.067 0-.13.033-.18.076-.061.054-.099.136-.092.219-.0001.073.034.139.068.201.058.104.122.206.158.32.02` 5\"039.117` A\"75.006.009.011-.004.` \"#9.037-.125.079-.249.144-.362.043-.08.095-.157.124-.244.022-.075.016-.161-.026-.229-.048-.08-.134-`\"*\"227-.146-.013`\"0\"-.027` \"%4` $\"z\", heart`#5!275-.5c-.137.003-.257.089-.3.235-`\"u!379.348.539.58.765.202-.262.596-.33.576-.718-.017-.08`#q!`\"0\"-.13-.206-.087-.066-.20`!!9-.3`#$!5-.055.02-.106.053-.143.098` c#081-.169-.127-.272`#R!\", star:\"m0-.549c-.044.12`!*!4.25` B\".379-.135`\"k#271` ##405.002.108.078.216.155.323.23`#I!2.0`#t!16.057-.023.085-.032.099`\"0!.1` $!97.298.049-.031`$w\"068.143-.101.062`!]$4`\"`!.185-.133.109.077`!=#8.326`!=#4`\"Q#082-.2`\"z!23-`$8!109-.079`'L\"156.3`\"}!36`\"L!`%<$`%H\"2`\"L!-`%)\"04`\"x!`#&!1-`##%-.377\"`1?'id in custom_`*C!s) {`*F'[id]`/]!` 7'[id]`+]\"supported` 3#`4`\"` o+` c') {` C,`3P\"id);}`0##clear_sets([all`,-&]);`,f*`3Q\"`,h) = `,n%(id`,[#posi` 7#\"center\"`-K!attrs = lattr`\"2!if (` 1!.type != \"image\"` c#attribut`\"G!{'stroke-width':` S\"border *`14\" * normalizing_factor, ` S\"` E)_color, fill` 2#` +#opacity` .#` '#, cursor:\"poi`\".!}`\"/!over_`!D?h` D!`!\"g` k\"`!^1` 5\"`!^7} else {`$>'` T\"`#x!_` /$`$L%`\"2&`\"<E`!\"/`%#&inactive) {` L&.` M\" = \"default\"`'p#`'M!`%\\!`%q'`%m!`!9!size`!y%` (!`#D0`&A'x &&` H#y`'*%int0`'\\\"` &\".x` k%x,` 9#.y` +%y`#<%` R)getxy`! #lat,` G#lng)`\"'\"rotated = `)9#` +\"([`!.$`!\"&], transform)`\"E!` 5! = {x:` a#[0], y` %%1]}`\"='`\"s\"= \"auto`(k$l = {sm:{}};l.sm.displ`*9!` P\"` )#` 7\"auto_`#Z#true` 0\"`$%#\"`*_$\"` 1\"hide_label = fals` H#` .!`,G#` ,!`#&%` #\"` /\"x` ($.x` +\"y` (%`!F#`%<)` #&` 7\"id = id`,E+`.*#l;return`&_\"` \\(= \"circl`+j%`,p'pa`-\\!` :!(`!T#`$8#.y,`&R\"* 0.5`$8\"bbox`$7\"` E# -` 9' * ratio, y` 9#y` )3x2` X%+` K2` 9$y` ,1`*7%if (`&?#x_i`\"k#`\"S',`0a-)`\"^#cs =` u!`\"4!`&]%`\"q$\"S\" + cs + \",\" ` \"%0,0 T\" +`$`$` 7%`$_$`'@!ath = Raphael.` t%Path`!V#`2f\"`!_&`'~(`!?!).toString() + \"Z\"`'r!`$j+marker\")`,|)\"bottom-`1Q$`)Q!`$T#`!L$pathBBox(path`$w\"`%F-path` 9#`#d'`!3+`2 )`.7\"` ^'`.H(url ?`.Y)url : directory +` 1)sourc`$9\"`!J-` =!(`!!*, 0, 0)`(6%.sm`-(\"`\"T'`)m\"`\"]$_preload` X-func`!+!(`\"1$wh = this.`2O! /` '\"height` }!new_` )\"`&-(new_` L\"=` 6(* iwh` 8%`*m' -` H'/ 2` ;%`+%\"`$|$`$t- ?`&Z$` [#`!\"#:`&q$` )*/ 2`\"~&attr({` 4\":` ;&, `!A!` -!` %!, x` (!x, y` $!y}`#a).`*u&` 9*`*L!`\"C\"+`\"5&`*A!`\"5\"` 0\"`!1\"};}`&G%`#w!`#-H`# O`\"g3`&B1rect(`\"5#`\"3#`\"$'` X&`-^,`\">M`\"b%`'<-`#d(attributes`)$#` '\"`$k+` /&`$@*original_`+p%`2]!` %#` =*ver_`!!)` #+` A)`1X,.sm.name`*g%name` 1)scal` 5&` )!` .._limit` 8*` .\"` ?)`->'` #$` 3)url` [%url` /)`3r#\"` ,$\"`!8*`4%4` 9'descrip`-2)` )'` 44_mobi`\"X'` ).`#T*nactiv` F&` )$`$H*n_click = is_on` (!`%J!s.popup`%B*` .!_off` I#ff` 17uls`!4&` )!`'n!underlay` 1&`,A.\" ? true :`.h#`$1)` W&` #$`!'._speed`!1*` .\"` 80iz`![+` .!` 7/color` <+` .\"`1o$` ((:` -#` )!` a)`+q'` +)`+e'`#j+int0` 5$0`-0bbo` ^*labels = []`&v*`\"H\"`\"1-hid`\"\\&hid`''+isp`$J(` )#` :&`*n%(`)1\"t(`3#&ratio * ` 5!));if ` 5%` p)= \"region\" ||`.4%` 3,state` =!`!c&) {` F%hide()`-M).content = create_` *#`!?%`!P\"`&*$) {`&e\"_` 8$s.push` D'`19$top` *7all` $6` \"$_array[id] =`\"M%`!K!!vml`\"/(node.setA`.0$(\"class\", \"s`!c&_\" + id);}};for (var id in` v%s) {make` K%(` J\"func`)J!`#a!_or_`$,\"(` +!)`3k\"leve`-_!pi_object.zoom_` 3!`2s\"evel_`/c!` 01_id` C!` w\" =`!)\".sm.` +#?` 4#`\"u#` 0+]`*r%if (` .\") {`&4!`!V\"= \"out\") {return` h#`$O$` <*`&N#` V(`!w!=` O#`1n\"` b&`!I!`%9%` r+` m1`'.\"`#8#current_` 0!`\"T$`\"B#`!5$]`\"5!` =)`\"s'=` pgmanual`\"U$`)f\">` s'zooming_dimens`'C!r`#?4`!7+`!)$` ',`&<%is_adjacent(element`%Vi`#n3`$y)!= `!4#`#<,tru`#:-`&P\"`#42`%}&`'N)` s'`'G2` 0-`'?<`&`9`!T*`!~*`!v3`44!pd`&a!ttr = `$9%(e, pos, anim,`.L\"`!D#anim =`4!\"fined) {` .\"` q$` A!ttrs` 6-` /\"` <(!` o(po` N!\"over\"` E'`'!over`!c!`-=!s`*'(` P$`&-$` K-` 1$` M/` :+` 5'`!Y#nim ||` 9\"image) {e` D!`\"?\"`0*&e.animate` 3\", fade_time`.n!`#d'pill`#b.pill`#p#overr`2;\"if (` '$`#A,` .&`#H(` B(`+u*par`2i\"pill.sm.` +\"`#@(` P)`'M*` U%`':)` ]*`'C'`\"o%` O)`0q,` Q*);`&q!`#;!`(!!`%;4helper.clone(`!1&`%V+`$3%`%F<` X3`%e/`%%&` <<` G(`!;!` 2%`&\"! &&`\"o#.sm.typ`$=/`0<#`!\"#cattr[` \\'`0H#`\"o1.fill`0|&` .!h`\"z!color`!x*` 90` @#}`*w'`&v(`&K!`*r$;};`'>%highlight_labels`/Z$, type, `#L$`'T-!`-F'` U\"`,u%`%~)` 6\"`.4*` .\";}` \"\".forEach(`(r&` 4!`!!$` (!.sm` u'`&!`\"_\"` 6$.pill`#\\!`$4%`#Z$` <#top();`\"u(` 4!,` A$`$8\"ill) {`*J,`#E#` B$`0o(`!&%reset\" ||`#6!`!<\"u`'3!` 1ut` lCut\"`#s'` N!`$.$` <7`(O%` P(}}}});}`#`%`#{\"_inactive`%5$`$!~`$u*` M'`!C$`$N%`\"/!{cursor:\"default\"}`*/&` 30pointer` B!}`,?#inserting`.V%`!D%emphasiz`\"Q,`!M'`$n!!`*F(`\"a$`\"z,` e$able` ;(`!4'true;` K$` 3\"Before(all_visible_`!%!s);setTimeout`#4') {`!.}, 1`\"G#currently_ove`1t!` =!`(T!u` \"$last_`2_#d` 7)`0M#click` D#bel` %'` 0&over` #\"ut` #!background` O-` C%` (#` G'` A'` %&_handler`$A&create_event` 6$s(`%f$`\"D%`\"{)f (this`1m'`4&\".call` +,;}};`!U%` EBut` K;`\"'!` _)`-~$` \\-` F!` [0, `){!;`$Y!` ^*, manua`-h%e` Q!` C!&& !` 4%`-r(`,=\" ` F!shape_type`+X!` /!`'g%location`,k*`2o!` .!ratio < 0.05`.r,`!d#e`3g#);top_` i$s.toFront();` ,$`1>#` /'var mag = 1 *`!i\"` r!_siz`'%\"stroke_width`!(!`2@!['` 2\"-` 3!']` F!anim_to = {` 1*:` X)* 4, ` 9$opacity':0`#u#`+d#'fill` 3',`!B#:`!Y'`40!}`!\"callba`%8+) {` n\"remove();}`)9\"`$2%cale ?`#_#: 1` :!ty = (mag - 1) * 0.5`\"v$size * r * ` X!`*I&_t` n$posi`!<!== \"bottom-ce`-m! ?` Q\"_t(e,` \\& * mag, \"0,\" + ty) :` .7);`#d#.transform =`!>$`#?$`+r\"(` C#,`$p)peed * 1000, \"ease-`2b\"`#?$);};`*90xy_hook_check(`3(\"!`(e!id`()!` '!`'?%se`4<!`/@(`.-&|| no_tooltip`2P(var`2D$ = `/#!_or_`-o\"`)s!`!3\"`0+'`.%$) {` #$`0!$}popup_off`35*` .%` g!`/G&pann`!X#` *'inch` %-zoom` .#`\" #_up && `!D'`\"P(`0G+`#+!` Q#`+7+`1*$`0w-this`#p\"`3B&` {$`*8\"_inactiv`3d&`\"},` 9$` P'`41.`%:!`%(!` Z*!`\"1'`!v#.show` <&`!!%top`%\\#vml &&`#r(`%Z%`-7&` 3*`-l&`-G'`#A+`\"\\$`\"0!gnore_hover) {update_`+H!` ?#, \"over\");highlight`-J#` 0.`(C!`\")&}} else`/z#`%\"&) {`!L~`!n\\`!|,`\"<>}}`-a#eset_appearanc`2i+` N$`++%`%G&hide`\"f#is_adjacent`!;%`3A%`!x5` 2$`,^$` ?'attributes, fade_time, whenDone);}` A8`!D#`#&!` I9`\"j8`-f!true);`%M(`$9{ || `#('`%4F`\"pY`\"I;);}`%J%` N$(`$y#helper.isF` ;#(`%b%) {` $$(`&J\"out`&2)force`&0)`-t*`.Q'`0P2`)Y.`0/'`.'4` 2\"`1hJ`1GD`$\\(`.P:out`.3C`(cB`#%-`0w-`+*R`'|(` -2`!J$` ?%`'u~`-5v`!T(`'u>`0<3 || `'W! ===` h\" {`.9,`.*/;last_`)|#d =`\"G$`(X!`'N%`.t&`(58` +&pann` #.inch`%Z(`':F`'::pre`!e!`'P), e` V\"api_object`$($` H!`*((`)w'` '` .$`!<\"`\"R#`#g'&& e`%j&touchend`%?-` 4:star`*J)` P!`)@/`%v#pos();}popup_off`!e*` .%`#&,zoomable &&` +)`!D%`#m\"\" || `%M!destin`(!! !` {%`+U+` U%`&w!) {` $`!x\"`#~.`+Q+`\"p'`-X(`!<!` ]!ed) {out.call` **;setTimeout(`&v&`!=#_to`,{&}`19'`*Y&` 5.` 3#`-D,`!t3var lin`%e+url`!}\"ink != \"`+>!!no_urls) {var js_url =` [!.substring(0, 10)`#L!javascript\" ?`**! :`0Z(new_tab ||` g#`&x#` $%window.`,b$.href`!+#`\"Z%` =#top` 13`&l$` B*open`\"<!, \"_newtab\"`$j-`'F%`,D(`$U(`&*(&&`&O\"`%*&`,I-`%.*}`*57e`#_#coords = get_` (!inates(`&]'pos(e, {l:` H\".x, u` $$y});}` B$show`%b&`',)true`1$9ver\");puls`.Y%`!e\"`0Xg`0*)`1)6` 2$`18(`-'!ver`1T!ibutes);}}`$@)`0.&`#V!lose_`!7! = docu` c!getE` @\"ById(\"xpic_sm\" + \"_\" + div`\"S\"` V'`(}!` %%.on`1#.`-;'`*oF.sm`+\"6`/f(` Y\"trigger`&-\"\"`!L\"`.)!\", []);}`2l!back` O&`!X%`3E%`0=#ypeof`3[%`4-!\"undefine`0<!` 1&`!8#}`!2*back`!2#if (`!x\"`.h'`.L-`/$0`/K1&& initial`4U!_solo)` *(`\"!#`+)3`,.':\" +` I)`+ $if (incr`%E!a`']!`!>9state`!U!` 30`!s\"`#S#`&g)&& `%>&`$t4,`)Z!,`& *`/t$` v\"_array[`!#6]);}`0G.` 5D,`$}\",`%G%`1!&`,C!inside = is_` &\"`$~-, `! )`$U(]`1D\"` :\" =`#L:manual`%>#`!1!?` _7 :` /*-1]`(u-`#<e`#H7`#,1`)@(_handler`+%,` 8&(`)|!` 4%`0 .`&9\"e.touche`4A$` )!_obj = e.changedT` =\" ?` \"-[0] : ` \\%[0]`2`# {x:` c%.clientX, y` $-Y}`\"[%var y = ie`!$\"` :\" +`.E&`.P$`.M#.scrollTop`!@!pageY`%W!x` V,X` D>Left` ^%X`!|'x, y:y};}`#D&setup_panning`#p$ground`-Y/`#d#`.Y$`/J.`&3,) {reset_appearanc`(:#`/D&`/|/`/P-}};`%3)new_viewbox`%;!`23!oords =`%N/`#E!newX =` @#.x` ,$Y` *&y;dX = (startX -` N!) * ` ,!.r;dY` 6%Y` 9\"Y` 3(var pan_threshold = 5` 5'if (Math.abs(dX) >` @+|| ` 6&Y` /-) {currently`$K$ =`)Z!;}`$|&`!)\"x + d`'#!` *\"y + dY, w` )#w, h` $#h, r` $#r};}var mousedown`#z%var`\"#\"`\"B!`\"}\"` +&Y`$6&` +!_pan`)Q%`+W)`!a#`$q#e.preventDefault`'d!` %*() : (e.` S\"Value`!M$);`!(! = {x:`\"t#`%P$.`'h!` %,y, w` $-`\"f!` %,`\"p!` 9- / original_width / scale};`#'(`$.!`&U<`&@#`&h'`&3#`&f'`(p+` '$pos(e, {l`$Q\"X, u` $\"Y})`-`'during`#)!`!^%`$#%;}`-r) &&`-=&.length > 1` E'var v`\".#`)=*;paper.setViewBox(v.x, v.y, v.w, v.h`!V(finish`!K3 || !`'a-`'o3`&+\"`'&.`!,d`%<+ = v;`4@, = {sm:{}}` *-.sm.zooming_dimensions = ` i+` D1type = \"manual\"`\"3/setTimeout(`/!)`\"p6}, 1)`4\"\"arrow.show();}helper.addEvent(mapdiv, \"`!-%\",`*;&);` 2:move\",`&_'` 1<up\",`%L'` /<lea` |!` -A`'P!`!v!`!\\C` L!`!WH`(Q\"nd`!C+`3_-inch`3j#var `%/\"istanc`,u%`2E*` N!` ;%`2M%xy0`-9\"`)j%[0].page`/w!` %-Y}`,3!xy1` G,1` B1` /#Y}`(b# `\"T#`!@%xy0, xy1`\"9(move`!k\"`*-%`&_&`'#`+LO`'B'`#9#`.?(`#4'`\"{1`3z!`#\\)`#<#diff =` V&-`$!*` x!magnitude =`48'iff` q\"` 5&> 10`\"L#` s!> 0) {zoom_in_click();} else` 1#out` /&`%:,`!=%}` L$` '7`.&.`#{%`&,2`*t?`#`&`+.&00`*l8`(y)`%A&`(`C` 'F`(y*` L\"`\"X&order() {all_states.toBa`#b!bottom_loc`.?!` .(ackground` *&if (all_external_lines` t#` '*.toFront();}all_label` *(top`!*)` 0$` ,$` @.`+/)_events(refresh`3+$` %&`\"C'hover(over, out);` 1'`&J\"`&Q!`\"G)` 2\"` '&`&s\"` 6)` q\"reset_tooltip, ` \")`0j)` h&` f\"_handler`#Q\"responsive) {set_` '&` A$()`*|\"`2W\"`+:!`$f,`&H$`\")$` -,end`\"@(`!S#` 2%`!S&);`.y#`3'\"(` '%`/'%;}`$r\"`$Z%`#Q1` 5&`#\\)`%G'` Q\"` (!_` W\"` %#` Z%` B\"` Z\"` 6\"` _#`\"W2`&)(`\"E*` +/`\"}-`&M%` T#`!$)}}`-b!etec`$<!iz`1Q'`$=4 {` :%` M\"(`/m!size_pap`$r\"var` 7#Timer;` w) = `,'*lear`,G$` K');` \"' = `,j'` 3\", 3`,M!`#5!window`+K%Listener) {` #3(\"` `\"\",`\"U*,`-K\");` ?5orient`#s!chang` I6`/T$` c$ttach`-.\"` vD` G(` nGif (vml) {document.body.on`#o2`$d$;};`1$'`$j*`,/\"`/'\".offsetWidth <`4b!return;}create_dimensions(true);` a!.setSize(width, height)`4(!scaled_b`/^!_`!_#` \"(* ` Q\" / original_` ,!) * normalizing_factor * 1.25`/_%`+5\" && `(N)`+h*forEach`3-'` 4!) {` #!.attr({'stroke-`!9!':`!h.});` J\"sm` N!ibutes[` J*] =`\"B/` O&over_` @:` C$` Y#`+z!`\"PY}`+I,`\"_.` 4$`%J#lattr[` -$.sm.id].type != \"image\") {` 6(`!x9` [2`\"<\"`!_T` b(`#5>`!,2`#W\"` ac`%s1`\"]B});}`$?$in`&1line) {var adj` B!`(i$lin`%m!`%)X` _!`!m1`!!)});})`*h%trial_text(`*J\"min = `!8$2 > 250 ?` '': 250;max`!O\" = popup_max` +\"? ` \"+: min;`,V(veal_map(refresh`\"p#region_out = fly_in ?` .$array[-2] :` %*initi`4:#]`\" !` 9\" =` ,8if (!` +$back) {back_arrow.hid`.U!` B!`!\\&if (` \\(`,<\"`!x#destin`%h! = ` 5.`13$` T-manual` D>` B\"`1y%` <.`#7&;}var `!6\"lowly =`!f0 ||` o0) &&`#w&`1{! : true;` A!to(`!.',` |(`#-#` }*olo &&` }) != -1`#n#ground.show()`#sDfor (var i = 0; i <`\"Z#`(f!`0U\"length; i++`#Y#id`# %` >&[i`%t\"`\"o\"`/=#`%p$d`%g#`/P%hid`13&`!n#}`!D(in label` \\\"`!2#` -!`,d!` 1%`!/$` -\"set` 6%set` 9&`/L\"bel.sm.parent`/_%` )).sm`/_\"== \"`!Z!\"` /6`(?#!`\"b(id || !` 55) {` 3%hide =`%P\"`!l%`$5%}}}all_externa`-<6`/5\"`!_#Raphael.isPointInsideBBox(`!Y&bbox, ` Q\"` ($.x,` \",y)) {` ,$`$;$`&5#`*)#`'[&) {`'P$`*y6);}return;}`'\".all_visible`(t\"s` &0`#\"!` -)`\"q+`'v(`!U- && !`)ZG`!nD`.n(`!.!`.v!) {get_` ,#able_info();`&w!`2a%();`0f#`\"R\"(true` +%`!3\"` &+`3K$` ',`\"y!();style`*U!`#_\"();hide_and_show_before(last_`+|)` j\"`%1!`!b#event`!!$resize_pap` ;!`1>'` :\"` x*after` t-);upd`*y!pi();trigger_hook(\"`#9$complete\", [])`.g\"tooltip;`#e%load`#c$mapdata = api_object.` .#;mapinfo` ,-info`%g!map_inn`(c!delete window.`\"F!;}expand`!l#preload();get_client`$t$get_` h\"` *!`/F!s_forgery()) {alert(\"The continent map can't be used with other data.\");`(V$`& 3`%?#d`'R!ructure` ,'imens`%p!` +%canva` %'trial_text`(\\$popup_nocss) {set_tt_css();}`$)# = ` W$` +\"` f&`10!button` j#`(t\"`(U!) {` @#`) !` A\"` t!`(/-`'=/`(E*`(>-`(*&in` ]\"etTimeout`-q'`!9&`(h&`(\\.re`!L!ll` w#`!N*`(D$` O#`(J!_handler`!2#`(\\$`(D));`#(#.` T\"(`'{9`(!+xy` 3!_check();}, 1`(?#getting_xy = false`2}!get_xy_fr`,z!p = `\"]&log`0Y#!` S'|| ` 3\"` e)`1i!} else {`&i$everything.mousedown`#\\'e, a, b`4_$ = ie ? `\"q!.`(Y\"X + document.d` \"#Ele` +!scrollLeft : e.pageX`\"0!u` W0Y` I>Top` a%Y` e!find_pos = helper.findPos`*p'` D!x0 =` E%[0]` 0!y` ()1` /\"go = `--,.sm.zooming`)G'` K!this_width = go.r * ` )\"/ scal`$b\"` A!height` =&` )#` <(x` 8\"x` -$ +` u(* (l - x0) /` \"`\"\"\"` O\"y` E,` y#* (u - y` Q!` .\";x = Math.`)S\"x * 10000` ?!` $\";y` 6*y` 00var print_string = \"You clicked on\\nx: \" + x + \",\" + \"\\ny` .\"y` .\"`+_!`'0\"console.log(` m();}`(l+lick_xy\", [{x:x, y:y}]);});}`!S!lo`(g$`+.(`(c+`2[#}`1U&` z)name, args`( #fn = hooks`1J#[name]`!}!fn) {fn.apply(null` T#`*=\"plugin_array =` '$` g!` ^#for (var i = 0; i <` I).length; i++`!D(` 8([i`!,=}`!J!`, )`\"v,if (`\":(.`#g$ ||`!m)` 0%`!U# > 0`#S/`,m!);}`$4\"ov`#Y#`!*)e`*G\"`\"2#type = ` .#.sm.type`\"6!` 5\"= \"`0b!\") {`%M*` z!` 6\", [` W'id]);}` V)`0Z$` O3` 6%` H=`0\"` P3` 6#` Q0`\"k#ut`!uxut`\"-_ut`\"+`ut`\"L>`&.\"`\"X4, e`\"1^` }\"`\"_2, e`!gE` b\"`!{3` U0`#G6` e\"`#J5` f#`\"|\"pre`\"#~\"` }%`\"F^` b%`\"Fa` e%`\"hBzoomable_`\"2~\"` }+`\"X^` b+`#\":`1}'` C\"_zoom(id, callback`\"<#` 9\" =` @$`0V#d];zoom_to(` 3\", `/7!` U';}` {%`\"9!` j5` 9! =` ?#` o.` 3!` c9`$w$` y&zp` z)if (!manual` ?!) {console.log(\"L` Z#`%>! only works when the map is in ` \\' mode.\");return`$@&of zp === \"undefined\") {zp = 4` ;)`!^$` ;/` 1&`\"W\";`4,!destin`!i\"= {sm:{type:\"`!S\"\", zp:zp`'M#`\"s$ =`\"|&`#Y&var w` 0'.sm.size * scale * zp` A!h = w * original_height /` (&width` H!x` d+x -` X!0.5` ;!y` 1+y - h` 5'r`!(!/ (` n*`!N$);`\"Y'.sm.zooming_dimensions = {x:x, y:y, w:w, h:h, r:r}`&0%` ['`&\"9reset_tooltip(`&(#currently_over) {out.call` *,`%(\"!` X#_`$@\") {`%l$ else {` 2*`%)&if (on`*0\"` K'` H#.hide();setTimeout(`,F&) {}, 100`\"!(popup`&X!, id`\"&#`,<.var`,p$`)H/`!n#`,\"3` N*`+(-`\"J$` 9*`&k/`#3\"` <#`)d+`!2!+ \" \" + id` &!does not exist`)N%`(Q(`#B$`/(*` .$`&X!bo`':!ast_`&&=`/a&!`1:+` e!b` y*bbox`(7%(bb.x + bb.x2)`(.+(bb.y` 7\"y` 4%x = x`'|$;y = y` %%`#H(x`!(*`!-\"y` '*y`\"i\"`'$#_`!L!x - box.x) / ratio` U!` <$`!S!y` =#y` :&`(\"'_x > `)c$1.1 ||` T'> `+-#` 7!`.S,Not in this`%l#`$P-`(2-tru`3h\"`(6'` #!`)C\"`%r$`\"u%over` +,`(a$`*?\"pos`\"#&,`!s&,`#5$);ignore_pos`!:$`)d3`!v#` >!`)6&`0X#pulse(`)<!`(\"\"`'m2`'{#`*N'` S\"el,` t!`*)-_`*k\"`+G%`*y$`!\\$up`!W%`#*+`,W%`'v!` 1!ed`#1'`,f5`-](fresh_`+*!`\"7\"set` %&`&+!` )!`+A/`1i!abels` 5$.sm.` ,\";make` ]'for (var i = 0; i <` U#.length; i++`#U#` 4!_id`*1!bels[i].sm.id;set_` /!(` =$)`!%\"` %,}`(J!no`/~$s`#=%`\"T%disable_`$\"!s() {` A*`%_(`$.$` T>en` X9`,p'no_ur`#8!`!B3url` Z$` B#`&u\"` @9`!9#` J.`!3#` @%go_back(`38% {back`&#\"` ,&` G'expand_api() {api_objec`&B!ibr`%`\"create_bbox`%:\";` >'get_xy`(U!g_xy` /(proj = get` **loa`%D!oad_map` /(`1b#zoom`1m&zoom` 9(`'0\"` =#` #&` 7(zoom_in`\"{%` +,out` (0`*U%` v#` #)` =(ba`1{!`#j#`\"H)op`*;!` #!` ,)ulse =`+p)` H-`+6!` V$` (!`!j-lev`,E!\"out\"` 2(`-N#`%(!`%T&` J1`)D\"` 0-`&z( =`'()` ;(`&e' =`&r(` X0`(P\"` c'` +\"` ]/` A%` #)`%P*`,w!`%U!`- \"`%n-`-2'` <'`'0\"`'m&upd`%n$`\"k\"`'o+`#\\)`.g!destin`%H!.sm.typ`#>9` @0id ?` X1id :`){-`!\\#`)H.`\"'!`.w%`/7\"`(Q.s`(U&` 1-`'N$s`2?-` 9)`0 $`.\\\"` /-`-;# = ` ##;}`+B(;`*7$();}window[plugin_name] = (`\"D%(`3T% ` x&;})();docReady` ?*`1)0auto`!0!`!f!`12/`!9\" =` ;+[i`2S\"ready_to_`,9#` H#&&` ##.mapdata &` \",.main_settings.au` ]$!= \"no\" ?`/b!`$}%if (`!!)) {`\"5'` w\"`4S\"Timeout`\"P*`!7#load();}, 1);})` P$;}}});`\"_+push(`#R&` K!\"simplemaps_worldmap\");"))
+function exe (plugin_name) {
+    (function() {
+        (function(funcName, baseObj) {
+            funcName = funcName || "docReady";
+            baseObj = baseObj || window;
+            var readyList = [];
+            var readyFired = false;
+            var readyEventHandlersInstalled = false;
+
+            function ready() {
+                if (!readyFired) {
+                    readyFired = true;
+                    for (var i = 0; i < readyList.length; i++) {
+                        readyList[i].fn.call(window, readyList[i].ctx);
+                    }
+                    readyList = [];
+                }
+            }
+
+            function readyStateChange() {
+                if (document.readyState === "complete") {
+                    ready();
+                }
+            }
+            baseObj[funcName] = function(callback, context) {
+                if (readyFired) {
+                    setTimeout(function() {
+                        callback(context);
+                    }, 1);
+                    return;
+                } else {
+                    readyList.push({
+                        fn: callback,
+                        ctx: context
+                    });
+                }
+                if (document.readyState === "complete" || !document.attachEvent && document.readyState === "interactive") {
+                    setTimeout(ready, 1);
+                } else if (!readyEventHandlersInstalled) {
+                    if (document.addEventListener) {
+                        document.addEventListener("DOMContentLoaded", ready, false);
+                        window.addEventListener("load", ready, false);
+                    } else {
+                        document.attachEvent("onreadystatechange", readyStateChange);
+                        window.attachEvent("onload", ready);
+                    }
+                    readyEventHandlersInstalled = true;
+                }
+            };
+        })("docReady", window);
+        (function(console, Object, Array) {
+            if (typeof console === "undefined" || typeof console.log === "undefined") {
+                console = {};
+                console.log = function() {};
+            }
+            if (typeof Object.create !== "function") {
+                Object.create = function(o) {
+                    function F() {}
+                    F.prototype = o;
+                    return new F;
+                };
+            }
+            if (!Array.prototype.forEach) {
+                Array.prototype.forEach = function(fn, scope) {
+                    for (var i = 0, len = this.length; i < len; ++i) {
+                        fn.call(scope, this[i], i, this);
+                    }
+                };
+            }
+        })(window.console, window.Object, window.Array);
+    })();
+    var helper = (function() {
+        function delete_element(e) {
+            e.parentNode.removeChild(e);
+        }
+
+        function clear_sets(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                var set = arr[i];
+                set.forEach(function(e) {
+                    e.remove();
+                });
+                set.splice(0, set.length);
+            }
+        }
+
+        function replaceAll(str, find, replace) {
+            return str.replace(new RegExp(find, "g"), replace);
+        }
+
+        function to_float(str) {
+            var num = parseFloat(str);
+            if (isNaN(num)) {
+                return false;
+            } else {
+                return num;
+            }
+        }
+
+        function addEvent(obj, type, fn) {
+            if (obj.attachEvent) {
+                obj["e" + type + fn] = fn;
+                obj[type + fn] = function() {
+                    obj["e" + type + fn](window.event);
+                };
+                obj.attachEvent("on" + type, obj[type + fn]);
+            } else {
+                obj.addEventListener(type, fn, false);
+            }
+        }
+
+        function linePath(startX, startY, endX, endY) {
+            var start = {
+                x: startX,
+                y: startY
+            };
+            var end = {
+                x: endX,
+                y: endY
+            };
+            return "M" + start.x + " " + start.y + " L" + end.x + " " + end.y;
+        }
+
+        function clone(srcInstance) {
+            if (typeof srcInstance != "object" || srcInstance === null) {
+                return srcInstance;
+            }
+            var newInstance = srcInstance.constructor();
+            for (var i in srcInstance) {
+                newInstance[i] = clone(srcInstance[i]);
+            }
+            return newInstance;
+        }
+        var isMobile = {
+            Android: function() {
+                return navigator.userAgent.match(/Android/i);
+            },
+            BlackBerry: function() {
+                return navigator.userAgent.match(/BlackBerry/i);
+            },
+            iOS: function() {
+                return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+            },
+            Opera: function() {
+                return navigator.userAgent.match(/Opera\sMini/i);
+            },
+            Windows: function() {
+                return navigator.userAgent.match(/IEMobile/i);
+            },
+            any: function() {
+                return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows();
+            }
+        };
+
+        function isFunction(functionToCheck) {
+            var getType = {};
+            return functionToCheck && getType.toString.call(functionToCheck) === "[object Function]";
+        }
+
+        function findPos(obj) {
+            function getStyle(obj, styleProp) {
+                if (obj.currentStyle) {
+                    var y = obj.currentStyle[styleProp];
+                } else if (window.getComputedStyle) {
+                    var y = window.getComputedStyle(obj, null)[styleProp];
+                }
+                return y;
+            }
+
+            function scrollDist() {
+                var html = document.getElementsByTagName("html")[0];
+                if (html.scrollTop && document.documentElement.scrollTop) {
+                    return [html.scrollLeft, html.scrollTop];
+                } else if (html.scrollTop || document.documentElement.scrollTop) {
+                    return [html.scrollLeft + document.documentElement.scrollLeft, html.scrollTop + document.documentElement.scrollTop];
+                } else if (document.body.scrollTop) {
+                    return [document.body.scrollLeft, document.body.scrollTop];
+                }
+                return [0, 0];
+            }
+            var body_position = getStyle(document.body, "position");
+            if (body_position == "relative") {
+                document.body.style.position = "static";
+            }
+            var current = getStyle(document.body, "position");
+            var curtop;
+            var curleft = curtop = 0,
+                scr = obj,
+                fixed = false;
+            while ((scr = scr.parentNode) && scr != document.body) {
+                curleft -= scr.scrollLeft || 0;
+                curtop -= scr.scrollTop || 0;
+                if (getStyle(scr, "position") == "fixed") {
+                    fixed = true;
+                }
+            }
+            if (fixed && !window.opera) {
+                var scrDist = scrollDist();
+                curleft += scrDist[0];
+                curtop += scrDist[1];
+            }
+            do {
+                curleft += obj.offsetLeft;
+                curtop += obj.offsetTop;
+            } while (obj = obj.offsetParent);
+            document.body.style.position = body_position;
+            return [curleft, curtop];
+        }
+
+        function distance(xy0, xy1) {
+            var x0 = xy0.x;
+            var y0 = xy0.y;
+            var x1 = xy1.x;
+            var y1 = xy1.y;
+            var dx = x1 - x0;
+            var dy = y1 - y0;
+            return Math.sqrt(dy * dy + dx * dx);
+        }
+
+        function rotate(point, transform) {
+            var x = point[0];
+            var y = point[1];
+            var str = Raphael.transformPath("M" + x + "," + y, transform).toString();
+            var re = /M(-?\d+.?\d*),(-?\d+.?\d*)/;
+            var m = re.exec(str);
+            return [m[1], m[2]];
+        }
+
+        function bbox_union(arr) {
+            var xa = [];
+            var x2a = [];
+            var y2a = [];
+            var ya = [];
+            for (var i = 0; i < arr.length; i++) {
+                var bb = arr[i];
+                xa.push(bb.x);
+                x2a.push(bb.x2);
+                ya.push(bb.y);
+                y2a.push(bb.y2);
+            }
+            var x = helper.min(xa);
+            var x2 = helper.max(x2a);
+            var y = helper.min(ya);
+            var y2 = helper.max(y2a);
+            return {
+                x: x,
+                x2: x2,
+                y: y,
+                y2: y2,
+                width: x2 - x,
+                height: y2 - y
+            };
+        }
+
+        function min(array) {
+            return Math.min.apply(Math, array);
+        }
+
+        function max(array) {
+            return Math.max.apply(Math, array);
+        }
+
+        function rotate_bbox(bbox, transform) {
+            var a = [bbox.x, bbox.y];
+            var b = [bbox.x2, bbox.y];
+            var c = [bbox.x, bbox.y2];
+            var d = [bbox.x2, bbox.y2];
+            var a2 = rotate(a, transform);
+            var b2 = rotate(b, transform);
+            var c2 = rotate(c, transform);
+            var d2 = rotate(d, transform);
+            var x_array = [a2[0], b2[0], c2[0], d2[0]];
+            var y_array = [a2[1], b2[1], c2[1], d2[1]];
+            var x_min = min(x_array);
+            var x_max = max(x_array);
+            var y_min = min(y_array);
+            var y_max = max(y_array);
+            return {
+                x: x_min,
+                y: y_min,
+                x2: x_max,
+                y2: y_max,
+                width: x_max - x_min,
+                height: y_max - y_min
+            };
+        }
+
+        function x_in_array(x, a) {
+            var i = a.length;
+            while (i--) {
+                if (a[i] === x) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return {
+            min: min,
+            max: max,
+            addEvent: addEvent,
+            isMobile: isMobile,
+            linePath: linePath,
+            clone: clone,
+            isFunction: isFunction,
+            findPos: findPos,
+            replaceAll: replaceAll,
+            rotate_bbox: rotate_bbox,
+            rotate: rotate,
+            bbox_union: bbox_union,
+            distance: distance,
+            x_in_array: x_in_array,
+            clear_sets: clear_sets,
+            delete_element: delete_element,
+            to_float: to_float
+        };
+    })();
+    var mapdata = window[plugin_name + "_mapdata"] ? window[plugin_name + "_mapdata"] : false;
+    var mapinfo = window[plugin_name + "_mapinfo"] ? window[plugin_name + "_mapinfo"] : false;
+    var mapname = plugin_name.substring(0, plugin_name.length - 3).replace("simplemaps_", "");
+    var demo = false;
+    var branded = false;
+    var autoload_array = [];
+    var hooks_object = {
+        over_state: false,
+        over_region: false,
+        over_location: false,
+        out_state: false,
+        out_region: false,
+        out_location: false,
+        click_state: false,
+        click_region: false,
+        click_location: false,
+        close_popup: false,
+        zoomable_click_state: false,
+        zoomable_click_region: false,
+        complete: false,
+        refresh_complete: false,
+        zooming_complete: false,
+        back: false,
+        click_xy: false
+    };
+    var plugin_hooks = {
+        over_state: [],
+        over_region: [],
+        over_location: [],
+        out_state: [],
+        out_region: [],
+        out_location: [],
+        click_state: [],
+        click_region: [],
+        click_location: [],
+        preclick_state: [],
+        preclick_region: [],
+        preclick_location: [],
+        close_popup: [],
+        zoomable_click_state: [],
+        zoomable_click_region: [],
+        complete: [],
+        refresh_complete: [],
+        zooming_complete: [],
+        back: [],
+        click_xy: []
+    };
+    var api_object = {
+        mapdata: mapdata,
+        mapinfo: mapinfo,
+        load: load,
+        hooks: helper.clone(hooks_object),
+        plugin_hooks: helper.clone(plugin_hooks),
+        copy: function() {
+            var new_plugin = {
+                mapdata: helper.clone(this.mapdata),
+                mapinfo: helper.clone(this.mapinfo),
+                hooks: helper.clone(hooks_object),
+                plugin_hooks: helper.clone(plugin_hooks),
+                copy: this.copy,
+                load: load
+            };
+            autoload_array.push(new_plugin);
+            return new_plugin;
+        },
+        create: function() {
+            var new_plugin = {
+                mapdata: window[plugin_name + "_mapdata"] ? helper.clone(window[plugin_name + "_mapdata"]) : false,
+                mapinfo: window[plugin_name + "_mapinfo"] ? helper.clone(window[plugin_name + "_mapinfo"]) : false,
+                hooks: helper.clone(hooks_object),
+                plugin_hooks: helper.clone(plugin_hooks),
+                copy: this.copy,
+                load: load
+            };
+            autoload_array.push(new_plugin);
+            return new_plugin;
+        },
+        mobile_device: helper.isMobile.any() ? true : false
+    };
+
+    function load() {
+        var api_object = this;
+        var mapdata = api_object.mapdata;
+        var mapinfo = api_object.mapinfo;
+        if (!mapdata || !mapinfo) {
+            console.log("The mapdata or mapinfo object is missing or corrupted.");
+            return;
+        }
+        var hooks_object = api_object.hooks;
+        var plugin_hooks = api_object.plugin_hooks;
+        var back_image, images_directory, directory, state_specific, main_settings, normalizing_factor;
+
+        function preload() {
+            state_specific = mapdata.state_specific;
+            main_settings = mapdata.main_settings;
+            var scripts = document.getElementsByTagName("script");
+            var mysrc = scripts[scripts.length - 1].src;
+            back_image = main_settings.back_image != "no" ? main_settings.back_image : false;
+            images_directory = main_settings.images_directory != "default" ? main_settings.images_directory : false;
+            directory = images_directory ? images_directory : mysrc.substring(0, mysrc.lastIndexOf("/worldmap.js") + 1) + "map_images/";
+        }
+        var ignore_pos, fly_in, rotate, manual_zoom, responsive, div, initial_zoom, initial_zoom_solo, tooltip_manual, last_clicked, tooltip_up, regions;
+
+        function get_map_info() {
+            div = main_settings.div === undefined ? "map" : main_settings.div;
+            initial_zoom = main_settings.initial_zoom === undefined ? -1 : main_settings.initial_zoom;
+            initial_zoom_solo = main_settings.initial_zoom_solo == "yes" && initial_zoom != -1 ? true : false;
+            fly_in = main_settings.fly_in_from === undefined || main_settings.fly_in_from == "no" ? false : main_settings.fly_in_from;
+            responsive = main_settings.width == "responsive" ? true : false;
+            rotate = main_settings.rotate ? main_settings.rotate : false;
+            if (rotate == "0") {
+                rotate = false;
+            }
+            zooming_on = main_settings.zoom == "no" ? false : true;
+            manual_zoom = main_settings.manual_zoom == "yes" ? true : false;
+            regions = mapinfo.default_regions && zooming_on ? mapinfo.default_regions : false;
+            if (mapdata.regions) {
+                regions = mapdata.regions;
+            }
+            if (mapdata.labels) {
+                labels = mapdata.labels;
+            }
+            tooltip_manual = false;
+            last_clicked = false;
+            tooltip_up = false;
+            ignore_pos = false;
+        }
+        var background_image_url, background_image_bbox, zoom_time, zoom_mobile, zoom_increment, custom_shapes, popup_centered, popup_orientation, order_number, zoom_percentage, initial_back, link_text, zooming_on, fade_time, hide_eastern_labels, labels, ignore_default_labels;
+        var adjacent_opacity;
+        var opacity;
+        var incremental;
+        var label_size;
+        var label_color;
+        var label_opacity;
+        var new_tab;
+        var default_location_opacity;
+        var hooks;
+        var border_size;
+        var popup_color;
+        var popup_maxwidth;
+        var popup_opacity;
+        var popup_shadow;
+        var popup_corners;
+        var popup_nocss;
+        var popup_font;
+
+        function get_refreshable_info() {
+            background_image_url = main_settings.background_image_url ? main_settings.background_image_url : false;
+            background_image_bbox = main_settings.background_image_bbox ? main_settings.background_image_bbox : false;
+            opacity = main_settings.background_transparent == "yes" ? 0 : 1;
+            label_size = main_settings.label_size ? main_settings.label_size : 22;
+            label_color = main_settings.label_color ? main_settings.label_color : "#ffffff";
+            new_tab = main_settings.url_new_tab == "yes" ? true : false;
+            default_location_opacity = main_settings.location_opacity ? main_settings.location_opacity : 1;
+            hooks = main_settings.js_hooks == "yes" ? true : false;
+            border_size = main_settings.border_size ? main_settings.border_size : 1.5;
+            popup_color = main_settings.popup_color ? main_settings.popup_color : "#ffffff";
+            popup_orientation = main_settings.popup_orientation ? main_settings.popup_orientation : "auto";
+            popup_centered = main_settings.popup_centered ? main_settings.popup_centered : "auto";
+            popup_opacity = main_settings.popup_opacity ? main_settings.popup_opacity : 0.9;
+            popup_shadow = main_settings.popup_shadow > -1 ? main_settings.popup_shadow : 1;
+            popup_corners = main_settings.popup_corners ? main_settings.popup_corners : 5;
+            popup_nocss = main_settings.popup_nocss == "yes" ? true : false;
+            popup_maxwidth = main_settings.popup_maxwidth ? main_settings.popup_maxwidth : false;
+            popup_font = main_settings.popup_font ? main_settings.popup_font : "12px/1.5 Verdana, Arial, Helvetica, sans-serif";
+            incremental = main_settings.zoom_out_incrementally == "no" ? false : true;
+            adjacent_opacity = main_settings.adjacent_opacity ? main_settings.adjacent_opacity : 0.3;
+            zoom_time = main_settings.zoom_time ? main_settings.zoom_time : 0.5;
+            zoom_increment = main_settings.zoom_increment ? main_settings.zoom_increment : 2;
+            zoom_mobile = main_settings.zoom_mobile == "no" ? false : true;
+            fade_time = main_settings.fade_time ? main_settings.fade_time * 1000 : 200;
+            labels = mapdata.labels;
+            custom_shapes = main_settings.custom_shapes ? main_settings.custom_shapes : {};
+            initial_back = main_settings.initial_back && main_settings.initial_back != "no" ? main_settings.initial_back : false;
+            hide_eastern_labels = main_settings.hide_eastern_labels == "yes" ? true : false;
+            link_text = main_settings.link_text ? main_settings.link_text : "View Website";
+            back_image = main_settings.back_image != "no" ? main_settings.back_image : false;
+            order_number = main_settings.order_number ? main_settings.order_number : false;
+            zoom_percentage = main_settings.zoom_percentage ? main_settings.zoom_percentage : 0.99;
+        }
+
+        function is_onclick(popups) {
+            if (popups == "on_click") {
+                return true;
+            } else if (popups == "detect" && touch) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function is_off(popups) {
+            if (popups == "off") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        var vml;
+        var tough;
+        var ie;
+        var ios;
+        var on_click;
+        var popup_off = false;
+        var reload = false;
+        var touch;
+        var popups;
+
+        function get_client_info() {
+            vml = Raphael.type == "VML" ? true : false;
+            ie = document.all ? true : false;
+            ios = helper.isMobile.iOS() ? true : false;
+            touch = helper.isMobile.any() ? true : false;
+            popups = main_settings.pop_ups ? main_settings.pop_ups : main_settings.popups;
+            on_click = false;
+            popup_off = is_off(popups);
+        }
+        var map_outer;
+        var map_inner;
+        var mapdiv;
+        var map_holder;
+        var map_zoom;
+
+        function create_dom_structure() {
+            mapdiv = document.getElementById(div);
+            map_holder = document.getElementById(div + "_holder") ? document.getElementById(div + "_holder") : false;
+            if (map_holder) {
+                mapdiv.removeChild(map_holder);
+                var tt_to_del = document.getElementById("tt_sm_" + div);
+                if (tt_to_del) {
+                    tt_to_del.parentNode.removeChild(tt_to_del);
+                }
+            }
+            map_holder = document.createElement("div");
+            map_outer = document.createElement("div");
+            map_zoom = document.createElement("div");
+            map_inner = document.createElement("div");
+            map_outer.id = div + "_outer";
+            map_zoom.id = div + "_zoom";
+            map_inner.id = div + "_inner";
+            map_holder.id = div + "_holder";
+            map_holder.style.position = "relative";
+            map_inner.style.position = "relative";
+            map_outer.style.position = "absolute";
+            map_outer.style.left = "3px";
+            map_zoom.style.position = "absolute";
+            map_zoom.style.top = "40px";
+            map_zoom.style.left = "3px";
+            map_zoom.style.zIndex = "1";
+            map_outer.style.zIndex = "1";
+            mapdiv.appendChild(map_holder);
+            map_holder.appendChild(map_zoom);
+            map_holder.appendChild(map_outer);
+            map_holder.appendChild(map_inner);
+        }
+        var transform_rotate;
+        var width;
+        var height;
+        var scale;
+        var original_width;
+        var original_height;
+        var initial_view;
+        var normalizing_factor;
+        var ratio;
+        var width_to_height;
+
+        function create_dimensions(resizing) {
+            mapdiv.style.width = "";
+            map_holder.style.width = "";
+            if (responsive) {
+                width = mapdiv.offsetWidth;
+                if (width < 1) {
+                    width = mapdiv.parentNode.offsetWidth;
+                }
+                map_holder.style.width = width + "px";
+            } else {
+                width = main_settings.width === undefined ? 800 : main_settings.width;
+                mapdiv.style.width = width + "px";
+            }
+            width = width * 1;
+            if (mapinfo.calibrate) {
+                initial_view = {};
+                initial_view.x = -1 * mapinfo.calibrate.x_adjust;
+                initial_view.y = -1 * mapinfo.calibrate.y_adjust;
+                initial_view.x2 = initial_view.x + mapinfo.calibrate.width;
+                initial_view.y2 = (initial_view.x2 - initial_view.x) / mapinfo.calibrate.ratio;
+            } else {
+                initial_view = mapinfo.initial_view;
+            }
+            original_width = initial_view.x2 - initial_view.x;
+            original_height = initial_view.y2 - initial_view.y;
+            width_to_height = original_width / original_height;
+            height = width / width_to_height;
+            normalizing_factor = original_width / 1000;
+            if (!resizing) {
+                scale = width / original_width;
+                ratio = 1;
+                if (rotate) {
+                    var bbox_array = [];
+                    for (var i in mapinfo.state_bbox_array) {
+                        var bb = mapinfo.state_bbox_array[i];
+                        bbox_array.push(bb);
+                    }
+                    var path_bbox = helper.bbox_union(bbox_array);
+                    var center_x = 0.5 * (path_bbox.x2 + path_bbox.x) * scale;
+                    var center_y = 0.5 * (path_bbox.y2 + path_bbox.y) * scale;
+                    transform_rotate = "r" + rotate + "," + center_x + "," + center_y;
+                    var riv = helper.rotate_bbox(initial_view, transform_rotate);
+                    original_width = riv.width;
+                    original_height = riv.height;
+                }
+                transform_scale = "s" + scale + "," + scale + ",0,0";
+                transform = rotate ? transform_scale + transform_rotate : transform_scale;
+            }
+        }
+        var paper;
+        var everything;
+        var all_lines;
+        var all_visible_states;
+        var location_labels;
+        var all_external_lines;
+        var all_visible_labels;
+        var transform;
+        var transform_scale;
+        var background;
+        var background_color;
+        var background_image;
+        var all_pills;
+        var all_states;
+        var all_regions;
+        var all_locations;
+        var top_locations;
+        var bottom_locations;
+        var all_labels;
+
+        function create_canvas() {
+            paper = Raphael(map_inner, width, height);
+            background = paper.set();
+            background_color = paper.rect(initial_view.x - original_width * 2, initial_view.y - original_height * 2, original_width * 5, original_height * 5);
+            if (background_image_url) {
+                var image_bbox = background_image_bbox ? background_image_bbox : initial_view;
+                background_image = paper.image(background_image_url, image_bbox.x, image_bbox.y, image_bbox.x2 - image_bbox.x, image_bbox.y2 - image_bbox.y);
+                background.push(background_image);
+            }
+            background.push(background_color);
+            background.transform(transform_scale);
+            background.hide();
+            all_states = paper.set();
+            all_visible_states = paper.set();
+            all_regions = paper.set();
+            all_locations = paper.set();
+            top_locations = paper.set();
+            bottom_locations = paper.set();
+            all_labels = paper.set();
+            location_labels = paper.set();
+            all_visible_labels = paper.set();
+            all_external_lines = paper.set();
+            all_pills = paper.set();
+            all_lines = paper.set();
+            everything = paper.set();
+            everything.push(all_states, all_locations, background, all_labels, all_external_lines);
+        }
+        var trial_paper;
+        var map_trial = false;
+
+        function create_trial_text() {
+            if (!demo) {
+                return;
+            }
+            if (location.hostname.match("simplemaps.com")) {
+                demo = false;
+                return;
+            }
+            if (map_trial) {
+                var parent = map_trial.parentNode;
+                parent.removeChild(map_trial);
+                map_trial = false;
+            }
+            map_trial = document.createElement("div");
+            map_trial.style.cssText = "display:inline !important";
+            map_trial.style.position = "absolute";
+            if (branded) {
+                var h = 20;
+                var w = 140;
+            } else {
+                var h = 30;
+                var w = 200;
+            }
+            map_trial.style.left = width - w + "px";
+            map_trial.style.top = height - h + "px";
+            map_trial.style.zIndex = "1";
+            map_inner.appendChild(map_trial);
+            trial_paper = Raphael(map_trial, w, h);
+            if (branded) {
+                var text = trial_paper.text(w - 5, h * 0.5, "Simplemaps.com");
+                text.attr({
+                    'text-anchor': "end",
+                    'font-size': 14,
+                    'font-weight': "bold",
+                    cursor: "pointer",
+                    'font-family': "arial,sans-serif",
+                    title: "Built with SimpleMaps"
+                });
+            } else {
+                var text = trial_paper.text(w - 5, h * 0.5, "Simplemaps.com Trial");
+                text.attr({
+                    'text-anchor': "end",
+                    'font-size': 18,
+                    'font-weight': "bold",
+                    cursor: "pointer",
+                    'font-family': "arial,sans-serif"
+                });
+            }
+            text.node.setAttribute("href", "http://simplemaps.com");
+            text.click(function() {
+                window.location.href = "http://simplemaps.com";
+            });
+        }
+        var paper_back;
+        var back_arrow;
+
+        function create_back_button() {
+            back_arrow = paper.set();
+            var w = 35;
+            var h = 35;
+            if (back_image) {
+                var image_location = directory + back_image;
+                var img = new Image;
+                img.onload = function() {
+                    w = img.width;
+                    h = img.height;
+                    make_arrow();
+                };
+                img.src = image_location;
+            } else {
+                make_arrow();
+            }
+
+            function make_arrow() {
+                paper_back = Raphael(map_outer, w, h);
+                if (back_image) {
+                    var back_arrow_arrow = paper_back.image(image_location, 0, 0, w, h);
+                    back_arrow_arrow.attr({
+                        cursor: "pointer"
+                    });
+                    back_arrow_arrow.reg_num = -1;
+                    back_arrow.push(back_arrow_arrow);
+                    back_arrow.click(back_click_handler);
+                } else {
+                    var arrow_path = "m503.7,743.8c190.3-96.6 132.9-417.05-155.6-409.71v-128.7l-228.1,195.0 228.1,205.8v-131.6c240.9-5.5 229.9,202.8 155.6,269.3z";
+                    var arrow_color = main_settings.arrow_color ? main_settings.arrow_color : "#cecece";
+                    var arrow_color_border = main_settings.arrow_color_border ? main_settings.arrow_color_border : "#808080";
+                    var arrow_size = 0.05;
+                    var back_arrow_box = paper_back.rect(0, 0, w, h).attr({
+                        fill: "black",
+                        opacity: 0,
+                        cursor: "pointer"
+                    });
+                    var back_arrow_arrow = paper_back.path(arrow_path).attr({
+                        stroke: arrow_color_border,
+                        'stroke-width': 2,
+                        'stroke-opacity': 1,
+                        fill: arrow_color,
+                        'fill-opacity': 1,
+                        cursor: "pointer"
+                    }).scale(arrow_size, arrow_size, -2, -6);
+                    back_arrow_arrow.reg_num = -1;
+                    back_arrow_box.reg_num = -1;
+                    back_arrow.push(back_arrow_arrow);
+                    back_arrow.push(back_arrow_box);
+                }
+                if (!initial_back) {
+                    back_arrow.hide();
+                }
+            }
+        }
+        var zoom_in;
+        var zoom_out;
+        var zoom_back;
+        var zoom_about;
+        var zoom_in_click;
+        var zoom_out_click;
+
+        function create_zoom_buttons() {
+            var w = 35;
+            var h = 35;
+            zoom_back = Raphael(map_zoom, w, 80);
+            var zoom_in_path = "m 64,13.787 0,100.426 m -50.213,-50.212001 100.426,0";
+            var zoom_in_box = zoom_back.rect(0, 0, w, h).attr({
+                fill: "#cecece",
+                opacity: 0.7,
+                cursor: "pointer",
+                stroke: "gray",
+                'stroke-width': 1
+            });
+            var zoom_in_vector = zoom_back.path(zoom_in_path).attr({
+                stroke: "gray",
+                'stroke-width': 3,
+                'stroke-opacity': 1,
+                fill: "black",
+                'fill-opacity': 1,
+                cursor: "pointer"
+            }).scale(0.3, 0.3, -2, -2);
+            zoom_in = paper.set();
+            zoom_in.push(zoom_in_box, zoom_in_vector);
+            var zoom_out_path = "m 13.787,64.000999 100.426,0";
+            var zoom_out_box = zoom_back.rect(0, 40, w, h).attr({
+                fill: "#cecece",
+                opacity: 0.7,
+                cursor: "pointer",
+                stroke: "gray",
+                'stroke-width': 1
+            });
+            var zoom_out_vector = zoom_back.path(zoom_out_path).attr({
+                stroke: "gray",
+                'stroke-width': 3,
+                'stroke-opacity': 1,
+                fill: "black",
+                'fill-opacity': 1,
+                cursor: "pointer"
+            }).scale(0.3, 0.3, -2, 55);
+            zoom_out = paper.set();
+            zoom_out.push(zoom_out_box, zoom_out_vector);
+
+            function move_zooming_dimensions(direction) {
+                var w = last_destination.sm.zooming_dimensions.w / direction;
+                var h = last_destination.sm.zooming_dimensions.h / direction;
+                var x = last_destination.sm.zooming_dimensions.x + (last_destination.sm.zooming_dimensions.w - w) / 2;
+                var y = last_destination.sm.zooming_dimensions.y + (last_destination.sm.zooming_dimensions.h - h) / 2;
+                var r = w / (original_width * scale);
+                return {
+                    x: x,
+                    y: y,
+                    w: w,
+                    h: h,
+                    r: r
+                };
+            }
+
+            function zooming_allowed(direction) {
+                var w = last_destination.sm.zooming_dimensions.w / direction;
+                var zooming_out = direction < 1 ? true : false;
+                if (initial_zoom != -1 && (last_destination.sm.type == "manual" || initial_zoom_solo)) {
+                    var initial_width = region_array[initial_zoom].sm.zooming_dimensions.w;
+                    var outside_initial = w > initial_width - 1;
+                    if (zooming_out && outside_initial) {
+                        var inside_initial = is_inside(last_destination, region_array[initial_zoom]);
+                        if (inside_initial || initial_zoom_solo) {
+                            zoom_to(region_array[initial_zoom]);
+                            return false;
+                        }
+                    }
+                }
+                if (zooming_out && w > region_array[-1].sm.zooming_dimensions.w - 1) {
+                    if (!initial_zoom_solo) {
+                        zoom_to(region_array[-1]);
+                    }
+                    return false;
+                }
+                return true;
+            }
+
+            function zoom_about(direction) {
+                if (!zooming_allowed(direction)) {
+                    return;
+                }
+                var destination = {
+                    sm: {
+                        type: "manual",
+                        zp: 1
+                    }
+                };
+                if (zoom_tween) {
+                    last_destination = {
+                        sm: {
+                            type: "manual",
+                            zp: 1
+                        }
+                    };
+                    last_destination.sm.zooming_dimensions = current_viewbox;
+                    last_destination.sm.bbox = {
+                        x: current_viewbox.x / scale,
+                        y: current_viewbox.y / scale,
+                        width: current_viewbox.w / scale,
+                        height: current_viewbox.h / scale
+                    };
+                }
+                var new_dimensions = move_zooming_dimensions(direction);
+                if (!new_dimensions) {
+                    return;
+                }
+                destination.sm.zooming_dimensions = new_dimensions;
+                zoom_to(destination);
+            }
+            zoom_in_click = function() {
+                zoom_about(zoom_increment);
+            };
+            zoom_out_click = function() {
+                zoom_about(1 / zoom_increment);
+            };
+            api_object.zoom_in = zoom_in_click;
+            api_object.zoom_out = zoom_out_click;
+            zoom_in.click(zoom_in_click);
+            zoom_out.click(zoom_out_click);
+            zoom_in.touchend(zoom_in_click);
+            zoom_out.touchend(zoom_out_click);
+        }
+        var cattr, lattr, rattr, region_map, label_attributes, locations, set_state, set_label, ela;
+
+        function set_attributes() {
+            locations = mapdata.locations;
+            cattr = [];
+            lattr = [];
+            region_map = [];
+            label_attributes = [];
+            rattr = [];
+            ela = [];
+            var set_region_attributes = function() {
+                var default_region = {};
+                default_region.color = false;
+                default_region.hover_color = false;
+                default_region.opacity = main_settings.region_opacity ? main_settings.region_opacity : 1;
+                default_region.hover_opacity = main_settings.region_hover_opacity ? main_settings.region_hover_opacity : 0.6;
+                default_region.url = false;
+                default_region.description = false;
+                default_region.description_mobile = false;
+                default_region.inactive = false;
+                default_region.zoomable = true;
+                default_region.popup = main_settings.region_popups ? main_settings.region_popups : popups;
+                default_region.cascade = main_settings.region_cascade_all == "yes" ? true : false;
+                default_region.zoom_percentage = zoom_percentage;
+                default_region.x = false;
+                default_region.y = false;
+                default_region.x2 = false;
+                default_region.y2 = false;
+                if (regions) {
+                    for (var region in regions) {
+                        for (var i = 0; i < regions[region].states.length; i++) {
+                            var state = regions[region].states[i];
+                            region_map[state] = region;
+                        }
+                    }
+                }
+                for (var id in regions) {
+                    rattr[id] = Object.create(default_region);
+                    if (regions[id].url) {
+                        rattr[id].zoomable = false;
+                    }
+                    for (var prop in regions[id]) {
+                        if (regions[id][prop] != "default") {
+                            rattr[id][prop] = regions[id][prop];
+                        }
+                        if (regions[id][prop] == "yes") {
+                            rattr[id][prop] = true;
+                        }
+                        if (regions[id][prop] == "no") {
+                            rattr[id][prop] = false;
+                        }
+                    }
+                }
+            };
+            var set_state_attributes = function() {
+                set_state = function(id) {
+                    var default_state = {};
+                    default_state.color = main_settings.state_color;
+                    default_state.image_url = main_settings.state_image_url ? main_settings.state_image_url : false;
+                    default_state.image_size = main_settings.state_image_size ? main_settings.state_image_size : "auto";
+                    default_state.image_position = main_settings.state_image_position ? main_settings.state_image_position : "center";
+                    default_state.image_x = main_settings.state_image_x ? main_settings.state_image_x : "0";
+                    default_state.image_y = main_settings.state_image_y ? main_settings.state_image_y : "0";
+                    default_state.image_color = main_settings.state_image_color ? main_settings.state_image_color : false;
+                    default_state.image_hover_url = main_settings.state_image_hover_url ? main_settings.state_image_hover_url : false;
+                    default_state.image_hover_size = main_settings.state_image_hover_size ? main_settings.state_image_hover_size : "auto";
+                    default_state.image_hover_position = main_settings.state_image_hover_position ? main_settings.state_image_hover_position : "center";
+                    default_state.image_hover_x = main_settings.state_image_hover_x ? main_settings.state_image_hover_x : "0";
+                    default_state.image_hover_y = main_settings.state_image_hover_y ? main_settings.state_image_hover_y : "0";
+                    default_state.image_hover_color = main_settings.state_image_hover_color ? main_settings.state_image_hover_color : false;
+                    default_state.hover_color = main_settings.state_hover_color;
+                    default_state.image_source = false;
+                    default_state.description = main_settings.state_description;
+                    default_state.url = main_settings.state_url;
+                    default_state.inactive = main_settings.all_states_inactive == "yes" ? true : false;
+                    default_state.hide = main_settings.all_states_hidden == "yes" ? true : false;
+                    default_state.hide_label = false;
+                    default_state.border_color = main_settings.border_color ? main_settings.border_color : "#ffffff";
+                    default_state.border_hover_color = main_settings.border_hover_color ? main_settings.border_hover_color : false;
+                    default_state.border_hover_size = main_settings.border_hover_size ? main_settings.border_hover_size : false;
+                    default_state.emphasize = "yes";
+                    default_state.zoom_percentage = zoom_percentage;
+                    default_state.zoomable = main_settings.all_states_zoomable == "yes" ? true : false;
+                    default_state.popup = main_settings.state_popups ? main_settings.state_popups : popups;
+                    default_state.opacity = main_settings.state_opacity ? main_settings.state_opacity : 1;
+                    default_state.hover_opacity = main_settings.state_hover_opacity ? main_settings.state_hover_opacity : 1;
+                    default_state.description_mobile = main_settings.state_description_mobile ? state_description_mobile : false;
+                    var region_id = region_map[id] ? region_map[id] : false;
+                    if (region_id && rattr[region_id].cascade) {
+                        if (rattr[region_id].color) {
+                            default_state.color = rattr[region_id].color;
+                        }
+                        if (rattr[region_id].hover_color) {
+                            default_state.hover_color = rattr[region_id].hover_color;
+                        }
+                        if (rattr[region_id].description) {
+                            default_state.description = rattr[region_id].description;
+                        }
+                        if (rattr[region_id].url) {
+                            default_state.url = rattr[region_id].url;
+                        }
+                        if (rattr[region_id].inactive) {
+                            default_state.inactive = rattr[region_id].inactive;
+                        }
+                        if (rattr[region_id].hide) {
+                            default_state.hide = rattr[region_id].hide;
+                        }
+                    }
+                    cattr[id] = Object.create(default_state);
+                    if (mapname == "us" && (id == "GU" || id == "PR" || id == "VI" || id == "MP" || id == "AS")) {
+                        cattr[id].hide = "yes";
+                    }
+                    if ((mapname == "us" && hide_eastern_labels) && (id == "VT" || id == "NJ" || id == "DE" || id == "DC" || id == "NH" || id == "MA" || id == "CT" || id == "RI" || id == "MD")) {
+                        cattr[id].hide_label = "yes";
+                    }
+                    for (var prop in state_specific[id]) {
+                        if (state_specific[id][prop] != "default") {
+                            cattr[id][prop] = state_specific[id][prop];
+                        }
+                        if (state_specific[id][prop] == "yes") {
+                            cattr[id][prop] = true;
+                        }
+                        if (state_specific[id][prop] == "no") {
+                            cattr[id][prop] = false;
+                        }
+                    }
+                    if (main_settings.state_hover_color == "off") {
+                        cattr[id].hover_color = cattr[id].color;
+                    }
+                };
+                for (var id in mapinfo.paths) {
+                    set_state(id);
+                }
+            };
+            var set_label_attributes = function() {
+                var default_label = {};
+                default_label.font_family = main_settings.label_font ? main_settings.label_font : "arial,sans-serif";
+                default_label.color = main_settings.label_color ? main_settings.label_color : "white";
+                default_label.hover_color = main_settings.label_hover_color ? main_settings.label_hover_color : default_label.color;
+                default_label.size = label_size;
+                default_label.hide = main_settings.hide_labels == "yes" ? true : false;
+                default_label.line = false;
+                default_label.scale = main_settings.label_scale ? main_settings.label_scale : false;
+                default_label.scale_limit = main_settings.scale_limit ? main_settings.scale_limit : 0.125;
+                default_label.rotate = main_settings.label_rotate ? main_settings.label_rotate : 0;
+                default_label.line_color = main_settings.label_line_color ? main_settings.label_line_color : "#000000";
+                default_label.line_size = main_settings.label_line_size ? main_settings.label_line_size : "1";
+                default_label.line_x = false;
+                default_label.line_y = false;
+                default_label.parent_type = "state";
+                default_label.parent_id = false;
+                default_label.anchor = main_settings.label_anchor ? main_settings.label_anchor : "middle";
+                default_label.pill = false;
+                default_label.width = main_settings.pill_width ? main_settings.pill_width : false;
+                default_label.x = false;
+                default_label.y = false;
+                default_label.name = "Not Named";
+                default_label.display = false;
+                default_label.id = false;
+                var default_labels = main_settings.import_labels == "no" ? {} : mapinfo.default_labels;
+                var apply_default_label = function(id) {
+                    label_attributes[id] = Object.create(default_label);
+                    for (var prop in default_labels[id]) {
+                        if (default_labels[id][prop] != "default") {
+                            label_attributes[id][prop] = default_labels[id][prop];
+                        }
+                        if (default_labels[id][prop] == "yes") {
+                            label_attributes[id][prop] = true;
+                        }
+                        if (default_labels[id][prop] == "no") {
+                            label_attributes[id][prop] = false;
+                        }
+                    }
+                };
+                var apply_mapdata_label = function(id) {
+                    if (!label_attributes[id]) {
+                        label_attributes[id] = Object.create(default_label);
+                    }
+                    for (var prop in labels[id]) {
+                        if (labels[id][prop] != "default") {
+                            label_attributes[id][prop] = labels[id][prop];
+                        }
+                        if (labels[id][prop] == "yes") {
+                            label_attributes[id][prop] = true;
+                        }
+                        if (labels[id][prop] == "no") {
+                            label_attributes[id][prop] = false;
+                        }
+                    }
+                };
+                for (var id in default_labels) {
+                    apply_default_label(id);
+                }
+                for (var id in labels) {
+                    apply_mapdata_label(id);
+                }
+                set_label = function(id) {
+                    apply_default_label(id);
+                    apply_mapdata_label(id);
+                };
+            };
+            var set_location_attributes = function() {
+                var default_location = {};
+                default_location.scale_limit = main_settings.scale_limit ? main_settings.scale_limit : 0.0625;
+                default_location.color = main_settings.location_color ? main_settings.location_color : "#FF0067";
+                default_location.hover_color = main_settings.location_hover_color ? main_settings.location_hover_color : false;
+                default_location.border = main_settings.location_border ? main_settings.location_border : 1.5;
+                default_location.border_color = main_settings.location_border_color ? main_settings.location_border_color : "#FFFFFF";
+                default_location.hover_border = main_settings.location_hover_border ? main_settings.location_hover_border : 2;
+                default_location.size = main_settings.location_size;
+                default_location.description = main_settings.location_description;
+                default_location.description_mobile = main_settings.location_description_mobile ? location_description_mobile : false;
+                default_location.url = main_settings.location_url;
+                default_location.inactive = main_settings.all_locations_inactive == "yes" ? true : false;
+                default_location.type = main_settings.location_type;
+                default_location.position = "top";
+                default_location.pulse = main_settings.location_pulse == "yes" ? true : false;
+                default_location.pulse_size = main_settings.location_pulse_size ? main_settings.location_pulse_size : 4;
+                default_location.pulse_speed = main_settings.location_pulse_speed ? main_settings.location_pulse_speed : 0.5;
+                var pulse_color = main_settings.location_pulse_color;
+                default_location.pulse_color = pulse_color && pulse_color != "auto" ? pulse_color : false;
+                default_location.image_source = main_settings.location_image_source ? main_settings.location_image_source : "";
+                default_location.hide = main_settings.all_locations_hide ? main_settings.all_locations_hide : "no", default_location.opacity = default_location_opacity;
+                default_location.scale = true;
+                default_location.hover_opacity = main_settings.location_hover_opacity ? main_settings.location_hover_opacity : false;
+                default_location.image_url = main_settings.location_image_url ? main_settings.location_image_url : false;
+                default_location.image_position = main_settings.location_image_position ? main_settings.location_image_position : "center";
+                default_location.popup = main_settings.location_popups ? main_settings.location_popups : popups;
+                default_location.x = false;
+                default_location.y = false;
+                default_location.display = main_settings.location_display ? main_settings.location_display : "all";
+                default_location.hide = main_settings.all_locations_hidden == "yes" ? true : false;
+                if (default_location.type == undefined) {
+                    default_location.type = "square";
+                }
+                for (var id in locations) {
+                    lattr[id] = Object.create(default_location);
+                    for (var prop in locations[id]) {
+                        if (prop == "overwrite_image_location") {
+                            lattr[id].image_url = locations[id][prop];
+                            continue;
+                        }
+                        if (prop == "region") {
+                            lattr[id].display = "region";
+                        }
+                        if (locations[id][prop] != "default") {
+                            lattr[id][prop] = locations[id][prop];
+                        }
+                        if (locations[id][prop] == "yes") {
+                            lattr[id][prop] = true;
+                        }
+                        if (locations[id][prop] == "no") {
+                            lattr[id][prop] = false;
+                        }
+                    }
+                    if (!lattr[id].hover_opacity) {
+                        lattr[id].hover_opacity = lattr[id].opacity;
+                    }
+                    if (!lattr[id].hover_color) {
+                        lattr[id].hover_color = lattr[id].color;
+                    }
+                }
+            };
+            var set_line_attributes = function() {
+                var default_line = {};
+                default_line.color = main_settings.line_color ? main_settings.line_color : "#cecece";
+                default_line.size = main_settings.line_size ? main_settings.line_size : 1;
+                default_line.dash = main_settings.line_dash ? main_settings.line_dash : "";
+                var lines = mapdata.lines ? mapdata.lines : mapdata.borders;
+                for (var id in lines) {
+                    ela[id] = Object.create(default_line);
+                    for (var prop in lines[id]) {
+                        if (lines[id][prop] != "default") {
+                            ela[id][prop] = lines[id][prop];
+                        }
+                        if (lines[id][prop] == "yes") {
+                            ela[id][prop] = true;
+                        }
+                        if (lines[id][prop] == "no") {
+                            ela[id][prop] = false;
+                        }
+                    }
+                }
+            };
+            set_region_attributes();
+            set_state_attributes();
+            set_label_attributes();
+            set_location_attributes();
+            set_line_attributes();
+        }
+        var currently_zooming = false;
+        var max_width;
+        var currently_panning = false;
+        var currently_pinching = false;
+
+        function create_tooltip() {
+            var find_pos = helper.findPos(map_inner);
+            var x0_page = find_pos[0];
+            var y0_page = find_pos[1];
+            var x0 = 0;
+            var y0 = 0;
+            var h = 0;
+            var w = 0;
+            var u;
+            var l;
+            var x_mid;
+            var y_mid;
+            var left = 5;
+            var tt, h;
+            return {
+                create: function() {
+                    tt = document.createElement("div");
+                    tt.setAttribute("id", "tt_sm_" + div);
+                    tt.style.position = "absolute";
+                    tt.style.display = "none";
+                    map_inner.appendChild(tt);
+                    map_inner.onmousemove = this.pos;
+                    tt.onmousemove = this.pos;
+                },
+                show: function(element) {
+                    if (popup_off) {
+                        return;
+                    }
+                    ignore_pos = false;
+                    if (tt == null) {
+                        tooltip.create();
+                    }
+                    tt.style.display = "block";
+                    tt.style.zIndex = 2;
+                    tt.style.maxWidth = max_width + "px";
+                    tt.innerHTML = element.sm.content;
+                    tooltip.update_pos(element);
+                },
+                reset_pos: function(x, y, element) {
+                    if (tt == undefined) {
+                        tooltip.create();
+                    }
+                    tooltip.set_pos(y0 + y, x0 + x, element);
+                },
+                update_pos: function(element) {
+                    tooltip.set_pos(u, l, element);
+                },
+                pos: function(e, manual) {
+                    if (manual) {
+                        u = manual.u;
+                        l = manual.l;
+                    } else {
+                        u = ie ? event.clientY + document.documentElement.scrollTop : e.pageY;
+                        l = ie ? event.clientX + document.documentElement.scrollLeft : e.pageX;
+                    }
+                    u = u - y0_page;
+                    l = l - x0_page;
+                    if (popup_off || tooltip_manual || ignore_pos || tooltip_up && on_click) {
+                        return;
+                    }
+                    tooltip.set_pos(u, l);
+                },
+                set_pos: function(u, l, element) {
+                    if (!tt || !u || !l) {
+                        return;
+                    }
+                    x_mid = x0 + 0.5 * width;
+                    y_mid = y0 + 0.5 * height;
+                    if (l > x_mid && u > y_mid) {
+                        quad = 4;
+                    } else if (l < x_mid && u > y_mid) {
+                        quad = 3;
+                    } else if (l > x_mid && u < y_mid) {
+                        quad = 2;
+                    } else {
+                        var quad = 1;
+                    }
+                    var centered = element && element.sm.on_click && (popup_centered == "yes" || popup_centered == "auto" && width < 401) ? true : false;
+                    if (centered) {
+                        tt.style.top = "-100px";
+                        tt.style.left = "-100px";
+                        tt.style.bottom = "auto";
+                        tt.style.right = "auto";
+                        h = parseInt(tt.offsetHeight, 10);
+                        w = parseInt(tt.offsetWidth, 10);
+                        var side = width - w > 0 ? 0.5 * (width - w) : 0;
+                        var bar = height - h > 0 ? 0.5 * (height - h) : 0;
+                        tt.style.top = bar + "px";
+                        tt.style.left = side + "px";
+                        tt.style.right = "auto";
+                        tt.style.bottom = "auto";
+                    } else {
+                        if (popup_orientation == "below") {
+                            if (quad == 3) {
+                                quad = 1;
+                            }
+                            if (quad == 4) {
+                                quad = 2;
+                            }
+                        } else if (popup_orientation == "above") {
+                            if (quad == 1) {
+                                quad = 3;
+                            }
+                            if (quad == 2) {
+                                quad = 4;
+                            }
+                        }
+                        if (quad == 1) {
+                            tt.style.bottom = "auto";
+                            tt.style.top = u + 5 + "px";
+                            tt.style.left = l + left + 5 + "px";
+                            tt.style.right = "auto";
+                        } else if (quad == 2) {
+                            tt.style.bottom = "auto";
+                            tt.style.top = u + 5 + "px";
+                            tt.style.right = width - l + 5 + "px";
+                            tt.style.left = "auto";
+                        } else if (quad == 3) {
+                            tt.style.bottom = height - u + 5 + "px";
+                            tt.style.top = "auto";
+                            tt.style.left = l + left + 3 + "px";
+                            tt.style.right = "auto";
+                        } else {
+                            tt.style.bottom = height - u + 5 + "px";
+                            tt.style.top = "auto";
+                            tt.style.right = width - l + 5 + "px";
+                            tt.style.left = "auto";
+                        }
+                    }
+                },
+                hide: function() {
+                    if (tt != undefined) {
+                        tt.style.display = "none";
+                    }
+                    find_pos = helper.findPos(map_inner);
+                    if (find_pos) {
+                        x0_page = find_pos[0];
+                        y0_page = find_pos[1];
+                    }
+                }
+            };
+        }
+
+        function getxy(lat, lng) {
+            if (mapinfo.proj == "lambert") {
+                var proj = lambert;
+            } else if (mapinfo.proj == "xy") {
+                alert("This map only supports x/y locations.  These can be added to the mapdata.js file.");
+            } else if (mapinfo.proj == "robinson_pacific") {
+                var proj = robinson_pacific;
+            } else if (mapinfo.proj == "mercator") {
+                var proj = mercator;
+            } else {
+                var proj = robinson;
+            }
+            var initial = {
+                lat: lat,
+                lng: lng
+            };
+
+            function intersection(x0, y0, r0, x1, y1, r1) {
+                var a, dx, dy, d, h, rx, ry;
+                var x2, y2;
+                var dx = x1 - x0;
+                var dy = y1 - y0;
+                var d = Math.sqrt(dy * dy + dx * dx);
+                var a = (r0 * r0 - r1 * r1 + d * d) / (2 * d);
+                var x2 = x0 + dx * a / d;
+                var y2 = y0 + dy * a / d;
+                var h = Math.sqrt(r0 * r0 - a * a);
+                var rx = -dy * (h / d);
+                var ry = dx * (h / d);
+                var xi = x2 + rx;
+                var xi_prime = x2 - rx;
+                var yi = y2 + ry;
+                var yi_prime = y2 - ry;
+                return {
+                    opt1: {
+                        x: xi,
+                        y: yi
+                    },
+                    opt2: {
+                        x: xi_prime,
+                        y: yi_prime
+                    }
+                };
+            }
+
+            function lambert(latlng) {
+                var radian = 0.017453293;
+                var pi = Math.PI;
+                var phi = latlng.lat * radian;
+                var lam = latlng.lng * radian;
+                var phi0 = 45 * radian;
+                var lam0 = 90 * radian;
+                var phi1 = 33 * radian;
+                var phi2 = 45 * radian;
+                var n = Math.log(Math.cos(phi1) * (1 / Math.cos(phi2))) / Math.log(Math.tan(0.25 * pi + 0.5 * phi2) * (1 / Math.tan(0.25 * pi + 0.5 * phi1)));
+                var F = Math.cos(phi1) * Math.pow(Math.tan(0.25 * pi + 0.5 * phi1), n) / n;
+                var rho = F * Math.pow(1 / Math.tan(0.25 * pi + 0.5 * phi), n);
+                var rho0 = F * Math.pow(1 / Math.tan(0.25 * pi + 0.5 * phi0), n);
+                return {
+                    x: rho * Math.sin(n * (lam - lam0)),
+                    y: rho0 - rho * Math.cos(n * (lam - lam0))
+                };
+            }
+
+            function robinson(latlng) {
+                var earthRadius = 1;
+                var radian = 0.017453293;
+                var roundToNearest = function(roundTo, value) {
+                    return Math.floor(value / roundTo) * roundTo;
+                };
+                var getSign = function(value) {
+                    return value < 0 ? -1 : 1;
+                };
+                var lngSign = getSign(latlng.lng);
+                var latSign = getSign(latlng.lat);
+                var lng = Math.abs(latlng.lng);
+                var lat = Math.abs(latlng.lat);
+                var low = roundToNearest(5, lat - 1e-10);
+                low = lat == 0 ? 0 : low;
+                var high = low + 5;
+                var lowIndex = low / 5;
+                var highIndex = high / 5;
+                var ratio = (lat - low) / 5;
+                var AA = [0.8487, 0.84751182, 0.84479598, 0.840213, 0.83359314, 0.8257851, 0.814752, 0.80006949, 0.78216192, 0.76060494, 0.73658673, 0.7086645, 0.67777182, 0.64475739, 0.60987582, 0.57134484, 0.52729731, 0.48562614, 0.45167814];
+                var BB = [0, 0.0838426, 0.1676852, 0.2515278, 0.3353704, 0.419213, 0.5030556, 0.5868982, 0.67182264, 0.75336633, 0.83518048, 0.91537187, 0.99339958, 1.06872269, 1.14066505, 1.20841528, 1.27035062, 1.31998003, 1.3523];
+                var adjAA = (AA[highIndex] - AA[lowIndex]) * ratio + AA[lowIndex];
+                var adjBB = (BB[highIndex] - BB[lowIndex]) * ratio + BB[lowIndex];
+                return {
+                    x: adjAA * lng * radian * lngSign * earthRadius,
+                    y: adjBB * latSign * earthRadius
+                };
+            }
+
+            function robinson_pacific(latlng) {
+                var lng = latlng.lng - 150;
+                if (lng < -180) {
+                    lng = lng + 360;
+                }
+                return robinson({
+                    lat: latlng.lat,
+                    lng: lng
+                });
+            }
+
+            function mercator(latlng) {
+                var y = Math.log(Math.tan((latlng.lat / 90 + 1) * (Math.PI / 4))) * (180 / Math.PI);
+                return {
+                    x: latlng.lng,
+                    y: y
+                };
+            }
+            var calibrate = mapinfo.proj_coordinates;
+
+            function find_point(initial, pt1, pt2, pt3) {
+                var proj_initial = proj(initial);
+                var pt1_proj = proj(pt1);
+                var pt2_proj = proj(pt2);
+                var pt3_proj = proj(pt3);
+                var proj_r_pt1 = helper.distance(proj_initial, pt1_proj);
+                var proj_r_pt2 = helper.distance(proj_initial, pt2_proj);
+                var dist_proj = helper.distance(pt1_proj, pt2_proj);
+                var dist_act = helper.distance(pt1, pt2);
+                var scale = dist_proj / dist_act;
+                var r_pt1 = proj_r_pt1 / scale;
+                var r_pt2 = proj_r_pt2 / scale;
+                var opts = intersection(pt1.x, pt1.y, r_pt1, pt2.x, pt2.y, r_pt2);
+                var dist_third = helper.distance(proj_initial, pt3_proj) / scale;
+                var remnant1 = Math.abs(helper.distance(opts.opt1, pt3) - dist_third);
+                var remnant2 = Math.abs(helper.distance(opts.opt2, pt3) - dist_third);
+                if (remnant1 < remnant2) {
+                    return {
+                        x: opts.opt1.x,
+                        y: opts.opt1.y
+                    };
+                } else {
+                    return {
+                        x: opts.opt2.x,
+                        y: opts.opt2.y
+                    };
+                }
+            }
+            var rules = mapinfo.proj_rules;
+            if (rules) {
+                for (var i in rules) {
+                    var rule = rules[i];
+                    var condition_string = rule.condition;
+                    try {
+                        var condition = eval(rule.condition);
+                    } catch (e) {
+                        console.log("The condition " + condition_string + " is not valid JavaScript");
+                    }
+                    if (condition) {
+                        var points = rule.points;
+                        return find_point(initial, calibrate[points[0]], calibrate[points[1]], calibrate[points[2]]);
+                    }
+                }
+            }
+            return find_point(initial, calibrate[0], calibrate[1], calibrate[2]);
+        }
+        var tt_css_set = false;
+
+        function set_tt_css() {
+            if (tt_css_set) {
+                return;
+            }
+
+            function newStyle(str) {
+                var pa = document.getElementsByTagName("head")[0];
+                var el = document.createElement("style");
+                el.type = "text/css";
+                el.media = "screen";
+                if (el.styleSheet) {
+                    el.styleSheet.cssText = str;
+                } else {
+                    el.appendChild(document.createTextNode(str));
+                }
+                pa.appendChild(el);
+                return el;
+            }
+
+            function getsupportedprop(proparray) {
+                var root = document.documentElement;
+                for (var i = 0; i < proparray.length; i++) {
+                    if (proparray[i] in root.style) {
+                        var answer = proparray[i];
+                        answer = answer.replace("borderRadius", "border-radius");
+                        answer = answer.replace("MozBorderRadius", "-moz-border-radius");
+                        answer = answer.replace("WebkitBorderRadius", "-webkit-border-radius");
+                        answer = answer.replace("boxShadow", "box-shadow");
+                        answer = answer.replace("MozBoxShadow", "-moz-box-shadow");
+                        answer = answer.replace("WebkitBoxShadow", "-webkit-box-shadow");
+                        return answer;
+                    }
+                }
+            }
+            var roundborderprop = getsupportedprop(["borderRadius", "MozBorderRadius", "WebkitBorderRadius"]);
+            var rcss = roundborderprop ? roundborderprop + ": " + popup_corners + "px;" : "";
+            var min = width / 2 > 250 ? width / 2 : 250;
+            max_width = popup_maxwidth ? popup_maxwidth : min;
+            var shadowprop = getsupportedprop(["boxShadow", "MozBoxShadow", "WebkitBoxShadow"]);
+            var scss = shadowprop ? shadowprop + ": " + 3 * popup_shadow + "px " + 3 * popup_shadow + "px " + 4 * popup_shadow + "px rgba(0,0,0,.5);" : "";
+            if (popup_shadow < 0.01) {
+                scss = "";
+            }
+            var mcss = ".tt_mobile_sm{margin-top: 5px;} .tt_sm{" + rcss + scss + "z-index: 1000000; background-color: " + popup_color + "; padding: 7px; opacity:" + popup_opacity + "; font: " + popup_font + "; color: black;} .tt_name_sm{float: left; font-weight: bold} .tt_custom_sm{overflow: hidden;}";
+            mcss += ".btn_simplemaps{color: black;text-decoration: none;background: #ffffff;display: inline-block;padding: 5px 5px;margin: 0; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; line-height: 1.43;text-align: center;white-space: nowrap;vertical-align: middle;-ms-touch-action: manipulation;touch-action: manipulation;cursor: pointer;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;border: 1px solid;border-radius: 4px;}    .btn_simplemaps:hover{  text-decoration: underline;}";
+            var xml_float = vml ? "left" : "right";
+            mcss += ".xmark_sm{float: " + xml_float + "; margin-left: 5px; cursor: pointer; line-height: 0px;}";
+            newStyle(mcss);
+            tt_css_set = true;
+        }
+
+        function get_zooming_dimensions(element) {
+            if (element.sm.zooming_dimensions) {
+                return element.sm.zooming_dimensions;
+            }
+            var bbox = helper.rotate_bbox(element.sm.bbox, transform);
+            var gotoX = bbox.x;
+            var gotoY = bbox.y;
+            var gotoW = bbox.width;
+            var gotoH = bbox.height;
+            var ratio;
+            var zp = element.sm.zp;
+            var paperWidth = original_width * scale;
+            var paperHeight = original_height * scale;
+            gotoX = gotoX - (gotoW / zp - gotoW) * 0.5;
+            gotoY = gotoY - (gotoH / zp - gotoH) * 0.5;
+            gotoW = gotoW / zp;
+            gotoH = gotoH / zp;
+            if (gotoW / gotoH > width_to_height) {
+                ratio = gotoW / paperWidth;
+                gotoY -= (paperHeight * ratio - gotoH) / 2;
+                gotoH = gotoW / width_to_height;
+            } else {
+                ratio = gotoH / paperHeight;
+                gotoX -= (paperWidth * ratio - gotoW) / 2;
+                gotoW = gotoH * width_to_height;
+            }
+            return {
+                x: gotoX,
+                y: gotoY,
+                w: gotoW,
+                h: gotoH,
+                r: ratio
+            };
+        }
+
+        function reset_state_attributes(region) {
+            if (!region) {
+                return;
+            }
+            all_states.stop();
+            for (var i = 0; i < region.sm.states.length; ++i) {
+                var state = state_array[region.sm.states[i]];
+                state.attr(state.sm.attributes);
+                highlight_labels(state, "reset", false, "state");
+            }
+        }
+
+        function reset_last_state() {
+            if (last_destination && last_destination.sm.type == "state" && last_destination.sm.attributes) {
+                if (!last_destination.sm.ignore_hover) {
+                    last_destination.attr(last_destination.sm.attributes);
+                }
+                highlight_labels(last_destination, "out");
+            }
+        }
+
+        function reset_region_attributes(region) {
+            if (!region) {
+                return;
+            }
+            region.stop();
+            region.attr(region.sm.attributes);
+            for (var i = 0; i < region.sm.states.length; ++i) {
+                var state = state_array[region.sm.states[i]];
+                highlight_labels(state, "reset", false, "region");
+            }
+        }
+
+        function region_or_state_by_ratio() {
+            all_regions.forEach(function(region) {
+                if (region.sm.id == -1) {
+                    return;
+                }
+                if (region.sm.zooming_dimensions.r > ratio) {
+                    reset_state_attributes(region);
+                } else {
+                    reset_region_attributes(region);
+                }
+            });
+        }
+
+        function reset_all_region_attributes() {
+            all_regions.forEach(function(region) {
+                if (region.sm.id != -1) {
+                    reset_region_attributes(region);
+                }
+            });
+        }
+
+        function show_point(point, display, destination) {
+            var type = destination.sm.type;
+            if (display == "all") {
+                return true;
+            } else if (display == "out" && type == "out") {
+                return true;
+            } else if (display == "region" && type == "region") {
+                if (Raphael.isPointInsideBBox(destination.sm.bbox, point.x, point.y)) {
+                    return true;
+                }
+            } else if (display == "state" && type == "state") {
+                if (in_state(point, destination)) {
+                    return true;
+                }
+            } else {
+                var threshold = helper.to_float(display);
+                if (threshold && ratio < threshold) {
+                    return true;
+                }
+            }
+            return false;
+
+            function in_state(pt, state) {
+                var x = pt.x;
+                var y = pt.y;
+                var potential = [];
+                var region = region_array[state.sm.region];
+                if (region) {
+                    for (var i = 0; i < region.items.length; i++) {
+                        var current_state = region.items[i];
+                        if (Raphael.isPointInsideBBox(current_state.sm.bbox, x, y)) {
+                            potential.push(current_state.sm.id);
+                        }
+                    }
+                } else {
+                    potential.push(state.sm.id);
+                }
+                var length = potential.length;
+                if (length < 1) {
+                    return false;
+                }
+                if (length == 1) {
+                    if (potential[0] == state.sm.id) {
+                        return true;
+                    }
+                } else {
+                    var path = mapinfo.paths[state.sm.id];
+                    if (Raphael.isPointInsidePath(path, x, y)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+
+        function animate_transform(e, t, i) {
+            var a = {
+                transform: t
+            };
+            if (!vml && !touch && !i) {
+                e.animate(a, zoom_time * 1000);
+            } else {
+                e.attr(a);
+            }
+        }
+
+        function label_correction(destination, initial) {
+            all_labels.hide();
+            for (var i in label_array) {
+                var lbl = label_array[i];
+                if (lbl.sm.hide) {
+                    continue;
+                }
+                if (show_point(lbl.sm.point0, lbl.sm.display, destination)) {
+                    var lbl_set = label_set_array[lbl.sm.id];
+                    lbl_set.show();
+                }
+                if (lbl.sm.line) {
+                    var line_path = get_line_path(lbl);
+                    lbl.sm.line.attr({
+                        path: line_path,
+                        transform: transform
+                    });
+                }
+                if (lbl.sm.scale) {
+                    var factor = ratio > lbl.sm.scale_limit ? ratio : lbl.sm.scale_limit;
+                    var t = scale_t(lbl, factor * scale);
+                    animate_transform(lbl, t, initial);
+                    if (lbl.sm.pill) {
+                        var pill = pill_array[lbl.sm.id];
+                        animate_transform(pill, t, initial);
+                    }
+                }
+            }
+        }
+
+        function location_correction(destination, initial) {
+            all_locations.hide();
+            all_locations.forEach(function(lct) {
+                if (lct.sm.hide) {
+                    return;
+                }
+                if (show_point(lct.sm.point0, lct.sm.display, destination)) {
+                    lct.show();
+                }
+                if (lct.sm.scale) {
+                    var factor = ratio > lct.sm.scale_limit ? ratio : lct.sm.scale_limit;
+                    var t = scale_t(lct, factor * scale);
+                    animate_transform(lct, t, initial);
+                }
+            });
+        }
+
+        function hide_and_show_before(destination, initial) {
+            var type = destination.sm.type;
+            back_arrow.hide();
+            location_correction(destination, initial);
+            label_correction(destination, initial);
+            (function update_regions() {
+                if (helper.x_in_array(type, ["state", "region", "out"])) {
+                    reset_all_region_attributes();
+                }
+                if (type == "region") {
+                    reset_state_attributes(destination);
+                } else if (type == "state") {
+                    reset_state_attributes(region_array[destination.sm.region]);
+                } else if (type == "manual") {
+                    region_or_state_by_ratio();
+                }
+            })();
+            (function update_opacity() {
+                if (type != "out" && type != "manual") {
+                    all_states.stop();
+                    all_pills.stop();
+                    all_states.attr({
+                        'fill-opacity': adjacent_opacity
+                    });
+                    all_pills.attr({
+                        'fill-opacity': adjacent_opacity
+                    });
+                    destination.stop();
+                    destination.attr({
+                        'fill-opacity': 1
+                    });
+                    destination.sm.labels.forEach(function(label) {
+                        if (label.sm && label.sm.pill) {
+                            label.sm.pill.stop();
+                            label.sm.pill.attr({
+                                'fill-opacity': 1
+                            });
+                        }
+                    });
+                    destination.animate({
+                        'stroke-width': destination.sm.border_hover_size * (width / original_width) * normalizing_factor * 1.25
+                    }, zoom_time * 1000);
+                } else {
+                    all_states.attr({
+                        'fill-opacity': 1
+                    });
+                    all_pills.attr({
+                        'fill-opacity': 1
+                    });
+                }
+            })();
+            all_states.animate({
+                'stroke-width': border_size * (width / original_width) * normalizing_factor * 1.25
+            }, zoom_time * 1000);
+        }
+
+        function hide_and_show_after(destination) {
+            if (initial_zoom_solo && initial_zoom != "-1" && destination.sm.type == "region") {
+                if (initial_back) {
+                    back_arrow.show();
+                } else {
+                    return;
+                }
+            } else if (destination.sm.type == "state" || destination.sm.type == "region" || initial_back) {
+                back_arrow.show();
+            } else if (manual_zoom && destination.sm.type != "out") {
+                back_arrow.show();
+            }
+        }
+
+        function zd_to_tween(bb) {
+            return {
+                x: bb.x,
+                y: bb.y,
+                w: bb.w,
+                h: bb.h
+            };
+        }
+        var end_destination;
+        var zoom_tween;
+        var current_viewbox;
+
+        function zoom_to(destination, initial, callback) {
+            if (last_animated) {
+                last_animated.stop();
+                last_animated = false;
+            }
+            if (currently_over && !(destination == currently_over)) {
+                out.call(currently_over);
+            }
+            last_clicked = false;
+            end_destination = destination;
+            tooltip.hide();
+            tooltip_up = false;
+            currently_zooming = true;
+            destination.sm.zooming_dimensions = get_zooming_dimensions(destination);
+            var to = zd_to_tween(destination.sm.zooming_dimensions);
+            var from = zd_to_tween(last_destination.sm.zooming_dimensions);
+            ratio = destination.sm.zooming_dimensions.r;
+            hide_and_show_before(destination, initial);
+
+            function updateZoom(current_state) {
+                current_viewbox = current_state;
+                paper.setViewBox(current_state.x, current_state.y, current_state.w, current_state.h, false);
+            }
+
+            function whenDone() {
+                hide_and_show_after(destination, initial);
+                last_destination = destination;
+                currently_zooming = false;
+                on_click = false;
+                update_zoom_level();
+                trigger_hook("zooming_complete", []);
+                if (helper.isFunction(callback)) {
+                    callback();
+                }
+            }
+            if (!vml && (!touch || zoom_mobile) && !initial) {
+                tweenable = new Tweenable;
+                zoom_tween = tweenable.tween({
+                    from: from,
+                    to: to,
+                    duration: zoom_time * 1000,
+                    easing: "easeOutQuad",
+                    step: function(current_state) {
+                        updateZoom(current_state);
+                    },
+                    finish: function() {
+                        whenDone(to);
+                    }
+                });
+            } else {
+                current_viewbox = to;
+                paper.setViewBox(to.x, to.y, to.w, to.h, false);
+                whenDone();
+            }
+        }
+
+        function create_bbox_state(auto) {
+            var print_string = "";
+            var state_bbox_array = {};
+            for (var state in mapinfo.paths) {
+                var path_to_add = mapinfo.paths[state];
+                path_to_add = Raphael._pathToAbsolute(path_to_add);
+                var bt = Raphael.pathBBox(path_to_add);
+                var w = bt.x2 - bt.x;
+                var r;
+                if (w < 10) {
+                    r = 10;
+                } else {
+                    r = 1;
+                }
+                var x = Math.round(bt.x * r) / r;
+                var y = Math.round(bt.y * r) / r;
+                var y2 = Math.round(bt.y2 * r) / r;
+                var x2 = Math.round(bt.x2 * r) / r;
+                print_string += "'" + state + "'" + ":{x: " + x + ",y:" + y + ",x2:" + x2 + ",y2:" + y2 + "},";
+                state_bbox_array[state] = bt;
+            }
+            print_string = print_string.substring(0, print_string.length - 1);
+            print_string += "}";
+            if (!auto) {
+                console.log("The new state_bbox_array is: \n\n{" + print_string);
+            }
+            return state_bbox_array;
+        }
+
+        function create_content(element) {
+            var content = element.sm.description;
+            var embedded_img = "data:image/svg+xml,%3Csvg%20enable-background%3D%22new%200%200%20256%20256%22%20height%3D%22256px%22%20id%3D%22Layer_1%22%20version%3D%221.1%22%20viewBox%3D%220%200%20256%20256%22%20width%3D%22256px%22%20xml%3Aspace%3D%22preserve%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%3Cpath%20d%3D%22M137.051%2C128l75.475-75.475c2.5-2.5%2C2.5-6.551%2C0-9.051s-6.551-2.5-9.051%2C0L128%2C118.949L52.525%2C43.475%20%20c-2.5-2.5-6.551-2.5-9.051%2C0s-2.5%2C6.551%2C0%2C9.051L118.949%2C128l-75.475%2C75.475c-2.5%2C2.5-2.5%2C6.551%2C0%2C9.051%20%20c1.25%2C1.25%2C2.888%2C1.875%2C4.525%2C1.875s3.275-0.625%2C4.525-1.875L128%2C137.051l75.475%2C75.475c1.25%2C1.25%2C2.888%2C1.875%2C4.525%2C1.875%20%20s3.275-0.625%2C4.525-1.875c2.5-2.5%2C2.5-6.551%2C0-9.051L137.051%2C128z%22%2F%3E%3C%2Fsvg%3E";
+            var xmark_modern = "<img id=\"xpic_sm" + "_" + div + "\"src=\"" + embedded_img + "\" style=\"width: 18px;\" alt=\"Close\" border=\"0\" />";
+            var xmark_vml = "<a style=\"line-height: 1.5\" id=\"xpic_sm" + "_" + div + "\">X</a>";
+            var xmark = vml ? xmark_vml : xmark_modern;
+            var url = element.sm.url ? element.sm.url : "";
+            var url_sub = url;
+            var js_url = url_sub.substring(0, 11) == "javascript:" ? true : false;
+            var tab_click = "(function(){window.open(\"" + url + "\",\"_newtab\")})()";
+            var reg_click = js_url ? "(function(){window.location.href=\"" + url + "\"})()" : "(function(){window.top.location.href=\"" + url + "\"})()";
+            var js_url_clean = helper.replaceAll(url_sub, "'", "\"");
+            var js_click = "(function(){" + js_url_clean + "})()";
+            var upon_click = new_tab ? tab_click : reg_click;
+            if (js_url) {
+                upon_click = js_click;
+            }
+            var mobile_part = element.sm.description_mobile ? element.sm.description_mobile : "<div class=\"tt_mobile_sm\"><a class=\"btn_simplemaps\" onClick='" + upon_click + "'>" + link_text + "</a></div>";
+            if (!element.sm.on_click) {
+                xmark = "";
+                mobile_part = "";
+            }
+            if (element.sm.url == "" && !element.sm.description_mobile) {
+                mobile_part = "";
+            }
+            var content_part = content == "" ? (content_part = "") : "<div class=\"tt_custom_sm\"; />" + content + "</div>";
+            return "<div class=\"tt_sm\"><div><div class=\"tt_name_sm\">" + element.sm.name + "</div><div class=\"xmark_sm\">" + xmark + "</div><div style=\"clear: both;\"></div></div>" + content_part + mobile_part + "</div></div>";
+        }
+
+        function is_forgery() {
+            if (mapname != "continent") {
+                return false;
+            }
+            var i = 0;
+            for (var id in mapinfo.paths) {
+                i++;
+            }
+            if (i > 8) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function is_inside(small_element, big_element) {
+            var small = small_element.sm.zooming_dimensions;
+            if (small.w > big_element.sm.zooming_dimensions.w) {
+                return false;
+            }
+            var bb = big_element.sm.bbox;
+            var big = {
+                x: bb.x * scale,
+                y: bb.y * scale,
+                x2: bb.x2 * scale,
+                y2: bb.y2 * scale
+            };
+            small_xbar = small.x + small.w / 2;
+            small_ybar = small.y + small.h / 2;
+            if (small_xbar > big.x && small_ybar > big.y) {
+                if (small_xbar < big.x2 && small_ybar < big.y2) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function create_pattern(e, par) {
+            var hovering = par.hover ? "_hover" : "";
+            var pattern_id = div + "_pattern_" + e.sm.id + hovering;
+            var existing = document.getElementById(pattern_id);
+            if (existing) {
+                helper.delete_element(existing);
+            }
+            var svg = map_inner.firstChild;
+            var SVG_NS = svg.namespaceURI;
+            var defs = svg.querySelector("defs");
+            var pattern = document.createElementNS(SVG_NS, "pattern");
+            var id = e.sm.id;
+            pattern.id = pattern_id;
+            pattern.setAttribute("patternUnits", "objectBoundingBox");
+            var image = document.createElementNS(SVG_NS, "image");
+            var rect = document.createElementNS(SVG_NS, "rect");
+            var bg_color = par.image_color ? par.image_color : par.color;
+            rect.setAttribute("fill", "#ffffff");
+            rect.setAttribute("opacity", "0");
+            image.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", par.image_url);
+            pattern.appendChild(rect);
+            pattern.appendChild(image);
+            defs.appendChild(pattern);
+            svg.appendChild(defs);
+            var image_position = par.image_position;
+            var auto = par.image_size == "auto" ? true : false;
+            var repeat = image_position == "repeat" ? true : false;
+            var manual = image_position == "manual" ? true : false;
+            var center = image_position == "center" ? true : false;
+            var fill = repeat || manual || center ? false : true;
+            var bbox = Raphael.pathBBox(mapinfo.paths[id]);
+            var bbox_width = bbox.x2 - bbox.x;
+            var bbox_height = bbox.y2 - bbox.y;
+            var bbox_w2h = bbox_width / bbox_height;
+            Raphael._preload(par.image_url, function() {
+                var image_width = this.offsetWidth;
+                var image_height = this.offsetHeight;
+                var w2h = image_width / image_height;
+
+                function get_per() {
+                    var per = par.image_size;
+                    if (auto) {
+                        if (repeat || manual) {
+                            if (w2h > 1) {
+                                if (image_width > bbox_width) {
+                                    per = 1;
+                                } else {
+                                    per = image_width / bbox_width;
+                                }
+                            } else {
+                                if (image_height > bbox_height) {
+                                    per = 1 / bbox_w2h;
+                                } else {
+                                    per = image_height / bbox_height / bbox_w2h;
+                                }
+                            }
+                        } else if (center) {
+                            per = w2h / bbox_w2h;
+                            if (w2h > bbox_w2h) {
+                                per = per;
+                            } else {
+                                per = 1 / per;
+                            }
+                        }
+                    } else {
+                        if (per > 1) {
+                            per = par.image_size * normalizing_factor / bbox_width;
+                        }
+                    }
+                    return per;
+                }
+                var per = get_per();
+                var new_image_width = bbox_width * per;
+                var new_image_height = new_image_width / w2h;
+                var pattern_x = 0;
+                var pattern_y = 0;
+                var pattern_width, pattern_height;
+                var image_x = 0;
+                var image_y = 0;
+                if (repeat) {
+                    pattern_width = per;
+                    pattern_height = per * bbox_w2h / w2h;
+                } else if (manual) {
+                    pattern_width = 1;
+                    pattern_height = 1;
+                    image_x = par.image_x * bbox_width;
+                    image_y = par.image_y * bbox_height;
+                } else if (center) {
+                    pattern_width = 1;
+                    pattern_height = 1;
+                    image_x = 0.5 * (bbox_width - new_image_width);
+                    image_y = 0.5 * (bbox_height - new_image_height);
+                }
+                rect.setAttribute("x", 0);
+                rect.setAttribute("y", 0);
+                rect.setAttribute("width", bbox_width);
+                rect.setAttribute("height", bbox_height);
+                rect.setAttribute("fill", bg_color);
+                pattern.setAttribute("y", pattern_y);
+                pattern.setAttribute("x", pattern_x);
+                pattern.setAttribute("y", pattern_y);
+                pattern.setAttribute("width", pattern_width);
+                pattern.setAttribute("height", pattern_height);
+                image.setAttribute("x", image_x);
+                image.setAttribute("y", image_y);
+                image.setAttribute("width", new_image_width);
+                if (rotate) {
+                    var cx = image_x + new_image_width * 0.5;
+                    var cy = image_y + new_image_height * 0.5;
+                    image.setAttribute("transform", "rotate(-" + rotate + "," + cx + "," + cy + ")");
+                }
+                image.setAttribute("height", new_image_height);
+            });
+            return "url(\"#" + pattern.id + "\")";
+        }
+        var state_bbox_array = false;
+        var make_state, bbox_storage, state_array;
+
+        function create_states(refresh) {
+            if (!refresh) {
+                bbox_storage = {};
+                state_array = {};
+            }
+            state_bbox_array = mapinfo.state_bbox_array;
+            var scaled_border_size = border_size * scale * normalizing_factor * 1.25;
+            make_state = function(id) {
+                var brand_new = state_array[id] ? false : true;
+                var state = brand_new ? paper.path(mapinfo.paths[id]) : state_array[id];
+                if (brand_new) {
+                    state.sm = {
+                        id: id
+                    };
+                }
+                if (!vml) {
+                    state.node.setAttribute("class", "sm_state_" + id);
+                }
+                var attrs = cattr[id];
+                var attributes = {
+                    fill: attrs.color,
+                    opacity: attrs.opacity,
+                    stroke: attrs.border_color,
+                    cursor: "pointer",
+                    'stroke-opacity': 1,
+                    'stroke-width': scaled_border_size,
+                    'stroke-linejoin': "round"
+                };
+                var border_hover_color = attrs.border_hover_color ? attrs.border_hover_color : main_settings.border_color;
+                var border_hover_size = attrs.border_hover_size ? attrs.border_hover_size : border_size;
+                var scaled_border_hover_size = border_hover_size * scale * normalizing_factor * 1.25;
+                var over_attributes = {
+                    opacity: attrs.hover_opacity,
+                    fill: attrs.hover_color,
+                    stroke: border_hover_color,
+                    'stroke-width': scaled_border_hover_size
+                };
+                state.sm.image = false;
+                if (attrs.image_url && !vml) {
+                    var image_parameters = {
+                        hover: false,
+                        image_url: attrs.image_url,
+                        image_size: attrs.image_size,
+                        image_position: attrs.image_position,
+                        image_x: attrs.image_x,
+                        image_y: attrs.image_y,
+                        image_color: attrs.image_color
+                    };
+                    var pattern_url = create_pattern(state, image_parameters);
+                    state.sm.image = true;
+                    attributes.fill = pattern_url;
+                    if (attrs.image_hover_url) {
+                        var image_parameters = {
+                            hover: true,
+                            image_url: attrs.image_hover_url,
+                            image_size: attrs.image_hover_size,
+                            image_position: attrs.image_hover_position,
+                            image_x: attrs.image_hover_x,
+                            image_y: attrs.image_hover_y,
+                            image_color: attrs.image_hover_color
+                        };
+                        var pattern_url = create_pattern(state, image_parameters);
+                        over_attributes.fill = pattern_url;
+                    } else {
+                        over_attributes.fill = pattern_url;
+                    }
+                }
+                if (attrs.inactive) {
+                    attributes.cursor = "default";
+                }
+                if (attrs.image_source) {
+                    state.sm.ignore_hover = true;
+                    attributes.fill = "url(" + directory + attrs.image_source + ")";
+                }
+                if ((attrs.border_hover_color || attrs.border_hover_size) && attrs.emphasize) {
+                    state.sm.emphasizable = true;
+                } else {
+                    state.sm.emphasizable = false;
+                }
+                state.sm.border_hover_size = border_hover_size;
+                state.attr(attributes);
+                state.transform(transform);
+                state.sm.attributes = attributes;
+                state.sm.over_attributes = over_attributes;
+                state.sm.description = attrs.description;
+                state.sm.adjacent_attributes = {
+                    'fill-opacity': adjacent_opacity
+                };
+                state.sm.hide = attrs.hide;
+                state.sm.hide_label = attrs.hide_label;
+                if (brand_new) {
+                    state.sm.region = false;
+                }
+                state.sm.name = attrs.name ? attrs.name : mapinfo.names[id];
+                if (!state.sm.name) {
+                    state.sm.name = id;
+                }
+                state.sm.url = attrs.url;
+                state.sm.inactive = attrs.inactive;
+                state.sm.on_click = is_onclick(attrs.popup);
+                state.sm.popup_off = is_off(attrs.popup);
+                state.sm.labels = [];
+                state.sm.zp = attrs.zoom_percentage;
+                state.sm.zoomable = attrs.zoomable;
+                state.sm.description_mobile = attrs.description_mobile;
+                state.sm.type = "state";
+                state.sm.hide_labels = attrs.hide_label;
+                state.sm.content = create_content(state);
+                var sba = state_bbox_array[id];
+                if (!sba) {
+                    sba = Raphael.pathBBox(mapinfo.paths[id]);
+                }
+                var bbox = {
+                    x: sba.x,
+                    x2: sba.x2,
+                    y: sba.y,
+                    y2: sba.y2
+                };
+                state.sm.bbox = bbox;
+                state.sm.bbox.width = bbox.x2 - bbox.x;
+                state.sm.bbox.height = bbox.y2 - bbox.y;
+                if (state.sm.hide) {
+                    state.hide();
+                } else {
+                    if (brand_new) {
+                        all_visible_states.push(state);
+                    }
+                }
+                if (brand_new) {
+                    state_array[id] = state;
+                    all_states.push(state);
+                }
+            };
+            for (var id in mapinfo.paths) {
+                make_state(id);
+            }
+            all_states.hide();
+        }
+
+        function style_background() {
+            background_color.attr({
+                fill: main_settings.background_color,
+                'fill-opacity': opacity,
+                stroke: "none"
+            });
+        }
+        var region_array, last_destination, destination;
+        var initial_zoom_state = false;
+        var initial_zoom_manual;
+
+        function create_regions(refresh) {
+            if (!refresh) {
+                region_array = {};
+            }
+            if (regions) {
+                for (var id in regions) {
+                    var attrs = rattr[id];
+                    var region_object = regions[id];
+                    var region = refresh ? region_array[id] : paper.set();
+                    if (!refresh) {
+                        region.sm = {};
+                        region.sm.states = [];
+                        if (region_array[id]) {
+                            console.log("Duplicate Regions");
+                            continue;
+                        }
+                        var all_bb = [];
+                        for (var i = 0; i < region_object.states.length; i++) {
+                            var state_id = region_object.states[i];
+                            var state = state_array[state_id];
+                            if (!state) {
+                                console.log(state_id + " does not exist");
+                                continue;
+                            }
+                            if (state.sm.region) {
+                                console.log(state.sm.name + " already assigned to a region");
+                                continue;
+                            }
+                            state.sm.region = id;
+                            region.sm.states.push(state_id);
+                            if (!(vml && state.sm.ignore_hover && (attrs.color || attrs.hover_color))) {
+                                region.push(state);
+                            }
+                            all_bb.push(state.sm.bbox);
+                        }
+                        if (attrs.x && attrs.y && attrs.x2 && attrs.y2) {
+                            all_bb = [{
+                                x: attrs.x,
+                                y: attrs.y,
+                                x2: attrs.x2,
+                                y2: attrs.y2
+                            }];
+                        }
+                        region.sm.bbox = helper.bbox_union(all_bb);
+                    }
+                    var attributes = {
+                        'fill-opacity': attrs.opacity,
+                        cursor: "pointer"
+                    };
+                    var over_attributes = {
+                        'fill-opacity': attrs.hover_opacity
+                    };
+                    if (attrs.color) {
+                        attributes.fill = attrs.color;
+                    }
+                    if (attrs.hover_color) {
+                        over_attributes.fill = attrs.hover_color;
+                    }
+                    if (attrs.inactive) {
+                        attributes.cursor = "default";
+                    }
+                    region.sm.attributes = attributes;
+                    region.sm.name = region_object.name;
+                    region.sm.description = attrs.description;
+                    region.sm.description_mobile = attrs.description_mobile;
+                    region.sm.url = attrs.url;
+                    region.sm.labels = paper.set();
+                    region.sm.on_click = is_onclick(attrs.popup);
+                    region.sm.content = create_content(region);
+                    region.sm.over_attributes = over_attributes;
+                    region.sm.adjacent_attributes = {
+                        'fill-opacity': adjacent_opacity
+                    };
+                    region.sm.zoomable = attrs.zoomable;
+                    region.sm.popup_off = is_off(attrs.popup);
+                    region.sm.zp = attrs.zoom_percentage;
+                    region.sm.inactive = attrs.inactive;
+                    region.sm.type = "region";
+                    region.sm.id = id;
+                    if (!refresh) {
+                        all_regions.push(region);
+                        region_array[id] = region;
+                    }
+                    region.sm.zooming_dimensions = get_zooming_dimensions(region);
+                }
+            }
+            if (!refresh) {
+                region_array[-1] = {};
+                var out = region_array[-1];
+                out.sm = {};
+                out.sm.type = "out";
+                out.sm.zp = 1;
+                var bbox = helper.clone(initial_view);
+                bbox.width = bbox.x2 - bbox.x;
+                bbox.height = bbox.y2 - bbox.y;
+                out.sm.bbox = bbox;
+                out.sm.zooming_dimensions = get_zooming_dimensions(out);
+                last_destination = out;
+                if (typeof initial_zoom === "object") {
+                    initial_zoom_manual = {};
+                    initial_zoom_manual.sm = {
+                        type: "manual",
+                        zp: 1,
+                        bbox: initial_zoom
+                    };
+                    initial_zoom_manual.sm.zooming_dimensions = get_zooming_dimensions(initial_zoom_manual);
+                    initial_zoom = -1;
+                    initial_zoom_solo = false;
+                } else if (initial_zoom != -1 && !(initial_zoom in region_array)) {
+                    if (initial_zoom in state_array) {
+                        initial_zoom_state = state_array[initial_zoom];
+                        initial_zoom_solo = false;
+                    } else {
+                        console.log("The initial_zoom is not the id of a region or state");
+                    }
+                    initial_zoom = -1;
+                }
+                if (fly_in) {
+                    region_array[-2] = {};
+                    var destination = region_array[-2];
+                    destination.sm = {
+                        type: "manual",
+                        zp: 1
+                    };
+                    var ivd = get_zooming_dimensions(region_array[initial_zoom]);
+                    var w = ivd.w;
+                    var h = ivd.h;
+                    var xinc = ivd.w * (fly_in - 1) * 0.5;
+                    var yinc = ivd.h * (fly_in - 1) * 0.5;
+                    destination.sm.zooming_dimensions = {
+                        x: ivd.x - xinc,
+                        y: ivd.y - yinc,
+                        w: w * fly_in,
+                        h: h * fly_in,
+                        r: fly_in
+                    };
+                }
+            }
+        }
+
+        function create_lines() {
+            var lines = mapdata.lines ? mapdata.lines : mapdata.borders;
+            if (!lines) {
+                return;
+            }
+            for (i in lines) {
+                var line = lines[i];
+                var attrs = ela[i];
+                var b = paper.path(line.path);
+                b.transform(transform);
+                b.attr({
+                    stroke: attrs.color,
+                    fill: "none",
+                    cursor: "pointer",
+                    'stroke-dasharray': [attrs.dash],
+                    'stroke-width': attrs.size,
+                    'stroke-linejoin': "round",
+                    'stroke-miterlimit': 4
+                });
+                b.sm = {};
+                b.sm.bbox = b.getBBox(true);
+                all_external_lines.push(b);
+            }
+            all_external_lines.hide();
+        }
+
+        function get_label_bbox(e) {
+            var bb = e.getBBox(true);
+            if (vml) {
+                var bb2 = e._getBBox(true);
+                bb.height = bb2.height;
+            }
+            var xa = 0.5 * bb.width;
+            var ya = 0.5 * bb.height;
+            var pt = e.sm.point0;
+            var new_bb = {
+                x: pt.x - xa,
+                y: pt.y - ya,
+                x2: pt.x + xa,
+                y2: pt.y + ya,
+                width: bb.width,
+                height: bb.height
+            };
+            return new_bb;
+        }
+        var label_array;
+        var label_set_array;
+        var make_label;
+        var pill_array;
+
+        function create_labels() {
+            helper.clear_sets([all_labels, all_lines, all_pills]);
+            label_array = {};
+            pill_array = {};
+            label_set_array = {};
+            label_attributes = label_attributes.reverse();
+            make_label = function(id) {
+                var attrs = label_attributes[id];
+                var force_scale = false;
+                var already_rotated = false;
+                if (!label_attributes.hasOwnProperty(id)) {
+                    return;
+                }
+                var brand_new = label_array[id] ? false : true;
+                var label_set = paper.set();
+                var point0 = {
+                    x: attrs.x * 1,
+                    y: attrs.y * 1
+                };
+                var point = {};
+                var parent = false;
+                var resize_parent = false;
+                if (attrs.parent_type == "state") {
+                    parent = state_array[attrs.parent_id];
+                } else if (attrs.parent_type == "region") {
+                    parent = region_array[attrs.parent_id];
+                } else if (attrs.parent_type == "location") {
+                    parent = location_array[attrs.parent_id];
+                }
+                if (!attrs.x && !attrs.y && parent) {
+                    if (parent.sm.type == "location") {
+                        already_rotated = true;
+                        point.x = parent.sm.x;
+                        point.y = parent.sm.y;
+                        point0 = parent.sm.point0;
+                        force_scale = true;
+                        if (parent.sm.auto_size) {
+                            resize_parent = true;
+                        }
+                    }
+                }
+                if (!parent) {
+                    console.log("The following object does not exist: " + id);
+                    return;
+                }
+                if (attrs.name == "Not Named" && parent) {
+                    attrs.name = parent.sm.id;
+                }
+                if (brand_new) {
+                    if (!already_rotated) {
+                        var rotated = helper.rotate([attrs.x, attrs.y], transform);
+                        point = {
+                            x: rotated[0],
+                            y: rotated[1]
+                        };
+                    }
+                    var label = paper.text(point.x, point.y, attrs.name);
+                    label_array[id] = label;
+                } else {
+                    var label = label_array[id];
+                }
+                label.sm = {};
+                label.sm.hide = attrs.hide;
+                if (parent && (parent.sm.hide_label || parent.sm.hide)) {
+                    label.sm.hide = true;
+                }
+                label.sm.parent = parent;
+                parent.sm.labels.push(label);
+                if (parent.sm.region) {
+                    region_array[parent.sm.region].sm.labels.push(label);
+                }
+                var attributes = {
+                    'stroke-width': 0,
+                    fill: attrs.color,
+                    'font-size': attrs.size,
+                    'font-weight': "bold",
+                    cursor: "pointer",
+                    'font-family': attrs.font_family,
+                    'text-anchor': attrs.anchor
+                };
+                var over_attributes = {
+                    fill: attrs.hover_color
+                };
+                var out_attributes = {
+                    fill: attrs.color
+                };
+                if (parent.sm.inactive) {
+                    attributes.cursor = "default";
+                }
+                label.attr(attributes);
+                label.sm.attributes = attributes;
+                label.sm.over_attributes = over_attributes;
+                label.sm.out_attributes = out_attributes;
+                label.sm.type = "label";
+                label.sm.id = id;
+                label.sm.scale = force_scale ? force_scale : attrs.scale;
+                label.sm.scale_limit = attrs.scale_limit;
+                label.sm.x = point.x;
+                label.sm.y = point.y;
+                label.sm.point0 = point0;
+                label.sm.line_x = attrs.line_x;
+                label.sm.line_y = attrs.line_y;
+                label.sm.line = false;
+                label.sm.rotate = attrs.rotate;
+                label.transform(scale_t(label, scale));
+                if (!attrs.display) {
+                    if (attrs.parent_type == "region") {
+                        label.sm.display = "out";
+                    } else if (attrs.parent_type == "location") {
+                        label.sm.display = parent.sm.display;
+                    } else {
+                        label.sm.display = main_settings.labels_display ? main_settings.labels_display : "all";
+                    }
+                } else {
+                    label.sm.display = attrs.display;
+                }
+                if (attrs.line || attrs.pill || resize_parent) {
+                    label.sm.bbox = get_label_bbox(label);
+                }
+                if (attrs.line) {
+                    var line_path = get_line_path(label);
+                    var line = paper.path(line_path);
+                    var line_size = attrs.line_size * normalizing_factor * scale * 1.25;
+                    var line_attrs = {
+                        stroke: attrs.line_color,
+                        cursor: "pointer",
+                        'stroke-width': line_size
+                    };
+                    line.attr(line_attrs);
+                    line.sm = {};
+                    line.sm.type = "label";
+                    label.sm.pill = false;
+                    line.sm.size = attrs.line_size;
+                    line.sm.id = id;
+                    label.sm.line = line;
+                    all_lines.push(line);
+                    label_set.push(line);
+                }
+                if (parent.sm.type == "state" && attrs.pill) {
+                    var label_bbox = label.sm.bbox;
+                    var p = 0.15;
+                    var calculated_width = label_bbox.width * (1 + p * 3);
+                    var pill_width = attrs.width ? attrs.width : calculated_width;
+                    var pill_height = label_bbox.height * (1 + p);
+                    var x = label.sm.x - 0.5 * pill_width;
+                    var y = label.sm.y - 0.5 * pill_height;
+                    var r = pill_height / 5;
+                    if (pill_array[id]) {
+                        var pill = pill_array[id];
+                    } else {
+                        var pill = paper.rect(x, y, pill_width, pill_height, r);
+                        pill_array[id] = pill;
+                    }
+                    pill.transform(scale_t(label, scale));
+                    pill.sm = {};
+                    pill.sm.parent = parent;
+                    pill.sm.attributes = helper.clone(parent.sm.attributes);
+                    if (parent.sm.image) {
+                        pill.sm.attributes.fill = cattr[parent.sm.id].color;
+                    }
+                    pill.sm.over_attributes = helper.clone(parent.sm.over_attributes);
+                    if (parent.sm.image) {
+                        pill.sm.over_attributes.fill = cattr[parent.sm.id].hover_color;
+                    }
+                    pill.sm.adjacent_attributes = helper.clone(parent.sm.adjacent_attributes);
+                    pill.attr(pill.sm.attributes);
+                    if (helper.x_in_array(label.sm.display, ["state", "all"])) {
+                        parent.sm.bbox = helper.bbox_union([parent.sm.bbox, label.sm.bbox]);
+                    }
+                    if (helper.x_in_array(label.sm.display, ["region", "all"]) && parent.sm.region) {
+                        var region = region_array[parent.sm.region];
+                        region.sm.bbox = helper.bbox_union([region.sm.bbox, label.sm.bbox]);
+                        region.sm.zooming_dimensions = false;
+                        region.sm.zooming_dimensions = get_zooming_dimensions(region);
+                    }
+                    label.sm.pill = pill;
+                    all_pills.push(pill);
+                    label_set.push(pill);
+                    label_set.push(label);
+                } else {
+                    label_set.push(label);
+                }
+                if (label.sm.display != "out" && label.sm.display != "all" || label.sm.hide) {
+                    label_set.hide();
+                } else {
+                    all_visible_labels.push(label_set);
+                }
+                if (label.sm.parent.sm.type == "location" && !label.sm.line) {
+                    location_labels.push(label_set);
+                }
+                all_labels.push(label_set);
+                label_set_array[id] = label_set;
+                if (!vml) {
+                    label.node.setAttribute("class", "sm_label_" + id);
+                }
+                if (resize_parent) {
+                    var padding = main_settings.location_auto_padding ? 1 + main_settings.location_auto_padding * 2 : 1.3;
+                    var size = padding * label.sm.bbox.width / normalizing_factor;
+                    var lct = label.sm.parent;
+                    var old_labels = lct.sm.labels;
+                    var shape = lct.sm.shape_type;
+                    if (shape == "triangle") {
+                        size = size * 1.3;
+                    } else if (shape == "star") {
+                        size = size * 2;
+                    }
+                    var lct_id = lct.sm.id;
+                    lattr[lct_id].size = size;
+                    make_location(lct_id);
+                    var lct = location_array[lct_id];
+                    label.sm.parent = lct;
+                    lct.sm.labels = old_labels;
+                    lct.sm.labels.push(label);
+                    lct.sm.auto_size = true;
+                }
+            };
+            for (var id in label_attributes) {
+                make_label(id);
+            }
+            all_labels.hide();
+        }
+
+        function get_line_path(label) {
+            var bb = label.sm.bbox;
+            var w = bb.x2 - bb.x;
+            var h = bb.y2 - bb.y;
+            var r = label.sm.scale ? ratio : 1;
+            var x_adj = 0.5 * (1 - r) * w;
+            var y_adj = 0.5 * (1 - r) * h;
+            var x = label.sm.line_x;
+            var y = label.sm.line_y;
+            var missing = !x || !y;
+            var parent_type = label.sm.parent.sm.type;
+            if (parent_type == "location" && missing) {
+                x = label.sm.parent.sm.point0.x;
+                y = label.sm.parent.sm.point0.y;
+            } else if (parent_type == "state" && missing) {
+                var pbb = label.sm.parent.sm.bbox;
+                x = 0.5 * (pbb.x2 + pbb.x);
+                y = 0.5 * (pbb.y2 + pbb.y);
+            }
+            var current_location = {
+                x: x,
+                y: y
+            };
+            var pts = [];
+            pts.push({
+                x: bb.x2 - x_adj,
+                y: 0.5 * (bb.y + bb.y2)
+            });
+            pts.push({
+                x: bb.x + x_adj,
+                y: 0.5 * (bb.y + bb.y2)
+            });
+            pts.push({
+                x: 0.5 * (bb.x + bb.x2),
+                y: bb.y + y_adj
+            });
+            pts.push({
+                x: 0.5 * (bb.x + bb.x2),
+                y: bb.y2 - y_adj
+            });
+            var winner = {};
+            for (var k in pts) {
+                var current_label = pts[k];
+                var distance_between = helper.distance(current_label, current_location);
+                if (k == 0 || distance_between < winner.distance) {
+                    winner.label = current_label;
+                    winner.location = current_location;
+                    winner.distance = distance_between;
+                }
+            }
+            return helper.linePath(winner.label.x, winner.label.y, winner.location.x, winner.location.y);
+        }
+
+        function scale_t(e, s, t, x, y, r) {
+            var cx = x === undefined ? e.sm.x : x;
+            var cy = y === undefined ? e.sm.y : y;
+            if (t === undefined) {
+                t = "0,0";
+            }
+            if (r === undefined) {
+                r = e.sm.rotate;
+            }
+            return "t " + t + " s" + s + "," + s + "," + cx + "," + cy + "r" + r;
+        }
+        var location_array;
+        var make_location;
+
+        function create_locations(refresh) {
+            var shape_paths = {
+                triangle: "M -0.57735,.3333 .57735,.3333 0,-.6666 Z",
+                diamond: "M 0,-0.5 -0.4,0 0,0.5 0.4,0 Z",
+                marker: "m-.015-.997c-.067 0-.13.033-.18.076-.061.054-.099.136-.092.219-.0001.073.034.139.068.201.058.104.122.206.158.32.021.058.039.117.058.175.006.009.011-.004.011-.009.037-.125.079-.249.144-.362.043-.08.095-.157.124-.244.022-.075.016-.161-.026-.229-.048-.08-.134-.136-.227-.146-.013-.0001-.027-.0001-.04-.0001z",
+                heart: "m-.275-.5c-.137.003-.257.089-.3.235-.073.379.348.539.58.765.202-.262.596-.33.576-.718-.017-.086-.065-.157-.13-.206-.087-.066-.208-.089-.311-.05-.055.02-.106.053-.143.098-.065-.081-.169-.127-.272-.125",
+                star: "m0-.549c-.044.126-.084.252-.125.379-.135.0001-.271.0001-.405.002.108.078.216.155.323.233-.002.029-.016.057-.023.085-.032.099-.066.199-.097.298.049-.031.095-.068.143-.101.062-.044.124-.089.185-.133.109.077.216.158.326.233-.04-.127-.082-.253-.123-.379.109-.079.219-.156.327-.236-.135-.0001-.27-.002-.405-.003-.042-.126-.081-.252-.125-.377"
+            };
+            for (var id in custom_shapes) {
+                shape_paths[id] = custom_shapes[id];
+            }
+            var supported_shapes = [];
+            for (var id in shape_paths) {
+                supported_shapes.push(id);
+            }
+            helper.clear_sets([all_locations]);
+            location_array = {};
+            make_location = function(id) {
+                var position = "center";
+                var attrs = lattr[id];
+                if (attrs.type != "image") {
+                    var attributes = {
+                        'stroke-width': attrs.border * scale * normalizing_factor,
+                        stroke: attrs.border_color,
+                        fill: attrs.color,
+                        opacity: attrs.opacity,
+                        cursor: "pointer"
+                    };
+                    var over_attributes = {
+                        'stroke-width': attrs.hover_border * scale * normalizing_factor,
+                        stroke: attrs.border_color,
+                        fill: attrs.hover_color,
+                        opacity: attrs.hover_opacity,
+                        cursor: "pointer"
+                    };
+                } else {
+                    position = attrs.image_position;
+                    var attributes = {
+                        cursor: "pointer"
+                    };
+                    var over_attributes = {
+                        cursor: "pointer"
+                    };
+                }
+                if (attrs.inactive) {
+                    attributes.cursor = "default";
+                }
+                var shape_type = lattr[id].type;
+                var size = attrs.size * normalizing_factor;
+                if (attrs.x && attrs.y) {
+                    var point0 = {};
+                    point0.x = attrs.x, point0.y = attrs.y;
+                } else {
+                    var point0 = getxy(attrs.lat, attrs.lng);
+                }
+                var rotated = helper.rotate([point0.x, point0.y], transform);
+                var point = {
+                    x: rotated[0],
+                    y: rotated[1]
+                };
+                if (attrs.size == "auto") {
+                    var l = {
+                        sm: {}
+                    };
+                    l.sm.display = attrs.display;
+                    l.sm.auto_size = true;
+                    l.sm.type = "location";
+                    l.sm.hide_label = false;
+                    l.sm.labels = [];
+                    l.sm.point0 = point0;
+                    l.sm.x = point.x;
+                    l.sm.y = point.y;
+                    l.sm.shape_type = shape_type;
+                    l.sm.id = id;
+                    location_array[id] = l;
+                    return;
+                }
+                if (shape_type == "circle") {
+                    var location = paper.circle(point.x, point.y, size * 0.5);
+                    var bbox = {
+                        x: point.x - size * 0.5 * ratio,
+                        y: point.y - size * 0.5 * ratio,
+                        x2: point.x + size * 0.5 * ratio,
+                        y2: point.y + size * 0.5 * ratio
+                    };
+                } else if (helper.x_in_array(shape_type, supported_shapes)) {
+                    var cs = size;
+                    var transformation = "S" + cs + "," + cs + ",0,0 T" + point.x + "," + point.y;
+                    var path = Raphael.transformPath(shape_paths[shape_type], transformation).toString() + "Z";
+                    if (shape_type == "marker") {
+                        position = "bottom-center";
+                    }
+                    var bbox = Raphael.pathBBox(path);
+                    var location = paper.path(path);
+                } else if (shape_type == "image") {
+                    var image_location = attrs.image_url ? attrs.image_url : directory + attrs.image_source;
+                    var location = paper.image(image_location, 0, 0);
+                    location.sm = {};
+                    var bbox = false;
+                    Raphael._preload(image_location, function() {
+                        var iwh = this.width / this.height;
+                        var new_height = size;
+                        var new_width = new_height * iwh;
+                        var new_x = point.x - new_width / 2;
+                        var new_y = position == "bottom-center" ? point.y - new_height : point.y - new_height / 2;
+                        location.attr({
+                            height: new_height,
+                            width: new_width,
+                            x: new_x,
+                            y: new_y
+                        });
+                        location.sm.bbox = {
+                            x: new_x,
+                            y: new_y,
+                            x2: new_x + new_width,
+                            y2: new_y + new_height
+                        };
+                    });
+                } else {
+                    var new_height = size;
+                    var new_width = new_height;
+                    var new_x = point.x - new_width / 2;
+                    var new_y = point.y - new_height / 2;
+                    var location = paper.rect(new_x, new_y, new_width, new_height);
+                    var bbox = {
+                        x: new_x,
+                        y: new_y,
+                        x2: new_x + new_width,
+                        y2: new_y + height
+                    };
+                }
+                location.sm = {};
+                location.sm.attributes = attributes;
+                location.attr(attributes);
+                location.sm.original_transform = transform;
+                location.sm.over_attributes = over_attributes;
+                location.sm.id = id;
+                location.sm.name = attrs.name;
+                location.sm.scale = attrs.scale;
+                location.sm.scale_limit = attrs.scale_limit;
+                location.sm.position = position;
+                location.sm.url = attrs.url;
+                location.sm.type = "location";
+                location.sm.shape_type = shape_type;
+                location.sm.description = attrs.description;
+                location.sm.description_mobile = attrs.description_mobile;
+                location.sm.inactive = attrs.inactive;
+                location.sm.on_click = is_onclick(attrs.popup);
+                location.sm.popup_off = is_off(attrs.popup);
+                location.sm.pulse = attrs.pulse;
+                var underlay = attrs.position == "bottom" ? true : false;
+                location.sm.underlay = underlay;
+                location.sm.pulse_speed = attrs.pulse_speed;
+                location.sm.pulse_size = attrs.pulse_size;
+                location.sm.pulse_color = attrs.pulse_color ? attrs.pulse_color : attrs.color;
+                location.sm.x = point.x;
+                location.sm.y = point.y;
+                location.sm.point0 = point0;
+                location.sm.bbox = bbox;
+                location.sm.labels = [];
+                location.sm.size = size;
+                location.sm.hide = attrs.hide;
+                location.sm.display = attrs.display;
+                location.transform(scale_t(location, ratio * scale));
+                if (location.sm.display == "region" || location.sm.display == "state" || attrs.hide) {
+                    location.hide();
+                }
+                location.sm.content = create_content(location);
+                if (underlay) {
+                    bottom_locations.push(location);
+                } else {
+                    top_locations.push(location);
+                }
+                all_locations.push(location);
+                location_array[id] = location;
+                if (!vml) {
+                    location.node.setAttribute("class", "sm_location_" + id);
+                }
+            };
+            for (var id in locations) {
+                make_location(id);
+            }
+        }
+
+        function state_or_region(state) {
+            var level = api_object.zoom_level;
+            var level_id = api_object.zoom_level_id;
+            var region = state.sm.region ? region_array[state.sm.region] : false;
+            if (region) {
+                if (level == "out") {
+                    return region;
+                } else if (level == "region") {
+                    if (level_id == region.sm.id) {
+                        return state;
+                    } else {
+                        return region;
+                    }
+                } else if (level == "state") {
+                    var current_state = state_array[level_id];
+                    if (current_state.sm.region === region.sm.id) {
+                        return state;
+                    } else {
+                        return region;
+                    }
+                } else if (level == "manual") {
+                    if (ratio > region.sm.zooming_dimensions.r) {
+                        return region;
+                    } else {
+                        return state;
+                    }
+                }
+            } else {
+                return state;
+            }
+        }
+
+        function is_adjacent(element) {
+            var level = api_object.zoom_level;
+            var level_id = api_object.zoom_level_id;
+            if (level == "state") {
+                if (level_id != element.sm.id) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else if (level == "region") {
+                var region = element.sm.region ? region_array[element.sm.region] : false;
+                if (region) {
+                    if (level_id == region.sm.id) {
+                        return false;
+                    }
+                } else {
+                    return true;
+                }
+            } else {
+                return false;
+            }
+        }
+        var update_attr = function(e, pos, anim, attrs) {
+            if (anim == undefined) {
+                anim = false;
+            }
+            if (attrs == undefined) {
+                attrs = false;
+            }
+            if (!attrs) {
+                if (pos == "over") {
+                    attrs = e.sm.over_attributes;
+                } else if (pos == "adjacent") {
+                    attrs = e.sm.adjacent_attributes;
+                } else {
+                    attrs = e.sm.attributes;
+                }
+            }
+            if (!anim || e.sm.image) {
+                e.attr(attrs);
+            } else {
+                e.animate(attrs, fade_time);
+            }
+        };
+        var update_pill_attr = function(pill, pos, override) {
+            if (override == undefined) {
+                override = false;
+            }
+            if (override == "state") {
+                var parent = pill.sm.parent;
+            } else if (override == "region") {
+                var parent = region_array[pill.sm.parent.sm.region];
+            } else {
+                var parent = state_or_region(pill.sm.parent);
+            }
+            var attrs;
+            if (pos == "over") {
+                attrs = helper.clone(parent.sm.over_attributes);
+            } else if (pos == "adjacent") {
+                attrs = helper.clone(parent.sm.adjacent_attributes);
+            } else {
+                attrs = helper.clone(parent.sm.attributes);
+            }
+            if (parent.sm.image && parent.sm.type == "state") {
+                var state_attrs = cattr[parent.sm.id];
+                if (pos == "over") {
+                    attrs.fill = state_attrs.hover_color;
+                } else {
+                    attrs.fill = state_attrs.color;
+                }
+            }
+            update_attr(pill, pos, false, attrs);
+        };
+
+        function highlight_labels(element, type, adjacent, override) {
+            if (!element.sm.labels) {
+                return;
+            } else {
+                var labels = element.sm.labels;
+            }
+            labels.forEach(function(label) {
+                if (!label.sm) {
+                    return;
+                }
+                var pill = label.sm.pill;
+                if (type == "over") {
+                    label.stop();
+                    update_attr(label, "over");
+                    if (pill) {
+                        update_pill_attr(pill, "over");
+                    }
+                } else if (type == "reset" || type == "out") {
+                    update_attr(label, "out");
+                    if (pill) {
+                        update_pill_attr(pill, "out", override);
+                        if (adjacent) {
+                            update_pill_attr(pill, "adjacent", override);
+                        }
+                    }
+                }
+            });
+        }
+
+        function labels_inactive(element) {
+            if (!element.sm.labels) {
+                return;
+            } else {
+                var labels = element.sm.labels;
+            }
+            labels.forEach(function(label) {
+                if (element.sm.inactive) {
+                    label.attr({
+                        cursor: "default"
+                    });
+                } else {
+                    label.attr({
+                        cursor: "pointer"
+                    });
+                }
+            });
+        }
+        var inserting = false;
+
+        function emphasize(element) {
+            if (element.sm.type != "state") {
+                return;
+            }
+            if (!element.sm.emphasizable) {
+                return;
+            }
+            inserting = true;
+            element.insertBefore(all_visible_states);
+            setTimeout(function() {
+                inserting = false;
+            }, 1);
+        }
+        var currently_over = false;
+        var pulse;
+        var last_animated = false;
+        var region_click;
+        var label_click;
+        var click;
+        var over;
+        var out;
+        var background_click;
+        var label_over;
+        var label_out;
+        var back_click;
+        var back_click_handler;
+
+        function create_event_handlers() {
+            label_over = function() {
+                if (this.sm.parent) {
+                    over.call(this.sm.parent);
+                }
+            };
+            label_out = function() {
+                if (this.sm.parent) {
+                    out.call(this.sm.parent);
+                }
+            };
+            label_click = function(e) {
+                if (this.sm.parent) {
+                    click.call(this.sm.parent, e);
+                }
+            };
+            pulse = function(e, manual) {
+                if (!e.sm.pulse && !manual) {
+                    return;
+                }
+                var type = e.sm.shape_type;
+                if (e.sm.type != "location" || type == "image" || ratio < 0.05) {
+                    return;
+                }
+                var pulse = e.clone();
+                top_locations.toFront();
+                location_labels.toFront();
+                var mag = 1 * e.sm.pulse_size;
+                var stroke_width = e.attrs['stroke-width'];
+                var anim_to = {
+                    'stroke-width': stroke_width * 4,
+                    'stroke-opacity': 0
+                };
+                pulse.attr({
+                    'fill-opacity': 0,
+                    stroke: e.sm.pulse_color
+                });
+                var callback = function() {
+                    pulse.remove();
+                };
+                var r = e.sm.scale ? ratio : 1;
+                var ty = (mag - 1) * 0.5 * e.sm.size * r * scale;
+                var pulse_t = e.sm.position == "bottom-center" ? scale_t(e, r * scale * mag, "0," + ty) : scale_t(e, r * scale * mag);
+                anim_to.transform = pulse_t;
+                pulse.animate(anim_to, e.sm.pulse_speed * 1000, "ease-out", callback);
+            };
+            over = function() {
+                xy_hook_check();
+                if (!this.id && !this.type == "set") {
+                    return;
+                }
+                if (inserting || no_tooltips) {
+                    return;
+                }
+                var element = state_or_region(this);
+                if (element.sm.on_click) {
+                    on_click = true;
+                }
+                popup_off = element.sm.popup_off;
+                if (currently_panning || currently_pinching || currently_zooming || tooltip_up && on_click) {
+                    return;
+                }
+                if (currently_over && !tooltip_manual) {
+                    return false;
+                }
+                currently_over = this;
+                if (!element) {
+                    return;
+                }
+                labels_inactive(element);
+                if (element.sm.inactive) {
+                    return;
+                }
+                emphasize(element);
+                over_hook(element);
+                if (!on_click) {
+                    tooltip.show(element);
+                    element.stop();
+                    if (vml && element.sm.type == "location" && element.sm.shape_type == "image") {
+                        return;
+                    }
+                    if (!element.sm.ignore_hover) {
+                        update_attr(element, "over");
+                        highlight_labels(element, "over");
+                        pulse(element);
+                    }
+                } else {
+                    if (!tooltip_up) {
+                        element.stop();
+                        if (vml && element.sm.type == "location" && element.sm.shape_type == "image") {
+                            return;
+                        }
+                        if (!element.sm.ignore_hover) {
+                            update_attr(element, "over");
+                            pulse(element);
+                        }
+                        highlight_labels(element, "over");
+                    }
+                }
+            };
+            var reset_appearance = function(element, callback) {
+                tooltip.hide();
+                if (is_adjacent(element)) {
+                    if (!element.sm.ignore_hover) {
+                        element.animate(element.sm.attributes, fade_time, whenDone);
+                    }
+                    element.animate(element.sm.adjacent_attributes, fade_time, whenDone);
+                    highlight_labels(element, "out", true);
+                } else {
+                    if (vml && element.sm.type == "location" && element.sm.shape_type == "image") {
+                        return;
+                    }
+                    if (!element || !element.sm) {
+                        return;
+                    }
+                    if (!element.sm.ignore_hover) {
+                        element.animate(element.sm.attributes, fade_time, whenDone);
+                    }
+                    highlight_labels(element, "out");
+                }
+
+                function whenDone() {
+                    if (helper.isFunction(callback)) {
+                        callback();
+                    }
+                }
+            };
+            out = function(force, callback) {
+                if (currently_zooming || no_tooltips) {
+                    return;
+                }
+                if (!tooltip_up) {
+                    on_click = false;
+                }
+                currently_over = false;
+                if (!this.id && !this.type == "set") {
+                    return;
+                }
+                var element = state_or_region(this);
+                if (!element || element.sm.inactive) {
+                    return;
+                }
+                out_hook(element);
+                if (!on_click) {
+                    tooltip.hide();
+                    if (is_adjacent(element)) {
+                        if (currently_zooming) {
+                            return false;
+                        }
+                        if (!element.sm.ignore_hover) {
+                            update_attr(element, "out", true);
+                        }
+                        update_attr(element, "adjacent", true);
+                        highlight_labels(element, "out", true);
+                    } else {
+                        if (vml && element.sm.type == "location" && element.sm.shape_type == "image") {
+                            return;
+                        }
+                        if (!element.sm.ignore_hover) {
+                            update_attr(element, "out", true);
+                        }
+                        highlight_labels(element, "out");
+                    }
+                } else {
+                    if (!tooltip_up || force === true) {
+                        reset_appearance(element, callback);
+                        last_animated = element;
+                    }
+                }
+            };
+            click = function(e) {
+                if (currently_zooming || currently_panning || currently_pinching) {
+                    return;
+                }
+                var element = state_or_region(this);
+                if (element.sm.inactive) {
+                    return;
+                }
+                preclick_hook(element, e);
+                if (api_object.ignore_clicks) {
+                    return;
+                }
+                on_click = element.sm.on_click;
+                if (e) {
+                    if (tooltip_up && e.type == "touchend") {
+                        return;
+                    }
+                    if (!tooltip_up && e.type == "touchstart") {
+                        return;
+                    }
+                }
+                if (on_click) {
+                    tooltip.update_pos();
+                }
+                popup_off = element.sm.popup_off;
+                if (element.sm.zoomable && (element.sm.type == "region" || last_destination != element || element.sm.type == "out")) {
+                    zoomable_click_hook(element, e);
+                    tooltip.hide();
+                    tooltip_up = false;
+                    if (last_clicked) {
+                        out.call(last_clicked);
+                        setTimeout(function() {
+                            zoom_to(element);
+                        }, fade_time);
+                    } else {
+                        zoom_to(element);
+                    }
+                } else if (!on_click) {
+                    click_hook(element, e);
+                    var link = element.sm.url;
+                    if (link != "" && !no_urls) {
+                        var js_url = link.substring(0, 10) == "javascript" ? true : false;
+                        if (!new_tab || js_url) {
+                            if (js_url) {
+                                window.location.href = link;
+                            } else {
+                                window.top.location.href = link;
+                            }
+                            return;
+                        } else {
+                            window.open(link, "_newtab");
+                            tooltip.hide();
+                            return;
+                        }
+                    }
+                } else {
+                    if (last_clicked != element && last_clicked) {
+                        reset_appearance(last_clicked);
+                    }
+                    click_hook(element, e);
+                    if (e) {
+                        var coords = get_coordinates(e);
+                        tooltip.pos(e, {
+                            l: coords.x,
+                            u: coords.y
+                        });
+                    }
+                    tooltip.show(element);
+                    tooltip_up = true;
+                    highlight_labels(element, "over");
+                    pulse(element);
+                    if (vml && element.sm.type == "location" && element.sm.shape_type == "image") {} else {
+                        if (!element.sm.ignore_hover) {
+                            element.attr(element.sm.over_attributes);
+                        }
+                    }
+                    last_clicked = element;
+                    var close_image = document.getElementById("xpic_sm" + "_" + div);
+                    if (close_image) {
+                        close_image.onclick = function() {
+                            tooltip.hide();
+                            tooltip_up = false;
+                            if (last_clicked.sm) {
+                                out.call(last_clicked);
+                            }
+                            on_click = false;
+                            trigger_hook("close_popup", []);
+                        };
+                    }
+                }
+            };
+            back_click = function(callback) {
+                if (typeof callback === "undefined") {
+                    callback = false;
+                }
+                trigger_hook("back", []);
+                if ((last_destination.sm.type == "out" || last_destination.sm.type == "region" && initial_zoom_solo) && initial_back) {
+                    window.location.href = "javascript:" + initial_back;
+                } else if (incremental && last_destination.sm.type == "state" && last_destination.sm.region) {
+                    if (last_clicked && tooltip_up) {
+                        out.call(last_clicked, true, function() {
+                            zoom_to(region_array[last_destination.sm.region]);
+                        });
+                    } else {
+                        zoom_to(region_array[last_destination.sm.region], false, callback);
+                    }
+                } else {
+                    var inside = is_inside(last_destination, region_array[initial_zoom]);
+                    var region = last_destination.sm.type == "manual" && inside ? region_array[initial_zoom] : region_array[-1];
+                    if (last_clicked && tooltip_up) {
+                        out.call(last_clicked, true, function() {
+                            zoom_to(region);
+                        });
+                    } else {
+                        zoom_to(region, false, callback);
+                    }
+                }
+            };
+            back_click_handler = function() {
+                back_click();
+            };
+        }
+
+        function get_coordinates(e) {
+            if (e.touches) {
+                var touch_obj = e.changedTouches ? e.changedTouches[0] : e.touches[0];
+                return {
+                    x: touch_obj.clientX,
+                    y: touch_obj.clientY
+                };
+            } else {
+                var y = ie ? e.clientY + document.documentElement.scrollTop : e.pageY;
+                var x = ie ? e.clientX + document.documentElement.scrollLeft : e.pageX;
+                return {
+                    x: x,
+                    y: y
+                };
+            }
+        }
+
+        function setup_panning() {
+            background_click = function() {
+                if (on_click) {
+                    tooltip.hide();
+                    if (last_clicked) {
+                        reset_appearance(last_clicked);
+                    }
+                    tooltip_up = false;
+                    on_click = false;
+                }
+            };
+
+            function get_new_viewbox(e) {
+                var coords = get_coordinates(e);
+                var newX = coords.x;
+                var newY = coords.y;
+                dX = (startX - newX) * start.r;
+                dY = (startY - newY) * start.r;
+                var pan_threshold = 5 * start.r;
+                if (Math.abs(dX) > pan_threshold || Math.abs(dY) > pan_threshold) {
+                    currently_panning = true;
+                }
+                return {
+                    x: start.x + dX,
+                    y: start.y + dY,
+                    w: start.w,
+                    h: start.h,
+                    r: start.r
+                };
+            }
+            var mousedown = false;
+            var start;
+            var startX;
+            var startY;
+
+            function start_pan(e) {
+                if (tooltip_up) {
+                    return false;
+                }
+                e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+                start = {
+                    x: current_viewbox.x,
+                    y: current_viewbox.y,
+                    w: current_viewbox.w,
+                    h: current_viewbox.h,
+                    r: current_viewbox.w / original_width / scale
+                };
+                mousedown = true;
+                var coords = get_coordinates(e);
+                startX = coords.x;
+                startY = coords.y;
+                tooltip.hide();
+                tooltip.pos(e, {
+                    l: startX,
+                    u: startY
+                });
+            }
+
+            function during_pan(e) {
+                if (!mousedown) {
+                    return;
+                }
+                if (e.touches && e.touches.length > 1) {
+                    return;
+                }
+                var v = get_new_viewbox(e);
+                paper.setViewBox(v.x, v.y, v.w, v.h);
+            }
+
+            function finish_pan(e) {
+                if (!mousedown || !currently_panning) {
+                    currently_panning = false;
+                    mousedown = false;
+                    return;
+                }
+                var v = get_new_viewbox(e);
+                paper.setViewBox(v.x, v.y, v.w, v.h);
+                current_viewbox = v;
+                last_destination = {
+                    sm: {}
+                };
+                last_destination.sm.zooming_dimensions = current_viewbox;
+                last_destination.sm.type = "manual";
+                mousedown = false;
+                setTimeout(function() {
+                    currently_panning = false;
+                }, 1);
+                back_arrow.show();
+            }
+            helper.addEvent(mapdiv, "mousedown", start_pan);
+            helper.addEvent(mapdiv, "mousemove", during_pan);
+            helper.addEvent(mapdiv, "mouseup", finish_pan);
+            helper.addEvent(mapdiv, "mouseleave", finish_pan);
+            helper.addEvent(mapdiv, "touchstart", start_pan);
+            helper.addEvent(mapdiv, "touchmove", during_pan);
+            helper.addEvent(mapdiv, "touchend", finish_pan);
+        }
+
+        function setup_pinching() {
+            var last_distance = false;
+
+            function get_pinch_distance(e) {
+                var xy0 = {
+                    x: e.touches[0].pageX,
+                    y: e.touches[0].pageY
+                };
+                var xy1 = {
+                    x: e.touches[1].pageX,
+                    y: e.touches[1].pageY
+                };
+                return helper.distance(xy0, xy1);
+            }
+
+            function move_pinch(e) {
+                if (currently_zooming) {
+                    return;
+                }
+                if (e.touches && e.touches.length > 1) {
+                    currently_pinching = true;
+                    var distance = get_pinch_distance(e);
+                    if (last_distance) {
+                        var diff = distance - last_distance;
+                        var magnitude = Math.abs(diff);
+                        if (magnitude > 10) {
+                            if (diff > 0) {
+                                zoom_in_click();
+                            } else {
+                                zoom_out_click();
+                            }
+                            last_distance = distance;
+                        }
+                    } else {
+                        last_distance = distance;
+                    }
+                }
+            }
+
+            function finish_pinch(e) {
+                last_distance = false;
+                setTimeout(function() {
+                    currently_pinching = false;
+                }, 100);
+            }
+            helper.addEvent(mapdiv, "touchstart", move_pinch);
+            helper.addEvent(mapdiv, "touchmove", move_pinch);
+            helper.addEvent(mapdiv, "touchend", finish_pinch);
+        }
+
+        function order() {
+            all_states.toBack();
+            bottom_locations.toBack();
+            background.toBack();
+            if (all_external_lines) {
+                all_external_lines.toFront();
+            }
+            all_labels.toFront();
+            top_locations.toFront();
+            location_labels.toFront();
+        }
+
+        function set_events(refresh) {
+            if (!refresh) {
+                all_states.hover(over, out);
+                all_states.click(click);
+                background.click(background_click);
+                background.hover(reset_tooltip, reset_tooltip);
+                back_arrow.click(back_click_handler);
+                if (responsive) {
+                    set_responsive_handler();
+                }
+                if (manual_zoom) {
+                    all_states.touchstart(click);
+                    all_states.touchend(click);
+                    back_arrow.touchend(back_click);
+                    setup_panning();
+                    setup_pinching();
+                }
+            }
+            all_locations.hover(over, out);
+            all_locations.click(click);
+            all_labels.hover(label_over, label_out);
+            all_labels.click(label_click);
+            if (manual_zoom) {
+                all_locations.touchend(click);
+                all_locations.touchstart(click);
+                all_labels.touchend(label_click);
+            }
+        }
+        var detect_resize;
+
+        function set_responsive_handler() {
+            function resize() {
+                resize_paper();
+            }
+            var resizeTimer;
+            detect_resize = function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(resize, 300);
+            };
+            if (window.addEventListener) {
+                window.addEventListener("resize", detect_resize, false);
+                window.addEventListener("orientationchange", detect_resize, false);
+            } else {
+                window.attachEvent("resize", detect_resize, false);
+                window.attachEvent("orientationchange", detect_resize, false);
+            }
+            if (vml) {
+                document.body.onresize = function() {
+                    resize();
+                };
+            }
+        }
+
+        function resize_paper() {
+            if (mapdiv.offsetWidth < 1) {
+                return;
+            }
+            create_dimensions(true);
+            paper.setSize(width, height);
+            var scaled_border_size = border_size * (width / original_width) * normalizing_factor * 1.25;
+            if (all_states && all_locations) {
+                all_states.forEach(function(state) {
+                    state.attr({
+                        'stroke-width': scaled_border_size
+                    });
+                    state.sm.attributes['stroke-width'] = scaled_border_size;
+                    state.sm.over_attributes['stroke-width'] = state.sm.border_hover_size * (width / original_width) * normalizing_factor * 1.25;
+                });
+                all_locations.forEach(function(location) {
+                    if (lattr[location.sm.id].type != "image") {
+                        location.sm.attributes['stroke-width'] = lattr[location.sm.id].border * (width / original_width) * normalizing_factor * 1.25;
+                        location.sm.over_attributes['stroke-width'] = lattr[location.sm.id].hover_border * (width / original_width) * normalizing_factor * 1.25;
+                        location.attr({
+                            'stroke-width': location.sm.attributes['stroke-width']
+                        });
+                    }
+                });
+                all_lines.forEach(function(line) {
+                    var adj_line_size = line.sm.size * (width / original_width) * normalizing_factor * 1.25;
+                    line.attr({
+                        'stroke-width': adj_line_size
+                    });
+                });
+            }
+            create_trial_text();
+            var min = width / 2 > 250 ? width / 2 : 250;
+            max_width = popup_maxwidth ? popup_maxwidth : min;
+        }
+
+        function reveal_map(refresh) {
+            var region_out = fly_in ? region_array[-2] : region_array[initial_zoom];
+            var region = region_array[initial_zoom];
+            if (!initial_back) {
+                back_arrow.hide();
+            }
+            if (!refresh) {
+                if (initial_zoom_state) {
+                    var destination = initial_zoom_state;
+                } else if (initial_zoom_manual) {
+                    var destination = initial_zoom_manual;
+                } else {
+                    var destination = region_out;
+                }
+                var zoom_slowly = (initial_zoom_state || initial_zoom_manual) && fly_in ? false : true;
+                zoom_to(destination, zoom_slowly);
+            }
+            if (initial_zoom_solo && initial_zoom != -1) {
+                background.show();
+                if (!initial_back) {
+                    back_arrow.hide();
+                }
+                for (var i = 0; i < region.sm.states.length; i++) {
+                    var id = region.sm.states[i];
+                    var state = state_array[id];
+                    if (!state.sm.hide) {
+                        state.show();
+                    }
+                }
+                for (var i in label_array) {
+                    var label = label_array[i];
+                    var label_set = label_set_array[i];
+                    if (label.sm.parent) {
+                        if (label.sm.parent.sm.type == "state") {
+                            if (label.sm.parent.sm.region != region.sm.id || !label.sm.parent.sm.region) {
+                                label.sm.hide = true;
+                                label_set.hide();
+                            }
+                        }
+                    }
+                }
+                all_external_lines.forEach(function(border) {
+                    if (Raphael.isPointInsideBBox(region.sm.bbox, border.sm.bbox.x, border.sm.bbox.y)) {
+                        border.show();
+                    }
+                });
+                if (!refresh && fly_in) {
+                    zoom_to(region_array[initial_zoom]);
+                }
+                return;
+            }
+            background.show();
+            all_visible_states.show();
+            all_visible_labels.show();
+            all_external_lines.show();
+            if (!refresh && fly_in && !(initial_zoom_state || initial_zoom_manual)) {
+                zoom_to(region_array[initial_zoom]);
+            }
+        }
+
+        function refresh_map() {
+            get_refreshable_info();
+            set_attributes();
+            create_states(true);
+            create_regions(true);
+            create_locations(true);
+            create_labels();
+            style_background();
+            hide_and_show_before(last_destination, true);
+            order();
+            set_events(true);
+            resize_paper();
+            reveal_map(true);
+            hide_and_show_after(last_destination);
+            update_api();
+            trigger_hook("refresh_complete", []);
+        }
+        var tooltip;
+
+        function load_map() {
+            mapdata = api_object.mapdata;
+            mapinfo = api_object.mapinfo;
+            if (map_inner) {
+                delete window.paper;
+            }
+            expand_api();
+            preload();
+            get_client_info();
+            get_map_info();
+            if (is_forgery()) {
+                alert("The continent map can't be used with other data.");
+                return;
+            }
+            get_refreshable_info();
+            create_dom_structure();
+            create_dimensions();
+            create_canvas();
+            create_trial_text();
+            if (!popup_nocss) {
+                set_tt_css();
+            }
+            tooltip = create_tooltip();
+            create_back_button();
+            if (manual_zoom) {
+                create_zoom_buttons();
+            }
+            set_attributes();
+            style_background();
+            create_states();
+            create_regions();
+            create_lines();
+            setTimeout(function() {
+                create_locations();
+                create_labels();
+                reset_all_region_attributes();
+                order();
+                create_event_handlers();
+                set_events();
+                reveal_map();
+                tooltip.create();
+                update_api();
+                trigger_hook("complete", []);
+                xy_hook_check();
+            }, 1);
+        }
+        var getting_xy = false;
+        var get_xy_from_map = function(log) {
+            if (!getting_xy || log) {
+                getting_xy = true;
+            } else {
+                return;
+            }
+            everything.mousedown(function(e, a, b) {
+                var l = ie ? event.clientX + document.documentElement.scrollLeft : e.pageX;
+                var u = ie ? event.clientY + document.documentElement.scrollTop : e.pageY;
+                var find_pos = helper.findPos(map_inner);
+                var x0 = find_pos[0];
+                var y0 = find_pos[1];
+                var go = last_destination.sm.zooming_dimensions;
+                var this_width = go.r * width / scale;
+                var this_height = go.r * height / scale;
+                var x = go.x / scale + this_width * (l - x0) / width;
+                var y = go.y / scale + this_height * (u - y0) / height;
+                x = Math.round(x * 100000) / 100000;
+                y = Math.round(y * 100000) / 100000;
+                var print_string = "You clicked on\nx: " + x + "," + "\ny: " + y + ",";
+                if (log) {
+                    console.log(print_string);
+                }
+                trigger_hook("click_xy", [{
+                    x: x,
+                    y: y
+                }]);
+            });
+        };
+        var log_xy = function() {
+            get_xy_from_map(true);
+        };
+
+        function trigger_hook(name, args) {
+            var fn = hooks_object[name];
+            if (fn) {
+                fn.apply(null, args);
+            }
+            var plugin_array = plugin_hooks[name];
+            for (var i = 0; i < plugin_array.length; i++) {
+                var fn = plugin_array[i];
+                if (fn) {
+                    fn.apply(null, args);
+                }
+            }
+        }
+        var xy_hook_check = function() {
+            if (hooks_object.click_xy || plugin_hooks.click_xy.length > 0) {
+                get_xy_from_map(false);
+            }
+        };
+        var over_hook = function(element) {
+            var type = element.sm.type;
+            if (type == "state") {
+                trigger_hook("over_state", [element.sm.id]);
+            }
+            if (type == "location") {
+                trigger_hook("over_location", [element.sm.id]);
+            }
+            if (type == "region") {
+                trigger_hook("over_region", [element.sm.id]);
+            }
+        };
+        var out_hook = function(element) {
+            var type = element.sm.type;
+            if (type == "state") {
+                trigger_hook("out_state", [element.sm.id]);
+            }
+            if (type == "location") {
+                trigger_hook("out_location", [element.sm.id]);
+            }
+            if (type == "region") {
+                trigger_hook("out_region", [element.sm.id]);
+            }
+        };
+        var click_hook = function(element, e) {
+            var type = element.sm.type;
+            if (type == "state") {
+                trigger_hook("click_state", [element.sm.id, e]);
+            }
+            if (type == "region") {
+                trigger_hook("click_region", [element.sm.id, e]);
+            }
+            if (type == "location") {
+                trigger_hook("click_location", [element.sm.id, e]);
+            }
+        };
+        var preclick_hook = function(element, e) {
+            var type = element.sm.type;
+            if (type == "state") {
+                trigger_hook("preclick_state", [element.sm.id, e]);
+            }
+            if (type == "region") {
+                trigger_hook("preclick_region", [element.sm.id, e]);
+            }
+            if (type == "location") {
+                trigger_hook("preclick_location", [element.sm.id, e]);
+            }
+        };
+        var zoomable_click_hook = function(element, e) {
+            var type = element.sm.type;
+            if (type == "state") {
+                trigger_hook("zoomable_click_state", [element.sm.id, e]);
+            }
+            if (type == "region") {
+                trigger_hook("zoomable_click_region", [element.sm.id, e]);
+            }
+        };
+
+        function region_zoom(id, callback) {
+            var region = region_array[id];
+            zoom_to(region, false, callback);
+        }
+
+        function state_zoom(id, callback) {
+            var state = state_array[id];
+            zoom_to(state, false, callback);
+        }
+
+        function location_zoom(id, zp, callback) {
+            if (!manual_zoom) {
+                console.log("Location zoom only works when the map is in manual_zoom mode.");
+                return;
+            }
+            if (typeof zp === "undefined") {
+                zp = 4;
+            }
+            if (typeof callback === "undefined") {
+                callback = false;
+            }
+            var destination = {
+                sm: {
+                    type: "manual",
+                    zp: zp
+                }
+            };
+            var location = location_array[id];
+            var w = location.sm.size * scale * zp;
+            var h = w * original_height / original_width;
+            var x = location.sm.x - w * 0.5;
+            var y = location.sm.y - h * 0.5;
+            var r = w / (original_width * scale);
+            destination.sm.zooming_dimensions = {
+                x: x,
+                y: y,
+                w: w,
+                h: h,
+                r: r
+            };
+            zoom_to(destination, false, callback);
+        }
+
+        function reset_tooltip() {
+            if (currently_over) {
+                out.call(currently_over);
+            }
+            if (!tooltip_manual) {
+                return;
+            } else {
+                tooltip_manual = false;
+            }
+            if (on_click) {
+                return;
+            }
+            tooltip.hide();
+            setTimeout(function() {}, 100);
+        }
+
+        function popup(type, id) {
+            if (type == "state") {
+                var element = state_array[id];
+            } else if (type == "region") {
+                var element = region_array[id];
+            } else {
+                var element = location_array[id];
+            }
+            if (!element) {
+                console.log(type + " " + id + " does not exist");
+                return false;
+            }
+            var on_click = element.sm.on_click;
+            var box = last_destination.sm.zooming_dimensions;
+            if (type != "location") {
+                var bb = element.sm.bbox;
+                var x = (bb.x + bb.x2) * 0.5;
+                var y = (bb.y + bb.y2) * 0.5;
+                x = x * scale;
+                y = y * scale;
+            } else {
+                var x = element.sm.x;
+                var y = element.sm.y;
+            }
+            var current_x = (x - box.x) / ratio;
+            var current_y = (y - box.y) / ratio;
+            if (current_x > width * 1.1 || current_y > height * 1.1) {
+                console.log("Not in this region");
+                return false;
+            }
+            tooltip_manual = true;
+            if (on_click) {
+                click.call(element);
+            } else {
+                over.call(element);
+            }
+            tooltip.reset_pos(current_x, current_y, element);
+            ignore_pos = true;
+            tooltip_manual = false;
+            return true;
+        }
+
+        function manual_pulse(id) {
+            var el = location_array[id];
+            if (!el) {
+                return;
+            }
+            pulse(el, true);
+        }
+
+        function popup_hide() {
+            tooltip.hide();
+            tooltip_up = false;
+            if (on_click) {
+                out.call(last_clicked);
+            } else {
+                out.call(currently_over);
+            }
+        }
+
+        function refresh_state(id) {
+            set_state(id);
+            var state = state_array[id];
+            var labels = state.sm.labels;
+            make_state(id);
+            for (var i = 0; i < labels.length; i++) {
+                var label_id = labels[i].sm.id;
+                set_label(label_id);
+                make_label(label_id);
+            }
+        }
+        var no_tooltips = false;
+
+        function disable_popups() {
+            no_tooltips = true;
+            tooltip.hide();
+        }
+        var no_tooltips = false;
+
+        function enable_popups() {
+            no_tooltips = false;
+        }
+        var no_urls = false;
+
+        function disable_urls() {
+            no_urls = true;
+        }
+        var no_urls = false;
+
+        function enable_urls() {
+            no_urls = false;
+        }
+
+        function go_back(callback) {
+            back_click(callback);
+        }
+
+        function expand_api() {
+            api_object.calibrate = create_bbox_state;
+            api_object.get_xy = log_xy;
+            api_object.proj = getxy;
+            api_object.load = load_map;
+            api_object.region_zoom = region_zoom;
+            api_object.state_zoom = state_zoom;
+            api_object.zoom_in = false;
+            api_object.zoom_out = false;
+            api_object.location_zoom = location_zoom;
+            api_object.back = go_back;
+            api_object.popup = popup;
+            api_object.pulse = manual_pulse;
+            api_object.popup_hide = popup_hide;
+            api_object.zoom_level = "out";
+            api_object.ignore_clicks = false;
+            api_object.zoom_level_id = false;
+            api_object.disable_urls = disable_urls;
+            api_object.enable_urls = enable_urls;
+            api_object.disable_popups = disable_popups;
+            api_object.enable_popups = enable_popups;
+            api_object.refresh = refresh_map;
+            api_object.refresh_state = refresh_state;
+        }
+
+        function update_zoom_level() {
+            api_object.zoom_level = last_destination.sm.type;
+            api_object.zoom_level_id = last_destination.sm.id ? last_destination.sm.id : false;
+        }
+
+        function update_api() {
+            api_object.states = state_array;
+            api_object.regions = region_array;
+            api_object.locations = location_array;
+            api_object.labels = label_array;
+            api_object.tooltip = tooltip;
+        }
+        expand_api();
+        load_map();
+    }
+    window[plugin_name] = (function() {
+        return api_object;
+    })();
+    docReady(function() {
+        for (var i = 0; i < autoload_array.length; i++) {
+            var plugin = autoload_array[i];
+            var ready_to_load = plugin && plugin.mapdata && plugin.mapdata.main_settings.auto_load != "no" ? true : false;
+            if (ready_to_load) {
+                (function(plugin) {
+                    setTimeout(function() {
+                        plugin.load();
+                    }, 1);
+                })(plugin);
+            }
+        }
+    });
+    autoload_array.push(api_object);
+};
