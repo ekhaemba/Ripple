@@ -59,20 +59,25 @@ class RequestHandler(BaseHTTPRequestHandler):
         serverLog.info(str(self.date_time_string())+": "+self.client_address[0] + " - - " + self.requestline)
         if self.requestline ==  "GET /js/mapdata.js HTTP/1.1":
             message = open("js/mapData.js","r").read()
-
         elif self.requestline ==  "GET /js/worldmap.js HTTP/1.1":
             message = open("js/worldmap.js","r").read()
-
+        elif self.requestline == "GET / HTTP/1.1":
+            message =open("html/index.html",'r').read()
         elif self.requestline == "GET /html/map.html HTTP/1.1":
             message = open("html/map.html","r").read()
+        elif self.requestline == "GET /css/main.css HTTP/1.1":
+            message = open("css/main.css","r").read()
 
         elif self.requestline == "GET /resource/legendZoom.jpg HTTP/1.1":
             message = open("resource/legendZoom.jpg","rb").read()
-
+        elif self.requestline == "GET /resource/RIPPLEpurple.png HTTP/1.1":
+            message = open("resource/RIPPLEpurple.png","rb").read()
         elif self.requestline == "GET /resource/legend.jpg HTTP/1.1":
             message = open("resource/legend.jpg","rb").read()
         elif self.requestline == "GET /resource/RIPPLE.png HTTP/1.1":
             message = open("resource/RIPPLE.png","rb").read()
+        elif self.requestline == "GET /resource/github-logo.png HTTP/1.1":
+            message = open("resource/github-logo.png","rb").read()
         elif self.requestline == "GET /favicon.ico HTTP/1.1":
             message = open("resource/RIPPLE.ico","rb").read()
         else:
@@ -96,7 +101,14 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.send_response(200)
 
         # Send headers
-        self.send_header('Content-type', 'text/html')
+        if ".html" in self.requestline:
+            self.send_header('Content-type', 'text/html')
+        elif (".css" in self.requestline):
+            self.send_header('Content-type', 'text/css')
+        elif (".js" in self.requestline):
+            self.send_header('Content-type', 'text/javascript')
+        else:
+            self.send_header('Content-type', 'text/html')
         self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header('Access-Control-Allow-Headers', 'Content-Type,Authorization')
         self.send_header('Access-Control-Allow-Methods', 'GET, POST')
