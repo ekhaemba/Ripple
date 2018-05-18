@@ -26,5 +26,5 @@ class Model:
             iso=dict(cur.fetchall()).get(code,"DEU")
 
             #print(code,iso)
-            changes = {"2709":int(impact)}
+            changes = {"2709":float(impact)}
             self.results = econ.getEconEffect(code,changes)
