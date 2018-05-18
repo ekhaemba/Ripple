@@ -1,6 +1,7 @@
 import os
 import mysql.connector
 import numpy as np
+import re
 #from scripts import modelsBlackBoxEdition
 def clamp(x):
     return int(max(0, min(x, 255)))
@@ -71,8 +72,20 @@ class View:
                                 localChange = results.get(code,"No data")
                                 if localChange != "No data":
                                     localChange = "{0:.2f}".format(100*localChange)+'%'
-                                x+='\t "description": "{}",\n'.format(localChange)
-                                x+='\t "url": "https://en.wikipedia.org/wiki/{}"\n'.format(name.replace(" ","_").strip())
+                                x+='\t "description": \"<h2>{}</h2><br/>'.format(localChange)
+
+                                #x+='\t "url": "https://en.wikipedia.org/wiki/{}"\n'.format(name.replace(" ","_").strip())
+                                url = re.split(',| and ',name)
+                                for i,u in enumerate(url):
+                                    tmp = u
+                                    url[i] = "https://en.wikipedia.org/wiki/{}".format(u.strip().lstrip().replace(" ","_").replace("}",""))
+                                    if i==0:
+                                        x+='<img src=\'https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/{}.png\' border=\'1\'/><br />'.format(iso2.lower())
+                                    if i==len(url)-1:
+                                        x+='<a href=\'{}\' target=\'_blank\' class=\'text\' \'link\'>{}</a>\",\n'.format(url[i],tmp)
+                                    else:
+                                         x+='<a href=\'{}\' target=\'_blank\' class=\'text\' \'link\'>{}</a><br />'.format(url[i],tmp)
+                                x+='\t "url": "https://www.cia.gov/library/publications/the-world-factbook/geos/{}.html"\n'.format(iso2.lower())
                                 if c<len(data)-1:
                                     x+="},\n"
                                 else:
