@@ -13,6 +13,13 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import TimeoutException, WebDriverException
 import time
 
+import pickle
+missing = []
+with open("isos_diff_set.pickle",'rb') as foo:
+    missing = pickle.load(foo)
+    print(missing)
+
+
 def wheel_element(element, deltaY = 120, offsetX = 0, offsetY = 0):
   error = element._parent.execute_script("""
     var element = arguments[0];
@@ -67,7 +74,7 @@ class PythonOrgSearch(unittest.TestCase):
         profiles.click()
         time.sleep(1)
         # Country selection
-        dataFile = open('emdata.csv','w')
+        dataFile = open('emdataMissing.csv','w')
         validClasses = set([
         'x-grid-cell-gridcolumn-1125',
         'x-grid-cell-gridcolumn-1127',
@@ -79,7 +86,7 @@ class PythonOrgSearch(unittest.TestCase):
         with dataFile:
             writer = csv.writer(dataFile)
             #writer.writerow(['Date','ISO','Type','Death','Dollars'])
-            step = 10
+            step = 1
             for i in range(0,230,step):
                 
                 countryRadio = driver.find_element_by_id("radiofield-1055-inputEl")
@@ -138,7 +145,13 @@ class PythonOrgSearch(unittest.TestCase):
                 # Get data table
                 mainTable = driver.find_element_by_xpath('//*[@id="gridview-1143"]/div[2]')
                 # Get top item
-                top = mainTable.find_elements_by_class_name('x-grid-item')[0]
+                tab = mainTable.find_elements_by_class_name('x-grid-item')
+                if len(tab)==0:
+                    reset = driver.find_element_by_xpath('//*[@id="button-1107-btnInnerEl"]')
+                    reset.click()
+                    time.sleep(1)
+                    continue
+                top = tab[0]
                 # select it
                 top.click()
                 # Get the soup
@@ -153,14 +166,18 @@ class PythonOrgSearch(unittest.TestCase):
                     # Get the soup
                     soup = bsoup(html,'html.parser')
                     data = []
-                    
+                    skip = True
                     for idx,row in enumerate(soup.find_all('td')):
                         if (len(set.intersection(set(row.attrs['class']),validClasses))):
                             if (row.text=='\xa0'):
                                 data.append(str(0))
                             else:
                                 data.append(row.text)
+                            if data[-1] in missing:
+                                skip=False
                     #print(data)
+                    if skip:
+                        break
                     writer.writerow(data)
                     
                     #print(date,iso,disType,deaths,dollars)
@@ -237,16 +254,16 @@ class PythonOrgSearch(unittest.TestCase):
                     #    break
                     #else:
                     #    old = id
-                #html = driver.page_source
-                #soup = bsoup(html,'lxml')
-                #table = soup.find(name='div',attrs={'class':'x-grid-view','id':'gridview-1143'})
-                #print(table)
-                #data.write(str(table.encode('utf-8')))
-                
+                    #html = driver.page_source
+                    #soup = bsoup(html,'lxml')
+                    #table = soup.find(name='div',attrs={'class':'x-grid-view','id':'gridview-1143'})
+                    #print(table)
+                    #data.write(str(table.encode('utf-8')))
+                    
                 print("Wrote data")
                 reset = driver.find_element_by_xpath('//*[@id="button-1107-btnInnerEl"]')
                 reset.click()
-                time.sleep(.25)
+                time.sleep(1)
             #time.sleep(10)
             #data.write(str(table.encode('utf-8')))
             #data.close()
