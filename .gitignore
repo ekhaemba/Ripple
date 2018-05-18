@@ -5,3 +5,4 @@ venv/*
 config.ini
 **/config.py
 *.pyc
+*.log
