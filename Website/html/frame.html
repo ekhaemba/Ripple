@@ -37,7 +37,9 @@
     .text {
       font-family: sans-serif;
     }
-
+    .link{
+      font-size: 28px;
+    }
     .select {
       font-size: 13px;
     }
@@ -162,7 +164,9 @@
       </div>
     </div>
     <div>
-      <img src="../resource/RIPPLE.png" class="logo">
+      <a href="https://github.com/kburd/Ripple" target='blank'>
+        <img src="../resource/RIPPLE.png" class="logo"/>
+      </a>
     </div>
     <script type="text/javascript">
       var simplemaps_worldmap_mapdata = {
@@ -172,13 +176,13 @@
           background_color: "#FFFFFF",
           background_transparent: "yes",
           border_color: "#000000",
-          popups: "detect",
+          popups: "on_click",
 
           //State defaults
-          state_description: "State description",
+          state_description: "Run a simulation to populate with data",
           state_color: "#808080",
           state_hover_color: "#3B729F",
-          state_url: "https://github.com/kburd/Ripple",
+          state_url: "https://www.cia.gov/library/publications/the-world-factbook/",
           border_size: .3,
           all_states_inactive: "no",
           all_states_zoomable: "no",
@@ -218,7 +222,7 @@
           zoom_time: 0.5,
 
           //Popup settings
-          popup_color: "white",
+          popup_color: "#D4D4D4",
           popup_opacity: 0.9,
           popup_shadow: 1,
           popup_corners: 5,
@@ -231,7 +235,7 @@
           url_new_tab: "yes",
           images_directory: "default",
           fade_time: 0.1,
-          link_text: "View Website",
+          link_text: "View Factbook",
           state_image_url: "",
           state_image_position: "",
           location_image_url: ""
