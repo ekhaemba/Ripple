@@ -15,7 +15,7 @@
     }
 
     .fullMap {
-      max-width: 1000px;
+      max-width: 80%;
     }
 
     .button {
@@ -46,7 +46,7 @@
       height: 26px;
       -webkit-appearance: none;
       margin: 10px 0;
-      width: 70%;
+      width: 65%;
     }
 
     input[type=range]:focus {
@@ -147,7 +147,7 @@
 </head>
 
 <body>
-  <div id=fullMap>
+  <div id=fullMap class="fullMap">
     <div style="float: left;">
       <div>
         <center>
@@ -496,7 +496,7 @@
 
         </select>
         <br>
-        Impact &ensp;&ensp;&ensp;
+        Impact &emsp;&emsp;&emsp;
         <input id="impact" oninput="outputUpdate(value)" type="range" min="0" max="1" step=".01" value=".5"></input>
         <output for="impact" id="impScore">.5</output>
         
