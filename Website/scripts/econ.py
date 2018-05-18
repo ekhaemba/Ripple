@@ -3,8 +3,8 @@ import json
 import numpy
 import mysql.connector
 
-# craftbookFile = "../craftbookNew.json"
-craftbookFile = "craftbookNew.json"
+#craftbookFile = "../craftbookNew.json"
+craftbookFile = "json/craftbookNew.json"
 
 host="blockchain.cabkhfmbe846.us-east-2.rds.amazonaws.com"
 user="user"
