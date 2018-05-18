@@ -71,7 +71,8 @@ class View:
                                 localChange = results.get(code,"No data")
                                 if localChange != "No data":
                                     localChange = "{0:.2f}".format(100*localChange)+'%'
-                                x+='\t "description": "{}"\n'.format(localChange)
+                                x+='\t "description": "{}",\n'.format(localChange)
+                                x+='\t "url": "https://en.wikipedia.org/wiki/{}"\n'.format(name.replace(" ","_").strip())
                                 if c<len(data)-1:
                                     x+="},\n"
                                 else:
@@ -83,7 +84,8 @@ class View:
                                 localChange = results.get(code,"No data")
                                 if localChange != "No data":
                                     localChange = "{0:.2f}".format(100*localChange)+'%'
-                                x+='\t description: "{}"\n'.format(localChange)
+                                x+='\t "description": "{}",\n'.format(localChange)
+                                x+='\t "url": "https://en.wikipedia.org/wiki/{}"\n'.format(name.replace(" ","_").strip())
                                 if c<len(data)-1:
                                     x+="},\n"
                                 else:
@@ -97,7 +99,8 @@ class View:
                                 localChange = results.get(code,"No data")
                                 if localChange != "No data":
                                     localChange = "{0:.2f}".format(100*localChange)+'%'
-                                x+='\t "description": "{}"\n'.format(localChange)
+                                x+='\t "description": "{}",\n'.format(localChange)
+                                x+='\t "url": "https://en.wikipedia.org/wiki/{}"\n'.format(name.replace(" ","_").strip())
                                 if c<len(data)-1:
                                     x+="},\n"
                                 else:
@@ -109,7 +112,8 @@ class View:
                                 localChange = results.get(code,"No data")
                                 if localChange != "No data":
                                     localChange = "{0:.2f}".format(100*localChange)+'%'
-                                x+='\t description: "{}"\n'.format(localChange)
+                                x+='\t "description": "{}",\n'.format(localChange)
+                                x+='\t "url": "https://en.wikipedia.org/wiki/{}"\n'.format(name.replace(" ","_").strip())
                                 if c<len(data)-1:
                                     x+="},\n"
                                 else:
