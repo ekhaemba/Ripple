@@ -1,0 +1,44 @@
+[
+	{
+		"hs":"1001",
+		"name":"",
+		"components":[],
+		"uses":["1904"]
+	}
+	,
+	{
+		"hs":"1701",
+		"name":"Cane or beet sugar and chemically pure sucrose, in solid form",
+		"components":[],
+		"uses":["1806","1904"]
+	}
+	,
+	{
+		"hs":"1801",
+		"name":"Cocoa beans; whole or broken, raw or roasted",
+		"components":[],
+		"uses":["1801","1806"]
+	}
+	,
+	{
+		"hs":"1804",
+		"name":"Cocoa; butter, fat and oil",
+		"components":["1801"],
+		"uses":["1806"]
+	}
+	,
+	{
+		"hs":"1806",
+		"name":"Chocolate and other food preparations containing cocoa",
+		"components":["1701","1801","1804"],
+		"uses":[]
+	}
+	,
+	{
+		"hs":"1904",
+		"name":"",
+		"components":["1701","1001"],
+		"uses":[]
+	}
+
+]

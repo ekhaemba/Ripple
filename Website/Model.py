@@ -19,12 +19,12 @@ class Model:
             db = mysql.connector.connect(host="blockchain.cabkhfmbe846.us-east-2.rds.amazonaws.com", 
             user="user", passwd="notatotallysafepassword", db="Blockchain")
             code = int(params['country'])
-            impact = params['score']
+            impact = float(params['score'])
             cur = db.cursor()
             cur.execute('SELECT countrycode,iso3dig FROM country where countryCode = "{}";'.format(code))
             
             iso=dict(cur.fetchall()).get(code,"DEU")
 
             #print(code,iso)
-            changes = {"2709":int(impact)}
+            changes = {"2709":float(impact)}
             self.results = econ.getEconEffect(code,changes)
