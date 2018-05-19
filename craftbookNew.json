@@ -10,7 +10,7 @@
 		"components":[],
 		"uses":["1806","1904"],
 		"demandElasticity":-1,
-		"supplyElasticity":1
+		"supplyElasticity":3
 	},
 
 	"1801":{

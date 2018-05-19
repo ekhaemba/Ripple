@@ -3,8 +3,8 @@ import json
 import numpy
 import mysql.connector
 
-#craftbookFile = "../craftbookNew.json"
-craftbookFile = "json/craftbookNew.json"
+craftbookFile = "../../craftbookNew.json"
+# craftbookFile = "craftbookNew.json"
 
 host="blockchain.cabkhfmbe846.us-east-2.rds.amazonaws.com"
 user="user"
@@ -219,6 +219,7 @@ def getSingleQuanChanges(deltaQ,initialItem):
 def getAllQuanChanges(disasterChanges,groundZero):
 
     quanChanges = {}
+    weakestLink = None
     for item in disasterChanges:
     
         change = disasterChanges[item]
@@ -226,9 +227,13 @@ def getAllQuanChanges(disasterChanges,groundZero):
         singleChanges = getSingleQuanChanges(deltaQ,item)
 
         for temp in singleChanges:
-            quanChanges[temp] = min(singleChanges[item],quanChanges.get(item,1))
+            
+            if singleChanges[item] < quanChanges.get(item,1):
 
-    return quanChanges
+                quanChanges[temp] = singleChanges[item]
+                weakestLink = item
+
+    return quanChanges,weakestLink
 
 def getPriceChanges(quantityChanges,initalChanges):
 
@@ -277,11 +282,11 @@ def getCostChanges(priceChanges):
 
     return costChanges
 
-def getEconEffect(groundZero,disasterChanges):
+def getEconEffect(groundZero,disasterChanges,testedCountry=None,testedCommodity=None):
 
     # print(groundZero)
 
-    quanChanges = getAllQuanChanges(disasterChanges,groundZero)
+    quanChanges,weakestLink = getAllQuanChanges(disasterChanges,groundZero)
     priceChanges = getPriceChanges(quanChanges,disasterChanges)
     costChanges = getCostChanges(priceChanges)
 
@@ -301,13 +306,15 @@ def getEconEffect(groundZero,disasterChanges):
         for commodity in costChanges:
 
             commodityChange = priceChanges.get(commodity,1)/costChanges.get(commodity,1)
-            if country == groundZero:
+            if country == groundZero and commodity == weakestLink:
                 commodityChange *= disasterChanges.get(commodity,1)
+            else:
+                commodityChange *= quanChanges.get(commodity,1)
             # print(country,commodity,commodityChange)
             exportChanges[country] -= (1-commodityChange)*exportsByCommodity.get(commodity,{}).get(country,0)/totalExports.get(country,1)
             # print("Ratio: ", exportsByCommodity.get(commodity,{}).get(country,0)/totalExports.get(country,1))
-            if country == 276 and commodity == "1806":
-                print((1-commodityChange)*exportsByCommodity.get(commodity,{}).get(country,0)/totalExports.get(country,1))
+            if country == testedCountry and commodity == testedCommodity:
+                return commodityChange
     
     for country in exportChanges:
         exportChanges[country] += -1
