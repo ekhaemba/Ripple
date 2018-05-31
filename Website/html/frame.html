@@ -2,152 +2,13 @@
 <html id="main">
 
 <head>
-  <style>
-    img {
-      max-width: 100%;
-      max-height: 100%;
-    }
-
-    .logo {
-      float: right;
-      height: 100px;
-      width: 300px;
-    }
-
-    .fullMap {
-      max-width: 1000px;
-    }
-
-    .button {
-      -webkit-transition-duration: 0.4s;
-      transition-duration: 0.4s;
-      background-color: black;
-      color: #ffffff;
-      border-radius: 4px;
-      font-size: 16px;
-      font-family: sans-serif;
-      padding: 4px 8px;
-    }
-
-    .button:hover {
-      background-color: #555555;
-      color: black;
-    }
-
-    .text {
-      font-family: sans-serif;
-    }
-
-    .select {
-      font-size: 13px;
-    }
-
-    input[type=range] {
-      height: 26px;
-      -webkit-appearance: none;
-      margin: 10px 0;
-      width: 75%;
-    }
-
-    input[type=range]:focus {
-      outline: none;
-    }
-
-    input[type=range]::-webkit-slider-runnable-track {
-      width: 100%;
-      height: 14px;
-      cursor: pointer;
-      animate: 0.2s;
-      box-shadow: 1px 1px 1px #50555C;
-      background: #50555C;
-      border-radius: 14px;
-      border: 0px solid #000000;
-    }
-
-    input[type=range]::-webkit-slider-thumb {
-      box-shadow: 0px 0px 0px #000000;
-      border: 0px solid #000000;
-      height: 20px;
-      width: 40px;
-      border-radius: 12px;
-      background: #529DE1;
-      cursor: pointer;
-      -webkit-appearance: none;
-      margin-top: -3px;
-    }
-
-    input[type=range]:focus::-webkit-slider-runnable-track {
-      background: #50555C;
-    }
-
-    input[type=range]::-moz-range-track {
-      width: 100%;
-      height: 14px;
-      cursor: pointer;
-      animate: 0.2s;
-      box-shadow: 1px 1px 1px #50555C;
-      background: #50555C;
-      border-radius: 14px;
-      border: 0px solid #000000;
-    }
-
-    input[type=range]::-moz-range-thumb {
-      box-shadow: 0px 0px 0px #000000;
-      border: 0px solid #000000;
-      height: 20px;
-      width: 40px;
-      border-radius: 12px;
-      background: #529DE1;
-      cursor: pointer;
-    }
-
-    input[type=range]::-ms-track {
-      width: 100%;
-      height: 14px;
-      cursor: pointer;
-      animate: 0.2s;
-      background: transparent;
-      border-color: transparent;
-      color: transparent;
-    }
-
-    input[type=range]::-ms-fill-lower {
-      background: #50555C;
-      border: 0px solid #000000;
-      border-radius: 28px;
-      box-shadow: 1px 1px 1px #50555C;
-    }
-
-    input[type=range]::-ms-fill-upper {
-      background: #50555C;
-      border: 0px solid #000000;
-      border-radius: 28px;
-      box-shadow: 1px 1px 1px #50555C;
-    }
-
-    input[type=range]::-ms-thumb {
-      margin-top: 1px;
-      box-shadow: 0px 0px 0px #000000;
-      border: 0px solid #000000;
-      height: 20px;
-      width: 40px;
-      border-radius: 12px;
-      background: #529DE1;
-      cursor: pointer;
-    }
-
-    input[type=range]:focus::-ms-fill-lower {
-      background: #50555C;
-    }
-
-    input[type=range]:focus::-ms-fill-upper {
-      background: #50555C;
-    }
-  </style>
+  <title>Ripple</title>
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <script type="text/javascript" src="../js/worldmap.js"></script>
 </head>
 
-<body>
-  <div id=fullMap>
+<body  onload='exe("simplemaps_worldmap")'>
+  <div id=fullMap class="fullMap">
     <div style="float: left;">
       <div>
         <center>
@@ -164,7 +25,9 @@
       </div>
     </div>
     <div>
-      <img src="../resource/RIPPLE.png" class="logo">
+      <a href="https://github.com/kburd/Ripple" target='blank'>
+        <img src="../resource/RIPPLE.png" class="logo"/>
+      </a>
     </div>
     <script type="text/javascript">
       var simplemaps_worldmap_mapdata = {
@@ -174,13 +37,13 @@
           background_color: "#FFFFFF",
           background_transparent: "yes",
           border_color: "#000000",
-          popups: "detect",
+          popups: "on_click",
 
           //State defaults
-          state_description: "State description",
+          state_description: "Run a simulation to populate with data",
           state_color: "#808080",
           state_hover_color: "#3B729F",
-          state_url: "https://github.com/kburd/Ripple",
+          state_url: "https://www.cia.gov/library/publications/the-world-factbook/",
           border_size: .3,
           all_states_inactive: "no",
           all_states_zoomable: "no",
@@ -220,7 +83,7 @@
           zoom_time: 0.5,
 
           //Popup settings
-          popup_color: "white",
+          popup_color: "#D4D4D4",
           popup_opacity: 0.9,
           popup_shadow: 1,
           popup_corners: 5,
@@ -233,7 +96,7 @@
           url_new_tab: "yes",
           images_directory: "default",
           fade_time: 0.1,
-          link_text: "View Website",
+          link_text: "View Factbook",
           state_image_url: "",
           state_image_position: "",
           location_image_url: ""
@@ -485,8 +348,8 @@
         }
       };
     </script>
-    <script type="text/javascript" src="../js/worldmap.js"></script>
-    <div id=map></div>
+    
+    <div id=map ></div>
   </div>
   <div>
     <div style="float: left;">
@@ -496,8 +359,8 @@
 
         </select>
         <br>
-        Impact &ensp;&ensp;&ensp;
-        <input id="impact" oninput="outputUpdate(value)" type="range" min="0" max="1" step=".01" value=".5"></input>
+        Impact &emsp;&emsp;&emsp;
+        <input id="impact" oninput="outputUpdate(value)" type="range" min="0" max=".99" step=".01" value=".5"></input>
         <output for="impact" id="impScore">.5</output>
         
       </form>
@@ -513,6 +376,12 @@
     </div>
 
   </div>
+  </div>
+  <div>
+      <a href="https://github.com/kburd/Ripple" target="blank">
+        <p class="github_text">Source Code:</p>
+        <img src="../resource/github-logo.png" class= "github">
+    </a>
   </div>
 </body>
 

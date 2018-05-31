@@ -10,7 +10,7 @@ from sklearn.svm import SVR
 from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import RANSACRegressor
 
-from emdata_parsing import get_trend_table as gtt
+from .emdata_parsing import get_trend_table as gtt
 import os
 
 
@@ -429,7 +429,7 @@ class Sim:
         tmpDS = None
         filename = ''
         for c in self.commodities:
-            filename = os.path.abspath('../csv/datasets/modelIn/model-'+c+'.csv')
+            filename = os.path.abspath('./csv/datasets/modelIn/model-'+c+'.csv')
             #print(filename)
             tmpDS = pd.read_csv(filename)
             dSets.append(tmpDS)
@@ -493,6 +493,11 @@ class Sim:
     def runIt(self,c,i):
         q = self.inputFunc(c,i)
         r = self.predict(q)
+        del r['commodity']
+        ## Clamp all values between 0 and 1, may change later
+        for key,value in r.items():
+            value = min(max(value,0),1)
+            r[key] = value
         return r
 
     ########################################################################
@@ -531,13 +536,15 @@ class Sim:
         #models = None#createModelRegressors()
         #RANSACModels = None#createModelRegressorsRANSAC()
     def run(self,iso,impact):
+        
         return self.runIt(iso,impact)
 ########################################################################
 # some more variables
 if __name__=="__main__":
     sim = Sim()
-    sim2 = Sim()
-    print(sim.run('FRA',.5),"\n",sim2.run("FRA",.5))
+    change = sim.runIt('FRA',.5)
+    
+    print(change)
 ########################################################################
 #Comparing models
 #

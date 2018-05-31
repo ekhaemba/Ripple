@@ -3,7 +3,8 @@ import json
 import numpy
 import mysql.connector
 
-craftbookFile = "../craftbookNew.json"
+craftbookFile = "../../craftbookNew.json"
+# craftbookFile = "craftbookNew.json"
 
 host="blockchain.cabkhfmbe846.us-east-2.rds.amazonaws.com"
 user="user"
@@ -40,6 +41,23 @@ def getCountries():
     db.close()
 
     return data
+
+def getCommodities():
+
+    db = mysql.connector.connect(host=host,user=user,passwd=passwd,db=database)
+    cur = db.cursor()
+
+    cur.execute("SELECT id FROM Blockchain.class;")
+    rawData = cur.fetchall()
+
+    commodities = []
+    for item in rawData:
+        if len(item[0])==4:
+            commodities.append(item[0])
+
+    db.close()
+
+    return commodities
 
 def getTotalExports():
 
@@ -108,11 +126,18 @@ def applyDisaterExportChange(change,item,country):
     #Get most recent year
     cur.execute("SELECT MAX(yr) FROM Blockchain.trades;")
     mostRecent = cur.fetchall()[0][0]
+    cur.execute("SELECT MIN(yr) FROM Blockchain.trades;")
+    mostDistant = cur.fetchall()[0][0]
 
-    #Get impacted trade quantity of the specified commodity
-    command = ("SELECT TradeQuantity FROM Blockchain.trades where rtCode = %s and cmdCode = %s and yr = %s;")%(country,item,mostRecent)
-    cur.execute(command)
-    quantity = cur.fetchall()[0][0]
+    quantity = []
+    while quantity == [] and mostRecent > mostDistant:
+        #Get impacted trade quantity of the specified commodity
+        command = ("SELECT TradeQuantity FROM Blockchain.trades where rtCode = %s and cmdCode = %s and yr = %s;")%(country,item,mostRecent)
+        cur.execute(command)
+        quantity = cur.fetchall()
+        mostRecent -= 1
+    quantity = quantity[0][0]
+
 
     command = ("SELECT TradeQuantity FROM Blockchain.trades where cmdCode = %s and yr = %s;")%(item,mostRecent)
     cur.execute(command)
@@ -123,7 +148,6 @@ def applyDisaterExportChange(change,item,country):
 
     finalTotal = initTotal + quantity*(change-1)
     deltaQ = finalTotal/initTotal
-    deltaV = getScarcityEffect(deltaQ,item)
 
     return deltaQ
 
@@ -195,6 +219,7 @@ def getSingleQuanChanges(deltaQ,initialItem):
 def getAllQuanChanges(disasterChanges,groundZero):
 
     quanChanges = {}
+    weakestLink = None
     for item in disasterChanges:
     
         change = disasterChanges[item]
@@ -202,9 +227,13 @@ def getAllQuanChanges(disasterChanges,groundZero):
         singleChanges = getSingleQuanChanges(deltaQ,item)
 
         for temp in singleChanges:
-            quanChanges[temp] = min(singleChanges[item],quanChanges.get(item,1))
+            
+            if singleChanges[item] < quanChanges.get(item,1):
 
-    return quanChanges
+                quanChanges[temp] = singleChanges[item]
+                weakestLink = item
+
+    return quanChanges,weakestLink
 
 def getPriceChanges(quantityChanges,initalChanges):
 
@@ -253,31 +282,47 @@ def getCostChanges(priceChanges):
 
     return costChanges
 
-def getEconEffect(groundZero,disasterChanges):
+def getEconEffect(groundZero,disasterChanges,testedCountry=None,testedCommodity=None):
 
-    quanChanges = getAllQuanChanges(disasterChanges,groundZero)
+    # print(groundZero)
+
+    quanChanges,weakestLink = getAllQuanChanges(disasterChanges,groundZero)
     priceChanges = getPriceChanges(quanChanges,disasterChanges)
     costChanges = getCostChanges(priceChanges)
+
+    # print(quanChanges)
+    # print(priceChanges)
+    # print(costChanges)
+
 
     exportsByCommodity = getCommodityExports(quanChanges)
     totalExports = getTotalExports()
 
     exportChanges = {}
+    # print(costChanges)
+    # print(getCountries())
     for country in getCountries():
         exportChanges[country] = 1
-        for commodity in quanChanges:
+        for commodity in costChanges:
 
-            commodityChange = quanChanges[commodity]*priceChanges[commodity]/costChanges[commodity]
-            if country == groundZero:
-                commodityChange = disasterChanges.get(commodity,1)**priceChanges[commodity]/costChanges[commodity]
-
-            exportChanges[country] -= commodityChange*exportsByCommodity.get(commodity,{}).get(country,0)/totalExports.get(country,1)
-
+            commodityChange = priceChanges.get(commodity,1)/costChanges.get(commodity,1)
+            if country == groundZero and commodity == weakestLink:
+                commodityChange *= disasterChanges.get(commodity,1)
+            else:
+                commodityChange *= quanChanges.get(commodity,1)
+            # print(country,commodity,commodityChange)
+            exportChanges[country] -= (1-commodityChange)*exportsByCommodity.get(commodity,{}).get(country,0)/totalExports.get(country,1)
+            # print("Ratio: ", exportsByCommodity.get(commodity,{}).get(country,0)/totalExports.get(country,1))
+            if country == testedCountry and commodity == testedCommodity:
+                return commodityChange
+    
     for country in exportChanges:
         exportChanges[country] += -1
+
+    # print(exportChanges)
 
     return exportChanges
 
 
-
+# getCommodities()
 # print(getEconEffect("276",{"1904":.9,"1804":.75}))
